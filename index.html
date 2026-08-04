@@ -301,6 +301,24 @@
   .pf-bar-actions .cw-pill-fill, .pf-bar-actions .cw-pill-outline { margin-left: 0; }
   .cw-pill-fill[disabled], .cw-pill-outline[disabled] { opacity: .45; cursor: default; }
   .cw-pill-fill[disabled]:hover { opacity: .45; }
+  .pf-copy-btn {
+    font-family: var(--roboto); font-size: 12px; color: var(--lilac-500);
+    background: none; border: none; cursor: pointer; padding: 4px 8px;
+    text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 2px;
+  }
+  .pf-copy-btn:hover { text-decoration-color: var(--lilac-500); }
+  .pf-copy-btn:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+  .cw-header-right .cw-pill-fill { margin-left: 0; }
+
+  /* ── Export progress panel ───────────────────────────────────────── */
+  .xp-panel {
+    position: fixed; right: 20px; bottom: 20px; z-index: 200; width: 300px;
+    background: #fff; border: 1px solid var(--grey-400); box-shadow: 0 8px 28px rgba(0,0,0,.16);
+    padding: 14px 18px; font-family: var(--roboto);
+  }
+  .xp-label { font-size: 13px; color: var(--purple-700); margin-bottom: 9px; line-height: 1.4; }
+  .xp-bar { height: 5px; background: var(--lilac-300); }
+  .xp-bar i { display: block; height: 100%; width: 0; background: var(--purple-700); transition: width .15s; }
 
   /* ── Case-file hero photo ─────────────────────────────────────── */
   .pf-hero { aspect-ratio: 3 / 1; min-height: 140px; width: 100%; background: var(--lilac-300); overflow: hidden; }
@@ -540,7 +558,7 @@
   /* ── Print: a profile prints as a clean document ───────────────── */
   @media print {
     body { background: #fff; }
-    .cw-header, .cw-filters, .cw-utility, .pf-bar, .pf-hero, .viewer, .pn-wrap, .foot,
+    .cw-header, .cw-filters, .cw-utility, .pf-bar, .pf-hero, .viewer, .pn-wrap, .foot, .xp-panel,
     .pf-sec-note-btn, .pf-ev-check, .pf-ev-preview, .pf-ev-controls,
     .pf-note-remove, .pf-note-add { display: none !important; }
     .page { display: none !important; }
@@ -577,6 +595,7 @@
       </div>
       <div class="cw-header-bar"><i id="cw-header-bar-fill"></i></div>
       <button class="cw-pill-outline" id="cw-edit-group">Edit group</button>
+      <button class="cw-pill-fill" id="cw-export-group">Export group (.zip)</button>
     </div>
   </header>
 
@@ -596,7 +615,6 @@
   <main class="cw-grid" id="grid" aria-live="polite"></main>
 
   <div class="cw-utility">
-    <button class="cw-util-btn" id="dash-export" title="Download your review ticks and notes as a text file">Export progress</button>
     <button class="cw-util-btn cw-util-btn--danger" id="dash-reset" title="Clear every review tick in this browser (notes are kept)">Reset ticks</button>
   </div>
 
@@ -661,8 +679,9 @@
     <span class="pf-bar-name" id="pf-bar-name"></span>
     <span class="pf-bar-ref" id="pf-bar-ref"></span>
     <div class="pf-bar-actions">
+      <button class="pf-copy-btn" id="pf-copy-email">Copy for email</button>
       <button class="cw-pill-outline" id="pf-print">Print file</button>
-      <button class="cw-pill-fill" id="pf-export" disabled title="Export coming in a later stage">Export record (.zip)</button>
+      <button class="cw-pill-fill" id="pf-export">Export record (.zip)</button>
     </div>
   </header>
 
@@ -1047,46 +1066,7 @@ function showIndex(){
   window.scrollTo(0,0);
 }
 
-/* ── Cohort-wide progress export/reset — pre-existing behaviour, kept ── */
-function cohortProgress(){
-  return ALL.map(l => {
-    const files = l.files || [];
-    const rv = reviewedSet(l.slug);
-    return { l, total: files.length, done: files.filter(f => rv.has(f.name)).length };
-  });
-}
-function exportProgress(){
-  const now = new Date();
-  const lines = [
-    'RPL portfolio review progress',
-    'Exported ' + now.toLocaleString('en-AU', { dateStyle:'long', timeStyle:'short' }),
-    'TIME Education and Training · Simulated learner profiles',
-    ''
-  ];
-  let any = false;
-  cohortProgress().forEach(p => {
-    const notes = getNotes(p.l.slug);
-    if(!p.done && !notes.trim()) return;
-    any = true;
-    lines.push('=== ' + p.l.name + ' (' + p.l.ref + ' · ' + basePkg(p.l.package) + ') ===');
-    lines.push('Reviewed ' + p.done + ' of ' + p.total + ' documents');
-    const rv = reviewedSet(p.l.slug);
-    sortedFiles(p.l).forEach(f => lines.push('  [' + (rv.has(f.name) ? 'x' : ' ') + '] ' + f.name));
-    if(notes.trim()){
-      lines.push('Notes:');
-      notes.split('\n').forEach(t => lines.push('  ' + t));
-    }
-    lines.push('');
-  });
-  if(!any) lines.push('No documents reviewed and no notes recorded yet.');
-  const blob = new Blob([lines.join('\n')], { type:'text/plain;charset=utf-8' });
-  const url = window.URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'rpl-review-progress.txt';
-  document.body.appendChild(a); a.click(); a.remove();
-  setTimeout(()=> window.URL.revokeObjectURL(url), 4000);
-}
+/* ── Reset ticks — pre-existing behaviour, kept ──────────────────── */
 function resetProgress(){
   if(!window.confirm('Clear every review tick for every learner in this browser? Your notes will be kept.')) return;
   ALL.forEach(l => { try { localStorage.removeItem('tet-rpl-reviewed:'+l.slug); } catch(e){} });
@@ -1436,6 +1416,449 @@ function downloadAll(l){
     });
 }
 
+/* ── Export (.zip) ─────────────────────────────────────────────────
+   The evidence in this repo changes over time, so an export has to carry
+   a point-in-time copy of the files alongside the review record — a zip,
+   not a single document. Built client-side: fetch() every evidence file
+   as an ArrayBuffer (same approach downloadAll() already proves), write
+   a store-only (no compression) zip by hand, and checksum each file with
+   crypto.subtle so an audit years later can tell exactly what a student
+   saw. review-record.html is generated once and used for both the zip
+   and "Print file", so the two can never drift apart. ─────────────── */
+
+/* ── Minimal store-only ZIP writer ───────────────────────────────── */
+const CRC_TABLE = (()=>{
+  const t = new Uint32Array(256);
+  for(let n=0;n<256;n++){
+    let c = n;
+    for(let k=0;k<8;k++) c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);
+    t[n] = c >>> 0;
+  }
+  return t;
+})();
+function crc32(bytes){
+  let c = 0xFFFFFFFF;
+  for(let i=0;i<bytes.length;i++) c = CRC_TABLE[(c ^ bytes[i]) & 0xFF] ^ (c >>> 8);
+  return (c ^ 0xFFFFFFFF) >>> 0;
+}
+function dosDateTime(d){
+  const dosTime = ((d.getHours() & 0x1F) << 11) | ((d.getMinutes() & 0x3F) << 5) | ((d.getSeconds() >> 1) & 0x1F);
+  const dosDate = (((Math.max(0,d.getFullYear()-1980)) & 0x7F) << 9) | (((d.getMonth()+1) & 0xF) << 5) | (d.getDate() & 0x1F);
+  return { dosTime, dosDate };
+}
+class ZipWriter {
+  constructor(){ this.parts = []; this.entries = []; this.offset = 0; }
+  addFile(path, data, date){
+    const bytes = data instanceof Uint8Array ? data : new Uint8Array(data);
+    const nameBytes = new TextEncoder().encode(path.replace(/\\/g,'/'));
+    const crc = crc32(bytes);
+    const { dosTime, dosDate } = dosDateTime(date || new Date());
+    const local = new DataView(new ArrayBuffer(30));
+    local.setUint32(0, 0x04034b50, true);
+    local.setUint16(4, 20, true);
+    local.setUint16(6, 0x0800, true);       // UTF-8 filenames
+    local.setUint16(8, 0, true);            // store (no compression)
+    local.setUint16(10, dosTime, true);
+    local.setUint16(12, dosDate, true);
+    local.setUint32(14, crc, true);
+    local.setUint32(18, bytes.length, true);
+    local.setUint32(22, bytes.length, true);
+    local.setUint16(26, nameBytes.length, true);
+    local.setUint16(28, 0, true);
+    this.entries.push({ nameBytes, crc, size: bytes.length, dosTime, dosDate, offset: this.offset });
+    this.parts.push(new Uint8Array(local.buffer), nameBytes, bytes);
+    this.offset += 30 + nameBytes.length + bytes.length;
+  }
+  finalize(){
+    const cdParts = [];
+    let cdSize = 0;
+    this.entries.forEach(e=>{
+      const cd = new DataView(new ArrayBuffer(46));
+      cd.setUint32(0, 0x02014b50, true);
+      cd.setUint16(4, 20, true);
+      cd.setUint16(6, 20, true);
+      cd.setUint16(8, 0x0800, true);
+      cd.setUint16(10, 0, true);
+      cd.setUint16(12, e.dosTime, true);
+      cd.setUint16(14, e.dosDate, true);
+      cd.setUint32(16, e.crc, true);
+      cd.setUint32(20, e.size, true);
+      cd.setUint32(24, e.size, true);
+      cd.setUint16(28, e.nameBytes.length, true);
+      cd.setUint16(30, 0, true);
+      cd.setUint16(32, 0, true);
+      cd.setUint16(34, 0, true);
+      cd.setUint16(36, 0, true);
+      cd.setUint32(38, 0, true);
+      cd.setUint32(42, e.offset, true);
+      cdParts.push(new Uint8Array(cd.buffer), e.nameBytes);
+      cdSize += 46 + e.nameBytes.length;
+    });
+    const eocd = new DataView(new ArrayBuffer(22));
+    eocd.setUint32(0, 0x06054b50, true);
+    eocd.setUint16(8, this.entries.length, true);
+    eocd.setUint16(10, this.entries.length, true);
+    eocd.setUint32(12, cdSize, true);
+    eocd.setUint32(16, this.offset, true);
+    return new Blob([...this.parts, ...cdParts, new Uint8Array(eocd.buffer)], { type: 'application/zip' });
+  }
+}
+async function sha256Hex(buf){
+  try {
+    if(!(window.crypto && crypto.subtle && crypto.subtle.digest)) return null;
+    const hash = await crypto.subtle.digest('SHA-256', buf);
+    return [...new Uint8Array(hash)].map(b=>b.toString(16).padStart(2,'0')).join('');
+  } catch(e){ return null; }
+}
+function downloadBlob(blob, filename){
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=> URL.revokeObjectURL(url), 4000);
+}
+function fmtBytes(n){
+  if(n < 1024) return n + ' B';
+  if(n < 1024*1024) return (n/1024).toFixed(0) + ' KB';
+  return (n/1024/1024).toFixed(1) + ' MB';
+}
+function fmtDate(d){ return d.toLocaleDateString('en-AU', { day:'numeric', month:'long', year:'numeric' }); }
+function fmtDateTime(d){ return d.toLocaleString('en-AU', { dateStyle:'long', timeStyle:'short' }); }
+function isoDate(d){ return d.toISOString().slice(0,10); }
+
+/* ── Fetch every evidence file, tolerating individual failures ──────
+   A failed fetch must never produce a silently incomplete archive:
+   every failure is carried through into the manifest instead of being
+   dropped, so an audit can see exactly what wasn't captured. ──────── */
+async function fetchEvidenceFiles(l, onProgress){
+  const files = sortedFiles(l);
+  const results = [];
+  let doneCount = 0, totalBytes = 0;
+  for(const f of files){
+    try {
+      const r = await fetch(fileHref(l, f));
+      if(!r.ok) throw new Error('HTTP ' + r.status);
+      const buf = await r.arrayBuffer();
+      const hash = await sha256Hex(buf);
+      results.push({ file: f, buf, hash });
+      totalBytes += buf.byteLength;
+    } catch(e){
+      results.push({ file: f, buf: null, error: (e && e.message) || 'fetch failed' });
+    }
+    doneCount++;
+    if(onProgress) onProgress({ done: doneCount, total: files.length, bytes: totalBytes });
+  }
+  return { results, totalBytes };
+}
+
+/* ── Review-record content: one source feeds html, txt, print and manifest ── */
+function gatherReviewData(l){
+  const code = basePkg(l.package), pname = pkgName(l.package);
+  const fields = [(l.competencyFields||{}).primary, ...((l.competencyFields||{}).secondary||[])]
+    .filter(Boolean).map(competencyFieldLabel);
+  const files = sortedFiles(l);
+  const rv = reviewedSet(l.slug);
+  const done = files.filter(f=>rv.has(f.name)).length;
+  const lead = groupLeadFor(l.slug);
+  const generalNote = getNotes(l.slug);
+  const anchored = getAnchoredNotes(l.slug);
+  const anchoredList = Object.keys(anchored)
+    .filter(k => anchored[k] && anchored[k].trim())
+    .map(k => ({ anchor: anchorLabel(l,k), text: anchored[k] }));
+  return {
+    code, pname, fields, files, rv, done, lead, generalNote, anchoredList,
+    now: new Date(),
+    industry: [code,pname].filter(Boolean).join(' ') + (fields.length ? ' · '+fields.join(', ') : '')
+  };
+}
+const REVIEW_RECORD_CSS = `
+  * { box-sizing: border-box; }
+  body { font-family: Arial, Helvetica, sans-serif; color: #251019; margin: 0; background: #fff; }
+  .rr-page { max-width: 800px; margin: 0 auto; padding: 40px 36px; }
+  .rr-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; padding-bottom: 14px; border-bottom: 2px solid #5A245A; }
+  .rr-kicker { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: #6A396A; }
+  .rr-title { font-size: 24px; font-weight: 700; color: #5A245A; margin-top: 6px; }
+  .rr-head-right { font-size: 12.5px; text-align: right; line-height: 1.6; color: #6A396A; }
+  .rr-head-right b { color: #5A245A; }
+  .rr-warn { background: #FBE5E2; color: #A93226; padding: 10px 14px; font-size: 13px; margin-top: 14px; }
+  .rr-facts { display: grid; grid-template-columns: 150px 1fr; gap: 8px 16px; font-size: 14px; margin: 20px 0; }
+  .rr-fact-k { color: #6A396A; }
+  .rr-rule { display: inline-block; width: 100%; border-bottom: 1px solid #999; height: 1em; }
+  .rr-block { margin-top: 24px; }
+  .rr-block h2 { font-size: 16px; color: #5A245A; border-bottom: 1px solid #ccc; padding-bottom: 6px; margin-bottom: 12px; }
+  .rr-note { margin-bottom: 14px; }
+  .rr-note-k { font-size: 10.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #6A396A; margin-bottom: 3px; }
+  .rr-note-v { font-size: 13.5px; line-height: 1.55; white-space: pre-wrap; }
+  .rr-check-row { display: grid; grid-template-columns: 20px 1fr auto; gap: 10px; font-size: 13.5px; padding: 4px 0; align-items: baseline; }
+  .rr-check-row span:first-child { color: #5A245A; font-weight: 600; }
+  .rr-check-file { color: #6A396A; font-size: 12px; }
+  .rr-sec { margin-bottom: 20px; break-inside: avoid; }
+  .rr-sec h3 { font-size: 15px; color: #5A245A; margin-bottom: 8px; }
+  .rr-sec p { font-size: 14px; line-height: 1.65; margin: 0 0 .8em; }
+  .rr-foot { margin-top: 32px; padding-top: 14px; border-top: 1px solid #ccc; font-size: 11px; color: #6A396A; text-align: center; }
+  @media print { body { padding: 0; } .rr-page { padding: 0; max-width: none; } }
+`;
+function buildReviewRecordHtml(l, extra){
+  extra = extra || {};
+  const d = gatherReviewData(l);
+  const team = (GROUP && GROUP.team || '').trim();
+  const snapshotCount = extra.evidenceCount != null ? extra.evidenceCount : d.files.length;
+  const missing = extra.missing || [];
+  const missingHtml = missing.length
+    ? `<p class="rr-warn">⚠ ${missing.length} file${missing.length===1?'':'s'} could not be captured this time — see manifest.txt.</p>` : '';
+  const factsRows = [
+    ['Candidate', `${esc(l.name)} (simulated) · ${esc(l.ref)}`],
+    ['Industry', esc(d.industry)],
+    ['Evidence sighted', `${d.done} of ${d.files.length} items`],
+    ['Unit assessed', '<span class="rr-rule"></span>'],
+    ['Evidence snapshot', `${snapshotCount} file${snapshotCount===1?'':'s'} captured ${esc(fmtDate(d.now))} · portfolio build ${esc(BUILD)}`]
+  ];
+  const notesHtml = [
+    `<div class="rr-note"><div class="rr-note-k">General · whole portfolio</div><div class="rr-note-v">${d.generalNote.trim() ? esc(d.generalNote) : '<em>No general note recorded.</em>'}</div></div>`,
+    ...d.anchoredList.map(a=>`<div class="rr-note"><div class="rr-note-k">${esc(a.anchor)}</div><div class="rr-note-v">${esc(a.text)}</div></div>`)
+  ].join('');
+  const checklistHtml = d.files.map(f=>
+    `<div class="rr-check-row"><span>${d.rv.has(f.name)?'✓':'○'}</span><span>${esc(fileLabel(f))}</span><span class="rr-check-file">${esc(f.name)}</span></div>`
+  ).join('');
+  const sectionsHtml = SECTIONS.map(s=>{
+    const raw = (l.sections && l.sections[s.key]) || '';
+    const paras = raw.split('\n').filter(t=>t.trim()).map(t=>`<p>${esc(t)}</p>`).join('') || '<p><em>No content.</em></p>';
+    return `<section class="rr-sec"><h3>${esc(s.label)}</h3>${paras}</section>`;
+  }).join('');
+  return `<!DOCTYPE html>
+<html lang="en-AU"><head><meta charset="UTF-8">
+<title>${esc(l.name)} — Portfolio review record</title>
+<style>${REVIEW_RECORD_CSS}</style>
+</head>
+<body>
+<div class="rr-page">
+  <header class="rr-head">
+    <div>
+      <div class="rr-kicker">TIME Education and Training · RPL practice</div>
+      <div class="rr-title">Portfolio review record</div>
+    </div>
+    <div class="rr-head-right">
+      Lead assessor: <b>${esc(d.lead || '—')}</b><br>
+      ${team ? esc(team)+' · ' : ''}${esc(fmtDate(d.now))}
+    </div>
+  </header>
+  ${missingHtml}
+  <div class="rr-facts">${factsRows.map(([k,v])=>`<span class="rr-fact-k">${esc(k)}</span><span class="rr-fact-v">${v}</span>`).join('')}</div>
+  <div class="rr-block"><h2>Lead assessor notes</h2>${notesHtml}</div>
+  <div class="rr-block"><h2>Evidence checklist</h2>${checklistHtml}</div>
+  <div class="rr-block"><h2>${esc(l.name)}’s profile</h2>${sectionsHtml}</div>
+  <div class="rr-foot">TIME Education and Training · Simulated learner profiles · For training purposes only</div>
+</div>
+</body></html>`;
+}
+function buildReviewRecordTxt(l, extra){
+  extra = extra || {};
+  const d = gatherReviewData(l);
+  const team = (GROUP && GROUP.team || '').trim();
+  const snapshotCount = extra.evidenceCount != null ? extra.evidenceCount : d.files.length;
+  const missing = extra.missing || [];
+  const lines = [
+    'TIME EDUCATION AND TRAINING · RPL PRACTICE',
+    'Portfolio review record',
+    '',
+    'Lead assessor: ' + (d.lead || '—')
+  ];
+  if(team) lines.push('Team: ' + team);
+  lines.push('Date: ' + fmtDate(d.now), '');
+  lines.push('Candidate: ' + l.name + ' (simulated) · ' + l.ref);
+  lines.push('Industry: ' + d.industry);
+  lines.push('Evidence sighted: ' + d.done + ' of ' + d.files.length + ' items');
+  lines.push('Unit assessed: ______________________________');
+  lines.push('Evidence snapshot: ' + snapshotCount + ' file' + (snapshotCount===1?'':'s') + ' captured ' + fmtDate(d.now) + ' · portfolio build ' + BUILD);
+  if(missing.length){ lines.push('', '⚠ ' + missing.length + ' file(s) could not be captured this time — see manifest.txt.'); }
+  lines.push('', 'LEAD ASSESSOR NOTES', '-------------------');
+  lines.push('General · whole portfolio');
+  lines.push(d.generalNote.trim() || '(No general note recorded.)');
+  d.anchoredList.forEach(a=>{ lines.push('', a.anchor, a.text); });
+  lines.push('', 'EVIDENCE CHECKLIST', '------------------');
+  d.files.forEach(f=> lines.push('[' + (d.rv.has(f.name)?'x':' ') + '] ' + fileLabel(f) + '  (' + f.name + ')'));
+  lines.push('', l.name.toUpperCase() + '’S PROFILE', '-'.repeat(Math.max(10, l.name.length + 9)));
+  SECTIONS.forEach(s=>{
+    const raw = (l.sections && l.sections[s.key]) || '';
+    lines.push('', s.label.toUpperCase(), raw.trim() || '(No content.)');
+  });
+  lines.push('', 'TIME Education and Training · Simulated learner profiles · For training purposes only');
+  return lines.join('\n');
+}
+function buildManifestTxt(l, fetchResult){
+  const now = new Date();
+  const lines = [
+    'TIME Education and Training · RPL practice',
+    'Evidence manifest — ' + l.name + ' (' + l.ref + ')',
+    'Captured: ' + fmtDateTime(now),
+    'Portfolio build: ' + BUILD,
+    '',
+    'File'.padEnd(46) + 'Bytes'.padStart(10) + '  SHA-256'
+  ];
+  fetchResult.results.forEach(r=>{
+    if(r.error) lines.push(r.file.name.padEnd(46) + 'NOT CAPTURED — ' + r.error);
+    else lines.push(r.file.name.padEnd(46) + String(r.buf.byteLength).padStart(10) + '  ' + (r.hash || '(checksum unavailable)'));
+  });
+  return lines.join('\n');
+}
+
+/* ── Progress panel (single shared instance) ─────────────────────── */
+function showExportProgress(label){
+  let el = document.getElementById('export-progress');
+  if(!el){
+    el = document.createElement('div');
+    el.id = 'export-progress';
+    el.className = 'xp-panel';
+    el.setAttribute('role','status');
+    el.innerHTML = `<div class="xp-label" id="xp-label"></div><div class="xp-bar"><i id="xp-bar-fill"></i></div>`;
+    document.body.appendChild(el);
+  }
+  el.hidden = false;
+  document.getElementById('xp-label').textContent = label;
+  document.getElementById('xp-bar-fill').style.width = '0%';
+}
+function updateExportProgress(label, pct){
+  const lab = document.getElementById('xp-label');
+  const bar = document.getElementById('xp-bar-fill');
+  if(lab) lab.textContent = label;
+  if(bar) bar.style.width = Math.max(0, Math.min(100, pct)) + '%';
+}
+function hideExportProgress(delay){
+  const el = document.getElementById('export-progress');
+  if(!el) return;
+  setTimeout(()=>{ el.hidden = true; }, delay || 0);
+}
+
+/* ── Orchestrators ────────────────────────────────────────────────── */
+let exportBusy = false;
+async function exportLearner(l){
+  if(exportBusy || !l) return;
+  exportBusy = true;
+  const btn = document.getElementById('pf-export');
+  if(btn) btn.disabled = true;
+  showExportProgress('Preparing…');
+  try {
+    const fetchResult = await fetchEvidenceFiles(l, p=>{
+      updateExportProgress(`Fetching evidence · ${p.done} of ${p.total} · ${fmtBytes(p.bytes)}`, p.total ? (p.done/p.total*100) : 100);
+    });
+    const missing = fetchResult.results.filter(r=>r.error);
+    updateExportProgress('Building the record…', 100);
+    const html = buildReviewRecordHtml(l, { evidenceCount: fetchResult.results.length, missing });
+    const txt = buildReviewRecordTxt(l, { evidenceCount: fetchResult.results.length, missing });
+    const manifest = buildManifestTxt(l, fetchResult);
+
+    const zip = new ZipWriter();
+    zip.addFile('review-record.html', new TextEncoder().encode(html));
+    zip.addFile('review-record.txt', new TextEncoder().encode(txt));
+    zip.addFile('manifest.txt', new TextEncoder().encode(manifest));
+    fetchResult.results.forEach(r=>{ if(r.buf) zip.addFile('evidence/'+r.file.name, new Uint8Array(r.buf)); });
+
+    downloadBlob(zip.finalize(), l.slug + '_review_' + isoDate(new Date()) + '.zip');
+    updateExportProgress(missing.length ? `Downloaded — ${missing.length} file${missing.length===1?'':'s'} not captured` : 'Downloaded', 100);
+    hideExportProgress(2200);
+  } catch(e){
+    updateExportProgress('Export failed — try again', 0);
+    hideExportProgress(3000);
+  } finally {
+    exportBusy = false;
+    if(btn) btn.disabled = false;
+  }
+}
+async function exportGroup(){
+  if(exportBusy || !GROUP || !(GROUP.members||[]).length) return;
+  const small = window.matchMedia && window.matchMedia('(max-width: 640px)').matches;
+  const metered = navigator.connection && (navigator.connection.saveData || /2g/.test(navigator.connection.effectiveType||''));
+  if(small || metered){
+    if(!window.confirm('A group export can run 20–40MB and take a few seconds. Continue on this device/connection?')) return;
+  }
+  exportBusy = true;
+  const btn = document.getElementById('cw-export-group');
+  if(btn) btn.disabled = true;
+  showExportProgress('Preparing…');
+  try {
+    const zip = new ZipWriter();
+    const members = GROUP.members;
+    const summaries = [];
+    for(let i=0;i<members.length;i++){
+      const m = members[i];
+      const l = ALL.find(x=>x.slug===m.slug);
+      if(!l) continue;
+      const fetchResult = await fetchEvidenceFiles(l, p=>{
+        const overall = ((i + (p.total? p.done/p.total : 1)) / members.length) * 100;
+        updateExportProgress(`Fetching ${l.name} · ${p.done} of ${p.total} · ${fmtBytes(p.bytes)}`, overall);
+      });
+      const missing = fetchResult.results.filter(r=>r.error);
+      const html = buildReviewRecordHtml(l, { evidenceCount: fetchResult.results.length, missing });
+      const txt = buildReviewRecordTxt(l, { evidenceCount: fetchResult.results.length, missing });
+      const manifest = buildManifestTxt(l, fetchResult);
+      zip.addFile(l.slug+'/review-record.html', new TextEncoder().encode(html));
+      zip.addFile(l.slug+'/review-record.txt', new TextEncoder().encode(txt));
+      zip.addFile(l.slug+'/manifest.txt', new TextEncoder().encode(manifest));
+      fetchResult.results.forEach(r=>{ if(r.buf) zip.addFile(l.slug+'/evidence/'+r.file.name, new Uint8Array(r.buf)); });
+      const rv = reviewedSet(l.slug);
+      const files = sortedFiles(l);
+      summaries.push({ l, lead: m.lead, done: files.filter(f=>rv.has(f.name)).length, total: files.length, missing: missing.length });
+    }
+    const now = new Date();
+    const team = (GROUP.team || '').trim();
+    const teamLines = [
+      'TIME Education and Training · RPL practice',
+      'Group review manifest' + (team ? ' — '+team : ''),
+      'Captured: ' + fmtDateTime(now),
+      'Portfolio build: ' + BUILD,
+      '',
+      'Candidates', '----------'
+    ];
+    summaries.forEach(s=>{
+      teamLines.push(s.l.slug + '/   ' + s.l.name + '   lead assessor ' + (s.lead || '(not yet named)') +
+        '   ' + s.done + ' of ' + s.total + ' items' + (s.missing ? '   ⚠ '+s.missing+' not captured' : ''));
+    });
+    zip.addFile('manifest.txt', new TextEncoder().encode(teamLines.join('\n')));
+
+    const teamSlug = team.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+    const filename = teamSlug ? 'team-'+teamSlug+'_review_'+isoDate(now)+'.zip' : 'cohort_review_'+isoDate(now)+'.zip';
+    downloadBlob(zip.finalize(), filename);
+    updateExportProgress('Downloaded', 100);
+    hideExportProgress(2200);
+  } catch(e){
+    updateExportProgress('Export failed — try again', 0);
+    hideExportProgress(3000);
+  } finally {
+    exportBusy = false;
+    if(btn) btn.disabled = false;
+  }
+}
+function printReviewRecord(l){
+  if(!l) return;
+  const html = buildReviewRecordHtml(l, {});
+  const iframe = document.createElement('iframe');
+  Object.assign(iframe.style, { position:'fixed', right:'0', bottom:'0', width:'0', height:'0', border:'none' });
+  document.body.appendChild(iframe);
+  const cleanup = () => { if(iframe.parentNode) iframe.remove(); };
+  iframe.addEventListener('load', ()=>{
+    try {
+      iframe.contentWindow.focus();
+      iframe.contentWindow.addEventListener('afterprint', cleanup);
+      iframe.contentWindow.print();
+    } catch(e){ cleanup(); }
+    setTimeout(cleanup, 5000);
+  });
+  iframe.srcdoc = html;
+}
+async function copyForEmail(l){
+  if(!l) return;
+  const btn = document.getElementById('pf-copy-email');
+  const txt = buildReviewRecordTxt(l, {});
+  const flash = msg => {
+    if(!btn) return;
+    const orig = 'Copy for email';
+    btn.textContent = msg;
+    setTimeout(()=>{ btn.textContent = orig; }, 1800);
+  };
+  try { await navigator.clipboard.writeText(txt); flash('Copied'); }
+  catch(e){ flash('Couldn’t copy'); }
+}
+
 function setReviewed(name, on){
   if(on) curReviewed.add(name); else curReviewed.delete(name);
   saveReviewed(CUR.slug, curReviewed);
@@ -1782,7 +2205,9 @@ document.addEventListener('keydown', e=>{
 
 /* ── Wiring ─────────────────────────────────────────────────────── */
 document.getElementById('pf-back').addEventListener('click', ()=> navigate(''));
-document.getElementById('pf-print').addEventListener('click', ()=> window.print());
+document.getElementById('pf-print').addEventListener('click', ()=> printReviewRecord(CUR));
+document.getElementById('pf-export').addEventListener('click', ()=> exportLearner(CUR));
+document.getElementById('pf-copy-email').addEventListener('click', ()=> copyForEmail(CUR));
 document.getElementById('search').addEventListener('input', e=>{
   query = e.target.value.trim().toLowerCase(); renderGrid();
 });
@@ -1793,7 +2218,7 @@ document.getElementById('sort-mode').addEventListener('change', e=>{
   sortMode = e.target.value; renderGrid();
 });
 document.getElementById('cw-edit-group').addEventListener('click', ()=> navigate('setup'));
-document.getElementById('dash-export').addEventListener('click', exportProgress);
+document.getElementById('cw-export-group').addEventListener('click', exportGroup);
 document.getElementById('dash-reset').addEventListener('click', resetProgress);
 
 fetch('data.json')
