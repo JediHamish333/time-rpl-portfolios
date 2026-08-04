@@ -1212,7 +1212,7 @@ document.getElementById('su-your-name').addEventListener('input', e=>{
   setupYourName = e.target.value; updateSetupStart();
 });
 document.getElementById('su-search').addEventListener('input', e=>{
-  renderSetupSearch(e.target.value.trim());
+  renderSetupSearch(e.target.value.trim().toLowerCase());
 });
 document.getElementById('su-start').addEventListener('click', commitSetup);
 document.addEventListener('click', e=>{
@@ -1868,8 +1868,17 @@ function setReviewed(name, on){
 
 /* ── Prev / next learner ────────────────────────────────────────── */
 function renderPrevNext(l){
-  const i = ALL.indexOf(l);
-  const prev = ALL[i-1], next = ALL[i+1];
+  /* Scoped to the user's group, in tet-rpl-group's own order, wrapping at
+     the ends. No defined neighbours — and so no prev/next — when there's
+     no group, the group has only one member, or the learner being viewed
+     isn't a member of it (all three collapse to idx === -1 below). */
+  const members = (GROUP && GROUP.members) || [];
+  const idx = members.findIndex(m => m.slug === l.slug);
+  let prev = null, next = null;
+  if(idx !== -1 && members.length > 1){
+    prev = ALL.find(x => x.slug === members[(idx - 1 + members.length) % members.length].slug);
+    next = ALL.find(x => x.slug === members[(idx + 1) % members.length].slug);
+  }
   const mk = (x, cls, k) => x ? `<a class="${cls}" href="#learner/${x.slug}">
       ${x.photo?`<img src="${x.photo}" alt="">`:''}
       <span><span class="k">${k}</span><span class="n">${esc(x.name)}</span></span>
