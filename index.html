@@ -68,24 +68,8 @@
   .page { display: none; }
   .page.active { display: block; }
 
-  /* ── Utility strip ─────────────────────────────────────────────── */
-  .util {
-    background: var(--plum);
-    color: rgba(255,255,255,.86);
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: .04em;
-    padding: 9px clamp(18px, 4vw, 40px);
-    display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  }
-  .util .brand { font-weight: 600; color: #fff; text-transform: uppercase; letter-spacing: .12em; }
-  .util .doc   { color: var(--lilac); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  @media (max-width: 620px){ .util .doc { display:none; } }
-
-  /* ══ Cohort wall + session set-up (revamp) ═══════════════════════
-     Scoped to #index-page / #setup-page — the case file and evidence
-     viewer keep the palette above until they are revamped separately. */
-  #index-page, #setup-page { font-family: var(--roboto); background: #fff; color: var(--grey-600); }
+  /* ══ TIME Education and Training design system (revamp) ══════════ */
+  #index-page, #setup-page, #profile-page, .viewer { font-family: var(--roboto); background: #fff; color: var(--grey-600); }
 
   /* ── Header bar ───────────────────────────────────────────────── */
   .cw-header {
@@ -303,360 +287,238 @@
     .su-row-field { grid-column: 1 / 2; }
   }
 
-  /* ── Chip (shared: case-file evidence-register filters use this too) ── */
-  .chip {
-    flex: 0 0 auto; cursor: pointer;
-    font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: .04em;
-    color: var(--grape); background: var(--card);
-    border: 1px solid var(--lilac-line); border-radius: 999px;
-    padding: 7px 13px; white-space: nowrap;
-    transition: background .15s, color .15s, border-color .15s, transform .1s;
+  /* ── Shared: pill buttons on a dark bar ──────────────────────────── */
+  .pf-bar {
+    background: var(--purple-900); color: #fff;
+    padding: 12px 24px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
   }
-  .chip:hover { border-color: var(--mulberry); }
-  .chip:focus-visible { outline: 2px solid var(--mulberry); outline-offset: 2px; }
-  .chip[aria-pressed="true"] { background: var(--grape); color: #fff; border-color: var(--grape); }
-  .chip:active { transform: translateY(1px); }
+  .pf-back { font-family: var(--roboto); font-size: 13px; color: var(--lilac-500); background: none; border: none; cursor: pointer; padding: 4px 0; }
+  .pf-back:hover { text-decoration: underline; }
+  .pf-back:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+  .pf-bar-name { font-size: 15px; font-weight: 600; }
+  .pf-bar-ref { font-size: 12.5px; color: var(--lilac-500); }
+  .pf-bar-actions { margin-left: auto; display: flex; gap: 10px; }
+  .pf-bar-actions .cw-pill-fill, .pf-bar-actions .cw-pill-outline { margin-left: 0; }
+  .cw-pill-fill[disabled], .cw-pill-outline[disabled] { opacity: .45; cursor: default; }
+  .cw-pill-fill[disabled]:hover { opacity: .45; }
 
-  /* ── No-photo fallback (shared: profile-page hero photo uses this) ── */
-  .ph {
-    width: 100%; height: 100%;
-    background: linear-gradient(155deg, #EEE7F4 0%, #F3EEDF 100%);
-    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
-    color: var(--mulberry);
-  }
-  .ph span { font-family: var(--mono); font-size: 10px; letter-spacing: .06em; opacity: .65; }
+  /* ── Case-file hero photo ─────────────────────────────────────── */
+  .pf-hero { aspect-ratio: 3 / 1; min-height: 140px; width: 100%; background: var(--lilac-300); overflow: hidden; }
+  .pf-hero img { width: 100%; height: 100%; object-fit: cover; object-position: center 28%; display: block; }
 
-  /* ── Profile hero ──────────────────────────────────────────────── */
-  .p-hero { position: relative; background: var(--plum); overflow: hidden; }
-  .p-hero-photo { position: absolute; inset: 0; }
-  .p-hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 28%; }
-  .p-hero-scrim {
-    position: absolute; inset: 0;
-    background:
-      linear-gradient(180deg, rgba(40,19,32,.30) 0%, rgba(40,19,32,.05) 35%, rgba(40,19,32,.55) 78%, rgba(40,19,32,.92) 100%),
-      linear-gradient(90deg, rgba(62,19,56,.72) 0%, rgba(62,19,56,.18) 60%, rgba(62,19,56,0) 100%);
-  }
-  .p-hero-inner {
-    position: relative; max-width: var(--maxw); margin: 0 auto;
-    padding: clamp(16px,3vw,26px) clamp(18px,4vw,40px) clamp(30px,4vw,44px);
-    min-height: clamp(300px, 42vw, 440px);
-    display: flex; flex-direction: column; justify-content: space-between;
-  }
-  .back {
-    align-self: flex-start;
-    font-family: var(--mono); font-size: 12px; letter-spacing: .04em;
-    color: #fff; background: rgba(255,255,255,.13); border: 1px solid rgba(255,255,255,.22);
-    padding: 8px 14px 8px 11px; border-radius: 999px; cursor: pointer;
-    display: inline-flex; align-items: center; gap: 7px;
-    transition: background .16s, gap .16s;
-  }
-  .back:hover { background: rgba(255,255,255,.24); gap: 10px; }
-  .back:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
-  .p-titles { color: #fff; }
-  .p-eyebrow {
-    font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
-    color: var(--lilac); margin-bottom: 12px;
-    display: inline-flex; align-items: center; gap: 9px;
-  }
-  .p-eyebrow .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--ochre); }
-  .p-name {
-    font-family: var(--serif); font-weight: 600; letter-spacing: -.02em;
-    font-size: clamp(36px, 6vw, 66px); line-height: .96;
-    text-shadow: 0 2px 24px rgba(40,19,32,.4);
-  }
-  .p-sub {
-    margin-top: 14px; font-size: clamp(14px,1.6vw,16px); color: rgba(255,255,255,.94);
-    display: flex; flex-wrap: wrap; gap: 7px 16px;
-  }
-  .p-sub span { display: inline-flex; align-items: center; gap: 7px; }
-  .p-sub .k { font-family: var(--mono); font-size: 11px; color: var(--lilac); text-transform: uppercase; letter-spacing: .06em; }
+  /* ── Two-column layout: main + notes margin ──────────────────────── */
+  .pf-wrap { display: grid; grid-template-columns: 1fr 320px; align-items: start; }
+  @media (max-width: 900px){ .pf-wrap { grid-template-columns: 1fr; } }
+  .pf-main { padding: 26px 30px 34px; display: flex; flex-direction: column; gap: 26px; border-right: 1px solid var(--grey-400); min-width: 0; }
+  @media (max-width: 900px){ .pf-main { border-right: none; } }
 
-  /* ── Mobile section nav ────────────────────────────────────────── */
-  .m-nav {
-    display: none;
-    position: sticky; top: 0; z-index: 25;
-    background: rgba(246,242,235,.92); backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--line);
-    overflow-x: auto; scrollbar-width: none;
+  /* ── Identity block ───────────────────────────────────────────── */
+  .pf-identity { display: flex; flex-direction: column; gap: 9px; padding-bottom: 20px; border-bottom: 2px solid var(--purple-700); }
+  .pf-identity-name { font-family: var(--roboto); font-size: 32px; font-weight: 600; color: var(--purple-700); line-height: 1.05; }
+  .pf-identity-sub { font-size: 15.5px; line-height: 1.5; }
+  .pf-identity-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 2px; }
+  .pf-chip { font-size: 12px; color: var(--purple-700); border: 1px solid var(--lilac-300); padding: 5px 11px; }
+  .pf-chip--fill { background: var(--lilac-500); border-color: var(--lilac-500); font-weight: 500; letter-spacing: .05em; text-transform: uppercase; }
+
+  /* ── Assessor brief ───────────────────────────────────────────── */
+  .pf-brief { background: var(--lilac-100); border: 1px solid var(--lilac-300); padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; }
+  .pf-brief-label { font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--purple-700); }
+  .pf-brief-text { font-size: 17px; line-height: 1.6; max-width: 70ch; }
+  .pf-brief-signals { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pf-signal { font-size: 12.5px; color: var(--purple-700); background: #fff; border: 1px solid var(--lilac-300); padding: 5px 12px; }
+
+  /* ── At-a-glance facts ────────────────────────────────────────── */
+  .pf-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; border-top: 1px solid var(--grey-400); border-bottom: 1px solid var(--grey-400); padding: 16px 0; }
+  @media (max-width: 560px){ .pf-facts { grid-template-columns: 1fr; } }
+  .pf-fact { display: flex; gap: 12px; align-items: baseline; }
+  .pf-fact-k { font-size: 10.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--purple-500); width: 118px; flex-shrink: 0; }
+  .pf-fact-v { font-size: 14.5px; line-height: 1.4; }
+
+  /* ── Profile sections (collapsible) ──────────────────────────────── */
+  .pf-sections { display: flex; flex-direction: column; gap: 12px; }
+  .pf-sec { border: 1px solid var(--grey-400); }
+  .pf-sec-head {
+    padding: 13px 18px; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    background: #fff; cursor: pointer; list-style: none;
   }
-  .m-nav::-webkit-scrollbar { display: none; }
-  .m-nav-inner { display: flex; gap: 6px; padding: 10px clamp(18px,4vw,40px); }
-  .m-nav a {
-    flex: 0 0 auto; text-decoration: none;
-    font-size: 12.5px; font-weight: 600; color: var(--muted);
-    padding: 6px 12px; border-radius: 999px; border: 1px solid transparent;
-    white-space: nowrap;
+  .pf-sec-head::-webkit-details-marker { display: none; }
+  .pf-sec[open] > .pf-sec-head { background: var(--lilac-100); border-bottom: 1px solid var(--lilac-300); }
+  .pf-sec-label { font-family: var(--roboto); font-size: 16.5px; font-weight: 600; color: var(--purple-700); }
+  .pf-sec-meta { font-size: 12.5px; color: var(--purple-500); display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+  .pf-sec-note-btn {
+    font-family: var(--roboto); font-size: 12.5px; color: var(--purple-500); background: none; border: none; cursor: pointer;
+    padding: 0; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 2px;
   }
-  .m-nav a.on { color: var(--grape); background: var(--lilac); border-color: var(--lilac-line); }
-  @media (max-width: 860px){ .m-nav { display: block; } }
+  .pf-sec-note-btn:hover { text-decoration-color: var(--purple-500); }
+  .pf-sec-note-btn:focus-visible { outline: 2px solid var(--purple-700); outline-offset: 2px; }
+  .pf-sec-body { padding: 16px 18px 18px; font-size: 16px; line-height: 1.7; max-width: 74ch; }
+  .pf-sec-body p + p { margin-top: 1em; }
 
-  /* ── Profile body ──────────────────────────────────────────────── */
-  .p-wrap {
-    max-width: var(--maxw); margin: 0 auto;
-    padding: clamp(34px,5vw,56px) clamp(18px,4vw,40px) 20px;
-    display: grid; grid-template-columns: 220px 1fr; gap: clamp(30px,5vw,64px);
-    align-items: start;
+  /* ── Evidence register ────────────────────────────────────────── */
+  .pf-ev { display: flex; flex-direction: column; gap: 4px; }
+  .pf-ev-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--purple-700); flex-wrap: wrap; margin-bottom: 4px; }
+  .pf-ev-title { font-family: var(--roboto); font-size: 21px; font-weight: 600; color: var(--purple-700); }
+  .pf-ev-controls { font-size: 13px; color: var(--purple-500); display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+  .pf-ev-controls button {
+    font-family: var(--roboto); font-size: 13px; color: var(--purple-500); background: none; border: none; cursor: pointer;
+    padding: 2px 4px; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 2px;
   }
-  @media (max-width: 860px){ .p-wrap { grid-template-columns: 1fr; gap: 8px; padding-top: 22px; } }
-
-  .p-nav { position: sticky; top: 78px; }
-  @media (max-width: 860px){ .p-nav { display: none; } }
-  .p-nav .lbl { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
-  .p-nav a {
-    display: block; text-decoration: none; padding: 7px 0 7px 16px;
-    border-left: 2px solid var(--line);
-    font-size: 13.5px; color: var(--muted); line-height: 1.35;
-    transition: color .16s, border-color .16s;
-  }
-  .p-nav a:hover { color: var(--ink); }
-  .p-nav a.on { color: var(--grape); border-color: var(--ochre); font-weight: 600; }
-
-  .p-facts {
-    margin-top: 26px; padding: 16px; background: var(--lilac); border-radius: var(--r-sm);
-    font-size: 13px; color: var(--ink);
-  }
-  .p-facts dt { font-family: var(--mono); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; color: var(--mulberry); margin-bottom: 2px; }
-  .p-facts dd { margin-bottom: 12px; line-height: 1.4; }
-  .p-facts dd:last-child { margin-bottom: 0; }
-
-  .p-sections { max-width: 70ch; }
-  .sec { scroll-margin-top: 80px; }
-  .sec + .sec { margin-top: clamp(30px,4vw,46px); padding-top: clamp(30px,4vw,46px); border-top: 1px solid var(--line); }
-  .sec-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-  .sec-num { font-family: var(--mono); font-size: 12px; color: var(--ochre); font-weight: 600; }
-  .sec-label { font-family: var(--serif); font-weight: 600; font-size: clamp(19px,2.4vw,24px); color: var(--ink); letter-spacing: -.01em; line-height: 1.1; }
-  .sec-text { font-size: 16px; line-height: 1.78; color: #392c34; }
-  .sec-text p + p { margin-top: 1em; }
-
-  /* ── Evidence register ─────────────────────────────────────────── */
-  .ev-wrap { max-width: var(--maxw); margin: 0 auto; padding: clamp(34px,5vw,52px) clamp(18px,4vw,40px) 26px; scroll-margin-top: 60px; }
-  .ev-head {
-    display: flex; align-items: flex-end; justify-content: space-between; gap: 18px; flex-wrap: wrap;
-    padding-bottom: 16px; border-bottom: 2px solid var(--plum); margin-bottom: 14px;
-  }
-  .ev-head h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(20px,2.6vw,28px); letter-spacing: -.01em; }
-  .ev-head .sub { font-size: 13px; color: var(--muted); margin-top: 5px; max-width: 56ch; }
-  .ev-head-side { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; flex: 0 1 280px; }
-  .dl-all {
-    display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
-    font-size: 13px; font-weight: 600; color: #fff; background: var(--grape);
-    border: 1px solid var(--grape); border-radius: 999px; padding: 9px 16px;
-    transition: background .15s, border-color .15s;
-  }
-  .dl-all:hover { background: var(--mulberry); border-color: var(--mulberry); }
-  .dl-all:focus-visible { outline: 2px solid var(--mulberry); outline-offset: 2px; }
-  .dl-all[disabled] { cursor: default; }
-  .dl-all.busy { background: var(--mulberry); border-color: var(--mulberry); }
-  .dl-all.busy .dla-ic { animation: spin .8s linear infinite; }
-  .dla-tx { white-space: nowrap; }
-  .progress { width: 100%; }
-  @media (max-width: 560px){ .ev-head-side { align-items: stretch; width: 100%; } .dl-all { justify-content: center; } }
-
-
-  .progress .ptx { font-family: var(--mono); font-size: 11.5px; color: var(--muted); letter-spacing: .03em; margin-bottom: 7px; display: flex; justify-content: space-between; }
-  .progress .ptx b { color: var(--green); font-weight: 600; }
-  .progress .bar { height: 6px; background: var(--lilac); border-radius: 3px; overflow: hidden; }
-  .progress .bar i { display: block; height: 100%; width: 0; background: var(--green); border-radius: 3px; transition: width .4s var(--ease); }
-
-  .ev-filters { display: flex; gap: 7px; flex-wrap: wrap; margin: 4px 0 16px; }
-
-  .register { border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--card); overflow: hidden; }
-  .reg-head {
-    display: grid; grid-template-columns: 64px 1fr 92px 110px 96px;
-    gap: 12px; align-items: center;
-    padding: 9px 14px;
-    background: var(--lilac); border-bottom: 1px solid var(--lilac-line);
-    font-family: var(--mono); font-size: 10px; font-weight: 600;
-    letter-spacing: .08em; text-transform: uppercase; color: var(--mulberry);
-  }
-  .reg-row {
-    display: grid; grid-template-columns: 64px 1fr 92px 110px 96px;
-    gap: 12px; align-items: center;
-    padding: 11px 14px;
-    border-bottom: 1px solid var(--line);
-    transition: background .14s;
-  }
-  .reg-row:last-child { border-bottom: none; }
-  .reg-row:hover { background: #FBF8F3; }
-  .reg-row.is-done { background: #F6FBF7; }
-  .reg-row.is-done:hover { background: #EFF8F2; }
-
-  .reg-code { font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--ochre); letter-spacing: .04em; }
-  .reg-row.is-done .reg-code { color: var(--green); }
-
-  .reg-doc { min-width: 0; background: none; border: none; text-align: left; cursor: pointer; padding: 0; }
-  .reg-doc:focus-visible { outline: 2px solid var(--mulberry); outline-offset: 3px; border-radius: 4px; }
-  .reg-title { display: block; font-size: 14px; font-weight: 600; color: var(--ink); line-height: 1.3; overflow-wrap: anywhere; }
-  .reg-doc:hover .reg-title { color: var(--grape); text-decoration: underline; text-decoration-color: var(--lilac-line); text-underline-offset: 3px; }
-  .reg-file { display: block; font-family: var(--mono); font-size: 10.5px; color: var(--muted); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-
-  .ftag {
-    font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: .05em;
-    padding: 3px 8px; border-radius: 5px; justify-self: start;
-  }
-  .ftag.pdf  { background: #FBE5E2; color: #A93226; }
-  .ftag.docx { background: #E4ECFB; color: #2257C5; }
-  .ftag.doc  { background: #E9E5EF; color: #5A4A66; }
-  .ftag.xlsx { background: var(--green-soft); color: var(--green); }
-  .ftag.img  { background: #FBF0DA; color: var(--ochre); }
-
-  .reg-check { display: inline-flex; align-items: center; gap: 7px; cursor: pointer; user-select: none; font-size: 12px; color: var(--muted); }
-  .reg-check input { position: absolute; opacity: 0; width: 1px; height: 1px; }
-  .reg-check .box {
-    width: 17px; height: 17px; border-radius: 5px; flex: 0 0 auto;
-    border: 1.5px solid var(--lilac-line); background: var(--card);
-    display: inline-flex; align-items: center; justify-content: center;
+  .pf-ev-controls button:hover { text-decoration-color: currentColor; }
+  .pf-ev-controls button[aria-pressed="true"] { color: var(--purple-700); font-weight: 600; }
+  .pf-ev-controls .sep { color: var(--grey-400); }
+  .pf-ev-dlall { color: var(--purple-700) !important; font-weight: 600 !important; display: inline-flex; align-items: center; gap: 5px; }
+  .pf-ev-dlall.busy .dla-ic { animation: spin .8s linear infinite; }
+  .pf-ev-dlall[disabled] { opacity: .6; cursor: default; }
+  .pf-ev-row { display: grid; grid-template-columns: 24px 1fr 92px 76px; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid #EDEDED; }
+  .pf-ev-row:last-child { border-bottom: none; }
+  .pf-ev-check {
+    width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid var(--grey-400); background: #fff;
+    display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; padding: 0;
     transition: background .14s, border-color .14s;
   }
-  .reg-check .box svg { opacity: 0; transition: opacity .14s; }
-  .reg-check input:checked + .box { background: var(--green); border-color: var(--green); }
-  .reg-check input:checked + .box svg { opacity: 1; }
-  .reg-check input:focus-visible + .box { outline: 2px solid var(--mulberry); outline-offset: 2px; }
-  .reg-check .ctx { white-space: nowrap; }
-  .reg-row.is-done .reg-check .ctx { color: var(--green); font-weight: 600; }
-
-  .reg-actions { display: flex; gap: 6px; justify-content: flex-end; }
-  .icon-btn {
-    width: 32px; height: 32px; border-radius: 8px; cursor: pointer;
-    border: 1px solid var(--line); background: var(--card); color: var(--muted);
-    display: inline-flex; align-items: center; justify-content: center;
-    transition: border-color .14s, color .14s, background .14s;
-    text-decoration: none;
+  .pf-ev-check.is-done { background: var(--purple-700); border-color: var(--purple-700); }
+  .pf-ev-check svg { opacity: 0; transition: opacity .14s; }
+  .pf-ev-check.is-done svg { opacity: 1; }
+  .pf-ev-check:focus-visible { outline: 2px solid var(--purple-700); outline-offset: 2px; }
+  .pf-ev-doc { min-width: 0; background: none; border: none; text-align: left; cursor: pointer; padding: 0; font-family: var(--roboto); }
+  .pf-ev-doc:focus-visible { outline: 2px solid var(--purple-700); outline-offset: 2px; }
+  .pf-ev-title-tx { display: block; font-size: 14.5px; font-weight: 600; color: var(--purple-700); line-height: 1.3; overflow-wrap: anywhere; }
+  .pf-ev-doc:hover .pf-ev-title-tx { text-decoration: underline; text-decoration-color: var(--lilac-300); text-underline-offset: 3px; }
+  .pf-ev-file { display: block; font-size: 11.5px; color: var(--purple-500); margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .pf-ev-tag { font-size: 11px; font-weight: 600; letter-spacing: .06em; color: var(--purple-700); background: var(--lilac-100); border: 1px solid var(--lilac-300); padding: 4px 8px; justify-self: start; }
+  .pf-ev-preview { font-size: 12.5px; color: var(--purple-500); text-align: right; background: none; border: none; cursor: pointer; font-family: var(--roboto); }
+  .pf-ev-preview:hover { color: var(--purple-700); text-decoration: underline; }
+  .pf-ev-preview:focus-visible { outline: 2px solid var(--purple-700); outline-offset: 2px; }
+  .pf-ev-empty { padding: 34px 20px; text-align: center; color: var(--purple-500); font-size: 13.5px; }
+  .pf-ev-empty button { background: none; border: none; color: var(--purple-700); font-weight: 600; font-size: 13.5px; cursor: pointer; text-decoration: underline; }
+  @media (max-width: 640px){
+    .pf-ev-row { grid-template-columns: 20px 1fr auto; }
+    .pf-ev-tag { display: none; }
   }
-  .icon-btn:hover { border-color: var(--mulberry); color: var(--grape); background: var(--lilac); }
-  .icon-btn:focus-visible { outline: 2px solid var(--mulberry); outline-offset: 2px; }
 
-  .reg-empty { padding: 34px 20px; text-align: center; color: var(--muted); font-size: 13.5px; }
-  .reg-empty button { background: none; border: none; color: var(--grape); font-weight: 600; font-size: 13.5px; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
-
-  @media (max-width: 760px){
-    .reg-head { display: none; }
-    .reg-row { display: block; position: relative; padding: 12px 96px 12px 14px; }
-    .reg-code { margin-right: 2px; }
-    .reg-doc { display: block; margin-top: 4px; width: 100%; }
-    .reg-meta-m { display: flex; align-items: center; gap: 12px; margin-top: 9px; }
-    .reg-actions { position: absolute; right: 12px; top: 11px; }
+  /* ── Notes margin (case file) ─────────────────────────────────── */
+  .pf-notes {
+    padding: 26px 20px; display: flex; flex-direction: column; gap: 12px;
+    background: var(--grey-100); align-self: stretch;
+    position: sticky; top: 0; max-height: 100vh; overflow-y: auto;
   }
-  @media (min-width: 761px){ .reg-meta-m, .reg-code-col, .ftag-col, .reg-check-col { display: contents; } }
+  .pf-notes-label { font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--purple-500); display: flex; align-items: baseline; justify-content: space-between; }
+  .pf-note-state { font-size: 11px; color: var(--purple-500); text-transform: none; letter-spacing: 0; font-weight: 400; }
+  .pf-note-state.ok { color: var(--purple-700); font-weight: 600; }
+  .pf-note-general { background: #fff; border: 1px solid var(--purple-700); padding: 12px; display: flex; flex-direction: column; gap: 7px; }
+  .pf-note-anchor-label { font-size: 10.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--purple-700); }
+  .pf-note-ta {
+    width: 100%; min-height: 64px; resize: vertical; font-family: var(--roboto); font-size: 13.5px; line-height: 1.55;
+    color: var(--grey-600); border: none; background: none; padding: 0;
+  }
+  .pf-note-ta:focus { outline: none; }
+  .pf-notes-divider { height: 1px; background: var(--grey-400); margin: 2px 0; }
+  .pf-notes-sublabel { font-size: 10.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--purple-500); }
+  .pf-note-anchored { background: #fff; border: 1px solid var(--grey-400); border-left: 3px solid var(--purple-700); padding: 12px; display: flex; flex-direction: column; gap: 7px; }
+  .pf-note-anchor-row { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+  .pf-note-remove { font-size: 11px; color: var(--purple-500); background: none; border: none; cursor: pointer; padding: 0; text-decoration: underline; flex-shrink: 0; }
+  .pf-note-remove:hover { color: #A93226; }
+  .pf-note-add {
+    background: #fff; border: 1px dashed var(--grey-400); padding: 12px; font-size: 13px; color: var(--purple-500);
+    cursor: pointer; text-align: left; font-family: var(--roboto);
+  }
+  .pf-note-add:hover { border-color: var(--purple-500); }
+  .pf-note-add:focus-visible { outline: 2px solid var(--purple-700); outline-offset: 2px; }
+  .pf-note-add-picker select {
+    width: 100%; font-family: var(--roboto); font-size: 13px; padding: 9px; border: 1px solid var(--grey-400); background: #fff; color: var(--grey-600);
+  }
+  .pf-notes-foot { margin-top: auto; font-size: 12px; color: var(--purple-500); line-height: 1.55; padding-top: 8px; }
 
-  /* ── Prev / next learner ───────────────────────────────────────── */
-  .pn-wrap { max-width: var(--maxw); margin: 0 auto; padding: 10px clamp(18px,4vw,40px) 56px; }
+  /* ── Prev / next learner ──────────────────────────────────────── */
+  .pn-wrap { padding: 24px 30px; border-top: 1px solid var(--grey-400); }
   .pn { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   @media (max-width: 600px){ .pn { grid-template-columns: 1fr; } }
   .pn a {
     display: flex; align-items: center; gap: 14px;
-    background: var(--card); border: 1px solid var(--line); border-radius: var(--r-sm);
+    background: #fff; border: 1px solid var(--grey-400);
     padding: 14px 16px; text-decoration: none;
-    transition: border-color .15s, box-shadow .15s, transform .15s;
+    transition: border-color .15s;
   }
-  .pn a:hover { border-color: var(--lilac-line); box-shadow: 0 6px 18px rgba(62,19,56,.1); transform: translateY(-1px); }
-  .pn a:focus-visible { outline: 2px solid var(--mulberry); outline-offset: 2px; }
+  .pn a:hover { border-color: var(--purple-500); }
+  .pn a:focus-visible { outline: 2px solid var(--purple-700); outline-offset: 2px; }
   .pn a.next { flex-direction: row-reverse; text-align: right; }
-  .pn img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; object-position: center 25%; flex: 0 0 auto; }
-  .pn .k { font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 3px; }
-  .pn .n { font-family: var(--serif); font-weight: 600; font-size: 17px; color: var(--ink); }
+  .pn img { width: 44px; height: 44px; object-fit: cover; object-position: center 28%; flex: 0 0 auto; }
+  .pn .k { font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--purple-500); display: block; margin-bottom: 3px; }
+  .pn .n { font-family: var(--roboto); font-weight: 600; font-size: 16px; color: var(--purple-700); }
 
-  /* ── Document viewer ───────────────────────────────────────────── */
+  /* ══ Reading state (evidence viewer) ═════════════════════════════ */
   .viewer { position: fixed; inset: 0; z-index: 100; display: none; }
-  .viewer.open { display: block; }
-  .viewer-scrim { position: absolute; inset: 0; background: rgba(40,19,32,.66); backdrop-filter: blur(3px); }
-  .viewer-panel {
-    position: absolute; top: 0; right: 0; bottom: 0;
-    width: min(880px, 100%);
-    background: var(--paper);
-    display: flex; flex-direction: column;
-    box-shadow: -24px 0 60px rgba(40,19,32,.35);
-  }
-  .viewer-bar {
-    display: flex; align-items: center; gap: 12px;
-    padding: 12px clamp(14px, 2.5vw, 22px);
-    background: var(--plum); color: #fff;
-  }
-  .viewer-bar .vcode { font-family: var(--mono); font-size: 11.5px; font-weight: 600; color: var(--ochre-soft); letter-spacing: .05em; flex: 0 0 auto; }
-  .viewer-bar .vtitle { font-weight: 600; font-size: 14.5px; line-height: 1.25; min-width: 0; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .vbtn {
-    flex: 0 0 auto; cursor: pointer;
-    width: 34px; height: 34px; border-radius: 8px;
-    border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.1); color: #fff;
-    display: inline-flex; align-items: center; justify-content: center;
-    transition: background .14s;
-    text-decoration: none;
-  }
-  .vbtn:hover { background: rgba(255,255,255,.22); }
-  .vbtn:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
-  .vbtn[disabled] { opacity: .35; cursor: default; }
-  .vbtn[disabled]:hover { background: rgba(255,255,255,.1); }
+  .viewer.open { display: flex; flex-direction: column; }
+  .rv-bar { background: var(--purple-900); color: #fff; padding: 12px 24px; display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+  .rv-back { font-family: var(--roboto); font-size: 13px; color: var(--lilac-500); background: none; border: none; cursor: pointer; padding: 4px 0; }
+  .rv-back:hover { text-decoration: underline; }
+  .rv-back:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+  .rv-title { font-size: 14.5px; font-weight: 600; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .rv-meta { margin-left: auto; font-size: 12.5px; color: var(--lilac-500); white-space: nowrap; }
 
-  .viewer-sub {
-    display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
-    padding: 9px clamp(14px, 2.5vw, 22px);
-    background: var(--lilac); border-bottom: 1px solid var(--lilac-line);
-  }
-  .viewer-sub .vfile { font-family: var(--mono); font-size: 11px; color: var(--mulberry); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
-  .viewer-sub .vmark { display: inline-flex; }
+  .rv-body { flex: 1; min-height: 0; display: grid; grid-template-columns: 330px 1fr 330px; }
+  @media (max-width: 1080px){ .rv-body { grid-template-columns: 270px 1fr 270px; } }
+  @media (max-width: 860px){ .rv-body { grid-template-columns: 1fr; overflow-y: auto; } .rv-list, .rv-notes { max-height: none; } }
 
-  .viewer-body { flex: 1; overflow: auto; }
-  .viewer-body iframe { width: 100%; height: 100%; border: none; display: block; background: #fff; }
-  .viewer-body .vimg { padding: clamp(14px,3vw,30px); display: flex; justify-content: center; }
-  .viewer-body .vimg img { max-width: 100%; height: auto; border-radius: var(--r-sm); box-shadow: 0 4px 24px rgba(40,19,32,.18); }
+  .rv-list { border-right: 1px solid var(--grey-400); display: flex; flex-direction: column; overflow-y: auto; min-height: 0; }
+  .rv-filters { padding: 12px 16px; display: flex; gap: 6px; flex-wrap: wrap; border-bottom: 1px solid var(--grey-400); flex-shrink: 0; }
+  .rv-filter {
+    font-family: var(--roboto); font-size: 11.5px; letter-spacing: .04em; text-transform: uppercase; color: var(--purple-700);
+    border: 1px solid var(--grey-400); border-radius: var(--radius-pill); padding: 5px 12px; background: #fff; cursor: pointer;
+  }
+  .rv-filter[aria-pressed="true"] { background: var(--lilac-500); border-color: var(--lilac-500); }
+  .rv-filter:focus-visible { outline: 2px solid var(--purple-700); outline-offset: 2px; }
+  .rv-row {
+    padding: 11px 16px; border-bottom: 1px solid #EDEDED; display: flex; gap: 11px; align-items: flex-start;
+    background: #fff;
+  }
+  .rv-row.is-current { background: var(--lilac-100); }
+  .rv-row-check { flex-shrink: 0; margin-top: 2px; }
+  .rv-row-goto {
+    min-width: 0; flex: 1; background: none; border: none; cursor: pointer; text-align: left; padding: 0; font-family: var(--roboto);
+  }
+  .rv-row-goto:focus-visible { outline: 2px solid var(--purple-700); outline-offset: 2px; }
+  .rv-row-title { font-size: 13.5px; font-weight: 600; color: var(--purple-700); line-height: 1.3; }
+  .rv-row-meta { font-size: 11.5px; color: var(--purple-500); margin-top: 3px; }
+  .rv-list-empty { padding: 30px 16px; text-align: center; color: var(--purple-500); font-size: 13px; }
 
-  .docpane {
-    max-width: 760px; margin: clamp(14px,3vw,28px) auto;
-    background: #fff; border: 1px solid var(--line); border-radius: var(--r-sm);
-    padding: clamp(22px, 4vw, 48px);
-    box-shadow: 0 4px 24px rgba(40,19,32,.08);
-    font-size: 15px; line-height: 1.7; color: #2e2229;
-  }
-  .docpane h1, .docpane h2, .docpane h3 { font-family: var(--serif); color: var(--ink); line-height: 1.2; margin: 1.2em 0 .5em; }
-  .docpane h1:first-child, .docpane h2:first-child { margin-top: 0; }
-  .docpane h1 { font-size: 26px; } .docpane h2 { font-size: 21px; } .docpane h3 { font-size: 17px; }
-  .docpane p { margin: .65em 0; }
-  .docpane ul, .docpane ol { margin: .65em 0 .65em 1.4em; }
-  .docpane table { border-collapse: collapse; width: 100%; margin: 1em 0; font-size: 13.5px; }
-  .docpane th, .docpane td { border: 1px solid var(--line); padding: 7px 10px; text-align: left; vertical-align: top; }
-  .docpane th { background: var(--lilac); font-weight: 600; }
-  .docpane img { max-width: 100%; height: auto; }
-  .docpane.sheet-table { max-width: none; margin: clamp(14px,3vw,28px); overflow-x: auto; }
-  .docpane.sheet-table table { font-family: var(--mono); font-size: 12.5px; }
+  .rv-doc { background: var(--grey-100); padding: 22px; overflow-y: auto; min-height: 0; }
+  .rv-sheet { background: #fff; border: 1px solid var(--grey-400); min-height: 100%; }
+  .rv-sheet iframe { width: 100%; height: 100%; min-height: 70vh; border: none; display: block; }
+  .rv-img { padding: 24px; display: flex; justify-content: center; }
+  .rv-img img { max-width: 100%; height: auto; }
 
-  .vstate { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 70px 30px; text-align: center; color: var(--muted); }
-  .vstate b { font-family: var(--serif); font-size: 19px; color: var(--ink); }
-  .vstate p { font-size: 13.5px; max-width: 40ch; line-height: 1.6; }
-  .vstate .dl {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: 13.5px; font-weight: 600; color: #fff; background: var(--grape);
-    padding: 10px 18px; border-radius: 999px; text-decoration: none;
-    transition: background .15s;
+  .rv-docpane { padding: clamp(22px,4vw,40px); font-size: 15px; line-height: 1.7; color: var(--grey-600); max-width: 760px; margin: 0 auto; }
+  .rv-docpane h1, .rv-docpane h2, .rv-docpane h3 { font-family: var(--roboto); color: var(--purple-700); line-height: 1.2; margin: 1.2em 0 .5em; }
+  .rv-docpane h1:first-child, .rv-docpane h2:first-child { margin-top: 0; }
+  .rv-docpane h1 { font-size: 24px; } .rv-docpane h2 { font-size: 20px; } .rv-docpane h3 { font-size: 16px; }
+  .rv-docpane p { margin: .65em 0; }
+  .rv-docpane ul, .rv-docpane ol { margin: .65em 0 .65em 1.4em; }
+  .rv-docpane table { border-collapse: collapse; width: 100%; margin: 1em 0; font-size: 13.5px; }
+  .rv-docpane th, .rv-docpane td { border: 1px solid var(--grey-400); padding: 7px 10px; text-align: left; vertical-align: top; }
+  .rv-docpane th { background: var(--lilac-100); font-weight: 600; }
+  .rv-docpane img { max-width: 100%; height: auto; }
+  .rv-docpane.sheet-table { max-width: none; padding: clamp(14px,3vw,22px); overflow-x: auto; }
+  .rv-docpane.sheet-table table { font-size: 12.5px; }
+
+  .rv-broken { background: #fff; border: 1px solid var(--grey-400); padding: 34px 36px; display: flex; flex-direction: column; gap: 12px; align-items: flex-start; max-width: 640px; margin: 0 auto; }
+  .rv-broken-kicker { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--purple-500); }
+  .rv-broken-icon { font-size: 28px; }
+  .rv-broken-title { font-family: var(--roboto); font-size: 20px; font-weight: 600; color: var(--purple-700); line-height: 1.25; }
+  .rv-broken p { font-size: 15px; line-height: 1.65; max-width: 52ch; }
+  .rv-broken a.inline-link { font-weight: 600; color: var(--purple-700); }
+
+  .rv-loading {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+    padding: 70px 30px; text-align: center; color: var(--purple-500); background: #fff; border: 1px solid var(--grey-400);
   }
-  .vstate .dl:hover { background: var(--mulberry); }
-  .spin {
-    width: 26px; height: 26px; border-radius: 50%;
-    border: 3px solid var(--lilac-line); border-top-color: var(--grape);
-    animation: spin .8s linear infinite;
-  }
+  .rv-spin { width: 26px; height: 26px; border-radius: 50%; border: 3px solid var(--lilac-300); border-top-color: var(--purple-700); animation: spin .8s linear infinite; }
   @keyframes spin { to { transform: rotate(360deg); } }
 
-
-  /* ── Notes scratchpad ──────────────────────────────────────────── */
-  .notes-wrap { max-width: var(--maxw); margin: 0 auto; padding: 6px clamp(18px,4vw,40px) 30px; scroll-margin-top: 60px; }
-  .notes-head {
-    display: flex; align-items: baseline; justify-content: space-between; gap: 14px; flex-wrap: wrap;
-    padding-bottom: 12px; border-bottom: 2px solid var(--plum); margin-bottom: 12px;
-  }
-  .notes-head h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(20px,2.6vw,28px); letter-spacing: -.01em; }
-  .notes-state { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: .03em; }
-  .notes-state.ok { color: var(--green); }
-  .notes-wrap .sub { font-size: 13px; color: var(--muted); margin-bottom: 14px; max-width: 64ch; }
-  #notes-ta {
-    width: 100%; min-height: 170px; resize: vertical;
-    font-family: var(--sans); font-size: 14.5px; line-height: 1.65; color: var(--ink);
-    background: var(--card); border: 1px solid var(--line); border-radius: var(--r-sm);
-    padding: 14px 16px;
-    transition: border-color .18s, box-shadow .18s;
-  }
-  #notes-ta::placeholder { color: var(--muted); }
-  #notes-ta:focus { outline: none; border-color: var(--mulberry); box-shadow: 0 0 0 3px rgba(124,62,124,.14); }
-  .notes-print { display: none; }
+  .rv-notes { border-left: 1px solid var(--grey-400); padding: 18px; display: flex; flex-direction: column; gap: 14px; background: var(--grey-100); overflow-y: auto; min-height: 0; }
+  .rv-notes-head { display: flex; align-items: baseline; justify-content: space-between; }
+  .rv-notes-head span:first-child { font-size: 15px; font-weight: 600; color: var(--purple-700); }
+  .rv-mark-next { margin-top: auto; width: 100%; text-align: center; }
 
   .foot .build { display: block; margin-top: 5px; opacity: .55; }
 
@@ -678,27 +540,22 @@
   /* ── Print: a profile prints as a clean document ───────────────── */
   @media print {
     body { background: #fff; }
-    .util, .cw-header, .cw-filters, .cw-utility, .m-nav, .p-nav, .back, .viewer, .ev-filters, .progress, .ev-head-side,
-    .reg-actions, .reg-check, .pn-wrap, .foot, .p-hero-photo, .p-hero-scrim,
-    #notes-ta, .notes-state, .notes-wrap .sub { display: none !important; }
-    #p-notes:not(.has-notes) { display: none !important; }
-    .notes-print { display: block; white-space: pre-wrap; font-size: 12.5px; line-height: 1.6; }
-    .notes-head { border-color: #000; }
+    .cw-header, .cw-filters, .cw-utility, .pf-bar, .pf-hero, .viewer, .pn-wrap, .foot,
+    .pf-sec-note-btn, .pf-ev-check, .pf-ev-preview, .pf-ev-controls,
+    .pf-note-remove, .pf-note-add { display: none !important; }
     .page { display: none !important; }
     .page.active { display: block !important; }
-    .p-hero { background: none; }
-    .p-hero-inner { min-height: 0; padding: 0 0 18px; }
-    .p-titles, .p-name, .p-sub, .p-eyebrow { color: #000 !important; text-shadow: none; }
-    .p-sub .k { color: #555; }
-    .p-wrap { display: block; padding: 0; }
-    .p-sections { max-width: none; }
-    .sec { break-inside: avoid; }
-    .ev-wrap { padding: 18px 0 0; }
-    .register, .reg-row { border-color: #ccc; }
-    .reg-head { display: none !important; }
-    .reg-row { display: block; padding: 8px 0; }
-    .reg-doc { display: block; margin-top: 2px; }
-    .reg-meta-m { display: inline; }
+    .pf-wrap { display: block; }
+    .pf-main { border-right: none; padding: 0; }
+    .pf-sec-body { display: block !important; }
+    .pf-sec { break-inside: avoid; border-color: #ccc; }
+    .pf-ev-row { break-inside: avoid; }
+    .pf-notes {
+      position: static; max-height: none; overflow: visible; background: none;
+      padding: 24px 0 0; border-top: 1px solid #ccc; margin-top: 20px;
+    }
+    .pf-notes:not(.has-content) { display: none !important; }
+    .pf-note-state { display: none !important; }
   }
 </style>
 </head>
@@ -797,49 +654,30 @@
   </div>
 </div>
 
-<!-- ══ PROFILE ════════════════════════════════════════════════════ -->
+<!-- ══ PROFILE (learner case file) ═══════════════════════════════════ -->
 <div id="profile-page" class="page">
-  <div class="util">
-    <span class="brand">TIME Education and Training</span>
-    <span class="doc" id="p-doc">Learner Profile</span>
-  </div>
-
-  <header class="p-hero">
-    <div class="p-hero-photo" id="p-photo"></div>
-    <div class="p-hero-scrim"></div>
-    <div class="p-hero-inner">
-      <button class="back" id="back">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8.5 3L4.5 7l4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Back to cohort
-      </button>
-      <div class="p-titles">
-        <div class="p-eyebrow"><span class="dot"></span><span id="p-eyebrow-tx"></span></div>
-        <h1 class="p-name" id="p-name"></h1>
-        <div class="p-sub" id="p-sub"></div>
-      </div>
+  <header class="pf-bar">
+    <button class="pf-back" id="pf-back">← Cohort</button>
+    <span class="pf-bar-name" id="pf-bar-name"></span>
+    <span class="pf-bar-ref" id="pf-bar-ref"></span>
+    <div class="pf-bar-actions">
+      <button class="cw-pill-outline" id="pf-print">Print file</button>
+      <button class="cw-pill-fill" id="pf-export" disabled title="Export coming in a later stage">Export record (.zip)</button>
     </div>
   </header>
 
-  <nav class="m-nav" aria-label="Sections of this profile">
-    <div class="m-nav-inner" id="m-nav"></div>
-  </nav>
+  <div class="pf-hero" id="pf-hero"></div>
 
-  <div class="p-wrap">
-    <aside class="p-nav" id="p-nav" aria-label="Sections of this profile"></aside>
-    <div class="p-sections" id="p-sections"></div>
-  </div>
-
-  <section class="ev-wrap" id="p-evidence" aria-label="Evidence register"></section>
-
-  <section class="notes-wrap" id="p-notes" aria-label="Your notes">
-    <div class="notes-head">
-      <h2>Your notes</h2>
-      <span class="notes-state" id="notes-state" role="status"></span>
+  <div class="pf-wrap">
+    <div class="pf-main">
+      <div class="pf-identity" id="pf-identity"></div>
+      <div class="pf-brief" id="pf-brief"></div>
+      <div class="pf-facts" id="pf-facts"></div>
+      <div class="pf-sections" id="pf-sections"></div>
+      <div class="pf-ev" id="pf-evidence" aria-label="Evidence register"></div>
     </div>
-    <p class="sub">Record your observations and judgements about this portfolio as you review the evidence. Notes stay on this device, and are included when you print this file or export your progress from the cohort page.</p>
-    <textarea id="notes-ta" aria-label="Your notes about this learner" placeholder="What does the evidence show? What is missing or inconsistent? What would you ask this learner at a competency conversation?"></textarea>
-    <div class="notes-print" id="notes-print"></div>
-  </section>
+    <aside class="pf-notes" id="pf-notes" aria-label="Your notes"></aside>
+  </div>
 
   <nav class="pn-wrap" id="p-pn" aria-label="Other learners"></nav>
 
@@ -849,35 +687,20 @@
   </div>
 </div>
 
-<!-- ══ DOCUMENT VIEWER ════════════════════════════════════════════ -->
-<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Document viewer">
-  <div class="viewer-scrim" id="v-scrim"></div>
-  <div class="viewer-panel">
-    <div class="viewer-bar">
-      <span class="vcode" id="v-code"></span>
-      <span class="vtitle" id="v-title"></span>
-      <button class="vbtn" id="v-prev" title="Previous document (←)" aria-label="Previous document">
-        <svg width="15" height="15" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8.5 3L4.5 7l4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <button class="vbtn" id="v-next" title="Next document (→)" aria-label="Next document">
-        <svg width="15" height="15" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5.5 3l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <a class="vbtn" id="v-dl" title="Download this document" aria-label="Download this document" download>
-        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7.5 2v7.5M4.5 7l3 3 3-3M2.5 12.5h10" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <button class="vbtn" id="v-close" title="Close (Esc)" aria-label="Close the viewer">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3l8 8M11 3l-8 8" stroke-linecap="round"/></svg>
-      </button>
+<!-- ══ READING (evidence viewer) ══════════════════════════════════════ -->
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Reading evidence">
+  <header class="rv-bar">
+    <button class="rv-back" id="rv-close">← Case file</button>
+    <span class="rv-title" id="rv-title"></span>
+    <span class="rv-meta" id="rv-meta"></span>
+  </header>
+  <div class="rv-body">
+    <div class="rv-list" id="rv-list">
+      <div class="rv-filters" id="rv-filters"></div>
+      <div id="rv-rows"></div>
     </div>
-    <div class="viewer-sub">
-      <span class="vfile" id="v-file"></span>
-      <label class="reg-check vmark" id="v-mark-wrap">
-        <input type="checkbox" id="v-mark">
-        <span class="box"><svg width="11" height="9" viewBox="0 0 11 9" fill="none" stroke="#fff" stroke-width="2"><path d="M1.5 4.5l2.6 2.6L9.5 1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <span class="ctx" id="v-mark-tx">Mark as reviewed</span>
-      </label>
-    </div>
-    <div class="viewer-body" id="v-body"></div>
+    <div class="rv-doc" id="rv-doc"></div>
+    <aside class="rv-notes" id="rv-notes"></aside>
   </div>
 </div>
 
@@ -915,10 +738,6 @@ const SECTIONS = [
   { key:'workingStyle',           label:'Working Style & Preferences' },
   { key:'additionalInfo',         label:'Additional Information' }
 ];
-
-const PHOTO_PH = `<div class="ph">
-  <svg width="40" height="30" viewBox="0 0 40 30" fill="none"><rect width="40" height="30" rx="3" fill="#7C3E7C" opacity=".12"/><path d="M5 25l8-11 6 6 6-8 10 13H5z" fill="#7C3E7C" opacity=".3"/><circle cx="29" cy="8" r="3" fill="#7C3E7C" opacity=".3"/></svg>
-  <span>Workplace photo</span></div>`;
 
 /* ── Text helpers ───────────────────────────────────────────────── */
 function basePkg(p){ return (p||'').trim().split(/\s+/)[0]; }
@@ -1016,6 +835,26 @@ function saveNotes(slug, v){
   } catch(e){}
 }
 
+/* ── Anchored notes: pinned to a profile section or an evidence file ── */
+function getAnchoredNotes(slug){
+  try { return JSON.parse(localStorage.getItem('tet-rpl-notes-anchored:'+slug) || '{}'); }
+  catch(e){ return {}; }
+}
+function saveAnchoredNote(slug, anchor, text){
+  const all = getAnchoredNotes(slug);
+  if(text.trim()) all[anchor] = text; else delete all[anchor];
+  try {
+    if(Object.keys(all).length) localStorage.setItem('tet-rpl-notes-anchored:'+slug, JSON.stringify(all));
+    else localStorage.removeItem('tet-rpl-notes-anchored:'+slug);
+  } catch(e){}
+}
+function anchorLabel(l, anchor){
+  const sec = SECTIONS.find(s=>s.key===anchor);
+  if(sec) return sec.label;
+  const f = (l.files||[]).find(f=>f.name===anchor);
+  return f ? fileLabel(f) : anchor;
+}
+
 /* ── Group (kept in this browser only) ───────────────────────────── */
 function getGroup(){
   try { const raw = localStorage.getItem('tet-rpl-group'); return raw ? JSON.parse(raw) : null; }
@@ -1057,6 +896,7 @@ let evFilter = 'all';      // all | docx | pdf | xlsx | img | todo
 let vList = [];            // files visible in the register (viewer navigates these)
 let vIdx = -1;
 let lastFocus = null;
+let shownNoteAnchors = new Set(); // anchors with a visible editor box in the notes margin, this page view
 
 /* ── Routing ────────────────────────────────────────────────────── */
 function navigate(h){ window.location.hash = h || ''; }
@@ -1400,60 +1240,86 @@ document.addEventListener('click', e=>{
   if(box && !box.contains(e.target)) hideSetupResults();
 });
 
-/* ── Profile ────────────────────────────────────────────────────── */
+/* ── Profile (learner case file) ─────────────────────────────────── */
+function groupLeadFor(slug){
+  if(!GROUP) return '';
+  const m = (GROUP.members||[]).find(m=>m.slug===slug);
+  return m ? (m.lead||'') : '';
+}
 function showProfile(l){
   closeViewer();
   CUR = l;
   curReviewed = reviewedSet(l.slug);
   evFilter = 'all';
+  shownNoteAnchors = new Set(Object.keys(getAnchoredNotes(l.slug)));
   document.title = l.name + ' · Learner Cohort · TIME Education and Training';
 
   const code = basePkg(l.package), pname = pkgName(l.package);
   const role = roleFor(l), loc = locationFor(l);
   const ev = (l.files||[]).length;
+  const lead = groupLeadFor(l.slug);
+  const fields = [(l.competencyFields||{}).primary, ...((l.competencyFields||{}).secondary||[])].filter(Boolean);
 
-  document.getElementById('p-doc').textContent = `${l.ref} · ${l.name}`;
-  document.getElementById('p-eyebrow-tx').textContent = `${pname || code} learner`;
-  document.getElementById('p-name').textContent = l.name;
-  document.getElementById('p-sub').innerHTML =
-    [ role && `<span><span class="k">Role</span>${esc(role)}</span>`,
-      loc  && `<span><span class="k">Based</span>${esc(loc)}</span>`,
-      `<span><span class="k">Package</span>${code} ${pname}</span>` ]
-    .filter(Boolean).join('');
+  document.getElementById('pf-bar-name').textContent = l.name;
+  document.getElementById('pf-bar-ref').textContent = l.ref + (lead ? ' · lead assessor '+lead : '');
 
-  const photo = document.getElementById('p-photo');
+  const hero = document.getElementById('pf-hero');
   /* photoFocus: optional data.json field, a CSS object-position string (e.g.
      "70% 25%") for learners whose subject sits off the default centre-28%. */
   const focus = l.photoFocus ? ` style="object-position:${esc(l.photoFocus)}"` : '';
-  photo.innerHTML = l.photo ? `<img src="${l.photo}" alt="${esc(l.name)} at work"${focus}>` : PHOTO_PH;
+  hero.innerHTML = l.photo ? `<img src="${l.photo}" alt="${esc(l.name)} at work"${focus}>` : '';
 
-  const navLinks = SECTIONS.map((s,i)=>({ id:'sec-'+i, label:s.label }))
-    .concat([{ id:'p-evidence', label:'Evidence register' }, { id:'p-notes', label:'Your notes' }]);
+  const subParts = [role, l.employer, (l.age!=null ? String(l.age) : ''), loc].filter(Boolean);
+  const identityChips = [
+    (code || pname) ? `<span class="pf-chip pf-chip--fill">${esc([code,pname].filter(Boolean).join(' '))}</span>` : '',
+    ...fields.map(k=>`<span class="pf-chip">${esc(competencyFieldLabel(k))}</span>`),
+    `<span class="pf-chip">${ev} evidence item${ev===1?'':'s'}</span>`
+  ].filter(Boolean).join('');
+  document.getElementById('pf-identity').innerHTML =
+    `<div class="pf-identity-name">${esc(l.name)}</div>
+     ${subParts.length ? `<div class="pf-identity-sub">${esc(subParts.join(' · '))}</div>` : ''}
+     <div class="pf-identity-chips">${identityChips}</div>`;
 
-  document.getElementById('p-nav').innerHTML =
-    `<div class="lbl">On this file</div>` +
-    navLinks.map(n=>`<a href="#${n.id}" data-sec="${n.id}">${n.label}</a>`).join('') +
-    `<dl class="p-facts">
-       <dt>Training package</dt><dd>${code} · ${pname}</dd>
-       ${loc?`<dt>Location</dt><dd>${esc(loc)}</dd>`:''}
-       <dt>Evidence</dt><dd>${ev} item${ev===1?'':'s'} in portfolio</dd>
-     </dl>`;
-  document.getElementById('m-nav').innerHTML =
-    navLinks.map(n=>`<a href="#${n.id}" data-sec="${n.id}">${n.label}</a>`).join('');
+  const briefText = l.brief || bioFor(l);
+  const signals = l.signals || [];
+  document.getElementById('pf-brief').innerHTML =
+    `<div class="pf-brief-label">Assessor brief</div>
+     <p class="pf-brief-text">${esc(briefText)}</p>
+     ${signals.length ? `<div class="pf-brief-signals">${signals.map(s=>`<span class="pf-signal">${esc(s)}</span>`).join('')}</div>` : ''}`;
 
-  document.getElementById('p-sections').innerHTML = SECTIONS.map((s,i)=>{
+  const facts = [
+    ['Role', role],
+    ['Industry', [code,pname].filter(Boolean).join(' · ')],
+    ['Competency field', fields.map(competencyFieldLabel).join(' · ')],
+    ['Evidence', `${ev} item${ev===1?'':'s'}`],
+    ['Lead assessor', lead]
+  ].filter(([,v])=>v);
+  document.getElementById('pf-facts').innerHTML = facts.map(([k,v])=>
+    `<div class="pf-fact"><span class="pf-fact-k">${esc(k)}</span><span class="pf-fact-v">${esc(v)}</span></div>`
+  ).join('');
+
+  document.getElementById('pf-sections').innerHTML = SECTIONS.map(s=>{
     const raw = (l.sections && l.sections[s.key]) || '';
-    const paras = raw.split('\n').filter(t=>t.trim()).map(t=>`<p>${esc(t)}</p>`).join('');
-    return `<section class="sec" id="sec-${i}">
-      <div class="sec-head"><span class="sec-num">${String(i+1).padStart(2,'0')}</span>
-      <h2 class="sec-label">${s.label}</h2></div>
-      <div class="sec-text">${paras}</div></section>`;
+    const paraList = raw.split('\n').filter(t=>t.trim());
+    const hint = paraList.length ? paraList.length+' paragraph'+(paraList.length===1?'':'s') : 'empty';
+    const paras = paraList.map(t=>`<p>${esc(t)}</p>`).join('') || '<p>No content yet.</p>';
+    return `<details class="pf-sec" data-anchor="${esc(s.key)}">
+      <summary class="pf-sec-head">
+        <span class="pf-sec-label">${esc(s.label)}</span>
+        <span class="pf-sec-meta">${hint} · <span class="pf-sec-note-btn" role="button" tabindex="0" data-note-anchor="${esc(s.key)}">＋ note</span></span>
+      </summary>
+      <div class="pf-sec-body">${paras}</div>
+    </details>`;
   }).join('');
+  document.getElementById('pf-sections').querySelectorAll('[data-note-anchor]').forEach(b=>{
+    const trigger = e => { e.preventDefault(); e.stopPropagation(); openNoteEditor(b.dataset.noteAnchor); };
+    b.addEventListener('click', trigger);
+    b.addEventListener('keydown', e=>{ if(e.key==='Enter' || e.key===' '){ trigger(e); } });
+  });
 
   renderRegister();
-  hydrateNotes(l);
+  renderNotesMargin();
   renderPrevNext(l);
-  setupSectionNav();
   document.getElementById('index-page').classList.remove('active');
   document.getElementById('setup-page').classList.remove('active');
   document.getElementById('profile-page').classList.add('active');
@@ -1480,77 +1346,52 @@ function renderRegister(){
   /* While the viewer is open it navigates a stable snapshot; resync on close. */
   if(!document.getElementById('viewer').classList.contains('open')) vList = shown;
   const done = files.filter(f=>curReviewed.has(f.name)).length;
-  const pct = files.length ? Math.round(done/files.length*100) : 0;
 
   const counts = { all: files.length, docx:0, pdf:0, xlsx:0, img:0, todo: files.length - done };
   files.forEach(f=>{ const k=fileKind(f); counts[k==='doc'?'docx':k] = (counts[k==='doc'?'docx':k]||0)+1; });
 
-  const chips = [
-    ['all','All'], ['docx','Word'], ['pdf','PDF'], ['xlsx','Sheets'], ['img','Images'], ['todo','Still to review']
+  const filterBtns = [
+    ['all','All'], ['docx','Word'], ['pdf','PDF'], ['xlsx','Sheets'], ['img','Images'], ['todo','To do']
   ].filter(([v])=> v==='all' || counts[v]>0)
-   .map(([v,lab])=>`<button class="chip" data-ef="${v}" aria-pressed="${evFilter===v}">${lab} · ${counts[v]}</button>`).join('');
+   .map(([v,lab])=>`<button type="button" data-ef="${v}" aria-pressed="${evFilter===v}">${lab} · ${counts[v]}</button>`).join('<span class="sep">·</span>');
 
   const rows = shown.map((f,i)=>{
     const k = fileKind(f);
     const isDone = curReviewed.has(f.name);
-    const href = fileHref(l,f);
-    return `<div class="reg-row${isDone?' is-done':''}" data-name="${esc(f.name)}">
-      <span class="reg-code-col"><span class="reg-code">${esc(docCode(f.name))}</span></span>
-      <button class="reg-doc" data-open="${i}" title="Preview ${esc(f.name)}">
-        <span class="reg-title">${esc(fileLabel(f))}</span>
-        <span class="reg-file">${esc(f.name)}</span>
+    return `<div class="pf-ev-row" data-name="${esc(f.name)}">
+      <button type="button" class="pf-ev-check${isDone?' is-done':''}" data-rev="${esc(f.name)}" aria-pressed="${isDone}" aria-label="Mark ${esc(fileLabel(f))} as ${isDone?'not reviewed':'reviewed'}">
+        <svg width="10" height="8" viewBox="0 0 11 9" fill="none" stroke="var(--lilac-500)" stroke-width="2"><path d="M1.5 4.5l2.6 2.6L9.5 1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
-      <span class="reg-meta-m">
-        <span class="ftag-col"><span class="ftag ${k}">${KIND_LABEL[k]||k.toUpperCase()}</span></span>
-        <span class="reg-check-col">
-          <label class="reg-check" title="Mark this document as reviewed">
-            <input type="checkbox" data-rev="${esc(f.name)}" ${isDone?'checked':''} aria-label="Mark ${esc(fileLabel(f))} as reviewed">
-            <span class="box"><svg width="11" height="9" viewBox="0 0 11 9" fill="none" stroke="#fff" stroke-width="2"><path d="M1.5 4.5l2.6 2.6L9.5 1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            <span class="ctx">${isDone?'Reviewed':'To review'}</span>
-          </label>
-        </span>
-      </span>
-      <span class="reg-actions">
-        <button class="icon-btn" data-open="${i}" title="Preview in the browser" aria-label="Preview ${esc(fileLabel(f))}">
-          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1.5 8s2.4-4.5 6.5-4.5S14.5 8 14.5 8s-2.4 4.5-6.5 4.5S1.5 8 1.5 8z"/><circle cx="8" cy="8" r="2"/></svg>
-        </button>
-        <a class="icon-btn" href="${href}" download title="Download" aria-label="Download ${esc(fileLabel(f))}">
-          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7.5 2v7.5M4.5 7l3 3 3-3M2.5 12.5h10" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </span>
+      <button type="button" class="pf-ev-doc" data-open="${esc(f.name)}" title="Preview ${esc(f.name)}">
+        <span class="pf-ev-title-tx">${esc(fileLabel(f))}</span>
+        <span class="pf-ev-file">${esc(f.name)}</span>
+      </button>
+      <span class="pf-ev-tag">${esc(KIND_LABEL[k]||k.toUpperCase())}</span>
+      <button type="button" class="pf-ev-preview" data-open="${esc(f.name)}">Preview</button>
     </div>`;
   }).join('');
 
-  document.getElementById('p-evidence').innerHTML =
-    `<div class="ev-head">
-       <div>
-         <h2>Evidence register</h2>
-         <p class="sub">Preview each document in the browser, or download it. Tick items off as you review them — your progress is saved in this browser.</p>
-       </div>
-       <div class="ev-head-side">
-         <button class="dl-all" id="dl-all" title="Download every document in this portfolio as a single zip">
-           <svg class="dla-ic" width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7.5 2v7.5M4.5 7l3 3 3-3M2.5 12.5h10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  document.getElementById('pf-evidence').innerHTML =
+    `<div class="pf-ev-head">
+       <span class="pf-ev-title">Evidence · ${files.length} item${files.length===1?'':'s'}</span>
+       <div class="pf-ev-controls">
+         ${filterBtns}
+         <span class="sep">·</span>
+         <button type="button" class="pf-ev-dlall dl-all" id="dl-all" title="Download every document in this portfolio as a single zip">
+           <svg class="dla-ic" width="12" height="12" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7.5 2v7.5M4.5 7l3 3 3-3M2.5 12.5h10" stroke-linecap="round" stroke-linejoin="round"/></svg>
            <span class="dla-tx">Download all (${files.length})</span>
          </button>
-         <div class="progress" role="status">
-           <div class="ptx"><span>Reviewed</span><span><b>${done}</b> of ${files.length} · ${pct}%</span></div>
-           <div class="bar"><i style="width:${pct}%"></i></div>
-         </div>
        </div>
      </div>
-     <div class="ev-filters">${chips}</div>
-     <div class="register">
-       <div class="reg-head"><span>Ref</span><span>Document</span><span>Type</span><span>Status</span><span style="text-align:right">Actions</span></div>
-       ${rows || `<div class="reg-empty">Nothing matches this filter. <button data-ef="all">Show everything</button></div>`}
-     </div>`;
+     ${rows || `<div class="pf-ev-empty">Nothing matches this filter. <button type="button" data-ef="all">Show everything</button></div>`}`;
 
-  const wrap = document.getElementById('p-evidence');
+  const wrap = document.getElementById('pf-evidence');
   wrap.querySelectorAll('[data-ef]').forEach(b =>
     b.addEventListener('click', ()=>{ evFilter = b.dataset.ef; renderRegister(); }));
   wrap.querySelectorAll('[data-open]').forEach(b =>
-    b.addEventListener('click', ()=> openViewer(parseInt(b.dataset.open,10))));
-  wrap.querySelectorAll('input[data-rev]').forEach(c =>
-    c.addEventListener('change', ()=> setReviewed(c.dataset.rev, c.checked)));
+    b.addEventListener('click', ()=> openViewer(b.dataset.open)));
+  wrap.querySelectorAll('[data-rev]').forEach(b =>
+    b.addEventListener('click', ()=> setReviewed(b.dataset.rev, !curReviewed.has(b.dataset.rev))));
   const dlAll = document.getElementById('dl-all');
   if(dlAll) dlAll.addEventListener('click', ()=> downloadAll(l));
 }
@@ -1599,7 +1440,7 @@ function setReviewed(name, on){
   if(on) curReviewed.add(name); else curReviewed.delete(name);
   saveReviewed(CUR.slug, curReviewed);
   renderRegister();
-  syncViewerMark();
+  if(document.getElementById('viewer').classList.contains('open')) renderViewerList();
 }
 
 /* ── Prev / next learner ────────────────────────────────────────── */
@@ -1614,29 +1455,105 @@ function renderPrevNext(l){
     `<div class="pn">${mk(prev,'prev','Previous learner')}${mk(next,'next','Next learner')}</div>`;
 }
 
-/* ── Section nav (desktop sidebar + mobile pills) ───────────────── */
-function setupSectionNav(){
-  const links = [...document.querySelectorAll('#p-nav a[data-sec], #m-nav a[data-sec]')];
-  if(!links.length) return;
-  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  links.forEach(a=>{
-    a.addEventListener('click', e=>{
-      e.preventDefault();
-      const el = document.getElementById(a.dataset.sec);
-      if(!el) return;
-      el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
-      setActive(a.dataset.sec);
+/* ── Notes margin: general note + anchored notes ─────────────────── */
+let noteSaveTimer = null;
+function markNoteSaving(stateElId, slug){
+  const st = document.getElementById(stateElId);
+  if(!st) return;
+  st.textContent = 'Saving…'; st.classList.remove('ok');
+  clearTimeout(noteSaveTimer);
+  noteSaveTimer = setTimeout(()=>{
+    if(CUR && CUR.slug === slug){ st.textContent = 'Saved'; st.classList.add('ok'); }
+  }, 500);
+}
+function refreshNotesHasContent(){
+  const wrap = document.getElementById('pf-notes');
+  if(!wrap) return;
+  const gen = document.getElementById('pf-note-general-ta');
+  const anyGeneral = gen && gen.value.trim();
+  const anyAnchored = [...document.querySelectorAll('.pf-note-ta[data-anchor]')].some(t=>t.value.trim());
+  wrap.classList.toggle('has-content', !!(anyGeneral || anyAnchored));
+}
+function openNoteEditor(anchor){
+  shownNoteAnchors.add(anchor);
+  renderNotesMargin();
+  const ta = document.querySelector(`.pf-note-ta[data-anchor="${cssEscape(anchor)}"]`);
+  if(ta){ ta.scrollIntoView({ behavior:'smooth', block:'center' }); ta.focus(); }
+}
+function cssEscape(s){ return window.CSS && CSS.escape ? CSS.escape(s) : s.replace(/["\\\]]/g,'\\$&'); }
+function renderNotesMargin(){
+  const l = CUR; if(!l) return;
+  const general = getNotes(l.slug);
+  const anchored = getAnchoredNotes(l.slug);
+  Object.keys(anchored).forEach(a=>shownNoteAnchors.add(a));
+  const anchorList = [...shownNoteAnchors];
+
+  const wrap = document.getElementById('pf-notes');
+  const hasContent = !!(general.trim() || Object.values(anchored).some(v=>v && v.trim()));
+  wrap.classList.toggle('has-content', hasContent);
+
+  const anchoredHtml = anchorList.map(a => `
+    <div class="pf-note-anchored">
+      <div class="pf-note-anchor-row">
+        <span class="pf-note-anchor-label">${esc(anchorLabel(l,a))}</span>
+        <button type="button" class="pf-note-remove" data-remove-anchor="${esc(a)}">Remove</button>
+      </div>
+      <textarea class="pf-note-ta" data-anchor="${esc(a)}" placeholder="Notes about ${esc(anchorLabel(l,a))}…">${esc(anchored[a]||'')}</textarea>
+    </div>`).join('');
+
+  const usedAnchors = new Set(anchorList);
+  const addOptions = [
+    ...SECTIONS.filter(s=>!usedAnchors.has(s.key)).map(s=>({ v:s.key, label:s.label })),
+    ...sortedFiles(l).filter(f=>!usedAnchors.has(f.name)).map(f=>({ v:f.name, label:fileLabel(f) }))
+  ];
+
+  wrap.innerHTML = `
+    <div class="pf-notes-label">Your notes <span class="pf-note-state" id="pf-note-state"></span></div>
+    <div class="pf-note-general">
+      <div class="pf-note-anchor-label">General · whole portfolio</div>
+      <textarea class="pf-note-ta" id="pf-note-general-ta" aria-label="Your notes about this learner" placeholder="What does the evidence show? What is missing or inconsistent? What would you ask this learner at a competency conversation?">${esc(general)}</textarea>
+    </div>
+    ${anchorList.length ? `<div class="pf-notes-divider"></div><div class="pf-notes-sublabel">Anchored to a section or a file</div>${anchoredHtml}` : ''}
+    ${addOptions.length ? `
+      <div class="pf-note-add-picker" id="pf-note-add-picker" hidden>
+        <select id="pf-note-add-select" aria-label="Choose what to anchor a new note to">
+          <option value="">Choose a section or file…</option>
+          ${addOptions.map(o=>`<option value="${esc(o.v)}">${esc(o.label)}</option>`).join('')}
+        </select>
+      </div>
+      <button type="button" class="pf-note-add" id="pf-note-add-btn">＋ Add a note</button>
+    ` : ''}
+    <div class="pf-notes-foot">Saved on this device only. Included in the printed file and in every export.</div>`;
+
+  wireNotesMargin(l);
+}
+function wireNotesMargin(l){
+  const slug = l.slug;
+  const genTa = document.getElementById('pf-note-general-ta');
+  if(genTa) genTa.addEventListener('input', ()=>{
+    saveNotes(slug, genTa.value); /* persist immediately so navigating away never loses text */
+    refreshNotesHasContent();
+    markNoteSaving('pf-note-state', slug);
+  });
+  document.querySelectorAll('.pf-note-ta[data-anchor]').forEach(ta=>{
+    ta.addEventListener('input', ()=>{
+      saveAnchoredNote(slug, ta.dataset.anchor, ta.value);
+      refreshNotesHasContent();
+      markNoteSaving('pf-note-state', slug);
     });
   });
-  function setActive(id){
-    links.forEach(x=>x.classList.toggle('on', x.dataset.sec === id));
-  }
-  if(!('IntersectionObserver' in window)) return;
-  const ids = SECTIONS.map((_,i)=>'sec-'+i).concat(['p-evidence','p-notes']);
-  const obs = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{ if(e.isIntersecting) setActive(e.target.id); });
-  }, { rootMargin: '-30% 0px -60% 0px' });
-  ids.forEach(id=>{ const el=document.getElementById(id); if(el) obs.observe(el); });
+  document.querySelectorAll('[data-remove-anchor]').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      saveAnchoredNote(slug, b.dataset.removeAnchor, '');
+      shownNoteAnchors.delete(b.dataset.removeAnchor);
+      renderNotesMargin();
+    });
+  });
+  const addBtn = document.getElementById('pf-note-add-btn');
+  const picker = document.getElementById('pf-note-add-picker');
+  const select = document.getElementById('pf-note-add-select');
+  if(addBtn) addBtn.addEventListener('click', ()=>{ picker.hidden = false; addBtn.hidden = true; select.focus(); });
+  if(select) select.addEventListener('change', ()=>{ if(select.value) openNoteEditor(select.value); });
 }
 
 /* ── Document viewer ────────────────────────────────────────────── */
@@ -1659,14 +1576,26 @@ function ensureScript(key){
 }
 
 let viewToken = 0;
-function openViewer(idx){
-  if(!CUR || !vList[idx]) return;
+let rvFilter = 'all'; // all | todo | img — the reading view's own left-list filter
+
+function rvFilteredFiles(){
+  return sortedFiles(CUR).filter(f=>{
+    if(rvFilter === 'todo') return !curReviewed.has(f.name);
+    if(rvFilter === 'img') return fileKind(f) === 'img';
+    return true;
+  });
+}
+function openViewer(fileName){
+  if(!CUR) return;
   lastFocus = document.activeElement;
-  vIdx = idx;
+  rvFilter = 'all';
+  vList = rvFilteredFiles();
+  vIdx = Math.max(0, vList.findIndex(f=>f.name===fileName));
   document.getElementById('viewer').classList.add('open');
   document.body.style.overflow = 'hidden';
+  renderViewerList();
   renderViewer();
-  document.getElementById('v-close').focus();
+  document.getElementById('rv-close').focus();
 }
 function closeViewer(){
   const v = document.getElementById('viewer');
@@ -1674,8 +1603,8 @@ function closeViewer(){
   v.classList.remove('open');
   document.body.style.overflow = '';
   viewToken++;
-  document.getElementById('v-body').innerHTML = '';
-  if(CUR) renderRegister(); /* resync row indexes and vList with the active filter */
+  document.getElementById('rv-doc').innerHTML = '';
+  if(CUR){ renderRegister(); renderNotesMargin(); } /* resync register + pick up notes added while reading */
   if(lastFocus && document.contains(lastFocus)) lastFocus.focus();
 }
 function stepViewer(d){
@@ -1683,54 +1612,106 @@ function stepViewer(d){
   if(n < 0 || n >= vList.length) return;
   vIdx = n; renderViewer();
 }
-function syncViewerMark(){
-  const f = vList[vIdx];
-  if(!f || !document.getElementById('viewer').classList.contains('open')) return;
-  const on = curReviewed.has(f.name);
-  document.getElementById('v-mark').checked = on;
-  document.getElementById('v-mark-tx').textContent = on ? 'Reviewed' : 'Mark as reviewed';
+/* ── Left list: evidence, All / To do / Images ───────────────────── */
+function renderViewerList(){
+  const all = sortedFiles(CUR);
+  const rows = vList.map(f=>{
+    const isDone = curReviewed.has(f.name);
+    const isCurrent = vList[vIdx] === f;
+    return `<div class="rv-row${isCurrent?' is-current':''}" data-name="${esc(f.name)}">
+      <button type="button" class="pf-ev-check rv-row-check${isDone?' is-done':''}" data-rev="${esc(f.name)}" aria-pressed="${isDone}" aria-label="Mark ${esc(fileLabel(f))} as ${isDone?'not reviewed':'reviewed'}">
+        <svg width="10" height="8" viewBox="0 0 11 9" fill="none" stroke="var(--lilac-500)" stroke-width="2"><path d="M1.5 4.5l2.6 2.6L9.5 1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button type="button" class="rv-row-goto" data-goto="${esc(f.name)}">
+        <span class="rv-row-title">${esc(fileLabel(f))}</span>
+        <span class="rv-row-meta">${esc(KIND_LABEL[fileKind(f)]||'')} · ${isDone?'reviewed':'not reviewed'}</span>
+      </button>
+    </div>`;
+  }).join('');
+  document.getElementById('rv-rows').innerHTML = rows || `<div class="rv-list-empty">Nothing matches this filter.</div>`;
+
+  const filterDefs = [
+    ['all','All', all.length],
+    ['todo','To do', all.filter(f=>!curReviewed.has(f.name)).length],
+    ['img','Images', all.filter(f=>fileKind(f)==='img').length]
+  ];
+  document.getElementById('rv-filters').innerHTML = filterDefs
+    .filter(([v,,n])=> v==='all' || n>0)
+    .map(([v,lab,n])=>`<button type="button" class="rv-filter" data-rvf="${v}" aria-pressed="${rvFilter===v}">${esc(lab)} ${n}</button>`).join('');
+
+  document.getElementById('rv-rows').querySelectorAll('[data-goto]').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      const i = vList.findIndex(f=>f.name===b.dataset.goto);
+      if(i>=0){ vIdx = i; renderViewer(); }
+    });
+  });
+  document.getElementById('rv-rows').querySelectorAll('[data-rev]').forEach(b=>{
+    b.addEventListener('click', ()=> setReviewed(b.dataset.rev, !curReviewed.has(b.dataset.rev)));
+  });
+  document.getElementById('rv-filters').querySelectorAll('[data-rvf]').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      const curName = vList[vIdx] && vList[vIdx].name;
+      rvFilter = b.dataset.rvf;
+      vList = rvFilteredFiles();
+      vIdx = Math.max(0, vList.findIndex(f=>f.name===curName));
+      renderViewerList();
+      renderViewer();
+    });
+  });
 }
+/* ── Centre + right columns for the current document ─────────────── */
 function renderViewer(){
   const f = vList[vIdx]; if(!f) return;
   const token = ++viewToken;
   const href = fileHref(CUR, f);
   const k = fileKind(f);
 
-  document.getElementById('v-code').textContent = docCode(f.name);
-  document.getElementById('v-title').textContent = fileLabel(f);
-  document.getElementById('v-file').textContent = f.name;
-  document.getElementById('v-dl').setAttribute('href', href);
-  document.getElementById('v-prev').disabled = vIdx <= 0;
-  document.getElementById('v-next').disabled = vIdx >= vList.length - 1;
-  syncViewerMark();
+  document.getElementById('rv-title').textContent = (docCode(f.name)!=='—' ? docCode(f.name)+' · ' : '') + fileLabel(f);
+  document.getElementById('rv-meta').textContent = `${vIdx+1} of ${vList.length} · ← → · Esc to close`;
+  renderViewerList();
+  renderViewerNotes();
 
-  const body = document.getElementById('v-body');
+  const body = document.getElementById('rv-doc');
   const fail = (title, msg)=>{
     if(token !== viewToken) return;
-    body.innerHTML = `<div class="vstate"><b>${esc(title)}</b><p>${esc(msg)}</p>
-      <a class="dl" href="${href}" download>Download the document
-        <svg width="14" height="14" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7.5 2v7.5M4.5 7l3 3 3-3M2.5 12.5h10" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>`;
+    body.innerHTML = `<div class="rv-broken">
+      <div class="rv-broken-title">${esc(title)}</div>
+      <p>${esc(msg)}</p>
+      <a class="cw-pill-fill" href="${href}" download>Download the file</a>
+    </div>`;
   };
 
+  /* The deliberate failure: files marked viewable:false in data.json are
+     unpreviewable on purpose, to simulate a real evidence-collection problem.
+     Nothing before this point may reveal that — every register row and list
+     row just says "Preview". */
+  if(f.viewable === false){
+    const firstName = (CUR.name||'').trim().split(/\s+/)[0] || CUR.name;
+    if(token !== viewToken) return;
+    body.innerHTML = `<div class="rv-broken">
+      <div class="rv-broken-icon" aria-hidden="true">✉</div>
+      <div class="rv-broken-title">Oops — this file appears to be corrupted</div>
+      <p>You emailed ${esc(firstName)} to ask for it again, and they've sent it back to you <a class="inline-link" href="${href}" download>here</a>. Be prepared that real portfolios will have issues like this.</p>
+      <a class="cw-pill-fill" href="${href}" download>Download the file</a>
+    </div>`;
+    return;
+  }
+
   if(k === 'img'){
-    body.innerHTML = `<div class="vimg"><img src="${href}" alt="${esc(fileLabel(f))}"></div>`;
+    body.innerHTML = `<div class="rv-sheet"><div class="rv-img"><img src="${href}" alt="${esc(fileLabel(f))}"></div></div>`;
     return;
   }
   if(k === 'pdf'){
-    body.innerHTML = `<iframe src="${href}" title="${esc(fileLabel(f))}"></iframe>`;
-    return;
-  }
-  if(k === 'doc'){
-    fail('This one needs Word', 'It’s saved in the older Word 97 format, which browsers can’t display. Download it to open it — exactly the kind of file that turns up in a real RPL portfolio.');
+    body.innerHTML = `<div class="rv-sheet"><iframe src="${href}" title="${esc(fileLabel(f))}"></iframe></div>`;
     return;
   }
 
-  body.innerHTML = `<div class="vstate"><span class="spin" aria-hidden="true"></span><p>Opening the document…</p></div>`;
+  body.innerHTML = `<div class="rv-loading"><span class="rv-spin" aria-hidden="true"></span><p>Opening the document…</p></div>`;
 
   if(k === 'docx'){
     Promise.all([ensureScript('mammoth'), fetch(href).then(r=>{ if(!r.ok) throw new Error(); return r.arrayBuffer(); })])
       .then(([_, buf]) => window.mammoth.convertToHtml({ arrayBuffer: buf }))
-      .then(out => { if(token === viewToken) body.innerHTML = `<div class="docpane">${out.value}</div>`; })
+      .then(out => { if(token === viewToken) body.innerHTML = `<div class="rv-sheet"><div class="rv-docpane">${out.value}</div></div>`; })
       .catch(()=> fail('Preview didn’t load', 'The document couldn’t be displayed in the browser this time.'));
     return;
   }
@@ -1742,21 +1723,47 @@ function renderViewer(){
         const html = wb.SheetNames.map(n =>
           `<h3>${esc(n)}</h3>` + window.XLSX.utils.sheet_to_html(wb.Sheets[n], { header:'', footer:'' })
         ).join('');
-        body.innerHTML = `<div class="docpane sheet-table">${html}</div>`;
+        body.innerHTML = `<div class="rv-sheet"><div class="rv-docpane sheet-table">${html}</div></div>`;
       })
       .catch(()=> fail('Preview didn’t load', 'The spreadsheet couldn’t be displayed in the browser this time.'));
     return;
   }
   fail('No preview for this file', 'Download it to take a look.');
 }
+/* ── Right column: notes anchored to this document + the general note ── */
+function renderViewerNotes(){
+  const f = vList[vIdx]; if(!f) return;
+  const l = CUR;
+  const anchorText = getAnchoredNotes(l.slug)[f.name] || '';
+  const generalText = getNotes(l.slug);
+  const wrap = document.getElementById('rv-notes');
+  wrap.innerHTML = `
+    <div class="rv-notes-head"><span>Your notes</span><span class="pf-note-state" id="rv-note-state"></span></div>
+    <div class="pf-note-anchored">
+      <div class="pf-note-anchor-label">About ${esc(fileLabel(f))}</div>
+      <textarea class="pf-note-ta" id="rv-note-anchor-ta" aria-label="Notes about this document" placeholder="Notes about this document…">${esc(anchorText)}</textarea>
+    </div>
+    <div class="pf-note-general">
+      <div class="pf-note-anchor-label">General · whole portfolio</div>
+      <textarea class="pf-note-ta" id="rv-note-general-ta" aria-label="Notes about the whole portfolio" placeholder="Notes about the whole portfolio…">${esc(generalText)}</textarea>
+    </div>
+    <button type="button" class="cw-pill-fill rv-mark-next" id="rv-mark-next">Mark reviewed · next →</button>`;
 
-document.getElementById('v-close').addEventListener('click', closeViewer);
-document.getElementById('v-scrim').addEventListener('click', closeViewer);
-document.getElementById('v-prev').addEventListener('click', ()=> stepViewer(-1));
-document.getElementById('v-next').addEventListener('click', ()=> stepViewer(1));
-document.getElementById('v-mark').addEventListener('change', e=>{
-  const f = vList[vIdx]; if(f) setReviewed(f.name, e.target.checked);
-});
+  document.getElementById('rv-note-anchor-ta').addEventListener('input', e=>{
+    saveAnchoredNote(l.slug, f.name, e.target.value);
+    markNoteSaving('rv-note-state', l.slug);
+  });
+  document.getElementById('rv-note-general-ta').addEventListener('input', e=>{
+    saveNotes(l.slug, e.target.value);
+    markNoteSaving('rv-note-state', l.slug);
+  });
+  document.getElementById('rv-mark-next').addEventListener('click', ()=>{
+    setReviewed(f.name, true);
+    if(vIdx < vList.length - 1) stepViewer(1); else closeViewer();
+  });
+}
+
+document.getElementById('rv-close').addEventListener('click', closeViewer);
 document.addEventListener('keydown', e=>{
   const open = document.getElementById('viewer').classList.contains('open');
   if(!open) return;
@@ -1765,7 +1772,7 @@ document.addEventListener('keydown', e=>{
   if(e.key === 'ArrowRight') stepViewer(1);
   if(e.key === 'Tab'){
     /* keep focus inside the viewer */
-    const focusables = [...document.querySelectorAll('.viewer-panel button:not([disabled]), .viewer-panel a[href], .viewer-panel input')];
+    const focusables = [...document.querySelectorAll('.viewer button:not([disabled]), .viewer a[href], .viewer input, .viewer select, .viewer textarea')];
     if(!focusables.length) return;
     const first = focusables[0], last = focusables[focusables.length-1];
     if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
@@ -1774,7 +1781,8 @@ document.addEventListener('keydown', e=>{
 });
 
 /* ── Wiring ─────────────────────────────────────────────────────── */
-document.getElementById('back').addEventListener('click', ()=> navigate(''));
+document.getElementById('pf-back').addEventListener('click', ()=> navigate(''));
+document.getElementById('pf-print').addEventListener('click', ()=> window.print());
 document.getElementById('search').addEventListener('input', e=>{
   query = e.target.value.trim().toLowerCase(); renderGrid();
 });
@@ -1787,37 +1795,6 @@ document.getElementById('sort-mode').addEventListener('change', e=>{
 document.getElementById('cw-edit-group').addEventListener('click', ()=> navigate('setup'));
 document.getElementById('dash-export').addEventListener('click', exportProgress);
 document.getElementById('dash-reset').addEventListener('click', resetProgress);
-
-/* Notes scratchpad */
-const notesTa = document.getElementById('notes-ta');
-let notesTimer = null;
-function hydrateNotes(l){
-  const v = getNotes(l.slug);
-  clearTimeout(notesTimer);
-  notesTa.value = v;
-  document.getElementById('notes-print').textContent = v;
-  document.getElementById('p-notes').classList.toggle('has-notes', !!v.trim());
-  const st = document.getElementById('notes-state');
-  st.textContent = v.trim() ? 'Saved in this browser' : '';
-  st.classList.toggle('ok', !!v.trim());
-}
-notesTa.addEventListener('input', ()=>{
-  if(!CUR) return;
-  const slug = CUR.slug, v = notesTa.value;
-  saveNotes(slug, v); /* persist immediately so navigating away never loses text */
-  document.getElementById('notes-print').textContent = v;
-  document.getElementById('p-notes').classList.toggle('has-notes', !!v.trim());
-  const st = document.getElementById('notes-state');
-  st.textContent = 'Saving…';
-  st.classList.remove('ok');
-  clearTimeout(notesTimer);
-  notesTimer = setTimeout(()=>{
-    if(CUR && CUR.slug === slug){
-      st.textContent = v.trim() ? 'Saved in this browser' : '';
-      st.classList.toggle('ok', !!v.trim());
-    }
-  }, 450);
-});
 
 fetch('data.json')
   .then(r=>r.json())
