@@ -792,8 +792,8 @@
 </div>
 
 <script>
-/* ── Build stamp (update on each release) ───────────────────────── */
-const BUILD = 'v4 · deployed 2 Jul 2026';
+/* ── Build stamp (falls back until data.json's buildStamp loads) ─── */
+let BUILD = 'v4 · deployed 2 Jul 2026';
 
 /* ── Reference data ─────────────────────────────────────────────── */
 const PKG = {
@@ -802,16 +802,25 @@ const PKG = {
   CHC:"Community Services", BSB:"Business", HLT:"Health",
   SIS:"Sport & Recreation", SIR:"Retail", MEM:"Manufacturing & Engineering"
 };
-const CITY_STATE = {
+/* City/state lookups used by extractLocation() as a fallback scrape when a
+   learner has no explicit `location` field. Populated from data.json (falls
+   back to this default set if data.json omits them). */
+let CITY_STATE = {
   "Adelaide":"SA","Gawler":"SA","Port Elliot":"SA","Mount Gambier":"SA","Victor Harbor":"SA",
   "Brisbane":"Qld","Sydney":"NSW","Parramatta":"NSW","Melbourne":"Vic","Perth":"WA",
   "Canberra":"ACT","Darwin":"NT","Hobart":"Tas","Newcastle":"NSW","Wollongong":"NSW","Geelong":"Vic"
 };
-const STATE_FULL = {
+let STATE_FULL = {
   "South Australia":"SA","New South Wales":"NSW","Victoria":"Vic","Queensland":"Qld",
   "Western Australia":"WA","Tasmania":"Tas","Northern Territory":"NT"
 };
-const CITIES = Object.keys(CITY_STATE).sort((a,b)=>b.length-a.length);
+let CITIES = Object.keys(CITY_STATE).sort((a,b)=>b.length-a.length);
+/* Word list numWord() uses for the cohort-size lede. Populated from
+   data.json (falls back to this default set if data.json omits it). */
+let NUMBER_WORDS = ['Zero','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten',
+             'Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen','Twenty'];
+/* Display labels for competencyFields keys, e.g. "carpentry_construction" -> "Carpentry & Construction". */
+let COMPETENCY_FIELD_LABELS = {};
 
 const SECTIONS = [
   { key:'aboutMe',                label:'About Me' },
@@ -825,29 +834,8 @@ const PHOTO_PH = `<div class="ph">
   <svg width="40" height="30" viewBox="0 0 40 30" fill="none"><rect width="40" height="30" rx="3" fill="#7C3E7C" opacity=".12"/><path d="M5 25l8-11 6 6 6-8 10 13H5z" fill="#7C3E7C" opacity=".3"/><circle cx="29" cy="8" r="3" fill="#7C3E7C" opacity=".3"/></svg>
   <span>Workplace photo</span></div>`;
 
-/* Curated card bios (keyed by slug) */
-const BIOS = {
-  "kira-miller": "Gawler workshop owner and off-road fabrication specialist seeking to formalise the hands-on trade training she already delivers informally on the shop floor.",
-  "leo-moretti": "Adelaide electrician running his own business who is expanding into industrial work and fitting study around a busy family and trade schedule.",
-  "arjun-patel": "Linfox shift lead with deep transport compliance knowledge, fitting study into late evenings around an afternoon roster and demanding operational responsibilities.",
-  "chloe-nguyen": "Adelaide casino VIP attendant and informal team mentor who relocated from Brisbane and is seeking formal recognition of her service industry expertise.",
-  "samir-al-fassi": "Moroccan-born production lead managing a bottling team in northern Adelaide, bringing multilingual communication and seven years of food manufacturing experience.",
-  "mick-oreilly": "Seasoned lead carpenter and site safety representative with 35 years on the tools, now formalising the on-the-job mentoring he has always done.",
-  "priya-sharma": "Parramatta disability support team leader overseeing shared independent living for high-needs clients, with seven years of sector experience and four in leadership.",
-  "sarah-jenkins": "Early childhood educator who returned to the workforce part-time after a five-year career break, rebuilding professional practice while raising two young children.",
-  "james-sterling": "Wheelchair-using Adelaide administrator who led his company's digital transformation and now delivers internal SharePoint and document management training to staff.",
-  "danielle-okafor": "Lagos-born hospital sterilisation technician with seven years at Royal Millbrook, managing study commitments around a demanding rotating fortnightly shift roster.",
-  "jess-callahan": "Port Elliot surf instructor and lifeguard raising two young children largely solo while her partner works a FIFO mining roster.",
-  "lena-vasquez": "Mount Gambier senior store manager and solo parent balancing a regional retail leadership role with her son's full school schedule.",
-  "callum-reid": "Marine maintenance fitter newly arrived from Perth, formalising a decade of submarine systems experience at his employer's urging while finding his feet in an unfamiliar city on an unpredictable project roster."
-};
-
 /* ── Text helpers ───────────────────────────────────────────────── */
-function numWord(n){
-  const w = ['Zero','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten',
-             'Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen','Twenty'];
-  return w[n] || String(n);
-}
+function numWord(n){ return NUMBER_WORDS[n] || String(n); }
 function basePkg(p){ return (p||'').trim().split(/\s+/)[0]; }
 function pkgName(p){ return PKG[basePkg(p)] || ''; }
 
@@ -873,7 +861,16 @@ function extractRole(about){
   const r = m[1].trim();
   return r.charAt(0).toUpperCase()+r.slice(1);
 }
-function bioFor(l){ return BIOS[l.slug] || ''; }
+function firstSentence(text){
+  if(!text) return '';
+  const line = text.split('\n')[0].trim();
+  const m = line.match(/^[^.!?]*[.!?]/);
+  return (m ? m[0] : line).trim();
+}
+function bioFor(l){ return l.bio || firstSentence(l.sections && l.sections.aboutMe); }
+function roleFor(l){ return l.role || extractRole(l.sections && l.sections.aboutMe); }
+function locationFor(l){ return l.location || extractLocation(l.sections && l.sections.aboutMe); }
+function fileLabel(f){ return f.label || prettyFile(f.name); }
 function prettyFile(name){
   let t = name.replace(/\.[a-z0-9]+$/i,'');
   t = t.replace(/^(?:[A-Z]{1,3}\d{0,2}|\d{1,2})[_\s]+/,'');
@@ -984,8 +981,8 @@ function syncChips(){
 function matches(l){
   if(activePkg !== 'all' && basePkg(l.package) !== activePkg) return false;
   if(!query) return true;
-  const hay = [l.name, l.package, pkgName(l.package), extractRole(l.sections.aboutMe),
-               extractLocation(l.sections.aboutMe), bioFor(l), l.sections.aboutMe].join(' ').toLowerCase();
+  const hay = [l.name, l.package, pkgName(l.package), roleFor(l),
+               locationFor(l), bioFor(l), l.sections.aboutMe].join(' ').toLowerCase();
   return query.split(/\s+/).every(w => hay.includes(w));
 }
 function renderGrid(){
@@ -1003,7 +1000,7 @@ function renderGrid(){
   }
   grid.innerHTML = list.map(l => {
     const code = basePkg(l.package), name = pkgName(l.package);
-    const role = extractRole(l.sections.aboutMe), loc = extractLocation(l.sections.aboutMe);
+    const role = roleFor(l), loc = locationFor(l);
     const meta = [role, loc].filter(Boolean);
     const ev = (l.files||[]).length;
     const done = [...reviewedSet(l.slug)].filter(n => (l.files||[]).some(f=>f.name===n)).length;
@@ -1137,7 +1134,7 @@ function showProfile(l){
   document.title = l.name + ' · Learner Cohort · TIME Education and Training';
 
   const code = basePkg(l.package), pname = pkgName(l.package);
-  const role = extractRole(l.sections.aboutMe), loc = extractLocation(l.sections.aboutMe);
+  const role = roleFor(l), loc = locationFor(l);
   const ev = (l.files||[]).length;
 
   document.getElementById('p-doc').textContent = `${l.ref} · ${l.name}`;
@@ -1221,24 +1218,24 @@ function renderRegister(){
     return `<div class="reg-row${isDone?' is-done':''}" data-name="${esc(f.name)}">
       <span class="reg-code-col"><span class="reg-code">${esc(docCode(f.name))}</span></span>
       <button class="reg-doc" data-open="${i}" title="Preview ${esc(f.name)}">
-        <span class="reg-title">${esc(prettyFile(f.name))}</span>
+        <span class="reg-title">${esc(fileLabel(f))}</span>
         <span class="reg-file">${esc(f.name)}</span>
       </button>
       <span class="reg-meta-m">
         <span class="ftag-col"><span class="ftag ${k}">${KIND_LABEL[k]||k.toUpperCase()}</span></span>
         <span class="reg-check-col">
           <label class="reg-check" title="Mark this document as reviewed">
-            <input type="checkbox" data-rev="${esc(f.name)}" ${isDone?'checked':''} aria-label="Mark ${esc(prettyFile(f.name))} as reviewed">
+            <input type="checkbox" data-rev="${esc(f.name)}" ${isDone?'checked':''} aria-label="Mark ${esc(fileLabel(f))} as reviewed">
             <span class="box"><svg width="11" height="9" viewBox="0 0 11 9" fill="none" stroke="#fff" stroke-width="2"><path d="M1.5 4.5l2.6 2.6L9.5 1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             <span class="ctx">${isDone?'Reviewed':'To review'}</span>
           </label>
         </span>
       </span>
       <span class="reg-actions">
-        <button class="icon-btn" data-open="${i}" title="Preview in the browser" aria-label="Preview ${esc(prettyFile(f.name))}">
+        <button class="icon-btn" data-open="${i}" title="Preview in the browser" aria-label="Preview ${esc(fileLabel(f))}">
           <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1.5 8s2.4-4.5 6.5-4.5S14.5 8 14.5 8s-2.4 4.5-6.5 4.5S1.5 8 1.5 8z"/><circle cx="8" cy="8" r="2"/></svg>
         </button>
-        <a class="icon-btn" href="${href}" download title="Download" aria-label="Download ${esc(prettyFile(f.name))}">
+        <a class="icon-btn" href="${href}" download title="Download" aria-label="Download ${esc(fileLabel(f))}">
           <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7.5 2v7.5M4.5 7l3 3 3-3M2.5 12.5h10" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </span>
@@ -1421,7 +1418,7 @@ function renderViewer(){
   const k = fileKind(f);
 
   document.getElementById('v-code').textContent = docCode(f.name);
-  document.getElementById('v-title').textContent = prettyFile(f.name);
+  document.getElementById('v-title').textContent = fileLabel(f);
   document.getElementById('v-file').textContent = f.name;
   document.getElementById('v-dl').setAttribute('href', href);
   document.getElementById('v-prev').disabled = vIdx <= 0;
@@ -1437,11 +1434,11 @@ function renderViewer(){
   };
 
   if(k === 'img'){
-    body.innerHTML = `<div class="vimg"><img src="${href}" alt="${esc(prettyFile(f.name))}"></div>`;
+    body.innerHTML = `<div class="vimg"><img src="${href}" alt="${esc(fileLabel(f))}"></div>`;
     return;
   }
   if(k === 'pdf'){
-    body.innerHTML = `<iframe src="${href}" title="${esc(prettyFile(f.name))}"></iframe>`;
+    body.innerHTML = `<iframe src="${href}" title="${esc(fileLabel(f))}"></iframe>`;
     return;
   }
   if(k === 'doc'){
@@ -1512,7 +1509,6 @@ document.getElementById('back').addEventListener('click', ()=> navigate(''));
 document.getElementById('search').addEventListener('input', e=>{
   query = e.target.value.trim().toLowerCase(); renderGrid();
 });
-document.querySelectorAll('.foot .build').forEach(el => { el.textContent = BUILD; });
 
 /* Notes scratchpad */
 const notesTa = document.getElementById('notes-ta');
@@ -1548,7 +1544,14 @@ notesTa.addEventListener('input', ()=>{
 fetch('data.json')
   .then(r=>r.json())
   .then(data=>{
-    ALL = data;
+    ALL = data.learners || data;
+    BUILD = data.buildStamp || BUILD;
+    CITY_STATE = data.cityState || CITY_STATE;
+    STATE_FULL = data.stateFull || STATE_FULL;
+    CITIES = Object.keys(CITY_STATE).sort((a,b)=>b.length-a.length);
+    NUMBER_WORDS = data.numberWords || NUMBER_WORDS;
+    COMPETENCY_FIELD_LABELS = data.competencyFieldLabels || COMPETENCY_FIELD_LABELS;
+    document.querySelectorAll('.foot .build').forEach(el => { el.textContent = BUILD; });
     const lc = document.getElementById('lede-count');
     if(lc) lc.textContent = numWord(ALL.length);
     buildSheet(); buildChips(); renderGrid(); renderDash();
