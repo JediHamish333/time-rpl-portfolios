@@ -145,10 +145,10 @@
   .cw-card:focus-visible { outline: 2px solid var(--purple-700); outline-offset: 2px; }
   .cw-card--mine { border-color: var(--lilac-500); background: var(--lilac-100); }
 
-  /* Ratio matches the source photos (~16:9 landscape) so cover-cropping never
-     has to discard width or slice through a face — see photos/*.jpg. */
+  /* Ratio matches the source photos (~4:3) so cover-cropping never has to
+     discard width or slice through a face — see photos/*.jpg. */
   .cw-card-photo {
-    position: relative; aspect-ratio: 16 / 9; width: 100%; overflow: hidden;
+    position: relative; aspect-ratio: 4 / 3; width: 100%; overflow: hidden;
     background: var(--lilac-300); flex-shrink: 0;
     display: flex; align-items: center; justify-content: center;
   }
@@ -1019,7 +1019,7 @@ function renderGrid(){
     const mine = groupHasMember(l.slug);
     return `<a class="cw-card${mine?' cw-card--mine':''}" href="#learner/${l.slug}" aria-label="View the file for ${esc(l.name)}">
       <div class="cw-card-photo">
-        ${l.photo ? `<img src="${l.photo}" alt="" width="800" height="440" loading="lazy" decoding="async">` : `<span class="cw-card-initials">${esc(initialsFor(l.name))}</span>`}
+        ${l.photo ? `<img src="${l.photo}" alt="" width="1200" height="900" loading="lazy" decoding="async">` : `<span class="cw-card-initials">${esc(initialsFor(l.name))}</span>`}
         ${cardTag(l.slug)}
       </div>
       <div class="cw-card-body">
