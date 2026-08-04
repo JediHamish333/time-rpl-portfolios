@@ -8,7 +8,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -37,6 +37,20 @@
     --r:    14px;
     --r-sm: 8px;
     --ease: cubic-bezier(.22,.61,.36,1);
+
+    /* TIME Education and Training design system — cohort wall + session
+       set-up only (screens 3/4 keep the palette above until they're revamped). */
+    --purple-900: #3d1a3d;
+    --purple-700: #5A245A;
+    --purple-500: #6A396A;
+    --lilac-500:  #D0C8FB;
+    --lilac-300:  #e6e1fd;
+    --lilac-100:  #f5f2fe;
+    --grey-600:   #404040;
+    --grey-400:   #c9c9c9;
+    --grey-100:   #F2F2F2;
+    --radius-pill: 999px;
+    --roboto: 'Roboto', Arial, Helvetica, sans-serif;
   }
 
   html { scroll-behavior: smooth; }
@@ -54,567 +68,475 @@
   .page { display: none; }
   .page.active { display: block; }
 
-  /* ── Utility strip ─────────────────────────────────────────────── */
-  .util {
-    background: var(--plum);
-    color: rgba(255,255,255,.86);
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: .04em;
-    padding: 9px clamp(18px, 4vw, 40px);
-    display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  }
-  .util .brand { font-weight: 600; color: #fff; text-transform: uppercase; letter-spacing: .12em; }
-  .util .doc   { color: var(--lilac); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  @media (max-width: 620px){ .util .doc { display:none; } }
+  /* ══ TIME Education and Training design system (revamp) ══════════ */
+  #index-page, #setup-page, #profile-page, .viewer { font-family: var(--roboto); background: #fff; color: var(--grey-600); }
 
-  /* ── Hero with contact-sheet strip ─────────────────────────────── */
-  .hero {
-    background:
-      radial-gradient(120% 140% at 88% -10%, rgba(182,95,38,.28) 0%, rgba(182,95,38,0) 46%),
-      linear-gradient(180deg, var(--plum) 0%, var(--grape) 100%);
-    color: #fff;
-    padding: clamp(38px, 6vw, 68px) clamp(18px, 4vw, 40px) clamp(26px, 4vw, 40px);
+  /* ── Header bar ───────────────────────────────────────────────── */
+  .cw-header {
+    background: var(--purple-900); color: #fff;
+    padding: 16px 24px;
+    display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
   }
-  .hero-inner { max-width: var(--maxw); margin: 0 auto; }
-  .hero .eyebrow {
-    font-family: var(--mono); font-size: 12px; letter-spacing: .16em;
-    text-transform: uppercase; color: var(--lilac);
-    display: inline-flex; align-items: center; gap: 11px; margin-bottom: 18px;
+  .cw-header-left { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+  .cw-eyebrow { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--lilac-500); }
+  .cw-title { font-size: 25px; font-weight: 500; }
+  .cw-header-right { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .cw-header-stats { text-align: right; }
+  .cw-header-stats .n { font-size: 12px; color: var(--lilac-500); }
+  .cw-header-stats .d { font-size: 13px; font-weight: 600; }
+  .cw-header-bar { width: 140px; height: 6px; background: rgba(255,255,255,.25); flex-shrink: 0; }
+  .cw-header-bar i { display: block; height: 100%; width: 0; background: var(--lilac-500); transition: width .15s; }
+  .cw-pill-outline {
+    font-family: var(--roboto); font-size: 12px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase;
+    color: #fff; background: none; border: 1px solid rgba(255,255,255,.45); border-radius: var(--radius-pill);
+    padding: 8px 16px; cursor: pointer; white-space: nowrap;
+    transition: background .15s;
   }
-  .hero .eyebrow::before { content:""; width: 26px; height: 2px; background: var(--ochre); display:inline-block; }
-  .hero h1 {
-    font-family: var(--serif);
-    font-optical-sizing: auto;
-    font-weight: 600;
-    font-size: clamp(36px, 6vw, 70px);
-    line-height: .98;
-    letter-spacing: -.015em;
-    max-width: 18ch;
-  }
-  .hero h1 em { font-style: italic; font-weight: 500; color: var(--lilac); }
-  .hero p.lede {
-    margin-top: 20px; max-width: 58ch;
-    font-size: clamp(15px, 1.6vw, 17.5px); line-height: 1.65;
-    color: rgba(255,255,255,.88);
-  }
+  .cw-pill-outline:hover { background: rgba(255,255,255,.12); }
+  .cw-pill-outline:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 
-  /* The contact sheet: every learner, clickable */
-  .sheet { margin-top: clamp(26px, 4vw, 38px); }
-  .sheet-cap {
-    font-family: var(--mono); font-size: 11.5px; letter-spacing: .05em;
-    color: rgba(255,255,255,.78); margin-bottom: 12px;
-    display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: baseline;
+  /* ── Filter row ───────────────────────────────────────────────── */
+  .cw-filters {
+    background: #fff; border-bottom: 1px solid var(--grey-400);
+    padding: 16px 24px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
   }
-  .sheet-cap b { color: #fff; font-weight: 600; }
-  .sheet-cap .sep { color: var(--ochre); }
-  .sheet-row {
-    display: flex; gap: 0; overflow-x: auto; padding: 6px 4px 10px;
-    scrollbar-width: thin;
+  .cw-search { position: relative; flex: 0 0 auto; width: min(340px, 100%); }
+  .cw-search svg { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--purple-500); }
+  .cw-search input {
+    width: 100%; font-family: var(--roboto); font-size: 14px; color: var(--grey-600);
+    padding: 12px 16px 12px 40px;
+    background: #fff; border: 1px solid var(--grey-400); border-radius: var(--radius-pill);
+    transition: border-color .15s;
   }
-  .sheet-row::-webkit-scrollbar { height: 6px; }
-  .sheet-row::-webkit-scrollbar-thumb { background: rgba(255,255,255,.25); border-radius: 3px; }
-  .face {
-    position: relative; flex: 0 0 auto;
-    width: 62px; height: 62px; border-radius: 50%;
-    border: 2.5px solid var(--grape);
-    margin-left: -10px;
-    overflow: visible;
-    background: var(--mulberry);
-    cursor: pointer;
-    transition: transform .22s var(--ease), border-color .22s;
-    display: block;
-  }
-  .face:first-child { margin-left: 0; }
-  .face img {
-    width: 100%; height: 100%; object-fit: cover; object-position: center 25%;
-    border-radius: 50%; display: block;
-  }
-  .face:hover, .face:focus-visible { transform: translateY(-6px) scale(1.06); border-color: var(--ochre); z-index: 5; }
-  .face:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
-  .face .tag {
-    position: absolute; left: 50%; bottom: calc(100% + 7px); transform: translateX(-50%);
-    background: var(--ink); color: #fff; font-size: 11.5px; font-weight: 600;
-    padding: 4px 9px; border-radius: 6px; white-space: nowrap;
-    opacity: 0; pointer-events: none; transition: opacity .18s;
-  }
-  .face:hover .tag, .face:focus-visible .tag { opacity: 1; }
+  .cw-search input::placeholder { color: var(--purple-500); }
+  .cw-search input:focus { outline: none; border-color: var(--purple-700); }
 
-  /* ── Control bar ───────────────────────────────────────────────── */
-  .controls {
-    position: sticky; top: 0; z-index: 30;
-    background: rgba(246,242,235,.88);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--line);
-  }
-  .controls-inner {
-    max-width: var(--maxw); margin: 0 auto;
-    padding: 14px clamp(18px, 4vw, 40px);
-    display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
-  }
-  .search { position: relative; flex: 0 0 auto; width: min(320px, 100%); }
-  .search svg { position: absolute; left: 13px; top: 50%; transform: translateY(-50%); opacity: .5; }
-  .search input {
-    width: 100%; font-family: var(--sans); font-size: 14px; color: var(--ink);
-    padding: 10px 14px 10px 38px;
-    background: var(--card); border: 1px solid var(--line); border-radius: 999px;
-    transition: border-color .18s, box-shadow .18s;
-  }
-  .search input::placeholder { color: var(--muted); }
-  .search input:focus { outline: none; border-color: var(--mulberry); box-shadow: 0 0 0 3px rgba(124,62,124,.14); }
-
-  .chips { display: flex; gap: 7px; flex: 1 1 320px; overflow-x: auto; padding-bottom: 2px; scrollbar-width: thin; }
-  .chips::-webkit-scrollbar { height: 5px; }
-  .chips::-webkit-scrollbar-thumb { background: var(--lilac-line); border-radius: 3px; }
-  .chip {
+  .cw-field-chips { display: flex; gap: 7px; flex-wrap: wrap; }
+  .cw-chip {
     flex: 0 0 auto; cursor: pointer;
-    font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: .04em;
-    color: var(--grape); background: var(--card);
-    border: 1px solid var(--lilac-line); border-radius: 999px;
-    padding: 7px 13px; white-space: nowrap;
-    transition: background .15s, color .15s, border-color .15s, transform .1s;
-  }
-  .chip:hover { border-color: var(--mulberry); }
-  .chip:focus-visible { outline: 2px solid var(--mulberry); outline-offset: 2px; }
-  .chip[aria-pressed="true"] { background: var(--grape); color: #fff; border-color: var(--grape); }
-  .chip:active { transform: translateY(1px); }
-
-  /* ── Cohort grid ───────────────────────────────────────────────── */
-  .grid {
-    max-width: var(--maxw); margin: 0 auto;
-    padding: clamp(26px, 4vw, 40px) clamp(18px, 4vw, 40px) 10px;
-    display: flex; flex-wrap: wrap; justify-content: center; gap: 26px;
-  }
-  /* Card basis = exactly one column's share, so full rows fill edge-to-edge and
-     only an incomplete final row has slack to centre into. */
-  .grid .card { flex: 0 1 calc((100% - 3 * 26px) / 4); }
-  @media (max-width: 1080px){ .grid .card { flex-basis: calc((100% - 2 * 26px) / 3); } }
-  @media (max-width: 820px) { .grid .card { flex-basis: calc((100% - 26px) / 2); } }
-  @media (max-width: 560px) { .grid { gap: 20px; } .grid .card { flex-basis: 100%; } }
-
-  .card {
-    display: flex; flex-direction: column;
-    background: var(--card); border-radius: var(--r); overflow: hidden;
-    text-decoration: none; color: inherit; cursor: pointer;
-    border: 1px solid var(--line);
-    box-shadow: 0 1px 2px rgba(40,19,32,.04);
-    transition: transform .26s var(--ease), box-shadow .26s var(--ease), border-color .26s var(--ease);
-  }
-  .card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(62,19,56,.16); border-color: var(--lilac-line); }
-  .card:focus-visible { outline: 3px solid var(--mulberry); outline-offset: 3px; }
-
-  .card-photo { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: var(--lilac); }
-  .card-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s var(--ease); }
-  .card:hover .card-photo img { transform: scale(1.045); }
-  .card-photo .pkg {
-    position: absolute; left: 12px; bottom: 12px;
-    display: inline-flex; align-items: baseline; gap: 7px;
-    background: rgba(40,19,32,.62); backdrop-filter: blur(4px);
-    color: #fff; padding: 5px 10px; border-radius: 999px;
-  }
-  .card-photo .pkg .code { font-family: var(--mono); font-weight: 600; font-size: 11px; letter-spacing: .06em; }
-  .card-photo .pkg .name { font-size: 11px; color: rgba(255,255,255,.82); }
-  .card-photo .ref {
-    position: absolute; right: 12px; top: 12px;
-    font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: .06em;
-    color: #fff; background: rgba(40,19,32,.55); backdrop-filter: blur(4px);
-    padding: 4px 9px; border-radius: 999px;
-  }
-
-  .ph {
-    width: 100%; height: 100%;
-    background: linear-gradient(155deg, #EEE7F4 0%, #F3EEDF 100%);
-    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
-    color: var(--mulberry);
-  }
-  .ph span { font-family: var(--mono); font-size: 10px; letter-spacing: .06em; opacity: .65; }
-
-  .card-body { padding: 16px 18px 18px; display: flex; flex-direction: column; flex: 1; }
-  .card-name { font-family: var(--serif); font-weight: 600; font-size: 22px; line-height: 1.1; color: var(--ink); letter-spacing: -.01em; }
-  .card-meta { font-size: 12.5px; color: var(--muted); margin-top: 7px; display: flex; flex-wrap: wrap; gap: 4px 8px; }
-  .card-meta .role { color: var(--grape); font-weight: 600; }
-  .card-teaser { font-size: 13.5px; line-height: 1.55; color: #4a3c45; margin-top: 12px; flex: 1; }
-  .card-foot {
-    margin-top: 15px; padding-top: 13px; border-top: 1px solid var(--line);
-    display: flex; align-items: center; justify-content: space-between; gap: 10px;
-  }
-  .card-foot .ev { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: .02em; }
-  .card-foot .ev .done { color: var(--green); font-weight: 600; }
-  .card-foot .go { font-size: 13px; font-weight: 600; color: var(--ochre); display: inline-flex; align-items: center; gap: 6px; }
-  .card-foot .go svg { transition: transform .22s var(--ease); }
-  .card:hover .card-foot .go svg { transform: translateX(4px); }
-
-  .empty { grid-column: 1 / -1; flex-basis: 100%; text-align: center; padding: 60px 20px; color: var(--muted); }
-  .empty b { display:block; font-family: var(--serif); font-size: 20px; color: var(--ink); margin-bottom: 6px; }
-  .empty button {
-    margin-top: 16px; font-size: 13px; font-weight: 600;
-    color: var(--grape); background: none; border: 1px solid var(--lilac-line);
-    padding: 8px 16px; border-radius: 999px; cursor: pointer;
-  }
-  .empty button:hover { background: var(--lilac); }
-
-  /* ── Profile hero ──────────────────────────────────────────────── */
-  .p-hero { position: relative; background: var(--plum); overflow: hidden; }
-  .p-hero-photo { position: absolute; inset: 0; }
-  .p-hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 28%; }
-  .p-hero-scrim {
-    position: absolute; inset: 0;
-    background:
-      linear-gradient(180deg, rgba(40,19,32,.30) 0%, rgba(40,19,32,.05) 35%, rgba(40,19,32,.55) 78%, rgba(40,19,32,.92) 100%),
-      linear-gradient(90deg, rgba(62,19,56,.72) 0%, rgba(62,19,56,.18) 60%, rgba(62,19,56,0) 100%);
-  }
-  .p-hero-inner {
-    position: relative; max-width: var(--maxw); margin: 0 auto;
-    padding: clamp(16px,3vw,26px) clamp(18px,4vw,40px) clamp(30px,4vw,44px);
-    min-height: clamp(300px, 42vw, 440px);
-    display: flex; flex-direction: column; justify-content: space-between;
-  }
-  .back {
-    align-self: flex-start;
-    font-family: var(--mono); font-size: 12px; letter-spacing: .04em;
-    color: #fff; background: rgba(255,255,255,.13); border: 1px solid rgba(255,255,255,.22);
-    padding: 8px 14px 8px 11px; border-radius: 999px; cursor: pointer;
-    display: inline-flex; align-items: center; gap: 7px;
-    transition: background .16s, gap .16s;
-  }
-  .back:hover { background: rgba(255,255,255,.24); gap: 10px; }
-  .back:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
-  .p-titles { color: #fff; }
-  .p-eyebrow {
-    font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
-    color: var(--lilac); margin-bottom: 12px;
-    display: inline-flex; align-items: center; gap: 9px;
-  }
-  .p-eyebrow .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--ochre); }
-  .p-name {
-    font-family: var(--serif); font-weight: 600; letter-spacing: -.02em;
-    font-size: clamp(36px, 6vw, 66px); line-height: .96;
-    text-shadow: 0 2px 24px rgba(40,19,32,.4);
-  }
-  .p-sub {
-    margin-top: 14px; font-size: clamp(14px,1.6vw,16px); color: rgba(255,255,255,.94);
-    display: flex; flex-wrap: wrap; gap: 7px 16px;
-  }
-  .p-sub span { display: inline-flex; align-items: center; gap: 7px; }
-  .p-sub .k { font-family: var(--mono); font-size: 11px; color: var(--lilac); text-transform: uppercase; letter-spacing: .06em; }
-
-  /* ── Mobile section nav ────────────────────────────────────────── */
-  .m-nav {
-    display: none;
-    position: sticky; top: 0; z-index: 25;
-    background: rgba(246,242,235,.92); backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--line);
-    overflow-x: auto; scrollbar-width: none;
-  }
-  .m-nav::-webkit-scrollbar { display: none; }
-  .m-nav-inner { display: flex; gap: 6px; padding: 10px clamp(18px,4vw,40px); }
-  .m-nav a {
-    flex: 0 0 auto; text-decoration: none;
-    font-size: 12.5px; font-weight: 600; color: var(--muted);
-    padding: 6px 12px; border-radius: 999px; border: 1px solid transparent;
-    white-space: nowrap;
-  }
-  .m-nav a.on { color: var(--grape); background: var(--lilac); border-color: var(--lilac-line); }
-  @media (max-width: 860px){ .m-nav { display: block; } }
-
-  /* ── Profile body ──────────────────────────────────────────────── */
-  .p-wrap {
-    max-width: var(--maxw); margin: 0 auto;
-    padding: clamp(34px,5vw,56px) clamp(18px,4vw,40px) 20px;
-    display: grid; grid-template-columns: 220px 1fr; gap: clamp(30px,5vw,64px);
-    align-items: start;
-  }
-  @media (max-width: 860px){ .p-wrap { grid-template-columns: 1fr; gap: 8px; padding-top: 22px; } }
-
-  .p-nav { position: sticky; top: 78px; }
-  @media (max-width: 860px){ .p-nav { display: none; } }
-  .p-nav .lbl { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
-  .p-nav a {
-    display: block; text-decoration: none; padding: 7px 0 7px 16px;
-    border-left: 2px solid var(--line);
-    font-size: 13.5px; color: var(--muted); line-height: 1.35;
-    transition: color .16s, border-color .16s;
-  }
-  .p-nav a:hover { color: var(--ink); }
-  .p-nav a.on { color: var(--grape); border-color: var(--ochre); font-weight: 600; }
-
-  .p-facts {
-    margin-top: 26px; padding: 16px; background: var(--lilac); border-radius: var(--r-sm);
-    font-size: 13px; color: var(--ink);
-  }
-  .p-facts dt { font-family: var(--mono); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; color: var(--mulberry); margin-bottom: 2px; }
-  .p-facts dd { margin-bottom: 12px; line-height: 1.4; }
-  .p-facts dd:last-child { margin-bottom: 0; }
-
-  .p-sections { max-width: 70ch; }
-  .sec { scroll-margin-top: 80px; }
-  .sec + .sec { margin-top: clamp(30px,4vw,46px); padding-top: clamp(30px,4vw,46px); border-top: 1px solid var(--line); }
-  .sec-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-  .sec-num { font-family: var(--mono); font-size: 12px; color: var(--ochre); font-weight: 600; }
-  .sec-label { font-family: var(--serif); font-weight: 600; font-size: clamp(19px,2.4vw,24px); color: var(--ink); letter-spacing: -.01em; line-height: 1.1; }
-  .sec-text { font-size: 16px; line-height: 1.78; color: #392c34; }
-  .sec-text p + p { margin-top: 1em; }
-
-  /* ── Evidence register ─────────────────────────────────────────── */
-  .ev-wrap { max-width: var(--maxw); margin: 0 auto; padding: clamp(34px,5vw,52px) clamp(18px,4vw,40px) 26px; scroll-margin-top: 60px; }
-  .ev-head {
-    display: flex; align-items: flex-end; justify-content: space-between; gap: 18px; flex-wrap: wrap;
-    padding-bottom: 16px; border-bottom: 2px solid var(--plum); margin-bottom: 14px;
-  }
-  .ev-head h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(20px,2.6vw,28px); letter-spacing: -.01em; }
-  .ev-head .sub { font-size: 13px; color: var(--muted); margin-top: 5px; max-width: 56ch; }
-  .ev-head-side { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; flex: 0 1 280px; }
-  .dl-all {
-    display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
-    font-size: 13px; font-weight: 600; color: #fff; background: var(--grape);
-    border: 1px solid var(--grape); border-radius: 999px; padding: 9px 16px;
+    font-family: var(--roboto); font-size: 12.5px; letter-spacing: .03em;
+    color: var(--purple-700); background: #fff;
+    border: 1px solid var(--grey-400); border-radius: var(--radius-pill);
+    padding: 6px 13px; white-space: nowrap;
     transition: background .15s, border-color .15s;
   }
-  .dl-all:hover { background: var(--mulberry); border-color: var(--mulberry); }
-  .dl-all:focus-visible { outline: 2px solid var(--mulberry); outline-offset: 2px; }
-  .dl-all[disabled] { cursor: default; }
-  .dl-all.busy { background: var(--mulberry); border-color: var(--mulberry); }
-  .dl-all.busy .dla-ic { animation: spin .8s linear infinite; }
-  .dla-tx { white-space: nowrap; }
-  .progress { width: 100%; }
-  @media (max-width: 560px){ .ev-head-side { align-items: stretch; width: 100%; } .dl-all { justify-content: center; } }
+  .cw-chip:hover { border-color: var(--purple-500); }
+  .cw-chip:focus-visible { outline: 2px solid var(--purple-700); outline-offset: 2px; }
+  .cw-chip[aria-pressed="true"] { background: var(--lilac-500); border-color: var(--lilac-500); }
 
-
-  .progress .ptx { font-family: var(--mono); font-size: 11.5px; color: var(--muted); letter-spacing: .03em; margin-bottom: 7px; display: flex; justify-content: space-between; }
-  .progress .ptx b { color: var(--green); font-weight: 600; }
-  .progress .bar { height: 6px; background: var(--lilac); border-radius: 3px; overflow: hidden; }
-  .progress .bar i { display: block; height: 100%; width: 0; background: var(--green); border-radius: 3px; transition: width .4s var(--ease); }
-
-  .ev-filters { display: flex; gap: 7px; flex-wrap: wrap; margin: 4px 0 16px; }
-
-  .register { border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--card); overflow: hidden; }
-  .reg-head {
-    display: grid; grid-template-columns: 64px 1fr 92px 110px 96px;
-    gap: 12px; align-items: center;
-    padding: 9px 14px;
-    background: var(--lilac); border-bottom: 1px solid var(--lilac-line);
-    font-family: var(--mono); font-size: 10px; font-weight: 600;
-    letter-spacing: .08em; text-transform: uppercase; color: var(--mulberry);
+  .cw-select {
+    font-family: var(--roboto); font-size: 13px; color: var(--purple-500);
+    background: #fff; border: none; cursor: pointer; padding: 6px 4px;
   }
-  .reg-row {
-    display: grid; grid-template-columns: 64px 1fr 92px 110px 96px;
-    gap: 12px; align-items: center;
-    padding: 11px 14px;
-    border-bottom: 1px solid var(--line);
-    transition: background .14s;
+  .cw-select:focus-visible { outline: 2px solid var(--purple-700); outline-offset: 2px; }
+  .cw-sort { margin-left: auto; }
+
+  /* ── Card grid ────────────────────────────────────────────────── */
+  .cw-grid { padding: 20px 24px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  @media (max-width: 1080px){ .cw-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 820px)  { .cw-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px)  { .cw-grid { grid-template-columns: 1fr; gap: 12px; padding: 16px; } }
+
+  .cw-card {
+    display: flex; flex-direction: column;
+    background: #fff; border: 1px solid var(--grey-400);
+    text-decoration: none; color: inherit; cursor: pointer;
   }
-  .reg-row:last-child { border-bottom: none; }
-  .reg-row:hover { background: #FBF8F3; }
-  .reg-row.is-done { background: #F6FBF7; }
-  .reg-row.is-done:hover { background: #EFF8F2; }
+  .cw-card:focus-visible { outline: 2px solid var(--purple-700); outline-offset: 2px; }
+  .cw-card--mine { border-color: var(--lilac-500); background: var(--lilac-100); }
 
-  .reg-code { font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--ochre); letter-spacing: .04em; }
-  .reg-row.is-done .reg-code { color: var(--green); }
-
-  .reg-doc { min-width: 0; background: none; border: none; text-align: left; cursor: pointer; padding: 0; }
-  .reg-doc:focus-visible { outline: 2px solid var(--mulberry); outline-offset: 3px; border-radius: 4px; }
-  .reg-title { display: block; font-size: 14px; font-weight: 600; color: var(--ink); line-height: 1.3; overflow-wrap: anywhere; }
-  .reg-doc:hover .reg-title { color: var(--grape); text-decoration: underline; text-decoration-color: var(--lilac-line); text-underline-offset: 3px; }
-  .reg-file { display: block; font-family: var(--mono); font-size: 10.5px; color: var(--muted); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-
-  .ftag {
-    font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: .05em;
-    padding: 3px 8px; border-radius: 5px; justify-self: start;
+  /* Ratio matches the source photos (~16:9 landscape) so cover-cropping never
+     has to discard width or slice through a face — see photos/*.jpg. */
+  .cw-card-photo {
+    position: relative; aspect-ratio: 16 / 9; width: 100%; overflow: hidden;
+    background: var(--lilac-300); flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
   }
-  .ftag.pdf  { background: #FBE5E2; color: #A93226; }
-  .ftag.docx { background: #E4ECFB; color: #2257C5; }
-  .ftag.doc  { background: #E9E5EF; color: #5A4A66; }
-  .ftag.xlsx { background: var(--green-soft); color: var(--green); }
-  .ftag.img  { background: #FBF0DA; color: var(--ochre); }
+  .cw-card-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; }
+  .cw-card-initials {
+    font-size: 26px; font-weight: 600; letter-spacing: .04em; color: var(--purple-700);
+  }
+  .cw-card-tag {
+    position: absolute; right: 8px; bottom: 8px;
+    font-size: 10px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+    color: var(--purple-700); background: rgba(255,255,255,.85);
+    border-radius: var(--radius-pill); padding: 3px 9px;
+  }
 
-  .reg-check { display: inline-flex; align-items: center; gap: 7px; cursor: pointer; user-select: none; font-size: 12px; color: var(--muted); }
-  .reg-check input { position: absolute; opacity: 0; width: 1px; height: 1px; }
-  .reg-check .box {
-    width: 17px; height: 17px; border-radius: 5px; flex: 0 0 auto;
-    border: 1.5px solid var(--lilac-line); background: var(--card);
-    display: inline-flex; align-items: center; justify-content: center;
+  .cw-card-body { padding: 13px 15px 15px; display: flex; flex-direction: column; gap: 9px; flex: 1; }
+  .cw-card-name { font-size: 15.5px; font-weight: 600; color: var(--purple-700); line-height: 1.2; }
+  .cw-card-role { font-size: 12.5px; margin-top: 3px; line-height: 1.35; }
+  .cw-card-meta { font-size: 12px; color: var(--purple-500); }
+  .cw-card-progress { display: flex; align-items: center; gap: 8px; margin-top: auto; }
+  .cw-card-bar { flex: 1; height: 4px; background: var(--lilac-300); }
+  .cw-card-bar i { display: block; height: 100%; width: 0; background: var(--purple-700); }
+  .cw-card-count { font-size: 11.5px; color: var(--purple-500); white-space: nowrap; }
+
+  .cw-card--pending { border: 1px dashed var(--grey-400); opacity: .5; cursor: default; }
+  .cw-card--pending .cw-card-photo { background: var(--grey-100); }
+  .cw-card-pending-name { font-size: 14px; color: var(--grey-600); }
+  .cw-card-pending-field { font-size: 12px; color: var(--purple-500); margin-top: 2px; }
+
+  .cw-empty { grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--purple-500); }
+  .cw-empty b { display: block; font-size: 18px; font-weight: 600; color: var(--purple-700); margin-bottom: 6px; }
+  .cw-empty button {
+    margin-top: 16px; font-size: 13px; font-weight: 600;
+    color: var(--purple-700); background: none; border: 1px solid var(--grey-400);
+    padding: 8px 16px; border-radius: var(--radius-pill); cursor: pointer;
+  }
+  .cw-empty button:hover { background: var(--lilac-100); }
+  .cw-empty button:focus-visible { outline: 2px solid var(--purple-700); outline-offset: 2px; }
+
+  /* ── Utility row: export/reset ticks, pre-existing behaviour kept ── */
+  .cw-utility { padding: 4px 24px 28px; display: flex; gap: 18px; }
+  .cw-util-btn {
+    font-family: var(--roboto); font-size: 12px; color: var(--purple-500);
+    background: none; border: none; cursor: pointer; padding: 2px 0;
+    text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 3px;
+    transition: text-decoration-color .15s;
+  }
+  .cw-util-btn:hover { text-decoration-color: var(--purple-500); }
+  .cw-util-btn:focus-visible { outline: 2px solid var(--purple-700); outline-offset: 2px; }
+  .cw-util-btn--danger { color: #A93226; }
+  .cw-util-btn--danger:hover { text-decoration-color: #A93226; }
+
+  /* ── Session set-up ───────────────────────────────────────────── */
+  .su-wrap { display: flex; justify-content: center; padding: clamp(28px,5vw,56px) 20px; background: var(--grey-100); min-height: 100vh; }
+  .su-panel {
+    width: 100%; max-width: 940px; height: fit-content; background: #fff; border: 1px solid var(--grey-400);
+    padding: 30px 34px; display: flex; flex-direction: column; gap: 20px;
+  }
+  .su-heading { font-family: var(--roboto); font-size: 27px; font-weight: 600; color: var(--purple-700); }
+  .su-lede { font-size: 16px; line-height: 1.6; max-width: 70ch; margin-top: 8px; }
+
+  .su-tabs { display: flex; border-bottom: 1px solid var(--grey-400); }
+  .su-tab {
+    font-family: var(--roboto); font-size: 13.5px; color: var(--grey-600);
+    background: none; border: none; border-bottom: 3px solid transparent;
+    padding: 11px 20px; cursor: pointer; margin-bottom: -1px;
+  }
+  .su-tab[aria-selected="true"] { font-weight: 600; color: var(--purple-700); border-bottom-color: var(--purple-700); }
+  .su-tab:focus-visible { outline: 2px solid var(--purple-700); outline-offset: -2px; }
+
+  .su-own-name { display: flex; flex-direction: column; gap: 6px; max-width: 340px; }
+  .su-own-name[hidden] { display: none; }
+  .su-own-name label { font-size: 10.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--purple-500); }
+  .su-own-name input {
+    font-family: var(--roboto); font-size: 14px; color: var(--grey-600);
+    border: 1px solid var(--grey-400); padding: 10px 13px;
+  }
+  .su-own-name input:focus { outline: none; border-color: var(--purple-700); }
+
+  .su-add-row { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+  .su-search { position: relative; width: min(360px, 100%); }
+  .su-search input {
+    width: 100%; font-family: var(--roboto); font-size: 14px; color: var(--grey-600);
+    padding: 12px 16px; background: #fff; border: 1px solid var(--grey-400); border-radius: var(--radius-pill);
+  }
+  .su-search input:focus { outline: none; border-color: var(--purple-700); }
+  .su-search-results {
+    position: absolute; left: 0; right: 0; top: calc(100% + 4px); z-index: 10;
+    background: #fff; border: 1px solid var(--grey-400); max-height: 260px; overflow-y: auto;
+  }
+  .su-search-result {
+    display: block; width: 100%; text-align: left; font-family: var(--roboto);
+    background: none; border: none; border-bottom: 1px solid #EDEDED; cursor: pointer;
+    padding: 9px 13px; font-size: 13.5px; color: var(--grey-600);
+  }
+  .su-search-result:last-child { border-bottom: none; }
+  .su-search-result:hover, .su-search-result:focus-visible { background: var(--lilac-100); outline: none; }
+  .su-search-result b { color: var(--purple-700); }
+  .su-search-empty { padding: 9px 13px; font-size: 13px; color: var(--purple-500); }
+  .su-add-hint { font-size: 13.5px; color: var(--purple-500); }
+
+  .su-table { display: flex; flex-direction: column; gap: 8px; }
+  .su-table-head {
+    display: grid; grid-template-columns: 1fr 1.1fr 170px 30px; gap: 14px;
+    font-size: 10.5px; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: var(--purple-500);
+  }
+  .su-row { display: grid; grid-template-columns: 1fr 1.1fr 170px 30px; gap: 14px; align-items: center; padding: 4px 0; }
+  .su-row-name { font-size: 14.5px; font-weight: 600; color: var(--purple-700); }
+  .su-row-lead {
+    font-family: var(--roboto); font-size: 14px; color: var(--grey-600);
+    border: 1px solid var(--grey-400); padding: 9px 13px; width: 100%;
+  }
+  .su-row-lead:focus { outline: none; border-color: var(--purple-700); }
+  .su-row-mine { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--purple-500); }
+  .su-row-mine input[type="radio"] { accent-color: var(--purple-700); }
+  .su-row-field { font-size: 13px; color: var(--purple-500); }
+  .su-row-remove { font-size: 14px; color: var(--purple-500); background: none; border: none; cursor: pointer; padding: 4px; }
+  .su-row-remove:hover { color: #A93226; }
+  .su-row-remove:focus-visible { outline: 2px solid var(--purple-700); outline-offset: 2px; }
+  .su-empty { font-size: 13.5px; color: var(--purple-500); padding: 8px 0; }
+
+  .su-foot { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; border-top: 1px solid var(--grey-400); padding-top: 16px; }
+  .su-foot-hint { font-size: 13.5px; color: var(--purple-500); }
+  .cw-pill-fill {
+    margin-left: auto;
+    font-family: var(--roboto); font-size: 12px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase;
+    background: var(--lilac-500); color: var(--purple-700); border: none; border-radius: var(--radius-pill);
+    padding: 10px 22px; cursor: pointer; white-space: nowrap;
+    transition: opacity .15s;
+  }
+  .cw-pill-fill:hover { opacity: .85; }
+  .cw-pill-fill:focus-visible { outline: 2px solid var(--purple-700); outline-offset: 2px; }
+  .cw-pill-fill[disabled] { opacity: .45; cursor: default; }
+  @media (max-width: 640px){
+    .su-table-head { display: none; }
+    .su-row { grid-template-columns: 1fr auto; row-gap: 6px; }
+    .su-row-field { grid-column: 1 / 2; }
+  }
+
+  /* ── Shared: pill buttons on a dark bar ──────────────────────────── */
+  .pf-bar {
+    background: var(--purple-900); color: #fff;
+    padding: 12px 24px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  }
+  .pf-back { font-family: var(--roboto); font-size: 13px; color: var(--lilac-500); background: none; border: none; cursor: pointer; padding: 4px 0; }
+  .pf-back:hover { text-decoration: underline; }
+  .pf-back:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+  .pf-bar-name { font-size: 15px; font-weight: 600; }
+  .pf-bar-ref { font-size: 12.5px; color: var(--lilac-500); }
+  .pf-bar-actions { margin-left: auto; display: flex; gap: 10px; }
+  .pf-bar-actions .cw-pill-fill, .pf-bar-actions .cw-pill-outline { margin-left: 0; }
+  .cw-pill-fill[disabled], .cw-pill-outline[disabled] { opacity: .45; cursor: default; }
+  .cw-pill-fill[disabled]:hover { opacity: .45; }
+  .pf-copy-btn {
+    font-family: var(--roboto); font-size: 12px; color: var(--lilac-500);
+    background: none; border: none; cursor: pointer; padding: 4px 8px;
+    text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 2px;
+  }
+  .pf-copy-btn:hover { text-decoration-color: var(--lilac-500); }
+  .pf-copy-btn:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+  .cw-header-right .cw-pill-fill { margin-left: 0; }
+
+  /* ── Export progress panel ───────────────────────────────────────── */
+  .xp-panel {
+    position: fixed; right: 20px; bottom: 20px; z-index: 200; width: 300px;
+    background: #fff; border: 1px solid var(--grey-400); box-shadow: 0 8px 28px rgba(0,0,0,.16);
+    padding: 14px 18px; font-family: var(--roboto);
+  }
+  .xp-label { font-size: 13px; color: var(--purple-700); margin-bottom: 9px; line-height: 1.4; }
+  .xp-bar { height: 5px; background: var(--lilac-300); }
+  .xp-bar i { display: block; height: 100%; width: 0; background: var(--purple-700); transition: width .15s; }
+
+  /* ── Case-file hero photo ─────────────────────────────────────── */
+  .pf-hero { aspect-ratio: 3 / 1; min-height: 140px; width: 100%; background: var(--lilac-300); overflow: hidden; }
+  .pf-hero img { width: 100%; height: 100%; object-fit: cover; object-position: center 28%; display: block; }
+
+  /* ── Two-column layout: main + notes margin ──────────────────────── */
+  .pf-wrap { display: grid; grid-template-columns: 1fr 320px; align-items: start; }
+  @media (max-width: 900px){ .pf-wrap { grid-template-columns: 1fr; } }
+  .pf-main { padding: 26px 30px 34px; display: flex; flex-direction: column; gap: 26px; border-right: 1px solid var(--grey-400); min-width: 0; }
+  @media (max-width: 900px){ .pf-main { border-right: none; } }
+
+  /* ── Identity block ───────────────────────────────────────────── */
+  .pf-identity { display: flex; flex-direction: column; gap: 9px; padding-bottom: 20px; border-bottom: 2px solid var(--purple-700); }
+  .pf-identity-name { font-family: var(--roboto); font-size: 32px; font-weight: 600; color: var(--purple-700); line-height: 1.05; }
+  .pf-identity-sub { font-size: 15.5px; line-height: 1.5; }
+  .pf-identity-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 2px; }
+  .pf-chip { font-size: 12px; color: var(--purple-700); border: 1px solid var(--lilac-300); padding: 5px 11px; }
+  .pf-chip--fill { background: var(--lilac-500); border-color: var(--lilac-500); font-weight: 500; letter-spacing: .05em; text-transform: uppercase; }
+
+  /* ── Assessor brief ───────────────────────────────────────────── */
+  .pf-brief { background: var(--lilac-100); border: 1px solid var(--lilac-300); padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; }
+  .pf-brief-label { font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--purple-700); }
+  .pf-brief-text { font-size: 17px; line-height: 1.6; max-width: 70ch; }
+  .pf-brief-signals { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pf-signal { font-size: 12.5px; color: var(--purple-700); background: #fff; border: 1px solid var(--lilac-300); padding: 5px 12px; }
+
+  /* ── At-a-glance facts ────────────────────────────────────────── */
+  .pf-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; border-top: 1px solid var(--grey-400); border-bottom: 1px solid var(--grey-400); padding: 16px 0; }
+  @media (max-width: 560px){ .pf-facts { grid-template-columns: 1fr; } }
+  .pf-fact { display: flex; gap: 12px; align-items: baseline; }
+  .pf-fact-k { font-size: 10.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--purple-500); width: 118px; flex-shrink: 0; }
+  .pf-fact-v { font-size: 14.5px; line-height: 1.4; }
+
+  /* ── Profile sections (collapsible) ──────────────────────────────── */
+  .pf-sections { display: flex; flex-direction: column; gap: 12px; }
+  .pf-sec { border: 1px solid var(--grey-400); }
+  .pf-sec-head {
+    padding: 13px 18px; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    background: #fff; cursor: pointer; list-style: none;
+  }
+  .pf-sec-head::-webkit-details-marker { display: none; }
+  .pf-sec[open] > .pf-sec-head { background: var(--lilac-100); border-bottom: 1px solid var(--lilac-300); }
+  .pf-sec-label { font-family: var(--roboto); font-size: 16.5px; font-weight: 600; color: var(--purple-700); }
+  .pf-sec-meta { font-size: 12.5px; color: var(--purple-500); display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+  .pf-sec-note-btn {
+    font-family: var(--roboto); font-size: 12.5px; color: var(--purple-500); background: none; border: none; cursor: pointer;
+    padding: 0; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 2px;
+  }
+  .pf-sec-note-btn:hover { text-decoration-color: var(--purple-500); }
+  .pf-sec-note-btn:focus-visible { outline: 2px solid var(--purple-700); outline-offset: 2px; }
+  .pf-sec-body { padding: 16px 18px 18px; font-size: 16px; line-height: 1.7; max-width: 74ch; }
+  .pf-sec-body p + p { margin-top: 1em; }
+
+  /* ── Evidence register ────────────────────────────────────────── */
+  .pf-ev { display: flex; flex-direction: column; gap: 4px; }
+  .pf-ev-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--purple-700); flex-wrap: wrap; margin-bottom: 4px; }
+  .pf-ev-title { font-family: var(--roboto); font-size: 21px; font-weight: 600; color: var(--purple-700); }
+  .pf-ev-controls { font-size: 13px; color: var(--purple-500); display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+  .pf-ev-controls button {
+    font-family: var(--roboto); font-size: 13px; color: var(--purple-500); background: none; border: none; cursor: pointer;
+    padding: 2px 4px; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 2px;
+  }
+  .pf-ev-controls button:hover { text-decoration-color: currentColor; }
+  .pf-ev-controls button[aria-pressed="true"] { color: var(--purple-700); font-weight: 600; }
+  .pf-ev-controls .sep { color: var(--grey-400); }
+  .pf-ev-dlall { color: var(--purple-700) !important; font-weight: 600 !important; display: inline-flex; align-items: center; gap: 5px; }
+  .pf-ev-dlall.busy .dla-ic { animation: spin .8s linear infinite; }
+  .pf-ev-dlall[disabled] { opacity: .6; cursor: default; }
+  .pf-ev-row { display: grid; grid-template-columns: 24px 1fr 92px 76px; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid #EDEDED; }
+  .pf-ev-row:last-child { border-bottom: none; }
+  .pf-ev-check {
+    width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid var(--grey-400); background: #fff;
+    display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; padding: 0;
     transition: background .14s, border-color .14s;
   }
-  .reg-check .box svg { opacity: 0; transition: opacity .14s; }
-  .reg-check input:checked + .box { background: var(--green); border-color: var(--green); }
-  .reg-check input:checked + .box svg { opacity: 1; }
-  .reg-check input:focus-visible + .box { outline: 2px solid var(--mulberry); outline-offset: 2px; }
-  .reg-check .ctx { white-space: nowrap; }
-  .reg-row.is-done .reg-check .ctx { color: var(--green); font-weight: 600; }
-
-  .reg-actions { display: flex; gap: 6px; justify-content: flex-end; }
-  .icon-btn {
-    width: 32px; height: 32px; border-radius: 8px; cursor: pointer;
-    border: 1px solid var(--line); background: var(--card); color: var(--muted);
-    display: inline-flex; align-items: center; justify-content: center;
-    transition: border-color .14s, color .14s, background .14s;
-    text-decoration: none;
+  .pf-ev-check.is-done { background: var(--purple-700); border-color: var(--purple-700); }
+  .pf-ev-check svg { opacity: 0; transition: opacity .14s; }
+  .pf-ev-check.is-done svg { opacity: 1; }
+  .pf-ev-check:focus-visible { outline: 2px solid var(--purple-700); outline-offset: 2px; }
+  .pf-ev-doc { min-width: 0; background: none; border: none; text-align: left; cursor: pointer; padding: 0; font-family: var(--roboto); }
+  .pf-ev-doc:focus-visible { outline: 2px solid var(--purple-700); outline-offset: 2px; }
+  .pf-ev-title-tx { display: block; font-size: 14.5px; font-weight: 600; color: var(--purple-700); line-height: 1.3; overflow-wrap: anywhere; }
+  .pf-ev-doc:hover .pf-ev-title-tx { text-decoration: underline; text-decoration-color: var(--lilac-300); text-underline-offset: 3px; }
+  .pf-ev-file { display: block; font-size: 11.5px; color: var(--purple-500); margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .pf-ev-tag { font-size: 11px; font-weight: 600; letter-spacing: .06em; color: var(--purple-700); background: var(--lilac-100); border: 1px solid var(--lilac-300); padding: 4px 8px; justify-self: start; }
+  .pf-ev-preview { font-size: 12.5px; color: var(--purple-500); text-align: right; background: none; border: none; cursor: pointer; font-family: var(--roboto); }
+  .pf-ev-preview:hover { color: var(--purple-700); text-decoration: underline; }
+  .pf-ev-preview:focus-visible { outline: 2px solid var(--purple-700); outline-offset: 2px; }
+  .pf-ev-empty { padding: 34px 20px; text-align: center; color: var(--purple-500); font-size: 13.5px; }
+  .pf-ev-empty button { background: none; border: none; color: var(--purple-700); font-weight: 600; font-size: 13.5px; cursor: pointer; text-decoration: underline; }
+  @media (max-width: 640px){
+    .pf-ev-row { grid-template-columns: 20px 1fr auto; }
+    .pf-ev-tag { display: none; }
   }
-  .icon-btn:hover { border-color: var(--mulberry); color: var(--grape); background: var(--lilac); }
-  .icon-btn:focus-visible { outline: 2px solid var(--mulberry); outline-offset: 2px; }
 
-  .reg-empty { padding: 34px 20px; text-align: center; color: var(--muted); font-size: 13.5px; }
-  .reg-empty button { background: none; border: none; color: var(--grape); font-weight: 600; font-size: 13.5px; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
-
-  @media (max-width: 760px){
-    .reg-head { display: none; }
-    .reg-row { display: block; position: relative; padding: 12px 96px 12px 14px; }
-    .reg-code { margin-right: 2px; }
-    .reg-doc { display: block; margin-top: 4px; width: 100%; }
-    .reg-meta-m { display: flex; align-items: center; gap: 12px; margin-top: 9px; }
-    .reg-actions { position: absolute; right: 12px; top: 11px; }
+  /* ── Notes margin (case file) ─────────────────────────────────── */
+  .pf-notes {
+    padding: 26px 20px; display: flex; flex-direction: column; gap: 12px;
+    background: var(--grey-100); align-self: stretch;
+    position: sticky; top: 0; max-height: 100vh; overflow-y: auto;
   }
-  @media (min-width: 761px){ .reg-meta-m, .reg-code-col, .ftag-col, .reg-check-col { display: contents; } }
+  .pf-notes-label { font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--purple-500); display: flex; align-items: baseline; justify-content: space-between; }
+  .pf-note-state { font-size: 11px; color: var(--purple-500); text-transform: none; letter-spacing: 0; font-weight: 400; }
+  .pf-note-state.ok { color: var(--purple-700); font-weight: 600; }
+  .pf-note-general { background: #fff; border: 1px solid var(--purple-700); padding: 12px; display: flex; flex-direction: column; gap: 7px; }
+  .pf-note-anchor-label { font-size: 10.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--purple-700); }
+  .pf-note-ta {
+    width: 100%; min-height: 64px; resize: vertical; font-family: var(--roboto); font-size: 13.5px; line-height: 1.55;
+    color: var(--grey-600); border: none; background: none; padding: 0;
+  }
+  .pf-note-ta:focus { outline: none; }
+  .pf-notes-divider { height: 1px; background: var(--grey-400); margin: 2px 0; }
+  .pf-notes-sublabel { font-size: 10.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--purple-500); }
+  .pf-note-anchored { background: #fff; border: 1px solid var(--grey-400); border-left: 3px solid var(--purple-700); padding: 12px; display: flex; flex-direction: column; gap: 7px; }
+  .pf-note-anchor-row { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+  .pf-note-remove { font-size: 11px; color: var(--purple-500); background: none; border: none; cursor: pointer; padding: 0; text-decoration: underline; flex-shrink: 0; }
+  .pf-note-remove:hover { color: #A93226; }
+  .pf-note-add {
+    background: #fff; border: 1px dashed var(--grey-400); padding: 12px; font-size: 13px; color: var(--purple-500);
+    cursor: pointer; text-align: left; font-family: var(--roboto);
+  }
+  .pf-note-add:hover { border-color: var(--purple-500); }
+  .pf-note-add:focus-visible { outline: 2px solid var(--purple-700); outline-offset: 2px; }
+  .pf-note-add-picker select {
+    width: 100%; font-family: var(--roboto); font-size: 13px; padding: 9px; border: 1px solid var(--grey-400); background: #fff; color: var(--grey-600);
+  }
+  .pf-notes-foot { margin-top: auto; font-size: 12px; color: var(--purple-500); line-height: 1.55; padding-top: 8px; }
 
-  /* ── Prev / next learner ───────────────────────────────────────── */
-  .pn-wrap { max-width: var(--maxw); margin: 0 auto; padding: 10px clamp(18px,4vw,40px) 56px; }
+  /* ── Prev / next learner ──────────────────────────────────────── */
+  .pn-wrap { padding: 24px 30px; border-top: 1px solid var(--grey-400); }
   .pn { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   @media (max-width: 600px){ .pn { grid-template-columns: 1fr; } }
   .pn a {
     display: flex; align-items: center; gap: 14px;
-    background: var(--card); border: 1px solid var(--line); border-radius: var(--r-sm);
+    background: #fff; border: 1px solid var(--grey-400);
     padding: 14px 16px; text-decoration: none;
-    transition: border-color .15s, box-shadow .15s, transform .15s;
+    transition: border-color .15s;
   }
-  .pn a:hover { border-color: var(--lilac-line); box-shadow: 0 6px 18px rgba(62,19,56,.1); transform: translateY(-1px); }
-  .pn a:focus-visible { outline: 2px solid var(--mulberry); outline-offset: 2px; }
+  .pn a:hover { border-color: var(--purple-500); }
+  .pn a:focus-visible { outline: 2px solid var(--purple-700); outline-offset: 2px; }
   .pn a.next { flex-direction: row-reverse; text-align: right; }
-  .pn img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; object-position: center 25%; flex: 0 0 auto; }
-  .pn .k { font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 3px; }
-  .pn .n { font-family: var(--serif); font-weight: 600; font-size: 17px; color: var(--ink); }
+  .pn img { width: 44px; height: 44px; object-fit: cover; object-position: center 28%; flex: 0 0 auto; }
+  .pn .k { font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--purple-500); display: block; margin-bottom: 3px; }
+  .pn .n { font-family: var(--roboto); font-weight: 600; font-size: 16px; color: var(--purple-700); }
 
-  /* ── Document viewer ───────────────────────────────────────────── */
+  /* ══ Reading state (evidence viewer) ═════════════════════════════ */
   .viewer { position: fixed; inset: 0; z-index: 100; display: none; }
-  .viewer.open { display: block; }
-  .viewer-scrim { position: absolute; inset: 0; background: rgba(40,19,32,.66); backdrop-filter: blur(3px); }
-  .viewer-panel {
-    position: absolute; top: 0; right: 0; bottom: 0;
-    width: min(880px, 100%);
-    background: var(--paper);
-    display: flex; flex-direction: column;
-    box-shadow: -24px 0 60px rgba(40,19,32,.35);
-  }
-  .viewer-bar {
-    display: flex; align-items: center; gap: 12px;
-    padding: 12px clamp(14px, 2.5vw, 22px);
-    background: var(--plum); color: #fff;
-  }
-  .viewer-bar .vcode { font-family: var(--mono); font-size: 11.5px; font-weight: 600; color: var(--ochre-soft); letter-spacing: .05em; flex: 0 0 auto; }
-  .viewer-bar .vtitle { font-weight: 600; font-size: 14.5px; line-height: 1.25; min-width: 0; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .vbtn {
-    flex: 0 0 auto; cursor: pointer;
-    width: 34px; height: 34px; border-radius: 8px;
-    border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.1); color: #fff;
-    display: inline-flex; align-items: center; justify-content: center;
-    transition: background .14s;
-    text-decoration: none;
-  }
-  .vbtn:hover { background: rgba(255,255,255,.22); }
-  .vbtn:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
-  .vbtn[disabled] { opacity: .35; cursor: default; }
-  .vbtn[disabled]:hover { background: rgba(255,255,255,.1); }
+  .viewer.open { display: flex; flex-direction: column; }
+  .rv-bar { background: var(--purple-900); color: #fff; padding: 12px 24px; display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+  .rv-back { font-family: var(--roboto); font-size: 13px; color: var(--lilac-500); background: none; border: none; cursor: pointer; padding: 4px 0; }
+  .rv-back:hover { text-decoration: underline; }
+  .rv-back:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+  .rv-title { font-size: 14.5px; font-weight: 600; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .rv-meta { margin-left: auto; font-size: 12.5px; color: var(--lilac-500); white-space: nowrap; }
 
-  .viewer-sub {
-    display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
-    padding: 9px clamp(14px, 2.5vw, 22px);
-    background: var(--lilac); border-bottom: 1px solid var(--lilac-line);
-  }
-  .viewer-sub .vfile { font-family: var(--mono); font-size: 11px; color: var(--mulberry); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
-  .viewer-sub .vmark { display: inline-flex; }
+  .rv-body { flex: 1; min-height: 0; display: grid; grid-template-columns: 330px 1fr 330px; }
+  @media (max-width: 1080px){ .rv-body { grid-template-columns: 270px 1fr 270px; } }
+  @media (max-width: 860px){ .rv-body { grid-template-columns: 1fr; overflow-y: auto; } .rv-list, .rv-notes { max-height: none; } }
 
-  .viewer-body { flex: 1; overflow: auto; }
-  .viewer-body iframe { width: 100%; height: 100%; border: none; display: block; background: #fff; }
-  .viewer-body .vimg { padding: clamp(14px,3vw,30px); display: flex; justify-content: center; }
-  .viewer-body .vimg img { max-width: 100%; height: auto; border-radius: var(--r-sm); box-shadow: 0 4px 24px rgba(40,19,32,.18); }
+  .rv-list { border-right: 1px solid var(--grey-400); display: flex; flex-direction: column; overflow-y: auto; min-height: 0; }
+  .rv-filters { padding: 12px 16px; display: flex; gap: 6px; flex-wrap: wrap; border-bottom: 1px solid var(--grey-400); flex-shrink: 0; }
+  .rv-filter {
+    font-family: var(--roboto); font-size: 11.5px; letter-spacing: .04em; text-transform: uppercase; color: var(--purple-700);
+    border: 1px solid var(--grey-400); border-radius: var(--radius-pill); padding: 5px 12px; background: #fff; cursor: pointer;
+  }
+  .rv-filter[aria-pressed="true"] { background: var(--lilac-500); border-color: var(--lilac-500); }
+  .rv-filter:focus-visible { outline: 2px solid var(--purple-700); outline-offset: 2px; }
+  .rv-row {
+    padding: 11px 16px; border-bottom: 1px solid #EDEDED; display: flex; gap: 11px; align-items: flex-start;
+    background: #fff;
+  }
+  .rv-row.is-current { background: var(--lilac-100); }
+  .rv-row-check { flex-shrink: 0; margin-top: 2px; }
+  .rv-row-goto {
+    min-width: 0; flex: 1; background: none; border: none; cursor: pointer; text-align: left; padding: 0; font-family: var(--roboto);
+  }
+  .rv-row-goto:focus-visible { outline: 2px solid var(--purple-700); outline-offset: 2px; }
+  .rv-row-title { font-size: 13.5px; font-weight: 600; color: var(--purple-700); line-height: 1.3; }
+  .rv-row-meta { font-size: 11.5px; color: var(--purple-500); margin-top: 3px; }
+  .rv-list-empty { padding: 30px 16px; text-align: center; color: var(--purple-500); font-size: 13px; }
 
-  .docpane {
-    max-width: 760px; margin: clamp(14px,3vw,28px) auto;
-    background: #fff; border: 1px solid var(--line); border-radius: var(--r-sm);
-    padding: clamp(22px, 4vw, 48px);
-    box-shadow: 0 4px 24px rgba(40,19,32,.08);
-    font-size: 15px; line-height: 1.7; color: #2e2229;
-  }
-  .docpane h1, .docpane h2, .docpane h3 { font-family: var(--serif); color: var(--ink); line-height: 1.2; margin: 1.2em 0 .5em; }
-  .docpane h1:first-child, .docpane h2:first-child { margin-top: 0; }
-  .docpane h1 { font-size: 26px; } .docpane h2 { font-size: 21px; } .docpane h3 { font-size: 17px; }
-  .docpane p { margin: .65em 0; }
-  .docpane ul, .docpane ol { margin: .65em 0 .65em 1.4em; }
-  .docpane table { border-collapse: collapse; width: 100%; margin: 1em 0; font-size: 13.5px; }
-  .docpane th, .docpane td { border: 1px solid var(--line); padding: 7px 10px; text-align: left; vertical-align: top; }
-  .docpane th { background: var(--lilac); font-weight: 600; }
-  .docpane img { max-width: 100%; height: auto; }
-  .docpane.sheet-table { max-width: none; margin: clamp(14px,3vw,28px); overflow-x: auto; }
-  .docpane.sheet-table table { font-family: var(--mono); font-size: 12.5px; }
+  .rv-doc { background: var(--grey-100); padding: 22px; overflow-y: auto; min-height: 0; }
+  .rv-sheet { background: #fff; border: 1px solid var(--grey-400); min-height: 100%; }
+  .rv-sheet iframe { width: 100%; height: 100%; min-height: 70vh; border: none; display: block; }
+  .rv-img { padding: 24px; display: flex; justify-content: center; }
+  .rv-img img { max-width: 100%; height: auto; }
 
-  .vstate { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 70px 30px; text-align: center; color: var(--muted); }
-  .vstate b { font-family: var(--serif); font-size: 19px; color: var(--ink); }
-  .vstate p { font-size: 13.5px; max-width: 40ch; line-height: 1.6; }
-  .vstate .dl {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: 13.5px; font-weight: 600; color: #fff; background: var(--grape);
-    padding: 10px 18px; border-radius: 999px; text-decoration: none;
-    transition: background .15s;
+  .rv-docpane { padding: clamp(22px,4vw,40px); font-size: 15px; line-height: 1.7; color: var(--grey-600); max-width: 760px; margin: 0 auto; }
+  .rv-docpane h1, .rv-docpane h2, .rv-docpane h3 { font-family: var(--roboto); color: var(--purple-700); line-height: 1.2; margin: 1.2em 0 .5em; }
+  .rv-docpane h1:first-child, .rv-docpane h2:first-child { margin-top: 0; }
+  .rv-docpane h1 { font-size: 24px; } .rv-docpane h2 { font-size: 20px; } .rv-docpane h3 { font-size: 16px; }
+  .rv-docpane p { margin: .65em 0; }
+  .rv-docpane ul, .rv-docpane ol { margin: .65em 0 .65em 1.4em; }
+  .rv-docpane table { border-collapse: collapse; width: 100%; margin: 1em 0; font-size: 13.5px; }
+  .rv-docpane th, .rv-docpane td { border: 1px solid var(--grey-400); padding: 7px 10px; text-align: left; vertical-align: top; }
+  .rv-docpane th { background: var(--lilac-100); font-weight: 600; }
+  .rv-docpane img { max-width: 100%; height: auto; }
+  .rv-docpane.sheet-table { max-width: none; padding: clamp(14px,3vw,22px); overflow-x: auto; }
+  .rv-docpane.sheet-table table { font-size: 12.5px; }
+
+  .rv-broken { background: #fff; border: 1px solid var(--grey-400); padding: 34px 36px; display: flex; flex-direction: column; gap: 12px; align-items: flex-start; max-width: 640px; margin: 0 auto; }
+  .rv-broken-kicker { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--purple-500); }
+  .rv-broken-icon { font-size: 28px; }
+  .rv-broken-title { font-family: var(--roboto); font-size: 20px; font-weight: 600; color: var(--purple-700); line-height: 1.25; }
+  .rv-broken p { font-size: 15px; line-height: 1.65; max-width: 52ch; }
+  .rv-broken a.inline-link { font-weight: 600; color: var(--purple-700); }
+
+  .rv-loading {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+    padding: 70px 30px; text-align: center; color: var(--purple-500); background: #fff; border: 1px solid var(--grey-400);
   }
-  .vstate .dl:hover { background: var(--mulberry); }
-  .spin {
-    width: 26px; height: 26px; border-radius: 50%;
-    border: 3px solid var(--lilac-line); border-top-color: var(--grape);
-    animation: spin .8s linear infinite;
-  }
+  .rv-spin { width: 26px; height: 26px; border-radius: 50%; border: 3px solid var(--lilac-300); border-top-color: var(--purple-700); animation: spin .8s linear infinite; }
   @keyframes spin { to { transform: rotate(360deg); } }
 
-  /* ── Cohort review dashboard ───────────────────────────────────── */
-  .dash { max-width: var(--maxw); margin: 0 auto; padding: clamp(22px,3.5vw,32px) clamp(18px,4vw,40px) 0; }
-  .dash-inner { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 18px 20px; }
-  .dash-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px 24px; flex-wrap: wrap; }
-  .dash-title h2 { font-family: var(--serif); font-weight: 600; font-size: 19px; letter-spacing: -.01em; }
-  .dash-title .sub { font-size: 12.5px; color: var(--muted); margin-top: 3px; }
-  .dash-side { flex: 0 1 300px; display: flex; flex-direction: column; gap: 10px; }
-  .dash-actions { display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap; }
-  .dash-btn {
-    font-family: var(--mono); font-size: 11.5px; font-weight: 500; letter-spacing: .03em;
-    color: var(--grape); background: none; border: 1px solid var(--lilac-line);
-    border-radius: 999px; padding: 6px 13px; cursor: pointer;
-    transition: background .15s, border-color .15s;
-  }
-  .dash-btn:hover { background: var(--lilac); border-color: var(--mulberry); }
-  .dash-btn:focus-visible { outline: 2px solid var(--mulberry); outline-offset: 2px; }
-  .dash-btn.danger { color: #A93226; border-color: #EBD2CE; }
-  .dash-btn.danger:hover { background: #FBE5E2; border-color: #A93226; }
-  .dash-grid {
-    margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line);
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 8px 26px;
-  }
-  .dash-row { display: grid; grid-template-columns: 1fr 70px 46px; align-items: center; gap: 10px; text-decoration: none; padding: 4px 0; }
-  .dash-row:focus-visible { outline: 2px solid var(--mulberry); outline-offset: 2px; border-radius: 6px; }
-  .dash-row:hover .dr-name { color: var(--grape); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--lilac-line); }
-  .dr-name { font-size: 13.5px; font-weight: 600; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .dr-bar { height: 5px; background: var(--lilac); border-radius: 3px; overflow: hidden; }
-  .dr-bar i { display: block; height: 100%; background: var(--green); border-radius: 3px; }
-  .dr-n { font-family: var(--mono); font-size: 11px; color: var(--muted); text-align: right; }
-  .dash-empty { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
-  @media (max-width: 560px){ .dash-side { flex-basis: 100%; } .dash-actions { justify-content: flex-start; } }
-
-  /* ── Notes scratchpad ──────────────────────────────────────────── */
-  .notes-wrap { max-width: var(--maxw); margin: 0 auto; padding: 6px clamp(18px,4vw,40px) 30px; scroll-margin-top: 60px; }
-  .notes-head {
-    display: flex; align-items: baseline; justify-content: space-between; gap: 14px; flex-wrap: wrap;
-    padding-bottom: 12px; border-bottom: 2px solid var(--plum); margin-bottom: 12px;
-  }
-  .notes-head h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(20px,2.6vw,28px); letter-spacing: -.01em; }
-  .notes-state { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: .03em; }
-  .notes-state.ok { color: var(--green); }
-  .notes-wrap .sub { font-size: 13px; color: var(--muted); margin-bottom: 14px; max-width: 64ch; }
-  #notes-ta {
-    width: 100%; min-height: 170px; resize: vertical;
-    font-family: var(--sans); font-size: 14.5px; line-height: 1.65; color: var(--ink);
-    background: var(--card); border: 1px solid var(--line); border-radius: var(--r-sm);
-    padding: 14px 16px;
-    transition: border-color .18s, box-shadow .18s;
-  }
-  #notes-ta::placeholder { color: var(--muted); }
-  #notes-ta:focus { outline: none; border-color: var(--mulberry); box-shadow: 0 0 0 3px rgba(124,62,124,.14); }
-  .notes-print { display: none; }
+  .rv-notes { border-left: 1px solid var(--grey-400); padding: 18px; display: flex; flex-direction: column; gap: 14px; background: var(--grey-100); overflow-y: auto; min-height: 0; }
+  .rv-notes-head { display: flex; align-items: baseline; justify-content: space-between; }
+  .rv-notes-head span:first-child { font-size: 15px; font-weight: 600; color: var(--purple-700); }
+  .rv-mark-next { margin-top: auto; width: 100%; text-align: center; }
 
   .foot .build { display: block; margin-top: 5px; opacity: .55; }
 
@@ -628,39 +550,30 @@
 
   #loading { text-align: center; padding: 90px 20px; color: var(--muted); font-family: var(--mono); font-size: 13px; letter-spacing: .04em; }
 
-  .reveal { opacity: 0; transform: translateY(14px); }
-  .reveal.in { opacity: 1; transform: none; transition: opacity .5s var(--ease), transform .5s var(--ease); }
-
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after { transition: none !important; animation: none !important; }
-    .reveal { opacity: 1; transform: none; }
   }
 
   /* ── Print: a profile prints as a clean document ───────────────── */
   @media print {
     body { background: #fff; }
-    .util, .controls, .m-nav, .p-nav, .back, .viewer, .ev-filters, .progress, .ev-head-side,
-    .reg-actions, .reg-check, .pn-wrap, .foot, .p-hero-photo, .p-hero-scrim, .dash,
-    #notes-ta, .notes-state, .notes-wrap .sub { display: none !important; }
-    #p-notes:not(.has-notes) { display: none !important; }
-    .notes-print { display: block; white-space: pre-wrap; font-size: 12.5px; line-height: 1.6; }
-    .notes-head { border-color: #000; }
+    .cw-header, .cw-filters, .cw-utility, .pf-bar, .pf-hero, .viewer, .pn-wrap, .foot, .xp-panel,
+    .pf-sec-note-btn, .pf-ev-check, .pf-ev-preview, .pf-ev-controls,
+    .pf-note-remove, .pf-note-add { display: none !important; }
     .page { display: none !important; }
     .page.active { display: block !important; }
-    .p-hero { background: none; }
-    .p-hero-inner { min-height: 0; padding: 0 0 18px; }
-    .p-titles, .p-name, .p-sub, .p-eyebrow { color: #000 !important; text-shadow: none; }
-    .p-sub .k { color: #555; }
-    .p-wrap { display: block; padding: 0; }
-    .p-sections { max-width: none; }
-    .sec { break-inside: avoid; }
-    .ev-wrap { padding: 18px 0 0; }
-    .register, .reg-row { border-color: #ccc; }
-    .reg-head { display: none !important; }
-    .reg-row { display: block; padding: 8px 0; }
-    .reg-doc { display: block; margin-top: 2px; }
-    .reg-meta-m { display: inline; }
+    .pf-wrap { display: block; }
+    .pf-main { border-right: none; padding: 0; }
+    .pf-sec-body { display: block !important; }
+    .pf-sec { break-inside: avoid; border-color: #ccc; }
+    .pf-ev-row { break-inside: avoid; }
+    .pf-notes {
+      position: static; max-height: none; overflow: visible; background: none;
+      padding: 24px 0 0; border-top: 1px solid #ccc; margin-top: 20px;
+    }
+    .pf-notes:not(.has-content) { display: none !important; }
+    .pf-note-state { display: none !important; }
   }
 </style>
 </head>
@@ -668,38 +581,42 @@
 
 <div id="loading">Loading the cohort…</div>
 
-<!-- ══ INDEX ══════════════════════════════════════════════════════ -->
+<!-- ══ INDEX (cohort wall) ═══════════════════════════════════════════ -->
 <div id="index-page" class="page">
-  <div class="util">
-    <span class="brand">TIME Education and Training</span>
-    <span class="doc">Simulated Learner Profiles · Case study resource</span>
-  </div>
-
-  <header class="hero">
-    <div class="hero-inner">
-      <div class="eyebrow">Simulated case studies</div>
-      <h1>Meet the <em>learner cohort</em></h1>
-      <p class="lede"><span id="lede-count">Thirteen</span> fictional learners drawn from across the Australian workforce, each with a full evidence portfolio. Open a learner's file to read their profile, preview their evidence in the browser, and track what you've reviewed as you design and trial recognition of prior learning assessments.</p>
-      <div class="sheet">
-        <div class="sheet-cap" id="sheet-cap"></div>
-        <div class="sheet-row" id="sheet-row" aria-label="Jump straight to a learner"></div>
+  <header class="cw-header">
+    <div class="cw-header-left">
+      <span class="cw-eyebrow">TIME Education and Training · simulated learner portfolios</span>
+      <span class="cw-title">Learner cohort</span>
+    </div>
+    <div class="cw-header-right">
+      <div class="cw-header-stats">
+        <div class="n" id="cw-candidates"></div>
+        <div class="d" id="cw-completed"></div>
       </div>
+      <div class="cw-header-bar"><i id="cw-header-bar-fill"></i></div>
+      <button class="cw-pill-outline" id="cw-edit-group">Edit group</button>
+      <button class="cw-pill-fill" id="cw-export-group">Export group (.zip)</button>
     </div>
   </header>
 
-  <nav class="controls" aria-label="Filter the cohort">
-    <div class="controls-inner">
-      <div class="search">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#6E5F69" stroke-width="1.6"><circle cx="7" cy="7" r="5"/><path d="M11 11l3.5 3.5" stroke-linecap="round"/></svg>
-        <input id="search" type="search" placeholder="Search name, role, place…" aria-label="Search the cohort">
-      </div>
-      <div class="chips" id="chips" role="group" aria-label="Filter by training package"></div>
+  <nav class="cw-filters" aria-label="Filter the cohort">
+    <div class="cw-search">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="5"/><path d="M11 11l3.5 3.5" stroke-linecap="round"/></svg>
+      <input id="search" type="search" placeholder="Search name, role, industry…" aria-label="Search the cohort">
     </div>
+    <div class="cw-field-chips" id="field-chips" role="group" aria-label="Filter by competency field"></div>
+    <select class="cw-select" id="pkg-filter" aria-label="Filter by training package"></select>
+    <select class="cw-select cw-sort" id="sort-mode" aria-label="Sort the cohort">
+      <option value="group">My group first</option>
+      <option value="order">Cohort order</option>
+    </select>
   </nav>
 
-  <section class="dash" id="dash" aria-label="Your review progress"></section>
+  <main class="cw-grid" id="grid" aria-live="polite"></main>
 
-  <main class="grid" id="grid" aria-live="polite"></main>
+  <div class="cw-utility">
+    <button class="cw-util-btn cw-util-btn--danger" id="dash-reset" title="Clear every review tick in this browser (notes are kept)">Reset ticks</button>
+  </div>
 
   <div class="foot">
     <b>TIME Education and Training</b> · Simulated learner profiles · For training purposes only
@@ -707,49 +624,79 @@
   </div>
 </div>
 
-<!-- ══ PROFILE ════════════════════════════════════════════════════ -->
-<div id="profile-page" class="page">
-  <div class="util">
-    <span class="brand">TIME Education and Training</span>
-    <span class="doc" id="p-doc">Learner Profile</span>
+<!-- ══ SETUP (session set-up) ════════════════════════════════════════ -->
+<div id="setup-page" class="page">
+  <div class="su-wrap">
+    <div class="su-panel">
+      <div>
+        <h1 class="su-heading">Who is your group visiting today?</h1>
+        <p class="su-lede">Add the candidates your trainer put on the board. You still see every learner's file — progress, notes and exports just default to this list, to make it easier to use.</p>
+      </div>
+
+      <div class="su-tabs" role="tablist" aria-label="How is your group using this site">
+        <button class="su-tab" id="su-tab-shared" role="tab" aria-selected="true">We are sharing one device</button>
+        <button class="su-tab" id="su-tab-own" role="tab" aria-selected="false">We are on our own devices</button>
+      </div>
+
+      <div class="su-own-name" id="su-own-name" hidden>
+        <label for="su-your-name">Your name</label>
+        <input id="su-your-name" type="text" placeholder="Your name" autocomplete="off">
+      </div>
+
+      <div class="su-add-row">
+        <div class="su-search">
+          <input id="su-search" type="search" placeholder="Add a learner by name or industry…" aria-label="Add a candidate" autocomplete="off">
+          <div class="su-search-results" id="su-search-results" hidden></div>
+        </div>
+        <span class="su-add-hint" id="su-add-hint">Name the lead assessor for each — this is what appears on their export</span>
+      </div>
+
+      <div class="su-table">
+        <div class="su-table-head" id="su-table-head">
+          <span>Candidate</span><span id="su-col-2">Lead assessor (student)</span><span>Competency field</span><span></span>
+        </div>
+        <div id="su-rows"></div>
+        <div class="su-empty" id="su-empty" hidden>No candidates added yet.</div>
+      </div>
+
+      <div class="su-foot">
+        <span class="su-foot-hint" id="su-foot-hint">On the "own devices" tab you name yourself once and pick your own candidate instead.</span>
+        <button class="cw-pill-fill" id="su-start">Start reviewing</button>
+      </div>
+    </div>
   </div>
 
-  <header class="p-hero">
-    <div class="p-hero-photo" id="p-photo"></div>
-    <div class="p-hero-scrim"></div>
-    <div class="p-hero-inner">
-      <button class="back" id="back">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8.5 3L4.5 7l4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Back to cohort
-      </button>
-      <div class="p-titles">
-        <div class="p-eyebrow"><span class="dot"></span><span id="p-eyebrow-tx"></span></div>
-        <h1 class="p-name" id="p-name"></h1>
-        <div class="p-sub" id="p-sub"></div>
-      </div>
+  <div class="foot">
+    <b>TIME Education and Training</b> · Simulated learner profiles · For training purposes only
+    <span class="build"></span>
+  </div>
+</div>
+
+<!-- ══ PROFILE (learner case file) ═══════════════════════════════════ -->
+<div id="profile-page" class="page">
+  <header class="pf-bar">
+    <button class="pf-back" id="pf-back">← Cohort</button>
+    <span class="pf-bar-name" id="pf-bar-name"></span>
+    <span class="pf-bar-ref" id="pf-bar-ref"></span>
+    <div class="pf-bar-actions">
+      <button class="pf-copy-btn" id="pf-copy-email">Copy for email</button>
+      <button class="cw-pill-outline" id="pf-print">Print file</button>
+      <button class="cw-pill-fill" id="pf-export">Export record (.zip)</button>
     </div>
   </header>
 
-  <nav class="m-nav" aria-label="Sections of this profile">
-    <div class="m-nav-inner" id="m-nav"></div>
-  </nav>
+  <div class="pf-hero" id="pf-hero"></div>
 
-  <div class="p-wrap">
-    <aside class="p-nav" id="p-nav" aria-label="Sections of this profile"></aside>
-    <div class="p-sections" id="p-sections"></div>
-  </div>
-
-  <section class="ev-wrap" id="p-evidence" aria-label="Evidence register"></section>
-
-  <section class="notes-wrap" id="p-notes" aria-label="Your notes">
-    <div class="notes-head">
-      <h2>Your notes</h2>
-      <span class="notes-state" id="notes-state" role="status"></span>
+  <div class="pf-wrap">
+    <div class="pf-main">
+      <div class="pf-identity" id="pf-identity"></div>
+      <div class="pf-brief" id="pf-brief"></div>
+      <div class="pf-facts" id="pf-facts"></div>
+      <div class="pf-sections" id="pf-sections"></div>
+      <div class="pf-ev" id="pf-evidence" aria-label="Evidence register"></div>
     </div>
-    <p class="sub">Record your observations and judgements about this portfolio as you review the evidence. Notes stay on this device, and are included when you print this file or export your progress from the cohort page.</p>
-    <textarea id="notes-ta" aria-label="Your notes about this learner" placeholder="What does the evidence show? What is missing or inconsistent? What would you ask this learner at a competency conversation?"></textarea>
-    <div class="notes-print" id="notes-print"></div>
-  </section>
+    <aside class="pf-notes" id="pf-notes" aria-label="Your notes"></aside>
+  </div>
 
   <nav class="pn-wrap" id="p-pn" aria-label="Other learners"></nav>
 
@@ -759,41 +706,26 @@
   </div>
 </div>
 
-<!-- ══ DOCUMENT VIEWER ════════════════════════════════════════════ -->
-<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Document viewer">
-  <div class="viewer-scrim" id="v-scrim"></div>
-  <div class="viewer-panel">
-    <div class="viewer-bar">
-      <span class="vcode" id="v-code"></span>
-      <span class="vtitle" id="v-title"></span>
-      <button class="vbtn" id="v-prev" title="Previous document (←)" aria-label="Previous document">
-        <svg width="15" height="15" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8.5 3L4.5 7l4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <button class="vbtn" id="v-next" title="Next document (→)" aria-label="Next document">
-        <svg width="15" height="15" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5.5 3l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <a class="vbtn" id="v-dl" title="Download this document" aria-label="Download this document" download>
-        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7.5 2v7.5M4.5 7l3 3 3-3M2.5 12.5h10" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <button class="vbtn" id="v-close" title="Close (Esc)" aria-label="Close the viewer">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3l8 8M11 3l-8 8" stroke-linecap="round"/></svg>
-      </button>
+<!-- ══ READING (evidence viewer) ══════════════════════════════════════ -->
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Reading evidence">
+  <header class="rv-bar">
+    <button class="rv-back" id="rv-close">← Case file</button>
+    <span class="rv-title" id="rv-title"></span>
+    <span class="rv-meta" id="rv-meta"></span>
+  </header>
+  <div class="rv-body">
+    <div class="rv-list" id="rv-list">
+      <div class="rv-filters" id="rv-filters"></div>
+      <div id="rv-rows"></div>
     </div>
-    <div class="viewer-sub">
-      <span class="vfile" id="v-file"></span>
-      <label class="reg-check vmark" id="v-mark-wrap">
-        <input type="checkbox" id="v-mark">
-        <span class="box"><svg width="11" height="9" viewBox="0 0 11 9" fill="none" stroke="#fff" stroke-width="2"><path d="M1.5 4.5l2.6 2.6L9.5 1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <span class="ctx" id="v-mark-tx">Mark as reviewed</span>
-      </label>
-    </div>
-    <div class="viewer-body" id="v-body"></div>
+    <div class="rv-doc" id="rv-doc"></div>
+    <aside class="rv-notes" id="rv-notes"></aside>
   </div>
 </div>
 
 <script>
-/* ── Build stamp (update on each release) ───────────────────────── */
-const BUILD = 'v4 · deployed 2 Jul 2026';
+/* ── Build stamp (falls back until data.json's buildStamp loads) ─── */
+let BUILD = 'v4 · deployed 2 Jul 2026';
 
 /* ── Reference data ─────────────────────────────────────────────── */
 const PKG = {
@@ -802,16 +734,21 @@ const PKG = {
   CHC:"Community Services", BSB:"Business", HLT:"Health",
   SIS:"Sport & Recreation", SIR:"Retail", MEM:"Manufacturing & Engineering"
 };
-const CITY_STATE = {
+/* City/state lookups used by extractLocation() as a fallback scrape when a
+   learner has no explicit `location` field. Populated from data.json (falls
+   back to this default set if data.json omits them). */
+let CITY_STATE = {
   "Adelaide":"SA","Gawler":"SA","Port Elliot":"SA","Mount Gambier":"SA","Victor Harbor":"SA",
   "Brisbane":"Qld","Sydney":"NSW","Parramatta":"NSW","Melbourne":"Vic","Perth":"WA",
   "Canberra":"ACT","Darwin":"NT","Hobart":"Tas","Newcastle":"NSW","Wollongong":"NSW","Geelong":"Vic"
 };
-const STATE_FULL = {
+let STATE_FULL = {
   "South Australia":"SA","New South Wales":"NSW","Victoria":"Vic","Queensland":"Qld",
   "Western Australia":"WA","Tasmania":"Tas","Northern Territory":"NT"
 };
-const CITIES = Object.keys(CITY_STATE).sort((a,b)=>b.length-a.length);
+let CITIES = Object.keys(CITY_STATE).sort((a,b)=>b.length-a.length);
+/* Display labels for competencyFields keys, e.g. "carpentry_construction" -> "Carpentry & Construction". */
+let COMPETENCY_FIELD_LABELS = {};
 
 const SECTIONS = [
   { key:'aboutMe',                label:'About Me' },
@@ -821,35 +758,20 @@ const SECTIONS = [
   { key:'additionalInfo',         label:'Additional Information' }
 ];
 
-const PHOTO_PH = `<div class="ph">
-  <svg width="40" height="30" viewBox="0 0 40 30" fill="none"><rect width="40" height="30" rx="3" fill="#7C3E7C" opacity=".12"/><path d="M5 25l8-11 6 6 6-8 10 13H5z" fill="#7C3E7C" opacity=".3"/><circle cx="29" cy="8" r="3" fill="#7C3E7C" opacity=".3"/></svg>
-  <span>Workplace photo</span></div>`;
-
-/* Curated card bios (keyed by slug) */
-const BIOS = {
-  "kira-miller": "Gawler workshop owner and off-road fabrication specialist seeking to formalise the hands-on trade training she already delivers informally on the shop floor.",
-  "leo-moretti": "Adelaide electrician running his own business who is expanding into industrial work and fitting study around a busy family and trade schedule.",
-  "arjun-patel": "Linfox shift lead with deep transport compliance knowledge, fitting study into late evenings around an afternoon roster and demanding operational responsibilities.",
-  "chloe-nguyen": "Adelaide casino VIP attendant and informal team mentor who relocated from Brisbane and is seeking formal recognition of her service industry expertise.",
-  "samir-al-fassi": "Moroccan-born production lead managing a bottling team in northern Adelaide, bringing multilingual communication and seven years of food manufacturing experience.",
-  "mick-oreilly": "Seasoned lead carpenter and site safety representative with 35 years on the tools, now formalising the on-the-job mentoring he has always done.",
-  "priya-sharma": "Parramatta disability support team leader overseeing shared independent living for high-needs clients, with seven years of sector experience and four in leadership.",
-  "sarah-jenkins": "Early childhood educator who returned to the workforce part-time after a five-year career break, rebuilding professional practice while raising two young children.",
-  "james-sterling": "Wheelchair-using Adelaide administrator who led his company's digital transformation and now delivers internal SharePoint and document management training to staff.",
-  "danielle-okafor": "Lagos-born hospital sterilisation technician with seven years at Royal Millbrook, managing study commitments around a demanding rotating fortnightly shift roster.",
-  "jess-callahan": "Port Elliot surf instructor and lifeguard raising two young children largely solo while her partner works a FIFO mining roster.",
-  "lena-vasquez": "Mount Gambier senior store manager and solo parent balancing a regional retail leadership role with her son's full school schedule.",
-  "callum-reid": "Marine maintenance fitter newly arrived from Perth, formalising a decade of submarine systems experience at his employer's urging while finding his feet in an unfamiliar city on an unpredictable project roster."
-};
-
 /* ── Text helpers ───────────────────────────────────────────────── */
-function numWord(n){
-  const w = ['Zero','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten',
-             'Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen','Twenty'];
-  return w[n] || String(n);
-}
 function basePkg(p){ return (p||'').trim().split(/\s+/)[0]; }
 function pkgName(p){ return PKG[basePkg(p)] || ''; }
+/* A learner stub with no sections/files yet is "not built" — renders as a
+   dashed placeholder card, driven entirely by data.json. */
+function isBuilt(l){ return !!(l.sections && Object.keys(l.sections).length && l.files && l.files.length); }
+function initialsFor(name){
+  const parts = (name||'').trim().split(/\s+/).filter(Boolean);
+  return ((parts[0]||'')[0] + (parts[parts.length-1]||'')[0]).toUpperCase();
+}
+function competencyFieldLabel(key){
+  if(!key) return '';
+  return COMPETENCY_FIELD_LABELS[key] || key.replace(/_/g,' ');
+}
 
 function extractLocation(about){
   if(!about) return '';
@@ -873,7 +795,16 @@ function extractRole(about){
   const r = m[1].trim();
   return r.charAt(0).toUpperCase()+r.slice(1);
 }
-function bioFor(l){ return BIOS[l.slug] || ''; }
+function firstSentence(text){
+  if(!text) return '';
+  const line = text.split('\n')[0].trim();
+  const m = line.match(/^[^.!?]*[.!?]/);
+  return (m ? m[0] : line).trim();
+}
+function bioFor(l){ return l.bio || firstSentence(l.sections && l.sections.aboutMe); }
+function roleFor(l){ return l.role || extractRole(l.sections && l.sections.aboutMe); }
+function locationFor(l){ return l.location || extractLocation(l.sections && l.sections.aboutMe); }
+function fileLabel(f){ return f.label || prettyFile(f.name); }
 function prettyFile(name){
   let t = name.replace(/\.[a-z0-9]+$/i,'');
   t = t.replace(/^(?:[A-Z]{1,3}\d{0,2}|\d{1,2})[_\s]+/,'');
@@ -923,9 +854,60 @@ function saveNotes(slug, v){
   } catch(e){}
 }
 
+/* ── Anchored notes: pinned to a profile section or an evidence file ── */
+function getAnchoredNotes(slug){
+  try { return JSON.parse(localStorage.getItem('tet-rpl-notes-anchored:'+slug) || '{}'); }
+  catch(e){ return {}; }
+}
+function saveAnchoredNote(slug, anchor, text){
+  const all = getAnchoredNotes(slug);
+  if(text.trim()) all[anchor] = text; else delete all[anchor];
+  try {
+    if(Object.keys(all).length) localStorage.setItem('tet-rpl-notes-anchored:'+slug, JSON.stringify(all));
+    else localStorage.removeItem('tet-rpl-notes-anchored:'+slug);
+  } catch(e){}
+}
+function anchorLabel(l, anchor){
+  const sec = SECTIONS.find(s=>s.key===anchor);
+  if(sec) return sec.label;
+  const f = (l.files||[]).find(f=>f.name===anchor);
+  return f ? fileLabel(f) : anchor;
+}
+
+/* ── Group (kept in this browser only) ───────────────────────────── */
+function getGroup(){
+  try { const raw = localStorage.getItem('tet-rpl-group'); return raw ? JSON.parse(raw) : null; }
+  catch(e){ return null; }
+}
+function saveGroup(g){
+  try { localStorage.setItem('tet-rpl-group', JSON.stringify(g)); } catch(e){}
+}
+function groupHasMember(slug){ return !!(GROUP && (GROUP.members||[]).some(m=>m.slug===slug)); }
+function groupTagFor(slug){
+  if(!groupHasMember(slug)) return null;
+  return (GROUP.mode === 'own' && GROUP.mine === slug) ? 'Your candidate' : 'My group';
+}
+/* A learner "counts" once every evidence item in their portfolio is reviewed. */
+function groupProgress(){
+  const members = (GROUP && GROUP.members) || [];
+  let done = 0;
+  members.forEach(m=>{
+    const l = ALL.find(x=>x.slug===m.slug);
+    if(!l) return;
+    const files = l.files||[];
+    if(!files.length) return;
+    const rv = reviewedSet(l.slug);
+    if(files.every(f=>rv.has(f.name))) done++;
+  });
+  return { done, total: members.length };
+}
+
 /* ── State ──────────────────────────────────────────────────────── */
 let ALL = [];
+let GROUP = null;
+let activeField = 'all';
 let activePkg = 'all';
+let sortMode = 'group';    // group | order
 let query = '';
 let CUR = null;            // learner currently shown on the profile page
 let curReviewed = new Set();
@@ -933,6 +915,7 @@ let evFilter = 'all';      // all | docx | pdf | xlsx | img | todo
 let vList = [];            // files visible in the register (viewer navigates these)
 let vIdx = -1;
 let lastFocus = null;
+let shownNoteAnchors = new Set(); // anchors with a visible editor box in the notes margin, this page view
 
 /* ── Routing ────────────────────────────────────────────────────── */
 function navigate(h){ window.location.hash = h || ''; }
@@ -942,244 +925,383 @@ function handleRoute(){
     const l = ALL.find(x => x.slug === h.split('/')[1]);
     if(l){ showProfile(l); return; }
   }
+  if(h === 'setup'){ showSetup(); return; }
+  if(!GROUP){ navigate('setup'); return; }
   showIndex();
 }
 
-/* ── Index: hero contact sheet ──────────────────────────────────── */
-function buildSheet(){
-  const packages = new Set(ALL.map(l => basePkg(l.package)));
-  const evidence = ALL.reduce((n,l)=> n + ((l.files||[]).length), 0);
-  document.getElementById('sheet-cap').innerHTML =
-    `<b>The cohort</b><span class="sep">/</span><span>${ALL.length} learners</span>`+
-    `<span class="sep">/</span><span>${packages.size} training packages</span>`+
-    `<span class="sep">/</span><span>${evidence} evidence items</span>`;
-  document.getElementById('sheet-row').innerHTML = ALL.map(l =>
-    `<a class="face" href="#learner/${l.slug}" aria-label="Open ${esc(l.name)}’s file">
-       ${l.photo ? `<img src="${l.photo}" alt="" loading="lazy">` : ''}
-       <span class="tag">${esc(l.name)}</span>
-     </a>`).join('');
-}
-
 /* ── Index: filters + grid ──────────────────────────────────────── */
-function buildChips(){
-  const codes = [...new Set(ALL.map(l => basePkg(l.package)))]
-    .sort((a,b)=> (PKG[a]||a).localeCompare(PKG[b]||b));
-  const wrap = document.getElementById('chips');
-  const mk = (val,label,title)=>{
+/* Shared by the cohort search and the session set-up's "add a candidate" search. */
+function searchMatch(l, q){
+  if(!q) return true;
+  const hay = [l.name, l.package, pkgName(l.package), roleFor(l),
+               locationFor(l), bioFor(l), (l.sections && l.sections.aboutMe) || ''].join(' ').toLowerCase();
+  return q.split(/\s+/).every(w => hay.includes(w));
+}
+function fieldsInCohort(){
+  const keys = new Set();
+  ALL.filter(isBuilt).forEach(l=>{
+    const cf = l.competencyFields || {};
+    if(cf.primary) keys.add(cf.primary);
+    (cf.secondary||[]).forEach(k=>keys.add(k));
+  });
+  return [...keys].sort((a,b)=> competencyFieldLabel(a).localeCompare(competencyFieldLabel(b)));
+}
+function buildFieldChips(){
+  const wrap = document.getElementById('field-chips');
+  const mk = (val,label)=>{
     const b = document.createElement('button');
-    b.className = 'chip'; b.textContent = label; b.dataset.val = val;
-    if(title) b.title = title;
-    b.setAttribute('aria-pressed', val === activePkg);
-    b.addEventListener('click', ()=>{ activePkg = val; syncChips(); renderGrid(); });
+    b.className = 'cw-chip'; b.textContent = label; b.dataset.val = val;
+    b.setAttribute('aria-pressed', val === activeField);
+    b.addEventListener('click', ()=>{ activeField = val; syncFieldChips(); renderGrid(); });
     return b;
   };
   wrap.innerHTML = '';
-  wrap.appendChild(mk('all','All', 'Show every learner'));
-  codes.forEach(c => wrap.appendChild(mk(c, c, PKG[c] || c)));
+  wrap.appendChild(mk('all','All fields'));
+  fieldsInCohort().forEach(k => wrap.appendChild(mk(k, competencyFieldLabel(k))));
 }
-function syncChips(){
-  document.querySelectorAll('#chips .chip').forEach(c =>
-    c.setAttribute('aria-pressed', c.dataset.val === activePkg));
+function syncFieldChips(){
+  document.querySelectorAll('#field-chips .cw-chip').forEach(c =>
+    c.setAttribute('aria-pressed', c.dataset.val === activeField));
+}
+function buildPkgFilter(){
+  const codes = [...new Set(ALL.filter(isBuilt).map(l => basePkg(l.package)))]
+    .sort((a,b)=> (PKG[a]||a).localeCompare(PKG[b]||b));
+  const sel = document.getElementById('pkg-filter');
+  sel.innerHTML = `<option value="all">All packages</option>` +
+    codes.map(c => `<option value="${esc(c)}">${esc(c)} ${esc(PKG[c]||'')}</option>`).join('');
+  sel.value = activePkg;
+}
+function matchesField(l){
+  if(activeField === 'all') return true;
+  const cf = l.competencyFields || {};
+  return cf.primary === activeField || (cf.secondary||[]).includes(activeField);
 }
 function matches(l){
   if(activePkg !== 'all' && basePkg(l.package) !== activePkg) return false;
-  if(!query) return true;
-  const hay = [l.name, l.package, pkgName(l.package), extractRole(l.sections.aboutMe),
-               extractLocation(l.sections.aboutMe), bioFor(l), l.sections.aboutMe].join(' ').toLowerCase();
-  return query.split(/\s+/).every(w => hay.includes(w));
+  if(!matchesField(l)) return false;
+  return searchMatch(l, query);
+}
+function cardTag(slug){
+  const t = groupTagFor(slug);
+  return t ? `<span class="cw-card-tag">${esc(t)}</span>` : '';
 }
 function renderGrid(){
   const grid = document.getElementById('grid');
   const list = ALL.filter(matches);
   if(!list.length){
-    grid.innerHTML = `<div class="empty"><b>No learners match that search</b>
-      Try a different term or training package.
+    grid.innerHTML = `<div class="cw-empty"><b>No learners match that search</b>
+      Try a different term, competency field or training package.
       <br><button id="clear">Clear filters</button></div>`;
     document.getElementById('clear').onclick = ()=>{
-      query=''; activePkg='all'; document.getElementById('search').value='';
-      syncChips(); renderGrid();
+      query=''; activePkg='all'; activeField='all';
+      document.getElementById('search').value='';
+      document.getElementById('pkg-filter').value='all';
+      syncFieldChips(); renderGrid();
     };
     return;
   }
-  grid.innerHTML = list.map(l => {
+  let built = list.filter(isBuilt);
+  const pending = list.filter(l=>!isBuilt(l));
+  if(sortMode === 'group'){
+    const inGroup = built.filter(l=>groupHasMember(l.slug));
+    const rest = built.filter(l=>!groupHasMember(l.slug));
+    built = inGroup.concat(rest);
+  }
+
+  const builtHtml = built.map(l => {
+    const role = roleFor(l);
+    const field = competencyFieldLabel((l.competencyFields||{}).primary);
     const code = basePkg(l.package), name = pkgName(l.package);
-    const role = extractRole(l.sections.aboutMe), loc = extractLocation(l.sections.aboutMe);
-    const meta = [role, loc].filter(Boolean);
-    const ev = (l.files||[]).length;
-    const done = [...reviewedSet(l.slug)].filter(n => (l.files||[]).some(f=>f.name===n)).length;
-    const ref = 'Learner #'+String(l.id).padStart(2,'0');
-    return `<a class="card reveal" href="#learner/${l.slug}" aria-label="View the file for ${esc(l.name)}">
-      <div class="card-photo">
-        ${l.photo ? `<img src="${l.photo}" alt="${esc(l.name)} at work" loading="lazy">` : PHOTO_PH}
-        <span class="pkg"><span class="code">${code}</span><span class="name">${name}</span></span>
-        <span class="ref">${ref}</span>
+    const files = l.files||[];
+    const done = files.filter(f => reviewedSet(l.slug).has(f.name)).length;
+    const pct = files.length ? Math.round(done/files.length*100) : 0;
+    const mine = groupHasMember(l.slug);
+    return `<a class="cw-card${mine?' cw-card--mine':''}" href="#learner/${l.slug}" aria-label="View the file for ${esc(l.name)}">
+      <div class="cw-card-photo">
+        ${l.photo ? `<img src="${l.photo}" alt="" width="800" height="440" loading="lazy" decoding="async">` : `<span class="cw-card-initials">${esc(initialsFor(l.name))}</span>`}
+        ${cardTag(l.slug)}
       </div>
-      <div class="card-body">
-        <div class="card-name">${esc(l.name)}</div>
-        <div class="card-meta">${meta.map((m,i)=>`<span class="${i===0?'role':''}">${esc(m)}</span>`).join('<span>·</span>')}</div>
-        <div class="card-teaser">${esc(bioFor(l))}</div>
-        <div class="card-foot">
-          <span class="ev">${done>0 ? `<span class="done">${done}/${ev} reviewed</span>` : `${ev} evidence item${ev===1?'':'s'}`}</span>
-          <span class="go">Open file<svg width="15" height="13" viewBox="0 0 15 13" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 6.5h12M9 2.5l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <div class="cw-card-body">
+        <div>
+          <div class="cw-card-name">${esc(l.name)}</div>
+          <div class="cw-card-role">${esc(role)}</div>
+        </div>
+        <div class="cw-card-meta">${[field, [code,name].filter(Boolean).join(' ')].filter(Boolean).join(' · ')}</div>
+        <div class="cw-card-progress">
+          <div class="cw-card-bar"><i style="width:${pct}%"></i></div>
+          <span class="cw-card-count">${files.length ? done+' / '+files.length : '—'}</span>
         </div>
       </div>
     </a>`;
   }).join('');
-  revealOnScroll();
+
+  const pendingHtml = pending.map(l => `<div class="cw-card cw-card--pending">
+      <div class="cw-card-photo"></div>
+      <div class="cw-card-body">
+        <div class="cw-card-pending-name">${esc(l.name)}</div>
+        <div class="cw-card-pending-field">${esc(competencyFieldLabel((l.competencyFields||{}).primary))}</div>
+      </div>
+    </div>`).join('');
+
+  grid.innerHTML = builtHtml + pendingHtml;
+}
+function renderHeader(){
+  if(!GROUP) return;
+  const { done, total } = groupProgress();
+  const pct = total ? Math.round(done/total*100) : 0;
+  document.getElementById('cw-candidates').textContent = total + (total===1?' candidate':' candidates');
+  document.getElementById('cw-completed').textContent = `${done} of ${total} completed`;
+  document.getElementById('cw-header-bar-fill').style.width = pct + '%';
 }
 function showIndex(){
   closeViewer();
   CUR = null;
   document.title = 'Learner Cohort · TIME Education and Training';
+  document.getElementById('setup-page').classList.remove('active');
   document.getElementById('profile-page').classList.remove('active');
   document.getElementById('index-page').classList.add('active');
+  renderHeader();
   renderGrid(); /* refresh review counts after visiting a profile */
-  renderDash();
   window.scrollTo(0,0);
 }
 
-/* ── Cohort review dashboard ────────────────────────────────────── */
-function cohortProgress(){
-  return ALL.map(l => {
-    const files = l.files || [];
-    const rv = reviewedSet(l.slug);
-    return { l, total: files.length, done: files.filter(f => rv.has(f.name)).length };
-  });
-}
-function renderDash(){
-  const el = document.getElementById('dash');
-  if(!el || !ALL.length) return;
-  const prog = cohortProgress();
-  const done = prog.reduce((n,p)=> n+p.done, 0);
-  const total = prog.reduce((n,p)=> n+p.total, 0);
-  const pct = total ? Math.round(done/total*100) : 0;
-  const started = prog.filter(p => p.done > 0);
-
-  const rows = started.map(p => {
-    const w = p.total ? Math.round(p.done/p.total*100) : 0;
-    return `<a class="dash-row" href="#learner/${p.l.slug}" title="Open ${esc(p.l.name)}’s file">
-      <span class="dr-name">${esc(p.l.name)}</span>
-      <span class="dr-bar"><i style="width:${w}%"></i></span>
-      <span class="dr-n">${p.done}/${p.total}</span>
-    </a>`;
-  }).join('');
-
-  el.innerHTML = `<div class="dash-inner">
-    <div class="dash-head">
-      <div class="dash-title">
-        <h2>Your review progress</h2>
-        <p class="sub">Tracked in this browser only. Notes and ticks never leave this device unless you export them.</p>
-      </div>
-      <div class="dash-side">
-        <div class="progress" role="status">
-          <div class="ptx"><span>Across the cohort</span><span><b>${done}</b> of ${total} documents · ${pct}%</span></div>
-          <div class="bar"><i style="width:${pct}%"></i></div>
-        </div>
-        <div class="dash-actions">
-          <button class="dash-btn" id="dash-export" title="Download your review ticks and notes as a text file">Export progress</button>
-          <button class="dash-btn danger" id="dash-reset" title="Clear every review tick in this browser (notes are kept)">Reset ticks</button>
-        </div>
-      </div>
-    </div>
-    ${started.length
-      ? `<div class="dash-grid">${rows}</div>`
-      : `<p class="dash-empty">Nothing reviewed yet. Open a learner’s file and tick documents off as you work through the evidence.</p>`}
-  </div>`;
-
-  document.getElementById('dash-export').addEventListener('click', exportProgress);
-  document.getElementById('dash-reset').addEventListener('click', resetProgress);
-}
-function exportProgress(){
-  const now = new Date();
-  const lines = [
-    'RPL portfolio review progress',
-    'Exported ' + now.toLocaleString('en-AU', { dateStyle:'long', timeStyle:'short' }),
-    'TIME Education and Training · Simulated learner profiles',
-    ''
-  ];
-  let any = false;
-  cohortProgress().forEach(p => {
-    const notes = getNotes(p.l.slug);
-    if(!p.done && !notes.trim()) return;
-    any = true;
-    lines.push('=== ' + p.l.name + ' (' + p.l.ref + ' · ' + basePkg(p.l.package) + ') ===');
-    lines.push('Reviewed ' + p.done + ' of ' + p.total + ' documents');
-    const rv = reviewedSet(p.l.slug);
-    sortedFiles(p.l).forEach(f => lines.push('  [' + (rv.has(f.name) ? 'x' : ' ') + '] ' + f.name));
-    if(notes.trim()){
-      lines.push('Notes:');
-      notes.split('\n').forEach(t => lines.push('  ' + t));
-    }
-    lines.push('');
-  });
-  if(!any) lines.push('No documents reviewed and no notes recorded yet.');
-  const blob = new Blob([lines.join('\n')], { type:'text/plain;charset=utf-8' });
-  const url = window.URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'rpl-review-progress.txt';
-  document.body.appendChild(a); a.click(); a.remove();
-  setTimeout(()=> window.URL.revokeObjectURL(url), 4000);
-}
+/* ── Reset ticks — pre-existing behaviour, kept ──────────────────── */
 function resetProgress(){
   if(!window.confirm('Clear every review tick for every learner in this browser? Your notes will be kept.')) return;
   ALL.forEach(l => { try { localStorage.removeItem('tet-rpl-reviewed:'+l.slug); } catch(e){} });
-  renderDash();
+  renderHeader();
   renderGrid();
 }
 
-/* ── Profile ────────────────────────────────────────────────────── */
+/* ── Session set-up ────────────────────────────────────────────── */
+let setupMode = 'shared';   // shared | own
+let setupMembers = [];      // [{ slug, lead }]
+let setupMine = null;       // slug, own-mode only
+let setupYourName = '';
+let setupTeam = '';
+
+function showSetup(){
+  closeViewer();
+  document.title = 'Session set-up · Learner Cohort · TIME Education and Training';
+  const g = GROUP;
+  setupMode = g ? g.mode : 'shared';
+  setupMembers = g ? g.members.map(m=>({ slug:m.slug, lead:m.lead||'' })) : [];
+  setupMine = (g && g.mode === 'own') ? (g.mine || null) : null;
+  setupYourName = (g && g.mode === 'own' && g.mine)
+    ? ((g.members.find(m=>m.slug===g.mine)||{}).lead || '') : '';
+  setupTeam = (g && g.team) || '';
+  document.getElementById('su-your-name').value = setupYourName;
+  document.getElementById('su-search').value = '';
+  hideSetupResults();
+  renderSetupTabs();
+  renderSetupRows();
+  document.getElementById('index-page').classList.remove('active');
+  document.getElementById('profile-page').classList.remove('active');
+  document.getElementById('setup-page').classList.add('active');
+  window.scrollTo(0,0);
+}
+function renderSetupTabs(){
+  const shared = setupMode === 'shared';
+  document.getElementById('su-tab-shared').setAttribute('aria-selected', shared);
+  document.getElementById('su-tab-own').setAttribute('aria-selected', !shared);
+  document.getElementById('su-own-name').hidden = shared;
+  document.getElementById('su-col-2').textContent = shared ? 'Lead assessor (student)' : 'Mine?';
+  document.getElementById('su-add-hint').textContent = shared
+    ? 'Name the lead assessor for each — this is what appears on their export'
+    : 'Add your group’s candidates, then mark the one that is yours';
+  document.getElementById('su-foot-hint').textContent = shared
+    ? 'On the "own devices" tab you name yourself once and pick your own candidate instead.'
+    : 'Your name is used as the lead assessor on your own candidate’s export.';
+}
+function setupCanStart(){
+  if(!setupMembers.length) return false;
+  if(setupMode === 'own'){
+    if(!setupYourName.trim()) return false;
+    if(!setupMine || !setupMembers.some(m=>m.slug===setupMine)) return false;
+  }
+  return true;
+}
+function updateSetupStart(){
+  const btn = document.getElementById('su-start');
+  const ok = setupCanStart();
+  btn.disabled = !ok;
+  btn.title = ok ? '' : (setupMode==='own'
+    ? 'Add a candidate, enter your name and choose your own candidate to continue.'
+    : 'Add at least one candidate to continue.');
+}
+function renderSetupRows(){
+  const wrap = document.getElementById('su-rows');
+  document.getElementById('su-empty').hidden = !!setupMembers.length;
+  wrap.innerHTML = setupMembers.map(m=>{
+    const l = ALL.find(x=>x.slug===m.slug);
+    if(!l) return '';
+    const field = competencyFieldLabel((l.competencyFields||{}).primary);
+    const mid = setupMode === 'own'
+      ? `<label class="su-row-mine"><input type="radio" name="su-mine" ${setupMine===m.slug?'checked':''} data-mine="${esc(m.slug)}"> This is mine</label>`
+      : `<input class="su-row-lead" type="text" placeholder="Lead assessor name" value="${esc(m.lead||'')}" data-lead="${esc(m.slug)}">`;
+    return `<div class="su-row" data-row="${esc(m.slug)}">
+      <span class="su-row-name">${esc(l.name)}</span>
+      ${mid}
+      <span class="su-row-field">${esc(field)}</span>
+      <button class="su-row-remove" type="button" data-remove="${esc(m.slug)}" aria-label="Remove ${esc(l.name)}">✕</button>
+    </div>`;
+  }).join('');
+  wrap.querySelectorAll('[data-lead]').forEach(inp=>{
+    inp.addEventListener('input', ()=>{
+      const m = setupMembers.find(x=>x.slug===inp.dataset.lead);
+      if(m) m.lead = inp.value;
+    });
+  });
+  wrap.querySelectorAll('[data-mine]').forEach(r=>{
+    r.addEventListener('change', ()=>{ setupMine = r.dataset.mine; updateSetupStart(); });
+  });
+  wrap.querySelectorAll('[data-remove]').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      setupMembers = setupMembers.filter(m=>m.slug!==b.dataset.remove);
+      if(setupMine === b.dataset.remove) setupMine = null;
+      renderSetupRows();
+    });
+  });
+  updateSetupStart();
+}
+function hideSetupResults(){
+  const el = document.getElementById('su-search-results');
+  el.hidden = true; el.innerHTML = '';
+}
+function renderSetupSearch(q){
+  const el = document.getElementById('su-search-results');
+  if(!q){ hideSetupResults(); return; }
+  const results = ALL.filter(isBuilt)
+    .filter(l=>!setupMembers.some(m=>m.slug===l.slug))
+    .filter(l=>searchMatch(l,q))
+    .slice(0,8);
+  el.innerHTML = results.length
+    ? results.map(l=>`<button type="button" class="su-search-result" data-add="${esc(l.slug)}"><b>${esc(l.name)}</b> — ${esc(roleFor(l))}</button>`).join('')
+    : `<div class="su-search-empty">No learners match "${esc(q)}".</div>`;
+  el.hidden = false;
+  el.querySelectorAll('[data-add]').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      setupMembers.push({ slug: b.dataset.add, lead: '' });
+      document.getElementById('su-search').value = '';
+      hideSetupResults();
+      renderSetupRows();
+    });
+  });
+}
+function commitSetup(){
+  if(!setupCanStart()) return;
+  const members = setupMembers.map(m=>({ slug: m.slug, lead: (m.lead||'').trim() }));
+  const group = { team: setupTeam, mode: setupMode, members };
+  if(setupMode === 'own'){
+    group.mine = setupMine;
+    group.members = members.map(m=> m.slug===setupMine ? { slug:m.slug, lead: setupYourName.trim() } : m);
+  }
+  saveGroup(group);
+  GROUP = group;
+  navigate('');
+}
+
+document.getElementById('su-tab-shared').addEventListener('click', ()=>{
+  setupMode = 'shared'; renderSetupTabs(); renderSetupRows();
+});
+document.getElementById('su-tab-own').addEventListener('click', ()=>{
+  setupMode = 'own'; renderSetupTabs(); renderSetupRows();
+});
+document.getElementById('su-your-name').addEventListener('input', e=>{
+  setupYourName = e.target.value; updateSetupStart();
+});
+document.getElementById('su-search').addEventListener('input', e=>{
+  renderSetupSearch(e.target.value.trim().toLowerCase());
+});
+document.getElementById('su-start').addEventListener('click', commitSetup);
+document.addEventListener('click', e=>{
+  const box = document.getElementById('su-search');
+  if(box && !box.contains(e.target)) hideSetupResults();
+});
+
+/* ── Profile (learner case file) ─────────────────────────────────── */
+function groupLeadFor(slug){
+  if(!GROUP) return '';
+  const m = (GROUP.members||[]).find(m=>m.slug===slug);
+  return m ? (m.lead||'') : '';
+}
 function showProfile(l){
   closeViewer();
   CUR = l;
   curReviewed = reviewedSet(l.slug);
   evFilter = 'all';
+  shownNoteAnchors = new Set(Object.keys(getAnchoredNotes(l.slug)));
   document.title = l.name + ' · Learner Cohort · TIME Education and Training';
 
   const code = basePkg(l.package), pname = pkgName(l.package);
-  const role = extractRole(l.sections.aboutMe), loc = extractLocation(l.sections.aboutMe);
+  const role = roleFor(l), loc = locationFor(l);
   const ev = (l.files||[]).length;
+  const lead = groupLeadFor(l.slug);
+  const fields = [(l.competencyFields||{}).primary, ...((l.competencyFields||{}).secondary||[])].filter(Boolean);
 
-  document.getElementById('p-doc').textContent = `${l.ref} · ${l.name}`;
-  document.getElementById('p-eyebrow-tx').textContent = `${pname || code} learner`;
-  document.getElementById('p-name').textContent = l.name;
-  document.getElementById('p-sub').innerHTML =
-    [ role && `<span><span class="k">Role</span>${esc(role)}</span>`,
-      loc  && `<span><span class="k">Based</span>${esc(loc)}</span>`,
-      `<span><span class="k">Package</span>${code} ${pname}</span>` ]
-    .filter(Boolean).join('');
+  document.getElementById('pf-bar-name').textContent = l.name;
+  document.getElementById('pf-bar-ref').textContent = l.ref + (lead ? ' · lead assessor '+lead : '');
 
-  const photo = document.getElementById('p-photo');
-  photo.innerHTML = l.photo ? `<img src="${l.photo}" alt="${esc(l.name)} at work">` : PHOTO_PH;
+  const hero = document.getElementById('pf-hero');
+  /* photoFocus: optional data.json field, a CSS object-position string (e.g.
+     "70% 25%") for learners whose subject sits off the default centre-28%. */
+  const focus = l.photoFocus ? ` style="object-position:${esc(l.photoFocus)}"` : '';
+  hero.innerHTML = l.photo ? `<img src="${l.photo}" alt="${esc(l.name)} at work"${focus}>` : '';
 
-  const navLinks = SECTIONS.map((s,i)=>({ id:'sec-'+i, label:s.label }))
-    .concat([{ id:'p-evidence', label:'Evidence register' }, { id:'p-notes', label:'Your notes' }]);
+  const subParts = [role, l.employer, (l.age!=null ? String(l.age) : ''), loc].filter(Boolean);
+  const identityChips = [
+    (code || pname) ? `<span class="pf-chip pf-chip--fill">${esc([code,pname].filter(Boolean).join(' '))}</span>` : '',
+    ...fields.map(k=>`<span class="pf-chip">${esc(competencyFieldLabel(k))}</span>`),
+    `<span class="pf-chip">${ev} evidence item${ev===1?'':'s'}</span>`
+  ].filter(Boolean).join('');
+  document.getElementById('pf-identity').innerHTML =
+    `<div class="pf-identity-name">${esc(l.name)}</div>
+     ${subParts.length ? `<div class="pf-identity-sub">${esc(subParts.join(' · '))}</div>` : ''}
+     <div class="pf-identity-chips">${identityChips}</div>`;
 
-  document.getElementById('p-nav').innerHTML =
-    `<div class="lbl">On this file</div>` +
-    navLinks.map(n=>`<a href="#${n.id}" data-sec="${n.id}">${n.label}</a>`).join('') +
-    `<dl class="p-facts">
-       <dt>Training package</dt><dd>${code} · ${pname}</dd>
-       ${loc?`<dt>Location</dt><dd>${esc(loc)}</dd>`:''}
-       <dt>Evidence</dt><dd>${ev} item${ev===1?'':'s'} in portfolio</dd>
-     </dl>`;
-  document.getElementById('m-nav').innerHTML =
-    navLinks.map(n=>`<a href="#${n.id}" data-sec="${n.id}">${n.label}</a>`).join('');
+  const briefText = l.brief || bioFor(l);
+  const signals = l.signals || [];
+  document.getElementById('pf-brief').innerHTML =
+    `<div class="pf-brief-label">Assessor brief</div>
+     <p class="pf-brief-text">${esc(briefText)}</p>
+     ${signals.length ? `<div class="pf-brief-signals">${signals.map(s=>`<span class="pf-signal">${esc(s)}</span>`).join('')}</div>` : ''}`;
 
-  document.getElementById('p-sections').innerHTML = SECTIONS.map((s,i)=>{
+  const facts = [
+    ['Role', role],
+    ['Industry', [code,pname].filter(Boolean).join(' · ')],
+    ['Competency field', fields.map(competencyFieldLabel).join(' · ')],
+    ['Evidence', `${ev} item${ev===1?'':'s'}`],
+    ['Lead assessor', lead]
+  ].filter(([,v])=>v);
+  document.getElementById('pf-facts').innerHTML = facts.map(([k,v])=>
+    `<div class="pf-fact"><span class="pf-fact-k">${esc(k)}</span><span class="pf-fact-v">${esc(v)}</span></div>`
+  ).join('');
+
+  document.getElementById('pf-sections').innerHTML = SECTIONS.map(s=>{
     const raw = (l.sections && l.sections[s.key]) || '';
-    const paras = raw.split('\n').filter(t=>t.trim()).map(t=>`<p>${esc(t)}</p>`).join('');
-    return `<section class="sec" id="sec-${i}">
-      <div class="sec-head"><span class="sec-num">${String(i+1).padStart(2,'0')}</span>
-      <h2 class="sec-label">${s.label}</h2></div>
-      <div class="sec-text">${paras}</div></section>`;
+    const paraList = raw.split('\n').filter(t=>t.trim());
+    const hint = paraList.length ? paraList.length+' paragraph'+(paraList.length===1?'':'s') : 'empty';
+    const paras = paraList.map(t=>`<p>${esc(t)}</p>`).join('') || '<p>No content yet.</p>';
+    return `<details class="pf-sec" data-anchor="${esc(s.key)}">
+      <summary class="pf-sec-head">
+        <span class="pf-sec-label">${esc(s.label)}</span>
+        <span class="pf-sec-meta">${hint} · <span class="pf-sec-note-btn" role="button" tabindex="0" data-note-anchor="${esc(s.key)}">＋ note</span></span>
+      </summary>
+      <div class="pf-sec-body">${paras}</div>
+    </details>`;
   }).join('');
+  document.getElementById('pf-sections').querySelectorAll('[data-note-anchor]').forEach(b=>{
+    const trigger = e => { e.preventDefault(); e.stopPropagation(); openNoteEditor(b.dataset.noteAnchor); };
+    b.addEventListener('click', trigger);
+    b.addEventListener('keydown', e=>{ if(e.key==='Enter' || e.key===' '){ trigger(e); } });
+  });
 
   renderRegister();
-  hydrateNotes(l);
+  renderNotesMargin();
   renderPrevNext(l);
-  setupSectionNav();
   document.getElementById('index-page').classList.remove('active');
+  document.getElementById('setup-page').classList.remove('active');
   document.getElementById('profile-page').classList.add('active');
   window.scrollTo(0,0);
 }
@@ -1204,77 +1326,52 @@ function renderRegister(){
   /* While the viewer is open it navigates a stable snapshot; resync on close. */
   if(!document.getElementById('viewer').classList.contains('open')) vList = shown;
   const done = files.filter(f=>curReviewed.has(f.name)).length;
-  const pct = files.length ? Math.round(done/files.length*100) : 0;
 
   const counts = { all: files.length, docx:0, pdf:0, xlsx:0, img:0, todo: files.length - done };
   files.forEach(f=>{ const k=fileKind(f); counts[k==='doc'?'docx':k] = (counts[k==='doc'?'docx':k]||0)+1; });
 
-  const chips = [
-    ['all','All'], ['docx','Word'], ['pdf','PDF'], ['xlsx','Sheets'], ['img','Images'], ['todo','Still to review']
+  const filterBtns = [
+    ['all','All'], ['docx','Word'], ['pdf','PDF'], ['xlsx','Sheets'], ['img','Images'], ['todo','To do']
   ].filter(([v])=> v==='all' || counts[v]>0)
-   .map(([v,lab])=>`<button class="chip" data-ef="${v}" aria-pressed="${evFilter===v}">${lab} · ${counts[v]}</button>`).join('');
+   .map(([v,lab])=>`<button type="button" data-ef="${v}" aria-pressed="${evFilter===v}">${lab} · ${counts[v]}</button>`).join('<span class="sep">·</span>');
 
   const rows = shown.map((f,i)=>{
     const k = fileKind(f);
     const isDone = curReviewed.has(f.name);
-    const href = fileHref(l,f);
-    return `<div class="reg-row${isDone?' is-done':''}" data-name="${esc(f.name)}">
-      <span class="reg-code-col"><span class="reg-code">${esc(docCode(f.name))}</span></span>
-      <button class="reg-doc" data-open="${i}" title="Preview ${esc(f.name)}">
-        <span class="reg-title">${esc(prettyFile(f.name))}</span>
-        <span class="reg-file">${esc(f.name)}</span>
+    return `<div class="pf-ev-row" data-name="${esc(f.name)}">
+      <button type="button" class="pf-ev-check${isDone?' is-done':''}" data-rev="${esc(f.name)}" aria-pressed="${isDone}" aria-label="Mark ${esc(fileLabel(f))} as ${isDone?'not reviewed':'reviewed'}">
+        <svg width="10" height="8" viewBox="0 0 11 9" fill="none" stroke="var(--lilac-500)" stroke-width="2"><path d="M1.5 4.5l2.6 2.6L9.5 1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
-      <span class="reg-meta-m">
-        <span class="ftag-col"><span class="ftag ${k}">${KIND_LABEL[k]||k.toUpperCase()}</span></span>
-        <span class="reg-check-col">
-          <label class="reg-check" title="Mark this document as reviewed">
-            <input type="checkbox" data-rev="${esc(f.name)}" ${isDone?'checked':''} aria-label="Mark ${esc(prettyFile(f.name))} as reviewed">
-            <span class="box"><svg width="11" height="9" viewBox="0 0 11 9" fill="none" stroke="#fff" stroke-width="2"><path d="M1.5 4.5l2.6 2.6L9.5 1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            <span class="ctx">${isDone?'Reviewed':'To review'}</span>
-          </label>
-        </span>
-      </span>
-      <span class="reg-actions">
-        <button class="icon-btn" data-open="${i}" title="Preview in the browser" aria-label="Preview ${esc(prettyFile(f.name))}">
-          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1.5 8s2.4-4.5 6.5-4.5S14.5 8 14.5 8s-2.4 4.5-6.5 4.5S1.5 8 1.5 8z"/><circle cx="8" cy="8" r="2"/></svg>
-        </button>
-        <a class="icon-btn" href="${href}" download title="Download" aria-label="Download ${esc(prettyFile(f.name))}">
-          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7.5 2v7.5M4.5 7l3 3 3-3M2.5 12.5h10" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </span>
+      <button type="button" class="pf-ev-doc" data-open="${esc(f.name)}" title="Preview ${esc(f.name)}">
+        <span class="pf-ev-title-tx">${esc(fileLabel(f))}</span>
+        <span class="pf-ev-file">${esc(f.name)}</span>
+      </button>
+      <span class="pf-ev-tag">${esc(KIND_LABEL[k]||k.toUpperCase())}</span>
+      <button type="button" class="pf-ev-preview" data-open="${esc(f.name)}">Preview</button>
     </div>`;
   }).join('');
 
-  document.getElementById('p-evidence').innerHTML =
-    `<div class="ev-head">
-       <div>
-         <h2>Evidence register</h2>
-         <p class="sub">Preview each document in the browser, or download it. Tick items off as you review them — your progress is saved in this browser.</p>
-       </div>
-       <div class="ev-head-side">
-         <button class="dl-all" id="dl-all" title="Download every document in this portfolio as a single zip">
-           <svg class="dla-ic" width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7.5 2v7.5M4.5 7l3 3 3-3M2.5 12.5h10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  document.getElementById('pf-evidence').innerHTML =
+    `<div class="pf-ev-head">
+       <span class="pf-ev-title">Evidence · ${files.length} item${files.length===1?'':'s'}</span>
+       <div class="pf-ev-controls">
+         ${filterBtns}
+         <span class="sep">·</span>
+         <button type="button" class="pf-ev-dlall dl-all" id="dl-all" title="Download every document in this portfolio as a single zip">
+           <svg class="dla-ic" width="12" height="12" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7.5 2v7.5M4.5 7l3 3 3-3M2.5 12.5h10" stroke-linecap="round" stroke-linejoin="round"/></svg>
            <span class="dla-tx">Download all (${files.length})</span>
          </button>
-         <div class="progress" role="status">
-           <div class="ptx"><span>Reviewed</span><span><b>${done}</b> of ${files.length} · ${pct}%</span></div>
-           <div class="bar"><i style="width:${pct}%"></i></div>
-         </div>
        </div>
      </div>
-     <div class="ev-filters">${chips}</div>
-     <div class="register">
-       <div class="reg-head"><span>Ref</span><span>Document</span><span>Type</span><span>Status</span><span style="text-align:right">Actions</span></div>
-       ${rows || `<div class="reg-empty">Nothing matches this filter. <button data-ef="all">Show everything</button></div>`}
-     </div>`;
+     ${rows || `<div class="pf-ev-empty">Nothing matches this filter. <button type="button" data-ef="all">Show everything</button></div>`}`;
 
-  const wrap = document.getElementById('p-evidence');
+  const wrap = document.getElementById('pf-evidence');
   wrap.querySelectorAll('[data-ef]').forEach(b =>
     b.addEventListener('click', ()=>{ evFilter = b.dataset.ef; renderRegister(); }));
   wrap.querySelectorAll('[data-open]').forEach(b =>
-    b.addEventListener('click', ()=> openViewer(parseInt(b.dataset.open,10))));
-  wrap.querySelectorAll('input[data-rev]').forEach(c =>
-    c.addEventListener('change', ()=> setReviewed(c.dataset.rev, c.checked)));
+    b.addEventListener('click', ()=> openViewer(b.dataset.open)));
+  wrap.querySelectorAll('[data-rev]').forEach(b =>
+    b.addEventListener('click', ()=> setReviewed(b.dataset.rev, !curReviewed.has(b.dataset.rev))));
   const dlAll = document.getElementById('dl-all');
   if(dlAll) dlAll.addEventListener('click', ()=> downloadAll(l));
 }
@@ -1319,17 +1416,469 @@ function downloadAll(l){
     });
 }
 
+/* ── Export (.zip) ─────────────────────────────────────────────────
+   The evidence in this repo changes over time, so an export has to carry
+   a point-in-time copy of the files alongside the review record — a zip,
+   not a single document. Built client-side: fetch() every evidence file
+   as an ArrayBuffer (same approach downloadAll() already proves), write
+   a store-only (no compression) zip by hand, and checksum each file with
+   crypto.subtle so an audit years later can tell exactly what a student
+   saw. review-record.html is generated once and used for both the zip
+   and "Print file", so the two can never drift apart. ─────────────── */
+
+/* ── Minimal store-only ZIP writer ───────────────────────────────── */
+const CRC_TABLE = (()=>{
+  const t = new Uint32Array(256);
+  for(let n=0;n<256;n++){
+    let c = n;
+    for(let k=0;k<8;k++) c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);
+    t[n] = c >>> 0;
+  }
+  return t;
+})();
+function crc32(bytes){
+  let c = 0xFFFFFFFF;
+  for(let i=0;i<bytes.length;i++) c = CRC_TABLE[(c ^ bytes[i]) & 0xFF] ^ (c >>> 8);
+  return (c ^ 0xFFFFFFFF) >>> 0;
+}
+function dosDateTime(d){
+  const dosTime = ((d.getHours() & 0x1F) << 11) | ((d.getMinutes() & 0x3F) << 5) | ((d.getSeconds() >> 1) & 0x1F);
+  const dosDate = (((Math.max(0,d.getFullYear()-1980)) & 0x7F) << 9) | (((d.getMonth()+1) & 0xF) << 5) | (d.getDate() & 0x1F);
+  return { dosTime, dosDate };
+}
+class ZipWriter {
+  constructor(){ this.parts = []; this.entries = []; this.offset = 0; }
+  addFile(path, data, date){
+    const bytes = data instanceof Uint8Array ? data : new Uint8Array(data);
+    const nameBytes = new TextEncoder().encode(path.replace(/\\/g,'/'));
+    const crc = crc32(bytes);
+    const { dosTime, dosDate } = dosDateTime(date || new Date());
+    const local = new DataView(new ArrayBuffer(30));
+    local.setUint32(0, 0x04034b50, true);
+    local.setUint16(4, 20, true);
+    local.setUint16(6, 0x0800, true);       // UTF-8 filenames
+    local.setUint16(8, 0, true);            // store (no compression)
+    local.setUint16(10, dosTime, true);
+    local.setUint16(12, dosDate, true);
+    local.setUint32(14, crc, true);
+    local.setUint32(18, bytes.length, true);
+    local.setUint32(22, bytes.length, true);
+    local.setUint16(26, nameBytes.length, true);
+    local.setUint16(28, 0, true);
+    this.entries.push({ nameBytes, crc, size: bytes.length, dosTime, dosDate, offset: this.offset });
+    this.parts.push(new Uint8Array(local.buffer), nameBytes, bytes);
+    this.offset += 30 + nameBytes.length + bytes.length;
+  }
+  finalize(){
+    const cdParts = [];
+    let cdSize = 0;
+    this.entries.forEach(e=>{
+      const cd = new DataView(new ArrayBuffer(46));
+      cd.setUint32(0, 0x02014b50, true);
+      cd.setUint16(4, 20, true);
+      cd.setUint16(6, 20, true);
+      cd.setUint16(8, 0x0800, true);
+      cd.setUint16(10, 0, true);
+      cd.setUint16(12, e.dosTime, true);
+      cd.setUint16(14, e.dosDate, true);
+      cd.setUint32(16, e.crc, true);
+      cd.setUint32(20, e.size, true);
+      cd.setUint32(24, e.size, true);
+      cd.setUint16(28, e.nameBytes.length, true);
+      cd.setUint16(30, 0, true);
+      cd.setUint16(32, 0, true);
+      cd.setUint16(34, 0, true);
+      cd.setUint16(36, 0, true);
+      cd.setUint32(38, 0, true);
+      cd.setUint32(42, e.offset, true);
+      cdParts.push(new Uint8Array(cd.buffer), e.nameBytes);
+      cdSize += 46 + e.nameBytes.length;
+    });
+    const eocd = new DataView(new ArrayBuffer(22));
+    eocd.setUint32(0, 0x06054b50, true);
+    eocd.setUint16(8, this.entries.length, true);
+    eocd.setUint16(10, this.entries.length, true);
+    eocd.setUint32(12, cdSize, true);
+    eocd.setUint32(16, this.offset, true);
+    return new Blob([...this.parts, ...cdParts, new Uint8Array(eocd.buffer)], { type: 'application/zip' });
+  }
+}
+async function sha256Hex(buf){
+  try {
+    if(!(window.crypto && crypto.subtle && crypto.subtle.digest)) return null;
+    const hash = await crypto.subtle.digest('SHA-256', buf);
+    return [...new Uint8Array(hash)].map(b=>b.toString(16).padStart(2,'0')).join('');
+  } catch(e){ return null; }
+}
+function downloadBlob(blob, filename){
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=> URL.revokeObjectURL(url), 4000);
+}
+function fmtBytes(n){
+  if(n < 1024) return n + ' B';
+  if(n < 1024*1024) return (n/1024).toFixed(0) + ' KB';
+  return (n/1024/1024).toFixed(1) + ' MB';
+}
+function fmtDate(d){ return d.toLocaleDateString('en-AU', { day:'numeric', month:'long', year:'numeric' }); }
+function fmtDateTime(d){ return d.toLocaleString('en-AU', { dateStyle:'long', timeStyle:'short' }); }
+function isoDate(d){ return d.toISOString().slice(0,10); }
+
+/* ── Fetch every evidence file, tolerating individual failures ──────
+   A failed fetch must never produce a silently incomplete archive:
+   every failure is carried through into the manifest instead of being
+   dropped, so an audit can see exactly what wasn't captured. ──────── */
+async function fetchEvidenceFiles(l, onProgress){
+  const files = sortedFiles(l);
+  const results = [];
+  let doneCount = 0, totalBytes = 0;
+  for(const f of files){
+    try {
+      const r = await fetch(fileHref(l, f));
+      if(!r.ok) throw new Error('HTTP ' + r.status);
+      const buf = await r.arrayBuffer();
+      const hash = await sha256Hex(buf);
+      results.push({ file: f, buf, hash });
+      totalBytes += buf.byteLength;
+    } catch(e){
+      results.push({ file: f, buf: null, error: (e && e.message) || 'fetch failed' });
+    }
+    doneCount++;
+    if(onProgress) onProgress({ done: doneCount, total: files.length, bytes: totalBytes });
+  }
+  return { results, totalBytes };
+}
+
+/* ── Review-record content: one source feeds html, txt, print and manifest ── */
+function gatherReviewData(l){
+  const code = basePkg(l.package), pname = pkgName(l.package);
+  const fields = [(l.competencyFields||{}).primary, ...((l.competencyFields||{}).secondary||[])]
+    .filter(Boolean).map(competencyFieldLabel);
+  const files = sortedFiles(l);
+  const rv = reviewedSet(l.slug);
+  const done = files.filter(f=>rv.has(f.name)).length;
+  const lead = groupLeadFor(l.slug);
+  const generalNote = getNotes(l.slug);
+  const anchored = getAnchoredNotes(l.slug);
+  const anchoredList = Object.keys(anchored)
+    .filter(k => anchored[k] && anchored[k].trim())
+    .map(k => ({ anchor: anchorLabel(l,k), text: anchored[k] }));
+  return {
+    code, pname, fields, files, rv, done, lead, generalNote, anchoredList,
+    now: new Date(),
+    industry: [code,pname].filter(Boolean).join(' ') + (fields.length ? ' · '+fields.join(', ') : '')
+  };
+}
+const REVIEW_RECORD_CSS = `
+  * { box-sizing: border-box; }
+  body { font-family: Arial, Helvetica, sans-serif; color: #251019; margin: 0; background: #fff; }
+  .rr-page { max-width: 800px; margin: 0 auto; padding: 40px 36px; }
+  .rr-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; padding-bottom: 14px; border-bottom: 2px solid #5A245A; }
+  .rr-kicker { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: #6A396A; }
+  .rr-title { font-size: 24px; font-weight: 700; color: #5A245A; margin-top: 6px; }
+  .rr-head-right { font-size: 12.5px; text-align: right; line-height: 1.6; color: #6A396A; }
+  .rr-head-right b { color: #5A245A; }
+  .rr-warn { background: #FBE5E2; color: #A93226; padding: 10px 14px; font-size: 13px; margin-top: 14px; }
+  .rr-facts { display: grid; grid-template-columns: 150px 1fr; gap: 8px 16px; font-size: 14px; margin: 20px 0; }
+  .rr-fact-k { color: #6A396A; }
+  .rr-rule { display: inline-block; width: 100%; border-bottom: 1px solid #999; height: 1em; }
+  .rr-block { margin-top: 24px; }
+  .rr-block h2 { font-size: 16px; color: #5A245A; border-bottom: 1px solid #ccc; padding-bottom: 6px; margin-bottom: 12px; }
+  .rr-note { margin-bottom: 14px; }
+  .rr-note-k { font-size: 10.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #6A396A; margin-bottom: 3px; }
+  .rr-note-v { font-size: 13.5px; line-height: 1.55; white-space: pre-wrap; }
+  .rr-check-row { display: grid; grid-template-columns: 20px 1fr auto; gap: 10px; font-size: 13.5px; padding: 4px 0; align-items: baseline; }
+  .rr-check-row span:first-child { color: #5A245A; font-weight: 600; }
+  .rr-check-file { color: #6A396A; font-size: 12px; }
+  .rr-sec { margin-bottom: 20px; break-inside: avoid; }
+  .rr-sec h3 { font-size: 15px; color: #5A245A; margin-bottom: 8px; }
+  .rr-sec p { font-size: 14px; line-height: 1.65; margin: 0 0 .8em; }
+  .rr-foot { margin-top: 32px; padding-top: 14px; border-top: 1px solid #ccc; font-size: 11px; color: #6A396A; text-align: center; }
+  @media print { body { padding: 0; } .rr-page { padding: 0; max-width: none; } }
+`;
+function buildReviewRecordHtml(l, extra){
+  extra = extra || {};
+  const d = gatherReviewData(l);
+  const team = (GROUP && GROUP.team || '').trim();
+  const snapshotCount = extra.evidenceCount != null ? extra.evidenceCount : d.files.length;
+  const missing = extra.missing || [];
+  const missingHtml = missing.length
+    ? `<p class="rr-warn">⚠ ${missing.length} file${missing.length===1?'':'s'} could not be captured this time — see manifest.txt.</p>` : '';
+  const factsRows = [
+    ['Candidate', `${esc(l.name)} (simulated) · ${esc(l.ref)}`],
+    ['Industry', esc(d.industry)],
+    ['Evidence sighted', `${d.done} of ${d.files.length} items`],
+    ['Unit assessed', '<span class="rr-rule"></span>'],
+    ['Evidence snapshot', `${snapshotCount} file${snapshotCount===1?'':'s'} captured ${esc(fmtDate(d.now))} · portfolio build ${esc(BUILD)}`]
+  ];
+  const notesHtml = [
+    `<div class="rr-note"><div class="rr-note-k">General · whole portfolio</div><div class="rr-note-v">${d.generalNote.trim() ? esc(d.generalNote) : '<em>No general note recorded.</em>'}</div></div>`,
+    ...d.anchoredList.map(a=>`<div class="rr-note"><div class="rr-note-k">${esc(a.anchor)}</div><div class="rr-note-v">${esc(a.text)}</div></div>`)
+  ].join('');
+  const checklistHtml = d.files.map(f=>
+    `<div class="rr-check-row"><span>${d.rv.has(f.name)?'✓':'○'}</span><span>${esc(fileLabel(f))}</span><span class="rr-check-file">${esc(f.name)}</span></div>`
+  ).join('');
+  const sectionsHtml = SECTIONS.map(s=>{
+    const raw = (l.sections && l.sections[s.key]) || '';
+    const paras = raw.split('\n').filter(t=>t.trim()).map(t=>`<p>${esc(t)}</p>`).join('') || '<p><em>No content.</em></p>';
+    return `<section class="rr-sec"><h3>${esc(s.label)}</h3>${paras}</section>`;
+  }).join('');
+  return `<!DOCTYPE html>
+<html lang="en-AU"><head><meta charset="UTF-8">
+<title>${esc(l.name)} — Portfolio review record</title>
+<style>${REVIEW_RECORD_CSS}</style>
+</head>
+<body>
+<div class="rr-page">
+  <header class="rr-head">
+    <div>
+      <div class="rr-kicker">TIME Education and Training · RPL practice</div>
+      <div class="rr-title">Portfolio review record</div>
+    </div>
+    <div class="rr-head-right">
+      Lead assessor: <b>${esc(d.lead || '—')}</b><br>
+      ${team ? esc(team)+' · ' : ''}${esc(fmtDate(d.now))}
+    </div>
+  </header>
+  ${missingHtml}
+  <div class="rr-facts">${factsRows.map(([k,v])=>`<span class="rr-fact-k">${esc(k)}</span><span class="rr-fact-v">${v}</span>`).join('')}</div>
+  <div class="rr-block"><h2>Lead assessor notes</h2>${notesHtml}</div>
+  <div class="rr-block"><h2>Evidence checklist</h2>${checklistHtml}</div>
+  <div class="rr-block"><h2>${esc(l.name)}’s profile</h2>${sectionsHtml}</div>
+  <div class="rr-foot">TIME Education and Training · Simulated learner profiles · For training purposes only</div>
+</div>
+</body></html>`;
+}
+function buildReviewRecordTxt(l, extra){
+  extra = extra || {};
+  const d = gatherReviewData(l);
+  const team = (GROUP && GROUP.team || '').trim();
+  const snapshotCount = extra.evidenceCount != null ? extra.evidenceCount : d.files.length;
+  const missing = extra.missing || [];
+  const lines = [
+    'TIME EDUCATION AND TRAINING · RPL PRACTICE',
+    'Portfolio review record',
+    '',
+    'Lead assessor: ' + (d.lead || '—')
+  ];
+  if(team) lines.push('Team: ' + team);
+  lines.push('Date: ' + fmtDate(d.now), '');
+  lines.push('Candidate: ' + l.name + ' (simulated) · ' + l.ref);
+  lines.push('Industry: ' + d.industry);
+  lines.push('Evidence sighted: ' + d.done + ' of ' + d.files.length + ' items');
+  lines.push('Unit assessed: ______________________________');
+  lines.push('Evidence snapshot: ' + snapshotCount + ' file' + (snapshotCount===1?'':'s') + ' captured ' + fmtDate(d.now) + ' · portfolio build ' + BUILD);
+  if(missing.length){ lines.push('', '⚠ ' + missing.length + ' file(s) could not be captured this time — see manifest.txt.'); }
+  lines.push('', 'LEAD ASSESSOR NOTES', '-------------------');
+  lines.push('General · whole portfolio');
+  lines.push(d.generalNote.trim() || '(No general note recorded.)');
+  d.anchoredList.forEach(a=>{ lines.push('', a.anchor, a.text); });
+  lines.push('', 'EVIDENCE CHECKLIST', '------------------');
+  d.files.forEach(f=> lines.push('[' + (d.rv.has(f.name)?'x':' ') + '] ' + fileLabel(f) + '  (' + f.name + ')'));
+  lines.push('', l.name.toUpperCase() + '’S PROFILE', '-'.repeat(Math.max(10, l.name.length + 9)));
+  SECTIONS.forEach(s=>{
+    const raw = (l.sections && l.sections[s.key]) || '';
+    lines.push('', s.label.toUpperCase(), raw.trim() || '(No content.)');
+  });
+  lines.push('', 'TIME Education and Training · Simulated learner profiles · For training purposes only');
+  return lines.join('\n');
+}
+function buildManifestTxt(l, fetchResult){
+  const now = new Date();
+  const lines = [
+    'TIME Education and Training · RPL practice',
+    'Evidence manifest — ' + l.name + ' (' + l.ref + ')',
+    'Captured: ' + fmtDateTime(now),
+    'Portfolio build: ' + BUILD,
+    '',
+    'File'.padEnd(46) + 'Bytes'.padStart(10) + '  SHA-256'
+  ];
+  fetchResult.results.forEach(r=>{
+    if(r.error) lines.push(r.file.name.padEnd(46) + 'NOT CAPTURED — ' + r.error);
+    else lines.push(r.file.name.padEnd(46) + String(r.buf.byteLength).padStart(10) + '  ' + (r.hash || '(checksum unavailable)'));
+  });
+  return lines.join('\n');
+}
+
+/* ── Progress panel (single shared instance) ─────────────────────── */
+function showExportProgress(label){
+  let el = document.getElementById('export-progress');
+  if(!el){
+    el = document.createElement('div');
+    el.id = 'export-progress';
+    el.className = 'xp-panel';
+    el.setAttribute('role','status');
+    el.innerHTML = `<div class="xp-label" id="xp-label"></div><div class="xp-bar"><i id="xp-bar-fill"></i></div>`;
+    document.body.appendChild(el);
+  }
+  el.hidden = false;
+  document.getElementById('xp-label').textContent = label;
+  document.getElementById('xp-bar-fill').style.width = '0%';
+}
+function updateExportProgress(label, pct){
+  const lab = document.getElementById('xp-label');
+  const bar = document.getElementById('xp-bar-fill');
+  if(lab) lab.textContent = label;
+  if(bar) bar.style.width = Math.max(0, Math.min(100, pct)) + '%';
+}
+function hideExportProgress(delay){
+  const el = document.getElementById('export-progress');
+  if(!el) return;
+  setTimeout(()=>{ el.hidden = true; }, delay || 0);
+}
+
+/* ── Orchestrators ────────────────────────────────────────────────── */
+let exportBusy = false;
+async function exportLearner(l){
+  if(exportBusy || !l) return;
+  exportBusy = true;
+  const btn = document.getElementById('pf-export');
+  if(btn) btn.disabled = true;
+  showExportProgress('Preparing…');
+  try {
+    const fetchResult = await fetchEvidenceFiles(l, p=>{
+      updateExportProgress(`Fetching evidence · ${p.done} of ${p.total} · ${fmtBytes(p.bytes)}`, p.total ? (p.done/p.total*100) : 100);
+    });
+    const missing = fetchResult.results.filter(r=>r.error);
+    updateExportProgress('Building the record…', 100);
+    const html = buildReviewRecordHtml(l, { evidenceCount: fetchResult.results.length, missing });
+    const txt = buildReviewRecordTxt(l, { evidenceCount: fetchResult.results.length, missing });
+    const manifest = buildManifestTxt(l, fetchResult);
+
+    const zip = new ZipWriter();
+    zip.addFile('review-record.html', new TextEncoder().encode(html));
+    zip.addFile('review-record.txt', new TextEncoder().encode(txt));
+    zip.addFile('manifest.txt', new TextEncoder().encode(manifest));
+    fetchResult.results.forEach(r=>{ if(r.buf) zip.addFile('evidence/'+r.file.name, new Uint8Array(r.buf)); });
+
+    downloadBlob(zip.finalize(), l.slug + '_review_' + isoDate(new Date()) + '.zip');
+    updateExportProgress(missing.length ? `Downloaded — ${missing.length} file${missing.length===1?'':'s'} not captured` : 'Downloaded', 100);
+    hideExportProgress(2200);
+  } catch(e){
+    updateExportProgress('Export failed — try again', 0);
+    hideExportProgress(3000);
+  } finally {
+    exportBusy = false;
+    if(btn) btn.disabled = false;
+  }
+}
+async function exportGroup(){
+  if(exportBusy || !GROUP || !(GROUP.members||[]).length) return;
+  const small = window.matchMedia && window.matchMedia('(max-width: 640px)').matches;
+  const metered = navigator.connection && (navigator.connection.saveData || /2g/.test(navigator.connection.effectiveType||''));
+  if(small || metered){
+    if(!window.confirm('A group export can run 20–40MB and take a few seconds. Continue on this device/connection?')) return;
+  }
+  exportBusy = true;
+  const btn = document.getElementById('cw-export-group');
+  if(btn) btn.disabled = true;
+  showExportProgress('Preparing…');
+  try {
+    const zip = new ZipWriter();
+    const members = GROUP.members;
+    const summaries = [];
+    for(let i=0;i<members.length;i++){
+      const m = members[i];
+      const l = ALL.find(x=>x.slug===m.slug);
+      if(!l) continue;
+      const fetchResult = await fetchEvidenceFiles(l, p=>{
+        const overall = ((i + (p.total? p.done/p.total : 1)) / members.length) * 100;
+        updateExportProgress(`Fetching ${l.name} · ${p.done} of ${p.total} · ${fmtBytes(p.bytes)}`, overall);
+      });
+      const missing = fetchResult.results.filter(r=>r.error);
+      const html = buildReviewRecordHtml(l, { evidenceCount: fetchResult.results.length, missing });
+      const txt = buildReviewRecordTxt(l, { evidenceCount: fetchResult.results.length, missing });
+      const manifest = buildManifestTxt(l, fetchResult);
+      zip.addFile(l.slug+'/review-record.html', new TextEncoder().encode(html));
+      zip.addFile(l.slug+'/review-record.txt', new TextEncoder().encode(txt));
+      zip.addFile(l.slug+'/manifest.txt', new TextEncoder().encode(manifest));
+      fetchResult.results.forEach(r=>{ if(r.buf) zip.addFile(l.slug+'/evidence/'+r.file.name, new Uint8Array(r.buf)); });
+      const rv = reviewedSet(l.slug);
+      const files = sortedFiles(l);
+      summaries.push({ l, lead: m.lead, done: files.filter(f=>rv.has(f.name)).length, total: files.length, missing: missing.length });
+    }
+    const now = new Date();
+    const team = (GROUP.team || '').trim();
+    const teamLines = [
+      'TIME Education and Training · RPL practice',
+      'Group review manifest' + (team ? ' — '+team : ''),
+      'Captured: ' + fmtDateTime(now),
+      'Portfolio build: ' + BUILD,
+      '',
+      'Candidates', '----------'
+    ];
+    summaries.forEach(s=>{
+      teamLines.push(s.l.slug + '/   ' + s.l.name + '   lead assessor ' + (s.lead || '(not yet named)') +
+        '   ' + s.done + ' of ' + s.total + ' items' + (s.missing ? '   ⚠ '+s.missing+' not captured' : ''));
+    });
+    zip.addFile('manifest.txt', new TextEncoder().encode(teamLines.join('\n')));
+
+    const teamSlug = team.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+    const filename = teamSlug ? 'team-'+teamSlug+'_review_'+isoDate(now)+'.zip' : 'cohort_review_'+isoDate(now)+'.zip';
+    downloadBlob(zip.finalize(), filename);
+    updateExportProgress('Downloaded', 100);
+    hideExportProgress(2200);
+  } catch(e){
+    updateExportProgress('Export failed — try again', 0);
+    hideExportProgress(3000);
+  } finally {
+    exportBusy = false;
+    if(btn) btn.disabled = false;
+  }
+}
+function printReviewRecord(l){
+  if(!l) return;
+  const html = buildReviewRecordHtml(l, {});
+  const iframe = document.createElement('iframe');
+  Object.assign(iframe.style, { position:'fixed', right:'0', bottom:'0', width:'0', height:'0', border:'none' });
+  document.body.appendChild(iframe);
+  const cleanup = () => { if(iframe.parentNode) iframe.remove(); };
+  iframe.addEventListener('load', ()=>{
+    try {
+      iframe.contentWindow.focus();
+      iframe.contentWindow.addEventListener('afterprint', cleanup);
+      iframe.contentWindow.print();
+    } catch(e){ cleanup(); }
+    setTimeout(cleanup, 5000);
+  });
+  iframe.srcdoc = html;
+}
+async function copyForEmail(l){
+  if(!l) return;
+  const btn = document.getElementById('pf-copy-email');
+  const txt = buildReviewRecordTxt(l, {});
+  const flash = msg => {
+    if(!btn) return;
+    const orig = 'Copy for email';
+    btn.textContent = msg;
+    setTimeout(()=>{ btn.textContent = orig; }, 1800);
+  };
+  try { await navigator.clipboard.writeText(txt); flash('Copied'); }
+  catch(e){ flash('Couldn’t copy'); }
+}
+
 function setReviewed(name, on){
   if(on) curReviewed.add(name); else curReviewed.delete(name);
   saveReviewed(CUR.slug, curReviewed);
   renderRegister();
-  syncViewerMark();
+  if(document.getElementById('viewer').classList.contains('open')) renderViewerList();
 }
 
 /* ── Prev / next learner ────────────────────────────────────────── */
 function renderPrevNext(l){
-  const i = ALL.indexOf(l);
-  const prev = ALL[i-1], next = ALL[i+1];
+  /* Scoped to the user's group, in tet-rpl-group's own order, wrapping at
+     the ends. No defined neighbours — and so no prev/next — when there's
+     no group, the group has only one member, or the learner being viewed
+     isn't a member of it (all three collapse to idx === -1 below). */
+  const members = (GROUP && GROUP.members) || [];
+  const idx = members.findIndex(m => m.slug === l.slug);
+  let prev = null, next = null;
+  if(idx !== -1 && members.length > 1){
+    prev = ALL.find(x => x.slug === members[(idx - 1 + members.length) % members.length].slug);
+    next = ALL.find(x => x.slug === members[(idx + 1) % members.length].slug);
+  }
   const mk = (x, cls, k) => x ? `<a class="${cls}" href="#learner/${x.slug}">
       ${x.photo?`<img src="${x.photo}" alt="">`:''}
       <span><span class="k">${k}</span><span class="n">${esc(x.name)}</span></span>
@@ -1338,29 +1887,105 @@ function renderPrevNext(l){
     `<div class="pn">${mk(prev,'prev','Previous learner')}${mk(next,'next','Next learner')}</div>`;
 }
 
-/* ── Section nav (desktop sidebar + mobile pills) ───────────────── */
-function setupSectionNav(){
-  const links = [...document.querySelectorAll('#p-nav a[data-sec], #m-nav a[data-sec]')];
-  if(!links.length) return;
-  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  links.forEach(a=>{
-    a.addEventListener('click', e=>{
-      e.preventDefault();
-      const el = document.getElementById(a.dataset.sec);
-      if(!el) return;
-      el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
-      setActive(a.dataset.sec);
+/* ── Notes margin: general note + anchored notes ─────────────────── */
+let noteSaveTimer = null;
+function markNoteSaving(stateElId, slug){
+  const st = document.getElementById(stateElId);
+  if(!st) return;
+  st.textContent = 'Saving…'; st.classList.remove('ok');
+  clearTimeout(noteSaveTimer);
+  noteSaveTimer = setTimeout(()=>{
+    if(CUR && CUR.slug === slug){ st.textContent = 'Saved'; st.classList.add('ok'); }
+  }, 500);
+}
+function refreshNotesHasContent(){
+  const wrap = document.getElementById('pf-notes');
+  if(!wrap) return;
+  const gen = document.getElementById('pf-note-general-ta');
+  const anyGeneral = gen && gen.value.trim();
+  const anyAnchored = [...document.querySelectorAll('.pf-note-ta[data-anchor]')].some(t=>t.value.trim());
+  wrap.classList.toggle('has-content', !!(anyGeneral || anyAnchored));
+}
+function openNoteEditor(anchor){
+  shownNoteAnchors.add(anchor);
+  renderNotesMargin();
+  const ta = document.querySelector(`.pf-note-ta[data-anchor="${cssEscape(anchor)}"]`);
+  if(ta){ ta.scrollIntoView({ behavior:'smooth', block:'center' }); ta.focus(); }
+}
+function cssEscape(s){ return window.CSS && CSS.escape ? CSS.escape(s) : s.replace(/["\\\]]/g,'\\$&'); }
+function renderNotesMargin(){
+  const l = CUR; if(!l) return;
+  const general = getNotes(l.slug);
+  const anchored = getAnchoredNotes(l.slug);
+  Object.keys(anchored).forEach(a=>shownNoteAnchors.add(a));
+  const anchorList = [...shownNoteAnchors];
+
+  const wrap = document.getElementById('pf-notes');
+  const hasContent = !!(general.trim() || Object.values(anchored).some(v=>v && v.trim()));
+  wrap.classList.toggle('has-content', hasContent);
+
+  const anchoredHtml = anchorList.map(a => `
+    <div class="pf-note-anchored">
+      <div class="pf-note-anchor-row">
+        <span class="pf-note-anchor-label">${esc(anchorLabel(l,a))}</span>
+        <button type="button" class="pf-note-remove" data-remove-anchor="${esc(a)}">Remove</button>
+      </div>
+      <textarea class="pf-note-ta" data-anchor="${esc(a)}" placeholder="Notes about ${esc(anchorLabel(l,a))}…">${esc(anchored[a]||'')}</textarea>
+    </div>`).join('');
+
+  const usedAnchors = new Set(anchorList);
+  const addOptions = [
+    ...SECTIONS.filter(s=>!usedAnchors.has(s.key)).map(s=>({ v:s.key, label:s.label })),
+    ...sortedFiles(l).filter(f=>!usedAnchors.has(f.name)).map(f=>({ v:f.name, label:fileLabel(f) }))
+  ];
+
+  wrap.innerHTML = `
+    <div class="pf-notes-label">Your notes <span class="pf-note-state" id="pf-note-state"></span></div>
+    <div class="pf-note-general">
+      <div class="pf-note-anchor-label">General · whole portfolio</div>
+      <textarea class="pf-note-ta" id="pf-note-general-ta" aria-label="Your notes about this learner" placeholder="What does the evidence show? What is missing or inconsistent? What would you ask this learner at a competency conversation?">${esc(general)}</textarea>
+    </div>
+    ${anchorList.length ? `<div class="pf-notes-divider"></div><div class="pf-notes-sublabel">Anchored to a section or a file</div>${anchoredHtml}` : ''}
+    ${addOptions.length ? `
+      <div class="pf-note-add-picker" id="pf-note-add-picker" hidden>
+        <select id="pf-note-add-select" aria-label="Choose what to anchor a new note to">
+          <option value="">Choose a section or file…</option>
+          ${addOptions.map(o=>`<option value="${esc(o.v)}">${esc(o.label)}</option>`).join('')}
+        </select>
+      </div>
+      <button type="button" class="pf-note-add" id="pf-note-add-btn">＋ Add a note</button>
+    ` : ''}
+    <div class="pf-notes-foot">Saved on this device only. Included in the printed file and in every export.</div>`;
+
+  wireNotesMargin(l);
+}
+function wireNotesMargin(l){
+  const slug = l.slug;
+  const genTa = document.getElementById('pf-note-general-ta');
+  if(genTa) genTa.addEventListener('input', ()=>{
+    saveNotes(slug, genTa.value); /* persist immediately so navigating away never loses text */
+    refreshNotesHasContent();
+    markNoteSaving('pf-note-state', slug);
+  });
+  document.querySelectorAll('.pf-note-ta[data-anchor]').forEach(ta=>{
+    ta.addEventListener('input', ()=>{
+      saveAnchoredNote(slug, ta.dataset.anchor, ta.value);
+      refreshNotesHasContent();
+      markNoteSaving('pf-note-state', slug);
     });
   });
-  function setActive(id){
-    links.forEach(x=>x.classList.toggle('on', x.dataset.sec === id));
-  }
-  if(!('IntersectionObserver' in window)) return;
-  const ids = SECTIONS.map((_,i)=>'sec-'+i).concat(['p-evidence','p-notes']);
-  const obs = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{ if(e.isIntersecting) setActive(e.target.id); });
-  }, { rootMargin: '-30% 0px -60% 0px' });
-  ids.forEach(id=>{ const el=document.getElementById(id); if(el) obs.observe(el); });
+  document.querySelectorAll('[data-remove-anchor]').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      saveAnchoredNote(slug, b.dataset.removeAnchor, '');
+      shownNoteAnchors.delete(b.dataset.removeAnchor);
+      renderNotesMargin();
+    });
+  });
+  const addBtn = document.getElementById('pf-note-add-btn');
+  const picker = document.getElementById('pf-note-add-picker');
+  const select = document.getElementById('pf-note-add-select');
+  if(addBtn) addBtn.addEventListener('click', ()=>{ picker.hidden = false; addBtn.hidden = true; select.focus(); });
+  if(select) select.addEventListener('change', ()=>{ if(select.value) openNoteEditor(select.value); });
 }
 
 /* ── Document viewer ────────────────────────────────────────────── */
@@ -1383,14 +2008,26 @@ function ensureScript(key){
 }
 
 let viewToken = 0;
-function openViewer(idx){
-  if(!CUR || !vList[idx]) return;
+let rvFilter = 'all'; // all | todo | img — the reading view's own left-list filter
+
+function rvFilteredFiles(){
+  return sortedFiles(CUR).filter(f=>{
+    if(rvFilter === 'todo') return !curReviewed.has(f.name);
+    if(rvFilter === 'img') return fileKind(f) === 'img';
+    return true;
+  });
+}
+function openViewer(fileName){
+  if(!CUR) return;
   lastFocus = document.activeElement;
-  vIdx = idx;
+  rvFilter = 'all';
+  vList = rvFilteredFiles();
+  vIdx = Math.max(0, vList.findIndex(f=>f.name===fileName));
   document.getElementById('viewer').classList.add('open');
   document.body.style.overflow = 'hidden';
+  renderViewerList();
   renderViewer();
-  document.getElementById('v-close').focus();
+  document.getElementById('rv-close').focus();
 }
 function closeViewer(){
   const v = document.getElementById('viewer');
@@ -1398,8 +2035,8 @@ function closeViewer(){
   v.classList.remove('open');
   document.body.style.overflow = '';
   viewToken++;
-  document.getElementById('v-body').innerHTML = '';
-  if(CUR) renderRegister(); /* resync row indexes and vList with the active filter */
+  document.getElementById('rv-doc').innerHTML = '';
+  if(CUR){ renderRegister(); renderNotesMargin(); } /* resync register + pick up notes added while reading */
   if(lastFocus && document.contains(lastFocus)) lastFocus.focus();
 }
 function stepViewer(d){
@@ -1407,54 +2044,106 @@ function stepViewer(d){
   if(n < 0 || n >= vList.length) return;
   vIdx = n; renderViewer();
 }
-function syncViewerMark(){
-  const f = vList[vIdx];
-  if(!f || !document.getElementById('viewer').classList.contains('open')) return;
-  const on = curReviewed.has(f.name);
-  document.getElementById('v-mark').checked = on;
-  document.getElementById('v-mark-tx').textContent = on ? 'Reviewed' : 'Mark as reviewed';
+/* ── Left list: evidence, All / To do / Images ───────────────────── */
+function renderViewerList(){
+  const all = sortedFiles(CUR);
+  const rows = vList.map(f=>{
+    const isDone = curReviewed.has(f.name);
+    const isCurrent = vList[vIdx] === f;
+    return `<div class="rv-row${isCurrent?' is-current':''}" data-name="${esc(f.name)}">
+      <button type="button" class="pf-ev-check rv-row-check${isDone?' is-done':''}" data-rev="${esc(f.name)}" aria-pressed="${isDone}" aria-label="Mark ${esc(fileLabel(f))} as ${isDone?'not reviewed':'reviewed'}">
+        <svg width="10" height="8" viewBox="0 0 11 9" fill="none" stroke="var(--lilac-500)" stroke-width="2"><path d="M1.5 4.5l2.6 2.6L9.5 1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button type="button" class="rv-row-goto" data-goto="${esc(f.name)}">
+        <span class="rv-row-title">${esc(fileLabel(f))}</span>
+        <span class="rv-row-meta">${esc(KIND_LABEL[fileKind(f)]||'')} · ${isDone?'reviewed':'not reviewed'}</span>
+      </button>
+    </div>`;
+  }).join('');
+  document.getElementById('rv-rows').innerHTML = rows || `<div class="rv-list-empty">Nothing matches this filter.</div>`;
+
+  const filterDefs = [
+    ['all','All', all.length],
+    ['todo','To do', all.filter(f=>!curReviewed.has(f.name)).length],
+    ['img','Images', all.filter(f=>fileKind(f)==='img').length]
+  ];
+  document.getElementById('rv-filters').innerHTML = filterDefs
+    .filter(([v,,n])=> v==='all' || n>0)
+    .map(([v,lab,n])=>`<button type="button" class="rv-filter" data-rvf="${v}" aria-pressed="${rvFilter===v}">${esc(lab)} ${n}</button>`).join('');
+
+  document.getElementById('rv-rows').querySelectorAll('[data-goto]').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      const i = vList.findIndex(f=>f.name===b.dataset.goto);
+      if(i>=0){ vIdx = i; renderViewer(); }
+    });
+  });
+  document.getElementById('rv-rows').querySelectorAll('[data-rev]').forEach(b=>{
+    b.addEventListener('click', ()=> setReviewed(b.dataset.rev, !curReviewed.has(b.dataset.rev)));
+  });
+  document.getElementById('rv-filters').querySelectorAll('[data-rvf]').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      const curName = vList[vIdx] && vList[vIdx].name;
+      rvFilter = b.dataset.rvf;
+      vList = rvFilteredFiles();
+      vIdx = Math.max(0, vList.findIndex(f=>f.name===curName));
+      renderViewerList();
+      renderViewer();
+    });
+  });
 }
+/* ── Centre + right columns for the current document ─────────────── */
 function renderViewer(){
   const f = vList[vIdx]; if(!f) return;
   const token = ++viewToken;
   const href = fileHref(CUR, f);
   const k = fileKind(f);
 
-  document.getElementById('v-code').textContent = docCode(f.name);
-  document.getElementById('v-title').textContent = prettyFile(f.name);
-  document.getElementById('v-file').textContent = f.name;
-  document.getElementById('v-dl').setAttribute('href', href);
-  document.getElementById('v-prev').disabled = vIdx <= 0;
-  document.getElementById('v-next').disabled = vIdx >= vList.length - 1;
-  syncViewerMark();
+  document.getElementById('rv-title').textContent = (docCode(f.name)!=='—' ? docCode(f.name)+' · ' : '') + fileLabel(f);
+  document.getElementById('rv-meta').textContent = `${vIdx+1} of ${vList.length} · ← → · Esc to close`;
+  renderViewerList();
+  renderViewerNotes();
 
-  const body = document.getElementById('v-body');
+  const body = document.getElementById('rv-doc');
   const fail = (title, msg)=>{
     if(token !== viewToken) return;
-    body.innerHTML = `<div class="vstate"><b>${esc(title)}</b><p>${esc(msg)}</p>
-      <a class="dl" href="${href}" download>Download the document
-        <svg width="14" height="14" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7.5 2v7.5M4.5 7l3 3 3-3M2.5 12.5h10" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>`;
+    body.innerHTML = `<div class="rv-broken">
+      <div class="rv-broken-title">${esc(title)}</div>
+      <p>${esc(msg)}</p>
+      <a class="cw-pill-fill" href="${href}" download>Download the file</a>
+    </div>`;
   };
 
+  /* The deliberate failure: files marked viewable:false in data.json are
+     unpreviewable on purpose, to simulate a real evidence-collection problem.
+     Nothing before this point may reveal that — every register row and list
+     row just says "Preview". */
+  if(f.viewable === false){
+    const firstName = (CUR.name||'').trim().split(/\s+/)[0] || CUR.name;
+    if(token !== viewToken) return;
+    body.innerHTML = `<div class="rv-broken">
+      <div class="rv-broken-icon" aria-hidden="true">✉</div>
+      <div class="rv-broken-title">Oops — this file appears to be corrupted</div>
+      <p>You emailed ${esc(firstName)} to ask for it again, and they've sent it back to you <a class="inline-link" href="${href}" download>here</a>. Be prepared that real portfolios will have issues like this.</p>
+      <a class="cw-pill-fill" href="${href}" download>Download the file</a>
+    </div>`;
+    return;
+  }
+
   if(k === 'img'){
-    body.innerHTML = `<div class="vimg"><img src="${href}" alt="${esc(prettyFile(f.name))}"></div>`;
+    body.innerHTML = `<div class="rv-sheet"><div class="rv-img"><img src="${href}" alt="${esc(fileLabel(f))}"></div></div>`;
     return;
   }
   if(k === 'pdf'){
-    body.innerHTML = `<iframe src="${href}" title="${esc(prettyFile(f.name))}"></iframe>`;
-    return;
-  }
-  if(k === 'doc'){
-    fail('This one needs Word', 'It’s saved in the older Word 97 format, which browsers can’t display. Download it to open it — exactly the kind of file that turns up in a real RPL portfolio.');
+    body.innerHTML = `<div class="rv-sheet"><iframe src="${href}" title="${esc(fileLabel(f))}"></iframe></div>`;
     return;
   }
 
-  body.innerHTML = `<div class="vstate"><span class="spin" aria-hidden="true"></span><p>Opening the document…</p></div>`;
+  body.innerHTML = `<div class="rv-loading"><span class="rv-spin" aria-hidden="true"></span><p>Opening the document…</p></div>`;
 
   if(k === 'docx'){
     Promise.all([ensureScript('mammoth'), fetch(href).then(r=>{ if(!r.ok) throw new Error(); return r.arrayBuffer(); })])
       .then(([_, buf]) => window.mammoth.convertToHtml({ arrayBuffer: buf }))
-      .then(out => { if(token === viewToken) body.innerHTML = `<div class="docpane">${out.value}</div>`; })
+      .then(out => { if(token === viewToken) body.innerHTML = `<div class="rv-sheet"><div class="rv-docpane">${out.value}</div></div>`; })
       .catch(()=> fail('Preview didn’t load', 'The document couldn’t be displayed in the browser this time.'));
     return;
   }
@@ -1466,21 +2155,47 @@ function renderViewer(){
         const html = wb.SheetNames.map(n =>
           `<h3>${esc(n)}</h3>` + window.XLSX.utils.sheet_to_html(wb.Sheets[n], { header:'', footer:'' })
         ).join('');
-        body.innerHTML = `<div class="docpane sheet-table">${html}</div>`;
+        body.innerHTML = `<div class="rv-sheet"><div class="rv-docpane sheet-table">${html}</div></div>`;
       })
       .catch(()=> fail('Preview didn’t load', 'The spreadsheet couldn’t be displayed in the browser this time.'));
     return;
   }
   fail('No preview for this file', 'Download it to take a look.');
 }
+/* ── Right column: notes anchored to this document + the general note ── */
+function renderViewerNotes(){
+  const f = vList[vIdx]; if(!f) return;
+  const l = CUR;
+  const anchorText = getAnchoredNotes(l.slug)[f.name] || '';
+  const generalText = getNotes(l.slug);
+  const wrap = document.getElementById('rv-notes');
+  wrap.innerHTML = `
+    <div class="rv-notes-head"><span>Your notes</span><span class="pf-note-state" id="rv-note-state"></span></div>
+    <div class="pf-note-anchored">
+      <div class="pf-note-anchor-label">About ${esc(fileLabel(f))}</div>
+      <textarea class="pf-note-ta" id="rv-note-anchor-ta" aria-label="Notes about this document" placeholder="Notes about this document…">${esc(anchorText)}</textarea>
+    </div>
+    <div class="pf-note-general">
+      <div class="pf-note-anchor-label">General · whole portfolio</div>
+      <textarea class="pf-note-ta" id="rv-note-general-ta" aria-label="Notes about the whole portfolio" placeholder="Notes about the whole portfolio…">${esc(generalText)}</textarea>
+    </div>
+    <button type="button" class="cw-pill-fill rv-mark-next" id="rv-mark-next">Mark reviewed · next →</button>`;
 
-document.getElementById('v-close').addEventListener('click', closeViewer);
-document.getElementById('v-scrim').addEventListener('click', closeViewer);
-document.getElementById('v-prev').addEventListener('click', ()=> stepViewer(-1));
-document.getElementById('v-next').addEventListener('click', ()=> stepViewer(1));
-document.getElementById('v-mark').addEventListener('change', e=>{
-  const f = vList[vIdx]; if(f) setReviewed(f.name, e.target.checked);
-});
+  document.getElementById('rv-note-anchor-ta').addEventListener('input', e=>{
+    saveAnchoredNote(l.slug, f.name, e.target.value);
+    markNoteSaving('rv-note-state', l.slug);
+  });
+  document.getElementById('rv-note-general-ta').addEventListener('input', e=>{
+    saveNotes(l.slug, e.target.value);
+    markNoteSaving('rv-note-state', l.slug);
+  });
+  document.getElementById('rv-mark-next').addEventListener('click', ()=>{
+    setReviewed(f.name, true);
+    if(vIdx < vList.length - 1) stepViewer(1); else closeViewer();
+  });
+}
+
+document.getElementById('rv-close').addEventListener('click', closeViewer);
 document.addEventListener('keydown', e=>{
   const open = document.getElementById('viewer').classList.contains('open');
   if(!open) return;
@@ -1489,7 +2204,7 @@ document.addEventListener('keydown', e=>{
   if(e.key === 'ArrowRight') stepViewer(1);
   if(e.key === 'Tab'){
     /* keep focus inside the viewer */
-    const focusables = [...document.querySelectorAll('.viewer-panel button:not([disabled]), .viewer-panel a[href], .viewer-panel input')];
+    const focusables = [...document.querySelectorAll('.viewer button:not([disabled]), .viewer a[href], .viewer input, .viewer select, .viewer textarea')];
     if(!focusables.length) return;
     const first = focusables[0], last = focusables[focusables.length-1];
     if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
@@ -1497,61 +2212,36 @@ document.addEventListener('keydown', e=>{
   }
 });
 
-/* ── Scroll reveal ──────────────────────────────────────────────── */
-function revealOnScroll(){
-  const els = document.querySelectorAll('.reveal:not(.in)');
-  if(!('IntersectionObserver' in window)){ els.forEach(e=>e.classList.add('in')); return; }
-  const obs = new IntersectionObserver((entries,o)=>{
-    entries.forEach((e,idx)=>{ if(e.isIntersecting){ e.target.style.transitionDelay=(idx*40)+'ms'; e.target.classList.add('in'); o.unobserve(e.target); } });
-  }, { threshold: .08 });
-  els.forEach(e=>obs.observe(e));
-}
-
 /* ── Wiring ─────────────────────────────────────────────────────── */
-document.getElementById('back').addEventListener('click', ()=> navigate(''));
+document.getElementById('pf-back').addEventListener('click', ()=> navigate(''));
+document.getElementById('pf-print').addEventListener('click', ()=> printReviewRecord(CUR));
+document.getElementById('pf-export').addEventListener('click', ()=> exportLearner(CUR));
+document.getElementById('pf-copy-email').addEventListener('click', ()=> copyForEmail(CUR));
 document.getElementById('search').addEventListener('input', e=>{
   query = e.target.value.trim().toLowerCase(); renderGrid();
 });
-document.querySelectorAll('.foot .build').forEach(el => { el.textContent = BUILD; });
-
-/* Notes scratchpad */
-const notesTa = document.getElementById('notes-ta');
-let notesTimer = null;
-function hydrateNotes(l){
-  const v = getNotes(l.slug);
-  clearTimeout(notesTimer);
-  notesTa.value = v;
-  document.getElementById('notes-print').textContent = v;
-  document.getElementById('p-notes').classList.toggle('has-notes', !!v.trim());
-  const st = document.getElementById('notes-state');
-  st.textContent = v.trim() ? 'Saved in this browser' : '';
-  st.classList.toggle('ok', !!v.trim());
-}
-notesTa.addEventListener('input', ()=>{
-  if(!CUR) return;
-  const slug = CUR.slug, v = notesTa.value;
-  saveNotes(slug, v); /* persist immediately so navigating away never loses text */
-  document.getElementById('notes-print').textContent = v;
-  document.getElementById('p-notes').classList.toggle('has-notes', !!v.trim());
-  const st = document.getElementById('notes-state');
-  st.textContent = 'Saving…';
-  st.classList.remove('ok');
-  clearTimeout(notesTimer);
-  notesTimer = setTimeout(()=>{
-    if(CUR && CUR.slug === slug){
-      st.textContent = v.trim() ? 'Saved in this browser' : '';
-      st.classList.toggle('ok', !!v.trim());
-    }
-  }, 450);
+document.getElementById('pkg-filter').addEventListener('change', e=>{
+  activePkg = e.target.value; renderGrid();
 });
+document.getElementById('sort-mode').addEventListener('change', e=>{
+  sortMode = e.target.value; renderGrid();
+});
+document.getElementById('cw-edit-group').addEventListener('click', ()=> navigate('setup'));
+document.getElementById('cw-export-group').addEventListener('click', exportGroup);
+document.getElementById('dash-reset').addEventListener('click', resetProgress);
 
 fetch('data.json')
   .then(r=>r.json())
   .then(data=>{
-    ALL = data;
-    const lc = document.getElementById('lede-count');
-    if(lc) lc.textContent = numWord(ALL.length);
-    buildSheet(); buildChips(); renderGrid(); renderDash();
+    ALL = data.learners || data;
+    BUILD = data.buildStamp || BUILD;
+    CITY_STATE = data.cityState || CITY_STATE;
+    STATE_FULL = data.stateFull || STATE_FULL;
+    CITIES = Object.keys(CITY_STATE).sort((a,b)=>b.length-a.length);
+    COMPETENCY_FIELD_LABELS = data.competencyFieldLabels || COMPETENCY_FIELD_LABELS;
+    document.querySelectorAll('.foot .build').forEach(el => { el.textContent = BUILD; });
+    GROUP = getGroup();
+    buildFieldChips(); buildPkgFilter();
     document.getElementById('loading').style.display='none';
     window.addEventListener('hashchange', handleRoute);
     handleRoute();

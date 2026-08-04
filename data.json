@@ -1,879 +1,998 @@
-[
-  {
-    "id": 1,
-    "ref": "Learner #1",
-    "slug": "kira-miller",
-    "name": "Kira Miller",
-    "package": "AUR",
-    "competencyFields": {
-      "primary": "automotive_mechanical",
-      "secondary": [
-        "engineering_fabrication"
-      ]
-    },
-    "photo": "photos/kira-miller.jpg",
-    "sections": {
-      "aboutMe": "Kira is a 28-year-old workshop owner based in Gawler, South Australia, where she runs Miller Custom 4x4, a small specialist business focused on driveline fabrication and heavy-duty suspension work for lifted four-wheel-drives. She is well known across SA's off-road community, particularly through her signature “Miller Mod” tail-shaft conversion, which has been featured in Off-Road Action magazine and discussed widely on enthusiast forums.\n\nOutside the workshop, Kira lives on a semi-rural block on the northern outskirts of Gawler, where her home internet is patchy and tends to drop out during peak times. She is currently juggling business ownership with her own studies and is enrolled in further training to formalise the teaching she already does informally on the shop floor.",
-      "professionalExperience": "Kira completed her AUR30620 Certificate III in Light Vehicle Mechanical Technology in 2020, finishing her apprenticeship at Gawler Service Centre with above-average assessment results and a particular strength in drivetrain and suspension diagnostics. Since founding Miller Custom 4x4 in 2021, she has built a substantial body of practical experience in precision machining (manual lathe work, thread cutting, custom shaft turning to 0.01mm tolerances), TIG and MIG welding, and complex driveline geometry calculations.\n\nShe holds a current SA Licensed Vehicle Inspector ticket and was named Young Mechanic of the Year (Regional SA) in 2022. Kira is presently working through her TAE40122 Certificate IV in Training and Assessment, with her practicum based in an automotive workshop. She also has informal coaching experience: guest-presenting at the AusFab Regional Expo, running club workshop days, mentoring two junior fabricators into lead-tech roles, and producing a YouTube channel of technical build videos averaging 8,000 views per upload.",
-      "careerGoals": "Kira's longer-term goal is to move into formal training delivery within the automotive trades, where she sees a clear gap in advanced fabrication and driveline diagnostics content. She wants to bring her hands-on, “real-world physics” approach into the classroom and workshop and eventually deliver units within the AUR and MEM training packages. The Cert IV in TAE is the immediate stepping stone, and she is open to further qualifications down the track if they help her cement her credibility as a trainer and assessor.",
-      "workingStyle": "Kira is overwhelmingly a hands-on, visual learner and teacher. Her own coaching method on the shop floor follows a “Tell, Show, Do” pattern: she will sketch driveline angles on a whiteboard, demonstrate the adjustment on the lathe, then watch the apprentice attempt it themselves. Her YouTube content reflects the same instinct, leaning on time-lapse footage and live demonstration rather than written explanation. She is highly numerate when the maths is applied (compound angles, gear ratios, run-out tolerances to thousandths of an inch), but tends to work problems out on a whiteboard or scrap paper rather than producing formal written documentation.\nA recurring theme in employer and customer feedback is that Kira is more comfortable with the physics of the metal than with paperwork. A previous employer noted she sometimes deviates from manufacturer service bulletins in favour of her own engineered solutions, and a fleet customer raised concerns when she was unable to produce a Certificate of Compliance for work performed. Kira's own statutory declaration confirms this preference for “real-world” deviation over documented factory specifications.\n\nDay-to-day, Kira's schedule is dictated by her workshop. She works long and irregular hours, often early starts, late finishes, and weekend jobs to keep customer vehicles moving, which means dedicated study time tends to fall into late evenings. She has her own laptop set up in a small home office for admin and study, but her fixed-wireless internet connection struggles with video streaming and large file downloads, particularly in the evenings when the local network is congested. On the workshop floor she defaults to her phone for quick reference material.",
-      "additionalInfo": "Kira is active in the South Australian 4WD club scene and regularly attends weekend club events at Mount Crawford and the Flinders. She also takes on remote paid video consultations for interstate customers, which can occasionally clash with scheduled study commitments.\n\nTwo of her closest mentors are tradespeople she met through these networks rather than through formal training, and she strongly values learning that has obvious, demonstrable application to the work she does each day. She has mentioned in passing that any long stretches of reading or written assessment “aren't really her thing” and that she works best when a task gives her something to build, draw, or pull apart."
-    },
-    "files": [
-      {
-        "name": "00_Kira Profile.docx",
-        "type": "docx"
-      },
-      {
-        "name": "01_Kira_Miller_Resume.docx",
-        "type": "docx"
-      },
-      {
-        "name": "02_Stat Dec_Kira.docx",
-        "type": "docx"
-      },
-      {
-        "name": "03_Reviews_Kira.docx",
-        "type": "docx"
-      },
-      {
-        "name": "04_Testimonials_Kira.docx",
-        "type": "docx"
-      },
-      {
-        "name": "05_Project_Kira.docx",
-        "type": "docx"
-      },
-      {
-        "name": "06_Video-Photo-Kira.docx",
-        "type": "docx"
-      },
-      {
-        "name": "07_WorkshopInductionPlan_Kira.docx",
-        "type": "docx"
-      },
-      {
-        "name": "08_ClubWorkshopDay_RunSheet_Kira.docx",
-        "type": "docx"
-      }
-    ]
+{
+  "buildStamp": "v4 · deployed 2 Jul 2026",
+  "competencyFieldLabels": {
+    "automotive_mechanical": "Automotive Mechanical",
+    "business_admin": "Business Admin",
+    "carpentry_construction": "Carpentry & Construction",
+    "customer_engagement": "Customer Engagement",
+    "disability_support": "Disability Support",
+    "early_childhood": "Early Childhood",
+    "electrotechnology": "Electrotechnology",
+    "engineering_fabrication": "Engineering Fabrication",
+    "engineering_maintenance": "Engineering Maintenance",
+    "food_processing": "Food Processing",
+    "hospitality": "Hospitality",
+    "leadership_management": "Leadership Management",
+    "outdoor_recreation": "Outdoor Recreation",
+    "project_management": "Project Management",
+    "retail_operations": "Retail Operations",
+    "sterilisation": "Sterilisation",
+    "warehousing_logistics": "Warehousing Logistics",
+    "whs": "WHS"
   },
-  {
-    "id": 2,
-    "ref": "Learner #2",
-    "slug": "leo-moretti",
-    "name": "Leo Moretti",
-    "package": "UEE",
-    "competencyFields": {
-      "primary": "electrotechnology",
-      "secondary": []
-    },
-    "photo": "photos/leo-moretti.jpg",
-    "sections": {
-      "aboutMe": "Leo is a 38-year-old A-Grade electrician based in Adelaide, where he runs Moretti Electrical Services from his home in the western suburbs. He has been on the tools since leaving school and recently started picking up sub-contracting work on industrial control cabinet builds for Global-Tech, alongside his bread-and-butter domestic and small commercial work. Leo lives with his partner and two primary-school-aged kids, and the family schedule, school drop-offs, and footy commitments tend to dictate when his evenings are actually his own.",
-      "professionalExperience": "Leo holds a Certificate III in Electrotechnology Electrician (2008), a current A-Grade Electrician's Licence, and a current Working at Heights and EWP Yellow Card. He has fifteen-plus years of practical experience covering domestic and commercial wiring, switchboard upgrades, fault diagnosis, and PLC hardware installation, with deep working knowledge of AS/NZS 3000 and AS/NZS 3008. Leo has been mentoring apprentices on-site for years, including a current second-year apprentice (Jake) who is progressing well under his supervision through the UEELW0033 termination unit. He is enrolled in the Cert IV in Training and Assessment to formalise the coaching he is already doing on the job.",
-      "careerGoals": "Leo is looking to scale back the long days on the tools and move into a part-time TAFE delivery role, ideally teaching apprentices the practical side of cable termination, control circuits, and isolation procedures. He is keen to stay connected to industry through his sub-contracting work but wants the Cert IV behind him so he can pick up sessional teaching shifts that fit around his family.",
-      "workingStyle": "Leo is at his absolute best when he is in the workshop or on site with a tool in hand. He runs his apprentice toolbox talks well, demonstrates cleanly, and is patient at the bench. Where things tend to come unstuck for Leo is anywhere there is a desk, a keyboard, and a deadline that is not also a customer waiting at his door. He is meticulous about his physical wiring (his project manager describes it as “some of the best I've seen”) but his quoting is often a few days behind, his apprentice records are written up in retrospect from memory, and his bookkeeper has a standing reminder to chase him for receipts at the end of every month.\n\nLeo has mentioned that long blocks of reading are a slog for him, and he tends to skip to the diagrams in any technical manual. He has shared in conversation that schoolwork was always a struggle, that he was “the one the teacher gave up on,” and that he relies heavily on his partner to proofread anything he sends to a customer in writing. He works best in short, active bursts and finds it genuinely difficult to sit still through long meetings or written training sessions; he tends to fidget, take phone calls, or wander out of the room mid-session unless there is something practical to do. Leo has an iPad and a reasonably new laptop, both of which he uses confidently for SimPRO quoting, AutoCAD viewing, and email, so his digital fluency is fine, his confidence in writing on a blank page is a different story.",
-      "additionalInfo": "Leo is an active member of his local junior football club, where he runs the under-10s training on Tuesday and Thursday evenings. He has mentioned recently that he has been considering an adult assessment for some long-standing issues with attention and reading that he has worked around his whole career; he is open about it but has not pursued anything formal yet. His preferred way to learn anything new is to “watch someone do it, then have a go,” and he tends to retain practical demonstrations far better than written content."
-    },
-    "files": [
-      {
-        "name": "00_Leo Profile.docx",
-        "type": "docx"
-      },
-      {
-        "name": "01_Resume_LeoMoretti.docx",
-        "type": "docx"
-      },
-      {
-        "name": "02_References_LeoMoretti.docx",
-        "type": "docx"
-      },
-      {
-        "name": "03_Quote 1_Leo_Moretti.docx",
-        "type": "docx"
-      },
-      {
-        "name": "04_Toolbox Talk_LeoMoretti.docx",
-        "type": "docx"
-      },
-      {
-        "name": "05_Quote 2_LeoMoretti.docx",
-        "type": "docx"
-      },
-      {
-        "name": "06_Purchase Order_LeoMoretti.docx",
-        "type": "docx"
-      },
-      {
-        "name": "07_Apprectice Record_LeoMoretti.docx",
-        "type": "docx"
-      }
-    ]
+  "cityState": {
+    "Adelaide": "SA",
+    "Gawler": "SA",
+    "Port Elliot": "SA",
+    "Mount Gambier": "SA",
+    "Victor Harbor": "SA",
+    "Brisbane": "Qld",
+    "Sydney": "NSW",
+    "Parramatta": "NSW",
+    "Melbourne": "Vic",
+    "Perth": "WA",
+    "Canberra": "ACT",
+    "Darwin": "NT",
+    "Hobart": "Tas",
+    "Newcastle": "NSW",
+    "Wollongong": "NSW",
+    "Geelong": "Vic"
   },
-  {
-    "id": 3,
-    "ref": "Learner #3",
-    "slug": "arjun-patel",
-    "name": "Arjun Patel",
-    "package": "TLI",
-    "competencyFields": {
-      "primary": "warehousing_logistics",
-      "secondary": []
-    },
-    "photo": "photos/arjun-patel.jpg",
-    "sections": {
-      "aboutMe": "Arjun is a 37-year-old Shift Lead at Linfox's Prospect depot in Adelaide's inner north, where he supervises a team of twelve drivers and loaders on the afternoon roster. He has worked across retail and transport for the better part of a decade and is the depot's go-to person for Chain of Responsibility compliance and load restraint queries. Arjun lives in Prospect with his wife and two teenage kids, and his shift pattern (typically 14:00 to 22:00) means most of his admin and study time falls into the late evening.",
-      "professionalExperience": "Arjun holds a current High-Risk Work Licence (LF), a current White Card, and a Statement of Attainment for two units (TLIF1001 and TLID1001) toward TLI32416 Certificate III in Logistics. His Senior First Aid lapsed in 2023 and is on his list to renew. He has eight-plus years of practical experience: five at BigMart Retail as a Floor Supervisor (2016 to 2020), and Shift Lead at Linfox since 2021. Arjun has also taken a six-month industrial heavy-lift contract at the Whyalla Steelworks Outbound Hub, where he developed dogging and slinging competence beyond standard warehouse work. He volunteers at Meals on Wheels on Wednesday mornings and recently coordinated a 150-sandwich Scout Group fundraiser.\n\nArjun has done plenty of informal training: rapid-fire onboarding of six Christmas casuals at BigMart in 2020, ongoing buddy-system inductions for new Linfox casuals, and pre-start safety briefings on the loading dock. He is enrolled in TAE40122 with the support of his employer.",
-      "careerGoals": "Arjun's stated goal in his most recent performance review is to move out of the heavy lifting on the dock and into a full-time Compliance Trainer role within Linfox. The motivation is partly career progression and partly physical: he has been increasingly cautious about the strain of dock work and is keen to transition into a role that uses his head rather than his back. He is open to further qualifications beyond the Cert IV if they help him pivot into a permanent training and assessment position.",
-      "workingStyle": "Arjun is a natural one-on-one coach and is widely respected by the casuals and second-year drivers he buddies up with. His Operations Manager describes his training style as “very on-the-fly” with no formal lesson plans and no written assessments, and his most recent appraisal identified “Staff Development” (3 out of 5) as his weakest KRA precisely because his coaching is informal, unrecorded, and reliant on shadowing rather than structured instruction. Arjun has been candid that his paperwork is “not as good as my technical work” and that he is keen to learn how to map workplace tasks to formal training package requirements. His written communication tends to be brief and functional; he relies on the safety officer (Sarah) to take and write up the formal monthly compliance meeting minutes that he chairs.\n\nArjun manages a chronic lower-back issue that he picked up over years on the dock; he wears a back support belt for any sustained lifting, has been advised by his GP to limit prolonged sitting to 45 minutes at a time, and prefers to alternate between sitting and standing during desk-based work. He has his own laptop at home and is comfortable with email, the Linfox intranet, and basic Excel, but he avoids long blocks of typing and tends to dictate longer messages into his phone.",
-      "additionalInfo": "Arjun is heavily involved in his local Scout Group and coaches his son's junior cricket on weekends. He has mentioned that he gets a bit fidgety in long sit-down sessions and will usually take a stretch break every 30 to 45 minutes, regardless of the setting. His preferred way of consuming new content is short videos or in-person walkthroughs rather than dense written manuals."
-    },
-    "files": [
-      {
-        "name": "00_Arjun Profile.docx",
-        "type": "docx"
-      },
-      {
-        "name": "01_Resume_ArjunPatel.docx",
-        "type": "docx"
-      },
-      {
-        "name": "02_References_ArjunPatel.docx",
-        "type": "docx"
-      },
-      {
-        "name": "03_Transcript_ArjunPatel.doc",
-        "type": "docx"
-      },
-      {
-        "name": "04_MeetingMinutes_Formal.docx",
-        "type": "docx"
-      },
-      {
-        "name": "05_ChristmasTraining.docx",
-        "type": "docx"
-      },
-      {
-        "name": "06_InductionChecklist_ForkliftSafety.docx",
-        "type": "docx"
-      },
-      {
-        "name": "07_VerbalQuestioning_ForkliftSafety.docx",
-        "type": "docx"
-      },
-      {
-        "name": "08_PerformanceAppraisal_ArjunPatel.docx",
-        "type": "docx"
-      },
-      {
-        "name": "09_WarehouseRacking_Reorg.docx",
-        "type": "docx"
-      },
-      {
-        "name": "A1_Heavy Lift_RIIHAN311D.docx",
-        "type": "docx"
-      },
-      {
-        "name": "A2_Sandwich Making SITHCCC025.docx",
-        "type": "docx"
-      },
-      {
-        "name": "A3_Load_Management_TLIF0009_FORM.docx",
-        "type": "docx"
-      },
-      {
-        "name": "A4_Wellbeing and Fatigue TLIF2010.docx",
-        "type": "docx"
-      }
-    ]
+  "stateFull": {
+    "South Australia": "SA",
+    "New South Wales": "NSW",
+    "Victoria": "Vic",
+    "Queensland": "Qld",
+    "Western Australia": "WA",
+    "Tasmania": "Tas",
+    "Northern Territory": "NT"
   },
-  {
-    "id": 4,
-    "ref": "Learner #4",
-    "slug": "chloe-nguyen",
-    "name": "Chloe Nguyen",
-    "package": "SIT",
-    "competencyFields": {
-      "primary": "hospitality",
-      "secondary": [
-        "customer_engagement"
-      ]
+  "numberWords": [
+    "Zero",
+    "One",
+    "Two",
+    "Three",
+    "Four",
+    "Five",
+    "Six",
+    "Seven",
+    "Eight",
+    "Nine",
+    "Ten",
+    "Eleven",
+    "Twelve",
+    "Thirteen",
+    "Fourteen",
+    "Fifteen",
+    "Sixteen",
+    "Seventeen",
+    "Eighteen",
+    "Nineteen",
+    "Twenty"
+  ],
+  "learners": [
+    {
+      "id": 1,
+      "ref": "Learner #1",
+      "slug": "kira-miller",
+      "name": "Kira Miller",
+      "package": "AUR",
+      "competencyFields": {
+        "primary": "automotive_mechanical",
+        "secondary": [
+          "engineering_fabrication"
+        ]
+      },
+      "photo": "photos/kira-miller.jpg",
+      "sections": {
+        "aboutMe": "Kira is a 28-year-old workshop owner based in Gawler, South Australia, where she runs Miller Custom 4x4, a small specialist business focused on driveline fabrication and heavy-duty suspension work for lifted four-wheel-drives. She is well known across SA's off-road community, particularly through her signature “Miller Mod” tail-shaft conversion, which has been featured in Off-Road Action magazine and discussed widely on enthusiast forums.\n\nOutside the workshop, Kira lives on a semi-rural block on the northern outskirts of Gawler, where her home internet is patchy and tends to drop out during peak times. She is currently juggling business ownership with her own studies and is enrolled in further training to formalise the teaching she already does informally on the shop floor.",
+        "professionalExperience": "Kira completed her AUR30620 Certificate III in Light Vehicle Mechanical Technology in 2020, finishing her apprenticeship at Gawler Service Centre with above-average assessment results and a particular strength in drivetrain and suspension diagnostics. Since founding Miller Custom 4x4 in 2021, she has built a substantial body of practical experience in precision machining (manual lathe work, thread cutting, custom shaft turning to 0.01mm tolerances), TIG and MIG welding, and complex driveline geometry calculations.\n\nShe holds a current SA Licensed Vehicle Inspector ticket and was named Young Mechanic of the Year (Regional SA) in 2022. Kira is presently working through her TAE40122 Certificate IV in Training and Assessment, with her practicum based in an automotive workshop. She also has informal coaching experience: guest-presenting at the AusFab Regional Expo, running club workshop days, mentoring two junior fabricators into lead-tech roles, and producing a YouTube channel of technical build videos averaging 8,000 views per upload.",
+        "careerGoals": "Kira's longer-term goal is to move into formal training delivery within the automotive trades, where she sees a clear gap in advanced fabrication and driveline diagnostics content. She wants to bring her hands-on, “real-world physics” approach into the classroom and workshop and eventually deliver units within the AUR and MEM training packages. The Cert IV in TAE is the immediate stepping stone, and she is open to further qualifications down the track if they help her cement her credibility as a trainer and assessor.",
+        "workingStyle": "Kira is overwhelmingly a hands-on, visual learner and teacher. Her own coaching method on the shop floor follows a “Tell, Show, Do” pattern: she will sketch driveline angles on a whiteboard, demonstrate the adjustment on the lathe, then watch the apprentice attempt it themselves. Her YouTube content reflects the same instinct, leaning on time-lapse footage and live demonstration rather than written explanation. She is highly numerate when the maths is applied (compound angles, gear ratios, run-out tolerances to thousandths of an inch), but tends to work problems out on a whiteboard or scrap paper rather than producing formal written documentation.\nA recurring theme in employer and customer feedback is that Kira is more comfortable with the physics of the metal than with paperwork. A previous employer noted she sometimes deviates from manufacturer service bulletins in favour of her own engineered solutions, and a fleet customer raised concerns when she was unable to produce a Certificate of Compliance for work performed. Kira's own statutory declaration confirms this preference for “real-world” deviation over documented factory specifications.\n\nDay-to-day, Kira's schedule is dictated by her workshop. She works long and irregular hours, often early starts, late finishes, and weekend jobs to keep customer vehicles moving, which means dedicated study time tends to fall into late evenings. She has her own laptop set up in a small home office for admin and study, but her fixed-wireless internet connection struggles with video streaming and large file downloads, particularly in the evenings when the local network is congested. On the workshop floor she defaults to her phone for quick reference material.",
+        "additionalInfo": "Kira is active in the South Australian 4WD club scene and regularly attends weekend club events at Mount Crawford and the Flinders. She also takes on remote paid video consultations for interstate customers, which can occasionally clash with scheduled study commitments.\n\nTwo of her closest mentors are tradespeople she met through these networks rather than through formal training, and she strongly values learning that has obvious, demonstrable application to the work she does each day. She has mentioned in passing that any long stretches of reading or written assessment “aren't really her thing” and that she works best when a task gives her something to build, draw, or pull apart."
+      },
+      "files": [
+        {
+          "name": "00_Kira Profile.docx",
+          "type": "docx"
+        },
+        {
+          "name": "01_Kira_Miller_Resume.docx",
+          "type": "docx"
+        },
+        {
+          "name": "02_Stat Dec_Kira.docx",
+          "type": "docx"
+        },
+        {
+          "name": "03_Reviews_Kira.docx",
+          "type": "docx"
+        },
+        {
+          "name": "04_Testimonials_Kira.docx",
+          "type": "docx"
+        },
+        {
+          "name": "05_Project_Kira.docx",
+          "type": "docx"
+        },
+        {
+          "name": "06_Video-Photo-Kira.docx",
+          "type": "docx"
+        },
+        {
+          "name": "07_WorkshopInductionPlan_Kira.docx",
+          "type": "docx"
+        },
+        {
+          "name": "08_ClubWorkshopDay_RunSheet_Kira.docx",
+          "type": "docx"
+        }
+      ],
+      "bio": "Gawler workshop owner and off-road fabrication specialist seeking to formalise the hands-on trade training she already delivers informally on the shop floor.",
+      "role": "Workshop owner",
+      "location": "Gawler, SA"
     },
-    "photo": "photos/chloe-nguyen.jpg",
-    "sections": {
-      "aboutMe": "Chloe is a 27-year-old VIP service professional at The Grand Casino & Exchange in Adelaide, where she has worked in the Diamond Lounge for the past eighteen months. She moved to Adelaide from Brisbane in mid-2024 and transferred across to the Adelaide casino under an internal transfer arrangement after five years with the same employer in Queensland. She is widely regarded by floor management and regulars as the standout attendant on the team, with an unblemished service record and a long list of senior staff who have come up through her informal mentoring. Chloe currently lives in shared accommodation in the inner city; her listed address has changed twice in the last six months and her contact phone number was recently updated.",
-      "professionalExperience": "Chloe holds a Certificate III in Hospitality (SIT30622, completed with Credit, 2019). Her current credentials include RSA, RCG/RSG (recertified 2023), Food Safety Supervisor (SITXFSA005 and SITXFSA006, renewed 2024), Mental Health First Aid (2022), and a Statement of Attainment for Conflict Resolution in Service Environments. She is also up to date on internal AML/CTF awareness training.\n\nHer practical experience includes five years of front-line VIP service in a regulated gaming environment (her first three-and-a-half years at the Brisbane venue, the last eighteen months at the Adelaide property), two years prior as a barista and all-rounder at a high-volume CBD cafe, and ongoing informal mentoring of new lounge hires. She has formally shadowed and signed off four junior staff through their 90-day inductions over the last twelve months, and her most recent performance appraisal rated her 5 out of 5 across every Key Result Area. She is currently working toward TAE40122.",
-      "careerGoals": "Chloe wants to transition into a formal Training and Assessment role within the casino's HR/Training department, where she has been earmarked as a Subject Matter Expert. Her medium-term goal is to lead the RSG Awareness workshop for the Spring Racing Carnival intake and to author a formal SOP manual for the VIP Pantry. She is open to further qualifications and has expressed interest in eventually delivering responsible gambling and AML/CTF content across multiple venues.",
-      "workingStyle": "Chloe's instructional style is measured, calm, and scenario-based. She uses role-play before live shifts to build new staff confidence (her appraisal specifically notes the example of preparing a new hire, Sophie, for an intoxicated guest interaction), and she breaks complex protocols like the iOrder billing system into manageable steps. She is comfortable with on-the-spot constructive correction and is described by her manager as “patient” and “non-critical.” Chloe handles conflict de-escalation with notable composure, including two significant patron incidents resolved without needing to escalate to security, and her incident reporting (such as the recent 6-hour problem-gambling welfare check) is detailed, reflective, and policy-aligned.\nChloe's availability for study is heavily constrained by her shift roster, which is predominantly evening and overnight (typically finishing between 02:00 and 04:00). She prefers to be contacted by email rather than phone, and she has asked previously that any course communications not be sent to a workplace address. She tends to keep her personal life private and prefers learning environments where she is not asked to share personal details with the wider group. She has declined to sign the standard student talent release form during enrolment and has specifically requested not to appear in any marketing material, testimonials, photography, or video produced by the RTO; she was polite but firm about this and noted that the same request is on file with her employer.\n\nShe is technically fluent and uses her phone for almost all study and admin; she has mentioned that she does not currently have a regular home internet connection and tends to study from cafes, the casino's staff lounge, or her phone's hotspot.",
-      "additionalInfo": "Chloe enjoys baking and has previously mentioned a quiet interest in calligraphy and bookbinding. She does not drive at present and uses public transport or rideshare to and from shifts. She has asked the casino HR team to flag her file as “do not disclose roster details to third parties,” which is a matter of personal privacy that she has not elaborated on. She has also mentioned that she does not have any family or long-term friends in Adelaide and that the move from Brisbane was “a clean start.” Her preferred learning approach is one-on-one or small-group sessions held outside her work hours, and she has mentioned that face-to-face workshops on-site at the casino are easier for her to attend than off-site sessions during the day."
+    {
+      "id": 2,
+      "ref": "Learner #2",
+      "slug": "leo-moretti",
+      "name": "Leo Moretti",
+      "package": "UEE",
+      "competencyFields": {
+        "primary": "electrotechnology",
+        "secondary": []
+      },
+      "photo": "photos/leo-moretti.jpg",
+      "sections": {
+        "aboutMe": "Leo is a 38-year-old A-Grade electrician based in Adelaide, where he runs Moretti Electrical Services from his home in the western suburbs. He has been on the tools since leaving school and recently started picking up sub-contracting work on industrial control cabinet builds for Global-Tech, alongside his bread-and-butter domestic and small commercial work. Leo lives with his partner and two primary-school-aged kids, and the family schedule, school drop-offs, and footy commitments tend to dictate when his evenings are actually his own.",
+        "professionalExperience": "Leo holds a Certificate III in Electrotechnology Electrician (2008), a current A-Grade Electrician's Licence, and a current Working at Heights and EWP Yellow Card. He has fifteen-plus years of practical experience covering domestic and commercial wiring, switchboard upgrades, fault diagnosis, and PLC hardware installation, with deep working knowledge of AS/NZS 3000 and AS/NZS 3008. Leo has been mentoring apprentices on-site for years, including a current second-year apprentice (Jake) who is progressing well under his supervision through the UEELW0033 termination unit. He is enrolled in the Cert IV in Training and Assessment to formalise the coaching he is already doing on the job.",
+        "careerGoals": "Leo is looking to scale back the long days on the tools and move into a part-time TAFE delivery role, ideally teaching apprentices the practical side of cable termination, control circuits, and isolation procedures. He is keen to stay connected to industry through his sub-contracting work but wants the Cert IV behind him so he can pick up sessional teaching shifts that fit around his family.",
+        "workingStyle": "Leo is at his absolute best when he is in the workshop or on site with a tool in hand. He runs his apprentice toolbox talks well, demonstrates cleanly, and is patient at the bench. Where things tend to come unstuck for Leo is anywhere there is a desk, a keyboard, and a deadline that is not also a customer waiting at his door. He is meticulous about his physical wiring (his project manager describes it as “some of the best I've seen”) but his quoting is often a few days behind, his apprentice records are written up in retrospect from memory, and his bookkeeper has a standing reminder to chase him for receipts at the end of every month.\n\nLeo has mentioned that long blocks of reading are a slog for him, and he tends to skip to the diagrams in any technical manual. He has shared in conversation that schoolwork was always a struggle, that he was “the one the teacher gave up on,” and that he relies heavily on his partner to proofread anything he sends to a customer in writing. He works best in short, active bursts and finds it genuinely difficult to sit still through long meetings or written training sessions; he tends to fidget, take phone calls, or wander out of the room mid-session unless there is something practical to do. Leo has an iPad and a reasonably new laptop, both of which he uses confidently for SimPRO quoting, AutoCAD viewing, and email, so his digital fluency is fine, his confidence in writing on a blank page is a different story.",
+        "additionalInfo": "Leo is an active member of his local junior football club, where he runs the under-10s training on Tuesday and Thursday evenings. He has mentioned recently that he has been considering an adult assessment for some long-standing issues with attention and reading that he has worked around his whole career; he is open about it but has not pursued anything formal yet. His preferred way to learn anything new is to “watch someone do it, then have a go,” and he tends to retain practical demonstrations far better than written content."
+      },
+      "files": [
+        {
+          "name": "00_Leo Profile.docx",
+          "type": "docx"
+        },
+        {
+          "name": "01_Resume_LeoMoretti.docx",
+          "type": "docx"
+        },
+        {
+          "name": "02_References_LeoMoretti.docx",
+          "type": "docx"
+        },
+        {
+          "name": "03_Quote 1_Leo_Moretti.docx",
+          "type": "docx"
+        },
+        {
+          "name": "04_Toolbox Talk_LeoMoretti.docx",
+          "type": "docx"
+        },
+        {
+          "name": "05_Quote 2_LeoMoretti.docx",
+          "type": "docx"
+        },
+        {
+          "name": "06_Purchase Order_LeoMoretti.docx",
+          "type": "docx"
+        },
+        {
+          "name": "07_Apprectice Record_LeoMoretti.docx",
+          "type": "docx"
+        }
+      ],
+      "bio": "Adelaide electrician running his own business who is expanding into industrial work and fitting study around a busy family and trade schedule.",
+      "role": "A-Grade electrician",
+      "location": "Adelaide, SA"
     },
-    "files": [
-      {
-        "name": "00_Chloe Profile.docx",
-        "type": "docx"
+    {
+      "id": 3,
+      "ref": "Learner #3",
+      "slug": "arjun-patel",
+      "name": "Arjun Patel",
+      "package": "TLI",
+      "competencyFields": {
+        "primary": "warehousing_logistics",
+        "secondary": []
       },
-      {
-        "name": "01_Chloe_Nguyen_Resume.docx",
-        "type": "docx"
+      "photo": "photos/arjun-patel.jpg",
+      "sections": {
+        "aboutMe": "Arjun is a 37-year-old Shift Lead at Linfox's Prospect depot in Adelaide's inner north, where he supervises a team of twelve drivers and loaders on the afternoon roster. He has worked across retail and transport for the better part of a decade and is the depot's go-to person for Chain of Responsibility compliance and load restraint queries. Arjun lives in Prospect with his wife and two teenage kids, and his shift pattern (typically 14:00 to 22:00) means most of his admin and study time falls into the late evening.",
+        "professionalExperience": "Arjun holds a current High-Risk Work Licence (LF), a current White Card, and a Statement of Attainment for two units (TLIF1001 and TLID1001) toward TLI32416 Certificate III in Logistics. His Senior First Aid lapsed in 2023 and is on his list to renew. He has eight-plus years of practical experience: five at BigMart Retail as a Floor Supervisor (2016 to 2020), and Shift Lead at Linfox since 2021. Arjun has also taken a six-month industrial heavy-lift contract at the Whyalla Steelworks Outbound Hub, where he developed dogging and slinging competence beyond standard warehouse work. He volunteers at Meals on Wheels on Wednesday mornings and recently coordinated a 150-sandwich Scout Group fundraiser.\n\nArjun has done plenty of informal training: rapid-fire onboarding of six Christmas casuals at BigMart in 2020, ongoing buddy-system inductions for new Linfox casuals, and pre-start safety briefings on the loading dock. He is enrolled in TAE40122 with the support of his employer.",
+        "careerGoals": "Arjun's stated goal in his most recent performance review is to move out of the heavy lifting on the dock and into a full-time Compliance Trainer role within Linfox. The motivation is partly career progression and partly physical: he has been increasingly cautious about the strain of dock work and is keen to transition into a role that uses his head rather than his back. He is open to further qualifications beyond the Cert IV if they help him pivot into a permanent training and assessment position.",
+        "workingStyle": "Arjun is a natural one-on-one coach and is widely respected by the casuals and second-year drivers he buddies up with. His Operations Manager describes his training style as “very on-the-fly” with no formal lesson plans and no written assessments, and his most recent appraisal identified “Staff Development” (3 out of 5) as his weakest KRA precisely because his coaching is informal, unrecorded, and reliant on shadowing rather than structured instruction. Arjun has been candid that his paperwork is “not as good as my technical work” and that he is keen to learn how to map workplace tasks to formal training package requirements. His written communication tends to be brief and functional; he relies on the safety officer (Sarah) to take and write up the formal monthly compliance meeting minutes that he chairs.\n\nArjun manages a chronic lower-back issue that he picked up over years on the dock; he wears a back support belt for any sustained lifting, has been advised by his GP to limit prolonged sitting to 45 minutes at a time, and prefers to alternate between sitting and standing during desk-based work. He has his own laptop at home and is comfortable with email, the Linfox intranet, and basic Excel, but he avoids long blocks of typing and tends to dictate longer messages into his phone.",
+        "additionalInfo": "Arjun is heavily involved in his local Scout Group and coaches his son's junior cricket on weekends. He has mentioned that he gets a bit fidgety in long sit-down sessions and will usually take a stretch break every 30 to 45 minutes, regardless of the setting. His preferred way of consuming new content is short videos or in-person walkthroughs rather than dense written manuals."
       },
-      {
-        "name": "02_References_Chloe.docx",
-        "type": "docx"
-      },
-      {
-        "name": "03_Prep Sheet_Chloe.docx",
-        "type": "docx"
-      },
-      {
-        "name": "04_Peer Observation_Chloe.docx",
-        "type": "docx"
-      },
-      {
-        "name": "05_Incident Report_Chloe.docx",
-        "type": "docx"
-      },
-      {
-        "name": "06_Appraisal_Chloe.docx",
-        "type": "docx"
-      },
-      {
-        "name": "07_Training Video_Chloe.docx",
-        "type": "docx"
-      },
-      {
-        "name": "08_SurfInstructorLog_Chloe.docx",
-        "type": "docx"
-      }
-    ]
-  },
-  {
-    "id": 5,
-    "ref": "Learner #5",
-    "slug": "samir-al-fassi",
-    "name": "Samir Al-Fassi",
-    "package": "FBP",
-    "competencyFields": {
-      "primary": "food_processing",
-      "secondary": []
+      "files": [
+        {
+          "name": "00_Arjun Profile.docx",
+          "type": "docx"
+        },
+        {
+          "name": "01_Resume_ArjunPatel.docx",
+          "type": "docx"
+        },
+        {
+          "name": "02_References_ArjunPatel.docx",
+          "type": "docx"
+        },
+        {
+          "name": "03_Transcript_ArjunPatel.doc",
+          "type": "docx",
+          "viewable": false
+        },
+        {
+          "name": "04_MeetingMinutes_Formal.docx",
+          "type": "docx"
+        },
+        {
+          "name": "05_ChristmasTraining.docx",
+          "type": "docx"
+        },
+        {
+          "name": "06_InductionChecklist_ForkliftSafety.docx",
+          "type": "docx"
+        },
+        {
+          "name": "07_VerbalQuestioning_ForkliftSafety.docx",
+          "type": "docx"
+        },
+        {
+          "name": "08_PerformanceAppraisal_ArjunPatel.docx",
+          "type": "docx"
+        },
+        {
+          "name": "09_WarehouseRacking_Reorg.docx",
+          "type": "docx"
+        },
+        {
+          "name": "A1_Heavy Lift_RIIHAN311D.docx",
+          "type": "docx"
+        },
+        {
+          "name": "A2_Sandwich Making SITHCCC025.docx",
+          "type": "docx"
+        },
+        {
+          "name": "A3_Load_Management_TLIF0009_FORM.docx",
+          "type": "docx"
+        },
+        {
+          "name": "A4_Wellbeing and Fatigue TLIF2010.docx",
+          "type": "docx"
+        }
+      ],
+      "bio": "Linfox shift lead with deep transport compliance knowledge, fitting study into late evenings around an afternoon roster and demanding operational responsibilities.",
+      "role": "Shift Lead",
+      "location": "Adelaide, SA"
     },
-    "photo": "photos/samir-al-fassi.jpg",
-    "sections": {
-      "aboutMe": "Samir is a 41-year-old Senior Production Lead at Aussie Juice Co.'s Northern Adelaide plant, where he runs the glass bottling line and a team of six operators. He migrated to Australia from Morocco in 2016 and lives in Adelaide's northern suburbs with his wife and three children. Arabic is his first language, French his second from school in Casablanca, and English his third; on the production floor and around the plant, his English is fluent and confident, and he is widely respected by his crew and the QA team.",
-      "professionalExperience": "Samir holds a Certificate II in Food Processing (FDF20120, 2019), a Statement of Attainment for HACCP Principles Level 2 (2021, current), HLTAID011 Provide First Aid (current), a White Card, and an internal Lock-Out-Tag-Out competency sign-off. He has eight-plus years of hands-on glass-line experience at Aussie Juice Co., the last two as Senior Line Lead.\n\nHe has personally inducted and signed off more than forty new production staff since stepping into the lead role in 2024, runs structured Tell-Show-Do sessions for individual operators (his Toby Miller capper-jam training plan is a recent example), and recently facilitated a 45-minute group induction for three cross-departmental staff in Training Room A. Samir is enrolled in TAE40122 with full employer sponsorship.",
-      "careerGoals": "Samir wants to transition into a formal workplace training role within the food manufacturing sector, ideally building on the safety, HACCP, and packaging-process content he already delivers informally. His Plant Manager has earmarked him for the Lead Trainer position once he holds Cert IV, and the longer-term goal is to take ownership of the site's full induction programme and convert his existing informal “cheat sheets” into formal Standard Operating Procedures.",
-      "workingStyle": "Samir is methodical, rule-based, and unfailingly consistent. He is at his strongest in structured one-on-one training where he can use a script, a checklist, and a physical demonstration; his recent capper-jam session followed the Tell-Show-Do model exactly as written and produced a clean, traceable record. In group settings he tends to lean heavily on his slide deck and his manager has asked him to develop more interactive group activities to keep administrative staff engaged.\n\nSamir has shared that he reviews and rehearses his slide decks the night before any group session and that he has a small notebook of “set phrases” he uses for the technical content because he wants to make sure the wording is precise and unambiguous. Idioms, colloquialisms, and Australian slang on site occasionally need a moment of clarification, particularly when delivered quickly or in a Q&A context, and he has mentioned that following fast-paced multi-speaker discussions is more tiring than the equivalent in written form. His written English is grammatically careful but tends to be slightly formal, and he uses translation tools and a French-English dictionary when working on longer reports.\n\nSamir is comfortable with the plant's HMI systems, the QA reporting platform, and Microsoft Office basics, and he has his own laptop and a stable home internet connection.",
-      "additionalInfo": "Samir prays five times daily and observes Ramadan, which can affect his energy and concentration during late-afternoon sessions during the fasting period. He is heavily involved in his children's school community and a local cultural association in the northern suburbs. His preferred way of learning new content is to receive any reading materials in advance so he can work through them in his own time before the live session, and he has mentioned that having a written copy of any verbal instructions or assessment questions is genuinely helpful."
+    {
+      "id": 4,
+      "ref": "Learner #4",
+      "slug": "chloe-nguyen",
+      "name": "Chloe Nguyen",
+      "package": "SIT",
+      "competencyFields": {
+        "primary": "hospitality",
+        "secondary": [
+          "customer_engagement"
+        ]
+      },
+      "photo": "photos/chloe-nguyen.jpg",
+      "sections": {
+        "aboutMe": "Chloe is a 27-year-old VIP service professional at The Grand Casino & Exchange in Adelaide, where she has worked in the Diamond Lounge for the past eighteen months. She moved to Adelaide from Brisbane in mid-2024 and transferred across to the Adelaide casino under an internal transfer arrangement after five years with the same employer in Queensland. She is widely regarded by floor management and regulars as the standout attendant on the team, with an unblemished service record and a long list of senior staff who have come up through her informal mentoring. Chloe currently lives in shared accommodation in the inner city; her listed address has changed twice in the last six months and her contact phone number was recently updated.",
+        "professionalExperience": "Chloe holds a Certificate III in Hospitality (SIT30622, completed with Credit, 2019). Her current credentials include RSA, RCG/RSG (recertified 2023), Food Safety Supervisor (SITXFSA005 and SITXFSA006, renewed 2024), Mental Health First Aid (2022), and a Statement of Attainment for Conflict Resolution in Service Environments. She is also up to date on internal AML/CTF awareness training.\n\nHer practical experience includes five years of front-line VIP service in a regulated gaming environment (her first three-and-a-half years at the Brisbane venue, the last eighteen months at the Adelaide property), two years prior as a barista and all-rounder at a high-volume CBD cafe, and ongoing informal mentoring of new lounge hires. She has formally shadowed and signed off four junior staff through their 90-day inductions over the last twelve months, and her most recent performance appraisal rated her 5 out of 5 across every Key Result Area. She is currently working toward TAE40122.",
+        "careerGoals": "Chloe wants to transition into a formal Training and Assessment role within the casino's HR/Training department, where she has been earmarked as a Subject Matter Expert. Her medium-term goal is to lead the RSG Awareness workshop for the Spring Racing Carnival intake and to author a formal SOP manual for the VIP Pantry. She is open to further qualifications and has expressed interest in eventually delivering responsible gambling and AML/CTF content across multiple venues.",
+        "workingStyle": "Chloe's instructional style is measured, calm, and scenario-based. She uses role-play before live shifts to build new staff confidence (her appraisal specifically notes the example of preparing a new hire, Sophie, for an intoxicated guest interaction), and she breaks complex protocols like the iOrder billing system into manageable steps. She is comfortable with on-the-spot constructive correction and is described by her manager as “patient” and “non-critical.” Chloe handles conflict de-escalation with notable composure, including two significant patron incidents resolved without needing to escalate to security, and her incident reporting (such as the recent 6-hour problem-gambling welfare check) is detailed, reflective, and policy-aligned.\nChloe's availability for study is heavily constrained by her shift roster, which is predominantly evening and overnight (typically finishing between 02:00 and 04:00). She prefers to be contacted by email rather than phone, and she has asked previously that any course communications not be sent to a workplace address. She tends to keep her personal life private and prefers learning environments where she is not asked to share personal details with the wider group. She has declined to sign the standard student talent release form during enrolment and has specifically requested not to appear in any marketing material, testimonials, photography, or video produced by the RTO; she was polite but firm about this and noted that the same request is on file with her employer.\n\nShe is technically fluent and uses her phone for almost all study and admin; she has mentioned that she does not currently have a regular home internet connection and tends to study from cafes, the casino's staff lounge, or her phone's hotspot.",
+        "additionalInfo": "Chloe enjoys baking and has previously mentioned a quiet interest in calligraphy and bookbinding. She does not drive at present and uses public transport or rideshare to and from shifts. She has asked the casino HR team to flag her file as “do not disclose roster details to third parties,” which is a matter of personal privacy that she has not elaborated on. She has also mentioned that she does not have any family or long-term friends in Adelaide and that the move from Brisbane was “a clean start.” Her preferred learning approach is one-on-one or small-group sessions held outside her work hours, and she has mentioned that face-to-face workshops on-site at the casino are easier for her to attend than off-site sessions during the day."
+      },
+      "files": [
+        {
+          "name": "00_Chloe Profile.docx",
+          "type": "docx"
+        },
+        {
+          "name": "01_Chloe_Nguyen_Resume.docx",
+          "type": "docx"
+        },
+        {
+          "name": "02_References_Chloe.docx",
+          "type": "docx"
+        },
+        {
+          "name": "03_Prep Sheet_Chloe.docx",
+          "type": "docx"
+        },
+        {
+          "name": "04_Peer Observation_Chloe.docx",
+          "type": "docx"
+        },
+        {
+          "name": "05_Incident Report_Chloe.docx",
+          "type": "docx"
+        },
+        {
+          "name": "06_Appraisal_Chloe.docx",
+          "type": "docx"
+        },
+        {
+          "name": "07_Training Video_Chloe.docx",
+          "type": "docx"
+        },
+        {
+          "name": "08_SurfInstructorLog_Chloe.docx",
+          "type": "docx"
+        }
+      ],
+      "bio": "Adelaide casino VIP attendant and informal team mentor who relocated from Brisbane and is seeking formal recognition of her service industry expertise.",
+      "role": "VIP service professional",
+      "location": "Adelaide, SA"
     },
-    "files": [
-      {
-        "name": "00_samir Profile.docx",
-        "type": "docx"
+    {
+      "id": 5,
+      "ref": "Learner #5",
+      "slug": "samir-al-fassi",
+      "name": "Samir Al-Fassi",
+      "photoFocus": "62% 25%",
+      "package": "FBP",
+      "competencyFields": {
+        "primary": "food_processing",
+        "secondary": []
       },
-      {
-        "name": "01_Samir_AlFassi_Resume.docx",
-        "type": "docx"
+      "photo": "photos/samir-al-fassi.jpg",
+      "sections": {
+        "aboutMe": "Samir is a 41-year-old Senior Production Lead at Aussie Juice Co.'s Northern Adelaide plant, where he runs the glass bottling line and a team of six operators. He migrated to Australia from Morocco in 2016 and lives in Adelaide's northern suburbs with his wife and three children. Arabic is his first language, French his second from school in Casablanca, and English his third; on the production floor and around the plant, his English is fluent and confident, and he is widely respected by his crew and the QA team.",
+        "professionalExperience": "Samir holds a Certificate II in Food Processing (FDF20120, 2019), a Statement of Attainment for HACCP Principles Level 2 (2021, current), HLTAID011 Provide First Aid (current), a White Card, and an internal Lock-Out-Tag-Out competency sign-off. He has eight-plus years of hands-on glass-line experience at Aussie Juice Co., the last two as Senior Line Lead.\n\nHe has personally inducted and signed off more than forty new production staff since stepping into the lead role in 2024, runs structured Tell-Show-Do sessions for individual operators (his Toby Miller capper-jam training plan is a recent example), and recently facilitated a 45-minute group induction for three cross-departmental staff in Training Room A. Samir is enrolled in TAE40122 with full employer sponsorship.",
+        "careerGoals": "Samir wants to transition into a formal workplace training role within the food manufacturing sector, ideally building on the safety, HACCP, and packaging-process content he already delivers informally. His Plant Manager has earmarked him for the Lead Trainer position once he holds Cert IV, and the longer-term goal is to take ownership of the site's full induction programme and convert his existing informal “cheat sheets” into formal Standard Operating Procedures.",
+        "workingStyle": "Samir is methodical, rule-based, and unfailingly consistent. He is at his strongest in structured one-on-one training where he can use a script, a checklist, and a physical demonstration; his recent capper-jam session followed the Tell-Show-Do model exactly as written and produced a clean, traceable record. In group settings he tends to lean heavily on his slide deck and his manager has asked him to develop more interactive group activities to keep administrative staff engaged.\n\nSamir has shared that he reviews and rehearses his slide decks the night before any group session and that he has a small notebook of “set phrases” he uses for the technical content because he wants to make sure the wording is precise and unambiguous. Idioms, colloquialisms, and Australian slang on site occasionally need a moment of clarification, particularly when delivered quickly or in a Q&A context, and he has mentioned that following fast-paced multi-speaker discussions is more tiring than the equivalent in written form. His written English is grammatically careful but tends to be slightly formal, and he uses translation tools and a French-English dictionary when working on longer reports.\n\nSamir is comfortable with the plant's HMI systems, the QA reporting platform, and Microsoft Office basics, and he has his own laptop and a stable home internet connection.",
+        "additionalInfo": "Samir prays five times daily and observes Ramadan, which can affect his energy and concentration during late-afternoon sessions during the fasting period. He is heavily involved in his children's school community and a local cultural association in the northern suburbs. His preferred way of learning new content is to receive any reading materials in advance so he can work through them in his own time before the live session, and he has mentioned that having a written copy of any verbal instructions or assessment questions is genuinely helpful."
       },
-      {
-        "name": "02_References_Samir.docx",
-        "type": "docx"
-      },
-      {
-        "name": "03_Batch Report_Samir.docx",
-        "type": "docx"
-      },
-      {
-        "name": "04_Training Plan_Samir.docx",
-        "type": "docx"
-      },
-      {
-        "name": "05_Induction_Samir.docx",
-        "type": "docx"
-      },
-      {
-        "name": "06_Appraisal_samir.docx",
-        "type": "docx"
-      }
-    ]
-  },
-  {
-    "id": 6,
-    "ref": "Learner #6",
-    "slug": "mick-oreilly",
-    "name": "Mick OReilly",
-    "package": "CPC",
-    "competencyFields": {
-      "primary": "carpentry_construction",
-      "secondary": [
-        "whs"
-      ]
+      "files": [
+        {
+          "name": "00_samir Profile.docx",
+          "type": "docx"
+        },
+        {
+          "name": "01_Samir_AlFassi_Resume.docx",
+          "type": "docx"
+        },
+        {
+          "name": "02_References_Samir.docx",
+          "type": "docx"
+        },
+        {
+          "name": "03_Batch Report_Samir.docx",
+          "type": "docx"
+        },
+        {
+          "name": "04_Training Plan_Samir.docx",
+          "type": "docx"
+        },
+        {
+          "name": "05_Induction_Samir.docx",
+          "type": "docx"
+        },
+        {
+          "name": "06_Appraisal_samir.docx",
+          "type": "docx"
+        }
+      ],
+      "bio": "Moroccan-born production lead managing a bottling team in northern Adelaide, bringing multilingual communication and seven years of food manufacturing experience.",
+      "role": "Senior Production Lead",
+      "location": "Adelaide, SA"
     },
-    "photo": "photos/mick-oreilly.jpg",
-    "sections": {
-      "aboutMe": "Mick is a 58-year-old Lead Carpenter and sub-contractor based in South Australia, currently working with Apex Builds on the Southbank Apartment Complex in Adelaide. He has been on the tools for thirty-five years and is the designated Health and Safety Representative for his crew. Mick lives in the southern suburbs with his wife; their two adult children have long since moved out, and most of his after-hours time goes into running his own small sub-contracting paperwork from his ute or the kitchen table.",
-      "professionalExperience": "Mick holds CPCCWHS1001 (White Card), CPCCOHS2001A (Apply OHS requirements, policies and procedures), and HLTAID003 (Provide First Aid, currency to be reconfirmed). He completed his carpentry trade certificate in the late 1980s. His practical experience covers thirty-five years of formwork and framing, fit-out and finishing, plan reading and setting out, SWMS and JSA development, and a significant amount of HSR work including weekly toolbox talks, hazard inspections, and SWMS sign-offs.\n\nHe has mentored at least eight apprentices through to completion across his career and is currently supervising two second-years (Jake and Liam) at Southbank. Recent work includes a stint in the Mile End rail corridor delivering platform formwork, where he handled the rail safety fundamentals well, and ongoing pressure-jetting work at the Southbank promenade. Mick is enrolled in TAE40122 with the long-term aim of moving into a Site Safety/Trainer role.",
-      "careerGoals": "Mick has been candid that “the knees are buggered” after thirty-five years on hard surfaces and that the move into training is largely driven by the need to get off the tools entirely over the next few years. He has a planned arthroscopic procedure on his right knee scheduled for July, with the orthopaedic surgeon already flagging that a partial knee replacement is likely within five years. His GP has told him bluntly that he should expect to spend less time kneeling, climbing, and on his feet from here on. His goal is to transition into a full-time WHS and training role with a builder or RTO over the next 18 to 24 months and to wind down toward semi-retirement in his mid-60s.",
-      "workingStyle": "Mick is a confident, highly experienced verbal trainer. His morning toolbox talks are consistently well-attended and well-received; he can stand up in front of fifteen to twenty trades workers and explain scaffolding interfaces, exclusion zones, and 100-percent tie-off requirements in plain, direct language they actually take in. His apprentice mentoring is hands-on, demonstration-led, and patient.\n\nThe picture changes considerably the moment a screen is involved. Mick's most recent performance review rated his Reporting and Admin at 2 out of 5, with the Site Manager specifically noting that signed SWMS often sit in his ute for a week before they reach the office, that he openly resents the company's iPad-based site induction app, and that the business has had to nominate a “Digital Buddy” (one of the younger chippies) to help him upload site photos and hazard reports to the Apex Portal. Mick keeps almost all of his notes in a hard-cover site diary and writes up his toolbox minutes by hand; the typed-up version usually lands on the office desk a week later, if at all.\n\nHe owns a basic laptop at home but uses it almost exclusively for invoicing and quoting in software his bookkeeper set up for him years ago. He has mentioned that he has never had a personal email address that he checks regularly. His wife handles anything that needs to be done online for the household, and that the idea of submitting an assessment through an online portal is “the bit that worries me most” about the Cert IV. His apprentice training records are signed monthly “from memory” rather than maintained as a running log. Mick is on his feet for the bulk of his working day and finds extended desk-based sessions physically uncomfortable; he prefers to be able to stand, move, or take short breaks during longer training, and has mentioned that sitting in one position for more than 30 to 40 minutes makes his knees seize up.",
-      "additionalInfo": "Mick is a long-standing member of his local Men's Shed and runs a weekend cricket umpiring roster in summer. His preferred way of learning anything new is to watch someone do it once, then have a go himself; he avoids reading-heavy training material and has mentioned that he often skips to the diagrams in any technical document. He has flagged early in conversation that he will “definitely need a hand” with the digital learning platform used by the RTO and has half-jokingly asked whether anyone can come and “drive the computer” for him on assessment day."
+    {
+      "id": 6,
+      "ref": "Learner #6",
+      "slug": "mick-oreilly",
+      "name": "Mick OReilly",
+      "package": "CPC",
+      "competencyFields": {
+        "primary": "carpentry_construction",
+        "secondary": [
+          "whs"
+        ]
+      },
+      "photo": "photos/mick-oreilly.jpg",
+      "sections": {
+        "aboutMe": "Mick is a 58-year-old Lead Carpenter and sub-contractor based in South Australia, currently working with Apex Builds on the Southbank Apartment Complex in Adelaide. He has been on the tools for thirty-five years and is the designated Health and Safety Representative for his crew. Mick lives in the southern suburbs with his wife; their two adult children have long since moved out, and most of his after-hours time goes into running his own small sub-contracting paperwork from his ute or the kitchen table.",
+        "professionalExperience": "Mick holds CPCCWHS1001 (White Card), CPCCOHS2001A (Apply OHS requirements, policies and procedures), and HLTAID003 (Provide First Aid, currency to be reconfirmed). He completed his carpentry trade certificate in the late 1980s. His practical experience covers thirty-five years of formwork and framing, fit-out and finishing, plan reading and setting out, SWMS and JSA development, and a significant amount of HSR work including weekly toolbox talks, hazard inspections, and SWMS sign-offs.\n\nHe has mentored at least eight apprentices through to completion across his career and is currently supervising two second-years (Jake and Liam) at Southbank. Recent work includes a stint in the Mile End rail corridor delivering platform formwork, where he handled the rail safety fundamentals well, and ongoing pressure-jetting work at the Southbank promenade. Mick is enrolled in TAE40122 with the long-term aim of moving into a Site Safety/Trainer role.",
+        "careerGoals": "Mick has been candid that “the knees are buggered” after thirty-five years on hard surfaces and that the move into training is largely driven by the need to get off the tools entirely over the next few years. He has a planned arthroscopic procedure on his right knee scheduled for July, with the orthopaedic surgeon already flagging that a partial knee replacement is likely within five years. His GP has told him bluntly that he should expect to spend less time kneeling, climbing, and on his feet from here on. His goal is to transition into a full-time WHS and training role with a builder or RTO over the next 18 to 24 months and to wind down toward semi-retirement in his mid-60s.",
+        "workingStyle": "Mick is a confident, highly experienced verbal trainer. His morning toolbox talks are consistently well-attended and well-received; he can stand up in front of fifteen to twenty trades workers and explain scaffolding interfaces, exclusion zones, and 100-percent tie-off requirements in plain, direct language they actually take in. His apprentice mentoring is hands-on, demonstration-led, and patient.\n\nThe picture changes considerably the moment a screen is involved. Mick's most recent performance review rated his Reporting and Admin at 2 out of 5, with the Site Manager specifically noting that signed SWMS often sit in his ute for a week before they reach the office, that he openly resents the company's iPad-based site induction app, and that the business has had to nominate a “Digital Buddy” (one of the younger chippies) to help him upload site photos and hazard reports to the Apex Portal. Mick keeps almost all of his notes in a hard-cover site diary and writes up his toolbox minutes by hand; the typed-up version usually lands on the office desk a week later, if at all.\n\nHe owns a basic laptop at home but uses it almost exclusively for invoicing and quoting in software his bookkeeper set up for him years ago. He has mentioned that he has never had a personal email address that he checks regularly. His wife handles anything that needs to be done online for the household, and that the idea of submitting an assessment through an online portal is “the bit that worries me most” about the Cert IV. His apprentice training records are signed monthly “from memory” rather than maintained as a running log. Mick is on his feet for the bulk of his working day and finds extended desk-based sessions physically uncomfortable; he prefers to be able to stand, move, or take short breaks during longer training, and has mentioned that sitting in one position for more than 30 to 40 minutes makes his knees seize up.",
+        "additionalInfo": "Mick is a long-standing member of his local Men's Shed and runs a weekend cricket umpiring roster in summer. His preferred way of learning anything new is to watch someone do it once, then have a go himself; he avoids reading-heavy training material and has mentioned that he often skips to the diagrams in any technical document. He has flagged early in conversation that he will “definitely need a hand” with the digital learning platform used by the RTO and has half-jokingly asked whether anyone can come and “drive the computer” for him on assessment day."
+      },
+      "files": [
+        {
+          "name": "00_Mick Profile.docx",
+          "type": "docx"
+        },
+        {
+          "name": "01_Resume_MickOReilly.docx",
+          "type": "docx"
+        },
+        {
+          "name": "02_References_MickOReilly.docx",
+          "type": "docx"
+        },
+        {
+          "name": "03_Transcript_MickOReilly.doc",
+          "type": "docx",
+          "viewable": false
+        },
+        {
+          "name": "04_ToolboxTalk_ScaffoldingSafety_Feb2026.docx",
+          "type": "docx"
+        },
+        {
+          "name": "05_SafetyMinutes_Feb2026.docx",
+          "type": "docx"
+        },
+        {
+          "name": "05_SafetyMinutes_Feb2026_FORM.docx",
+          "type": "docx"
+        },
+        {
+          "name": "06_CompetencySignOff_HarnessFitment.docx",
+          "type": "docx"
+        },
+        {
+          "name": "07_PhotoLog_HarnessDemo.docx",
+          "type": "docx"
+        },
+        {
+          "name": "08_PerformanceReview_2025_MickOReilly.docx",
+          "type": "docx"
+        },
+        {
+          "name": "09_SiteSetup_Southbank_Plan.pdf",
+          "type": "pdf"
+        },
+        {
+          "name": "09_SiteSetup_Southbank_Plan.png",
+          "type": "img"
+        },
+        {
+          "name": "10_SiteSetup_Southbank_Document.docx",
+          "type": "docx"
+        },
+        {
+          "name": "11_Rail Electrical Work_TLIB3118.docx",
+          "type": "docx"
+        },
+        {
+          "name": "12_Pressure Cleaning NWPNET062.docx",
+          "type": "docx"
+        },
+        {
+          "name": "IMG_Harness_01.png",
+          "type": "img"
+        },
+        {
+          "name": "IMG_Harness_02.png",
+          "type": "img"
+        },
+        {
+          "name": "IMG_Harness_03.png",
+          "type": "img"
+        },
+        {
+          "name": "Mick O'Reilly Trade Certificate.pdf",
+          "type": "pdf"
+        }
+      ],
+      "bio": "Seasoned lead carpenter and site safety representative with 35 years on the tools, now formalising the on-the-job mentoring he has always done.",
+      "role": "Lead Carpenter",
+      "location": "Adelaide, SA"
     },
-    "files": [
-      {
-        "name": "00_Mick Profile.docx",
-        "type": "docx"
+    {
+      "id": 7,
+      "ref": "Learner #7",
+      "slug": "priya-sharma",
+      "name": "Priya Sharma",
+      "package": "CHC IS",
+      "competencyFields": {
+        "primary": "disability_support",
+        "secondary": [
+          "leadership_management"
+        ]
       },
-      {
-        "name": "01_Resume_MickOReilly.docx",
-        "type": "docx"
+      "photo": "photos/priya-sharma.jpg",
+      "sections": {
+        "aboutMe": "Priya is a 34-year-old Team Leader with Community Care NSW, based in Parramatta, where she runs Shared Independent Living (SIL) housing for clients with high-intensity care needs. She has seven years of practical disability sector experience and four years in her current leadership role. Priya lives in Parramatta with her partner, and her work pattern is largely predictable Monday to Friday with occasional weekend on-call duty.",
+        "professionalExperience": "Priya holds three units toward CHC40312 Certificate IV in Disability (CHCICS402B, CHCCS411C, and CHCAD401D, attained 2013) and HLTAID011 Provide First Aid (current to 2027). She has completed the NDIS Worker Orientation Module and holds internal signoffs for medication administration, PEG feeding, and complex manual handling. Her practical experience is substantial: NCI and PBS implementation, complex medication rounds, restrictive practice management, NDIS audit preparation (zero non-conformances across two recent audits), advocacy at NDIS planning meetings, and primary on-the-job mentoring for all new hires in her cluster.\n\nPriya has independently developed a “Daily Action Guide” system for her houses, which has been adopted as a regional template, and recently led the successful rollout of the CareLog digital incident reporting system across three pilot houses (notification compliance lifted from 82 percent to 99 percent). She is enrolled in TAE40122 with the support of her employer.",
+        "careerGoals": "Priya's stated goal is to move into a formal trainer role within her organisation's RTO branch, delivering the Certificate IV in Disability. She has been earmarked by her Area Manager as the next Lead Trainer for the medication and first aid modules and has been encouraged to shadow current trainers across these units to observe formal adult learning principles in action. Longer term, she is interested in delivering NDIS-aligned skill sets and may pursue further qualifications in advanced PBS or disability practice leadership.",
+        "workingStyle": "Priya is exceptionally systematic. Her documentation is described in her appraisal as “highly detailed,” her clinical compliance record is “flawless,” and her project management of the CareLog rollout was delivered with the kind of structured, methodical rigour that is rare at her career stage. She produces clear written guides ahead of any session, prefers to follow a defined sequence, and tends to over-prepare rather than under-prepare. She is at her best in one-on-one coaching, in writing, and in small, structured groups with a clear agenda.\n\nHer appraisal specifically identifies that her staff meetings are excellent for “information-sharing” but that she needs to develop skills in managing group dynamics in less-structured classroom or workshop settings, where the conversation is more fluid. Priya has mentioned that she finds noisy, fast-paced group environments tiring and that she will sometimes need a quiet space and a few minutes of solo time to reset between sessions. She is direct in her communication and tends to take instructions and feedback literally, which can occasionally read as blunt to people who are not familiar with her style; she has shared that she sometimes finds the social side of large workplace gatherings draining even when she enjoys the substantive content.\n\nPriya is highly proficient with digital tools (CareLog, the NDIS portal, Canva Pro, Microsoft Publisher, Word, and Excel), has her own laptop, and reliable NBN internet.",
+        "additionalInfo": "Priya is a keen long-distance runner and runs the same 7-kilometre route each morning before work; she has mentioned that the routine is genuinely important to her ability to manage a demanding day. She received an adult diagnosis of autism spectrum condition in her late twenties, which she has shared with her current employer for workplace adjustment purposes (primarily around quiet space access and clear written agendas) but does not bring up unprompted. Her preferred way of learning new content is to receive structured written materials, work through them solo, and then bring specific questions to a follow-up session."
       },
-      {
-        "name": "02_References_MickOReilly.docx",
-        "type": "docx"
-      },
-      {
-        "name": "03_Transcript_MickOReilly.doc",
-        "type": "docx"
-      },
-      {
-        "name": "04_ToolboxTalk_ScaffoldingSafety_Feb2026.docx",
-        "type": "docx"
-      },
-      {
-        "name": "05_SafetyMinutes_Feb2026.docx",
-        "type": "docx"
-      },
-      {
-        "name": "05_SafetyMinutes_Feb2026_FORM.docx",
-        "type": "docx"
-      },
-      {
-        "name": "06_CompetencySignOff_HarnessFitment.docx",
-        "type": "docx"
-      },
-      {
-        "name": "07_PhotoLog_HarnessDemo.docx",
-        "type": "docx"
-      },
-      {
-        "name": "08_PerformanceReview_2025_MickOReilly.docx",
-        "type": "docx"
-      },
-      {
-        "name": "09_SiteSetup_Southbank_Plan.pdf",
-        "type": "pdf"
-      },
-      {
-        "name": "09_SiteSetup_Southbank_Plan.png",
-        "type": "img"
-      },
-      {
-        "name": "10_SiteSetup_Southbank_Document.docx",
-        "type": "docx"
-      },
-      {
-        "name": "11_Rail Electrical Work_TLIB3118.docx",
-        "type": "docx"
-      },
-      {
-        "name": "12_Pressure Cleaning NWPNET062.docx",
-        "type": "docx"
-      },
-      {
-        "name": "IMG_Harness_01.png",
-        "type": "img"
-      },
-      {
-        "name": "IMG_Harness_02.png",
-        "type": "img"
-      },
-      {
-        "name": "IMG_Harness_03.png",
-        "type": "img"
-      },
-      {
-        "name": "Mick O'Reilly Trade Certificate.pdf",
-        "type": "pdf"
-      }
-    ]
-  },
-  {
-    "id": 7,
-    "ref": "Learner #7",
-    "slug": "priya-sharma",
-    "name": "Priya Sharma",
-    "package": "CHC IS",
-    "competencyFields": {
-      "primary": "disability_support",
-      "secondary": [
-        "leadership_management"
-      ]
+      "files": [
+        {
+          "name": "00_Priya Profile.docx",
+          "type": "docx"
+        },
+        {
+          "name": "01_Resume Priya Sharma.docx",
+          "type": "docx"
+        },
+        {
+          "name": "02_Transcript Priya Smarma.docx",
+          "type": "docx"
+        },
+        {
+          "name": "03_References Priya Sharma.docx",
+          "type": "docx"
+        },
+        {
+          "name": "04_Daily Action Guide Priya Sharma.docx",
+          "type": "docx"
+        },
+        {
+          "name": "05_Performance Appraisal Priya Sharma.docx",
+          "type": "docx"
+        },
+        {
+          "name": "06_Project Proposal.docx",
+          "type": "docx"
+        },
+        {
+          "name": "07_Project_Impact_Formal.docx",
+          "type": "docx"
+        },
+        {
+          "name": "08_Meeting Minutes.docx",
+          "type": "docx"
+        },
+        {
+          "name": "09_Checklist.xlsx",
+          "type": "xlsx"
+        },
+        {
+          "name": "10_Client Testimonial SHBXCCS009.docx",
+          "type": "docx"
+        },
+        {
+          "name": "11_Printing Records ICPKNW3220.docx",
+          "type": "docx"
+        }
+      ],
+      "bio": "Parramatta disability support team leader overseeing shared independent living for high-needs clients, with seven years of sector experience and four in leadership.",
+      "role": "Team Leader",
+      "location": "Parramatta, NSW"
     },
-    "photo": "photos/priya-sharma.jpg",
-    "sections": {
-      "aboutMe": "Priya is a 34-year-old Team Leader with Community Care NSW, based in Parramatta, where she runs Shared Independent Living (SIL) housing for clients with high-intensity care needs. She has seven years of practical disability sector experience and four years in her current leadership role. Priya lives in Parramatta with her partner, and her work pattern is largely predictable Monday to Friday with occasional weekend on-call duty.",
-      "professionalExperience": "Priya holds three units toward CHC40312 Certificate IV in Disability (CHCICS402B, CHCCS411C, and CHCAD401D, attained 2013) and HLTAID011 Provide First Aid (current to 2027). She has completed the NDIS Worker Orientation Module and holds internal signoffs for medication administration, PEG feeding, and complex manual handling. Her practical experience is substantial: NCI and PBS implementation, complex medication rounds, restrictive practice management, NDIS audit preparation (zero non-conformances across two recent audits), advocacy at NDIS planning meetings, and primary on-the-job mentoring for all new hires in her cluster.\n\nPriya has independently developed a “Daily Action Guide” system for her houses, which has been adopted as a regional template, and recently led the successful rollout of the CareLog digital incident reporting system across three pilot houses (notification compliance lifted from 82 percent to 99 percent). She is enrolled in TAE40122 with the support of her employer.",
-      "careerGoals": "Priya's stated goal is to move into a formal trainer role within her organisation's RTO branch, delivering the Certificate IV in Disability. She has been earmarked by her Area Manager as the next Lead Trainer for the medication and first aid modules and has been encouraged to shadow current trainers across these units to observe formal adult learning principles in action. Longer term, she is interested in delivering NDIS-aligned skill sets and may pursue further qualifications in advanced PBS or disability practice leadership.",
-      "workingStyle": "Priya is exceptionally systematic. Her documentation is described in her appraisal as “highly detailed,” her clinical compliance record is “flawless,” and her project management of the CareLog rollout was delivered with the kind of structured, methodical rigour that is rare at her career stage. She produces clear written guides ahead of any session, prefers to follow a defined sequence, and tends to over-prepare rather than under-prepare. She is at her best in one-on-one coaching, in writing, and in small, structured groups with a clear agenda.\n\nHer appraisal specifically identifies that her staff meetings are excellent for “information-sharing” but that she needs to develop skills in managing group dynamics in less-structured classroom or workshop settings, where the conversation is more fluid. Priya has mentioned that she finds noisy, fast-paced group environments tiring and that she will sometimes need a quiet space and a few minutes of solo time to reset between sessions. She is direct in her communication and tends to take instructions and feedback literally, which can occasionally read as blunt to people who are not familiar with her style; she has shared that she sometimes finds the social side of large workplace gatherings draining even when she enjoys the substantive content.\n\nPriya is highly proficient with digital tools (CareLog, the NDIS portal, Canva Pro, Microsoft Publisher, Word, and Excel), has her own laptop, and reliable NBN internet.",
-      "additionalInfo": "Priya is a keen long-distance runner and runs the same 7-kilometre route each morning before work; she has mentioned that the routine is genuinely important to her ability to manage a demanding day. She received an adult diagnosis of autism spectrum condition in her late twenties, which she has shared with her current employer for workplace adjustment purposes (primarily around quiet space access and clear written agendas) but does not bring up unprompted. Her preferred way of learning new content is to receive structured written materials, work through them solo, and then bring specific questions to a follow-up session."
+    {
+      "id": 8,
+      "ref": "Learner #8",
+      "slug": "sarah-jenkins",
+      "name": "Sarah Jenkins",
+      "package": "CHC ECE",
+      "competencyFields": {
+        "primary": "early_childhood",
+        "secondary": []
+      },
+      "photo": "photos/sarah-jenkins.jpg",
+      "sections": {
+        "aboutMe": "Sarah is a 36-year-old Educator Assistant at Little Stars Early Learning, based in South Australia, where she returned to part-time work in early 2025 after a five-year career break to raise her two young children (now aged 4 and 6). She lives in the southern suburbs with her wife and the kids, and her current shift pattern is school hours only, four days a week.",
+        "professionalExperience": "Sarah holds a Certificate III in Children's Services (2010), a legacy qualification with units that have been superseded and will require verification against the current CHC Community Services Training Package. She has prior experience as an Assistant Educator across various centres between 2011 and 2018, and has been back in the toddler room at Little Stars under lead-educator supervision since early 2025. Her current first aid is due for renewal, and her knowledge of the National Quality Framework and EYLF v2.0 is acknowledged in her recent appraisal as needing a refresh.\n\nSarah has done a small amount of informal training on the floor, including showing a new colleague (Amy) how to use the nappy change log, and she recently put together a sensory bin project using recycled materials for the toddler room. She is enrolled in TAE40122 as part of a longer-term plan to move into a more senior educator role and eventually into trainer work within early childhood.",
+        "careerGoals": "Sarah's immediate goal is to rebuild her sector currency, complete an NQF refresher, and progress toward a Diploma of Early Childhood Education and Care alongside the Cert IV in TAE. Longer term, she would like to deliver short courses or workshops for parents and new educators, drawing on her own experience returning to work after a long break. She is open to extending into broader CHC delivery if her early childhood pathway opens up over the next few years.",
+        "workingStyle": "Sarah is warm, patient, and very natural with the children, which is the strongest theme in both her centre director's reference and her appraisal. She is genuinely good at the relational and supervisory side of the role and has mentioned that she finds the rhythm of the toddler room very settling after the chaos of running her own household. The areas where Sarah's confidence is lower are documentation, formal observation write-ups, and anything involving structured planning around dates, sequences, or rosters. Her informal training note about the new starter Amy was missing the date, the full learner’s name, and any supervisor signature, and her recent staff-room cleaning roster meeting required her manager to step in to convert her hand-written notes into the published version.\n\nSarah has shared that numbers and dates have always been a struggle for her: she has trouble with mental arithmetic, mixes up similar numbers (such as room codes, phone extensions, and dose quantities) under pressure, and double-checks every roster, calendar, and spreadsheet at least twice before she trusts it. She uses her phone calendar heavily as a memory aid and has set up colour-coded reminders for everything from medication times for her own children to centre rostering. Her writing is otherwise clear and her reading is strong; the issue is specifically with numerical and sequence-based information.\n\nSarah is comfortable enough with email, the centre's parent communication app, and Word, and her family has a shared laptop and reliable home internet, although she usually studies after the children are in bed.",
+        "additionalInfo": "Sarah is a part-time canteen volunteer at her older child's primary school and runs the local mums' walking group on Saturday mornings. Her preferred way of learning new content is in small, hands-on group settings with plenty of demonstration; she finds online self-paced modules harder to stay engaged with and would benefit from a structured weekly check-in. She has mentioned that returning to formal study after seven years feels intimidating, and that having a clear written roadmap for what is due and when would help her enormously."
+      },
+      "files": [
+        {
+          "name": "00_Sarah Profile.docx",
+          "type": "docx"
+        },
+        {
+          "name": "01_Transcript_SarahJenkins.docx",
+          "type": "docx"
+        },
+        {
+          "name": "02_References_SarahJenkins.docx",
+          "type": "docx"
+        },
+        {
+          "name": "03_Resume_SarahJenkins.docx",
+          "type": "docx"
+        },
+        {
+          "name": "04_MeetingMinutes_StaffRoomCleanup_Nov2025.docx",
+          "type": "docx"
+        },
+        {
+          "name": "05_TrainingEvidence_InformalNote.docx",
+          "type": "docx"
+        },
+        {
+          "name": "06_PerformanceAppraisal_SarahJenkins.docx",
+          "type": "docx"
+        },
+        {
+          "name": "07_Project_SensoryBin_WriteUp.docx",
+          "type": "docx"
+        },
+        {
+          "name": "IMG_SensoryBin_01.png",
+          "type": "img"
+        },
+        {
+          "name": "IMG_SensoryBin_02.png",
+          "type": "img"
+        }
+      ],
+      "bio": "Early childhood educator who returned to the workforce part-time after a five-year career break, rebuilding professional practice while raising two young children.",
+      "role": "Educator Assistant",
+      "location": "SA"
     },
-    "files": [
-      {
-        "name": "00_Priya Profile.docx",
-        "type": "docx"
+    {
+      "id": 9,
+      "ref": "Learner #9",
+      "slug": "james-sterling",
+      "name": "James Sterling",
+      "package": "BSB",
+      "competencyFields": {
+        "primary": "business_admin",
+        "secondary": [
+          "project_management"
+        ]
       },
-      {
-        "name": "01_Resume Priya Sharma.docx",
-        "type": "docx"
+      "photo": "photos/james-sterling.jpg",
+      "sections": {
+        "aboutMe": "James (known to most people as “Jim”) is a 42-year-old Lead Administrator at TechFlow in Adelaide, where he has overseen the company's recent paperless office transformation and runs internal training on SharePoint, document control, and quality systems. He lives in the eastern suburbs in a fully accessible home he and his wife purchased and modified after a 4WD rollover in the Flinders Ranges in 2014 left him with a T10 incomplete spinal cord injury. James has used a manual wheelchair full-time since the rehabilitation period that followed. He is a very active member of the local 4WD community and the Outback Explorers club, which he has continued to participate in using a custom-converted Landcruiser.",
+        "professionalExperience": "James holds a Certificate III in Business Administration (BSB30415, 2019) with three transcripted units (BSBWRT301, BSBITU303, and BSBITU312). He has ten-plus years of administrative and legal support experience: four years as Senior Administrative Officer at LawLink (2015 to 2019), and Lead Administrator at TechFlow since 2019.\n\nHe led the TechFlow Paperless Initiative, which digitised over 5,000 archived files, delivered 14 master templates, and trained all fifteen members of the core admin and marketing teams. The project was delivered $260 under budget, two weeks ahead of schedule, with a 4.9 out of 5 facilitator knowledge score. James also developed the company's WHS risk assessment for the archive scanning phase. He runs informal SharePoint and Word workshops for new starters, has authored a 20-section SharePoint user guide, and is the company's de facto Power User for Microsoft 365. He is enrolled in TAE40122 specifically to formalise his existing internal training delivery as TechFlow transitions into an Enterprise RTO model.",
+        "careerGoals": "James's stated goal is to formalise his internal training role and contribute to TechFlow's planned in-house RTO. He has been earmarked to deliver the BSB-aligned content (records management, document production, business technology) and is also exploring the possibility of sessional TAFE work in business administration. Longer term, he is interested in advanced automation and Power Platform delivery and has flagged Power Automate as a personal development priority.",
+        "workingStyle": "James is a precise, structured, and document-led trainer. His project plans, closure reports, and workshop materials are all of a noticeably high standard, and he has a real talent for turning technical complexity into clear step-by-step instruction. His manager describes him as “patient and knowledgeable” with the junior admin staff and notes his ability to explain technical document structures to non-technical colleagues with ease. The development gap flagged in his appraisal is around formalising his lesson plans (his current workshops are excellent in content and delivery but not yet structured around documented learning outcomes and assessment evidence) and around expanding his group-facilitation reach beyond the small admin and marketing team.\n\nDay-to-day, James works from a height-adjustable sit-stand desk in TechFlow's accessible office (the company moved to ground-floor premises with full step-free access in 2020 partly to retain him), and he has a similar setup in a dedicated home office. He drives a hand-controlled vehicle and is fully independent in his commute and work routine. His main practical considerations are predictable: he needs venues with accessible parking close to the entrance, step-free access throughout, an accessible bathroom, and a desk or table at an appropriate height; long days in his chair without the ability to reposition can lead to fatigue and pressure-area concerns, so he prefers training schedules that build in genuine breaks.\n\nHe has full digital fluency, reliable NBN internet, and personally maintains the family's home network.",
+        "additionalInfo": "James is a senior member of the Outback Explorers 4WD Club and has completed three major expeditions including a 21-day Simpson Desert crossing. He volunteers with a peer-mentoring programme for newly injured wheelchair users transitioning back to work and has done a small amount of unpaid public speaking on adaptive employment for the local SCI Association. His preferred way of learning new content is well-structured written material with clear navigation, supplemented by hands-on practice; he has mentioned that he finds long lectures without a clear written outline harder to track than the equivalent content delivered in a structured workshop with documented objectives."
       },
-      {
-        "name": "02_Transcript Priya Smarma.docx",
-        "type": "docx"
-      },
-      {
-        "name": "03_References Priya Sharma.docx",
-        "type": "docx"
-      },
-      {
-        "name": "04_Daily Action Guide Priya Sharma.docx",
-        "type": "docx"
-      },
-      {
-        "name": "05_Performance Appraisal Priya Sharma.docx",
-        "type": "docx"
-      },
-      {
-        "name": "06_Project Proposal.docx",
-        "type": "docx"
-      },
-      {
-        "name": "07_Project_Impact_Formal.docx",
-        "type": "docx"
-      },
-      {
-        "name": "08_Meeting Minutes.docx",
-        "type": "docx"
-      },
-      {
-        "name": "09_Checklist.xlsx",
-        "type": "xlsx"
-      },
-      {
-        "name": "10_Client Testimonial SHBXCCS009.docx",
-        "type": "docx"
-      },
-      {
-        "name": "11_Printing Records ICPKNW3220.docx",
-        "type": "docx"
-      }
-    ]
-  },
-  {
-    "id": 8,
-    "ref": "Learner #8",
-    "slug": "sarah-jenkins",
-    "name": "Sarah Jenkins",
-    "package": "CHC ECE",
-    "competencyFields": {
-      "primary": "early_childhood",
-      "secondary": []
+      "files": [
+        {
+          "name": "00_James Profile.docx",
+          "type": "docx"
+        },
+        {
+          "name": "01_James_Sterling_Professional_Resume.docx",
+          "type": "docx"
+        },
+        {
+          "name": "02_References_JamesSterling.docx",
+          "type": "docx"
+        },
+        {
+          "name": "03_Transcript_JamesSterling.doc",
+          "type": "docx",
+          "viewable": false
+        },
+        {
+          "name": "04_MeetingMinutes_2025_06_FORMAL.docx",
+          "type": "docx"
+        },
+        {
+          "name": "05_UserGuide_SharePoint_JamesSterling.docx",
+          "type": "docx"
+        },
+        {
+          "name": "06_Workshop_SignIn_SharePoint.xlsx",
+          "type": "xlsx"
+        },
+        {
+          "name": "07_PerformanceAppraisal_JamesSterling.docx",
+          "type": "docx"
+        },
+        {
+          "name": "08_ProjectPlan_PaperlessOffice_FORMAL.docx",
+          "type": "docx"
+        },
+        {
+          "name": "09_BudgetTracking_PaperlessOffice.xlsx",
+          "type": "xlsx"
+        },
+        {
+          "name": "10_FinalReport_PaperlessOffice_FORMAL.docx",
+          "type": "docx"
+        },
+        {
+          "name": "11_WHS Risk Assessment_HLTWHS003.docx",
+          "type": "docx"
+        },
+        {
+          "name": "12_4WD References_RIIVEH201E.docx",
+          "type": "docx"
+        }
+      ],
+      "bio": "Wheelchair-using Adelaide administrator who led his company's digital transformation and now delivers internal SharePoint and document management training to staff.",
+      "role": "Lead Administrator",
+      "location": "Adelaide, SA"
     },
-    "photo": "photos/sarah-jenkins.jpg",
-    "sections": {
-      "aboutMe": "Sarah is a 36-year-old Educator Assistant at Little Stars Early Learning, based in South Australia, where she returned to part-time work in early 2025 after a five-year career break to raise her two young children (now aged 4 and 6). She lives in the southern suburbs with her wife and the kids, and her current shift pattern is school hours only, four days a week.",
-      "professionalExperience": "Sarah holds a Certificate III in Children's Services (2010), a legacy qualification with units that have been superseded and will require verification against the current CHC Community Services Training Package. She has prior experience as an Assistant Educator across various centres between 2011 and 2018, and has been back in the toddler room at Little Stars under lead-educator supervision since early 2025. Her current first aid is due for renewal, and her knowledge of the National Quality Framework and EYLF v2.0 is acknowledged in her recent appraisal as needing a refresh.\n\nSarah has done a small amount of informal training on the floor, including showing a new colleague (Amy) how to use the nappy change log, and she recently put together a sensory bin project using recycled materials for the toddler room. She is enrolled in TAE40122 as part of a longer-term plan to move into a more senior educator role and eventually into trainer work within early childhood.",
-      "careerGoals": "Sarah's immediate goal is to rebuild her sector currency, complete an NQF refresher, and progress toward a Diploma of Early Childhood Education and Care alongside the Cert IV in TAE. Longer term, she would like to deliver short courses or workshops for parents and new educators, drawing on her own experience returning to work after a long break. She is open to extending into broader CHC delivery if her early childhood pathway opens up over the next few years.",
-      "workingStyle": "Sarah is warm, patient, and very natural with the children, which is the strongest theme in both her centre director's reference and her appraisal. She is genuinely good at the relational and supervisory side of the role and has mentioned that she finds the rhythm of the toddler room very settling after the chaos of running her own household. The areas where Sarah's confidence is lower are documentation, formal observation write-ups, and anything involving structured planning around dates, sequences, or rosters. Her informal training note about the new starter Amy was missing the date, the full learner’s name, and any supervisor signature, and her recent staff-room cleaning roster meeting required her manager to step in to convert her hand-written notes into the published version.\n\nSarah has shared that numbers and dates have always been a struggle for her: she has trouble with mental arithmetic, mixes up similar numbers (such as room codes, phone extensions, and dose quantities) under pressure, and double-checks every roster, calendar, and spreadsheet at least twice before she trusts it. She uses her phone calendar heavily as a memory aid and has set up colour-coded reminders for everything from medication times for her own children to centre rostering. Her writing is otherwise clear and her reading is strong; the issue is specifically with numerical and sequence-based information.\n\nSarah is comfortable enough with email, the centre's parent communication app, and Word, and her family has a shared laptop and reliable home internet, although she usually studies after the children are in bed.",
-      "additionalInfo": "Sarah is a part-time canteen volunteer at her older child's primary school and runs the local mums' walking group on Saturday mornings. Her preferred way of learning new content is in small, hands-on group settings with plenty of demonstration; she finds online self-paced modules harder to stay engaged with and would benefit from a structured weekly check-in. She has mentioned that returning to formal study after seven years feels intimidating, and that having a clear written roadmap for what is due and when would help her enormously."
+    {
+      "id": 10,
+      "ref": "Learner #10",
+      "slug": "danielle-okafor",
+      "name": "Danielle Okafor",
+      "package": "HLT",
+      "competencyFields": {
+        "primary": "sterilisation",
+        "secondary": []
+      },
+      "photo": "photos/danielle-okafor.jpg",
+      "sections": {
+        "aboutMe": "Danielle is a 36-year-old Central Sterilising Services Department (CSSD) Technician at the Royal Millbrook Hospital in Adelaide's inner north, where she has worked for the past seven years. Originally from Lagos, she migrated to Australia in 2015 and has lived in the northern suburbs with her husband and two primary-school-aged children since 2017. At Millbrook she works a rotating roster - typically two morning shifts, two afternoon shifts, and four days off - which means her availability for study and training commitments can vary significantly from fortnight to fortnight.",
+        "professionalExperience": "Danielle holds a Statement of Attainment from the CSSD pathway of HLT37015 Certificate III in Sterilisation Services (2021) and completed a further two units from HLT47015 Certificate IV in Sterilisation Services before deferring due to family commitments. She also holds HLTAID011 Provide First Aid (current), a current White Card, and internal signoffs for instrument inspection, load release authorisation, and the hospital's Outbreak Response Protocol. \nIn her seven years at Millbrook, Danielle has built deep practical expertise across the full CSSD workflow: decontamination and inspection, packaging and sealing to AS/NZS 4187, steriliser loading, cycle selection and release, and daily biological and chemical indicator testing. Since 2023 she has held the informal title of Senior CSSD Technician, which involves buddying new starters through orientation, signing off their initial steriliser operation competencies, and running the quarterly infection control refresher on the department floor. She has also covered the ward-based food trolley rounds on morning shift during periods of short-staffing, which involved managing cold-chain records and identifying and disposing of non-compliant items. \nDanielle's anatomy and physiology knowledge is largely workplace-contextual: she is confident in the language of microbiology and contamination risk and understands disease transmission routes thoroughly in the context of CSSD work, but she has not completed formal study in human anatomy and physiology beyond what was embedded in her Certificate III units.",
+        "careerGoals": "Danielle's goal is to move into the hospital's Education and Workforce Development team as a Casual Trainer, initially delivering CSSD induction content and the infection control refresher programme she already runs informally. Her ward educator (Yvonne) has encouraged her to formalise her training delivery through the Cert IV in TAE and has been a strong advocate for her secondment to the Education team on a part-time basis. Longer term, Danielle is interested in the possibility of delivering sterilisation content across the SA Health network and would consider further qualifications if they are offered through the hospital's study assistance programme.",
+        "workingStyle": "Danielle is calm, methodical, and very good at one-on-one instruction. On the CSSD floor she is known for walking new starters through each stage of the steriliser operation sequence at their pace and checking in at each step before moving on - her colleague Precious has described it as \"the most patient training I have ever had.\" She runs the quarterly refresher using a slide deck she built herself in PowerPoint and tends to deliver it in the break room at the end of morning shift, relying heavily on photographs of real equipment rather than diagrams. \nWhere things become less straightforward for Danielle is in formal written work. She is confident in English conversation and instruction, but longer written tasks - reports, structured assessments, reflective summaries - take her significantly more time and effort than the practical components. She tends to draft anything important in point form first, then expand it, and she has asked her husband to read over her TAE written submissions before she lodges them. Her numeracy is solid for the recording and checking tasks in CSSD (timing cycles, reading chemical indicator parameters, calculating load batch numbers) but she finds percentage-based quality metrics and data interpretation questions in formal assessments more challenging than the equivalent task on the floor. \nDanielle's rotating roster means that fixed weekly class times don't work well for her; she has asked specifically for recorded session options or flexible make-up arrangements for any face-to-face components. She uses her phone for almost all study between shifts and does most of her reading on the bus or in the break room. She has a shared family laptop at home, but it is heavily used by the children for school, which limits her access to it in the evenings.",
+        "additionalInfo": "Danielle is involved in her children's primary school P&C committee and attends a Nigerian community group in the northern suburbs on alternate Saturdays. She is a confident public speaker in informal settings - she has run community health information sessions for the Nigerian Women's Network twice in the past year - but finds larger formal presentations more nerve-wracking than one-on-one delivery. She has mentioned that feedback delivered directly and specifically lands much better for her than indirect or general comments, and she prefers to know exactly what is expected of her before attempting a task rather than working from open-ended prompts. She observes Christian commitments on Sundays, which she has flagged as an availability consideration for any weekend intensive components."
+      },
+      "files": [
+        {
+          "name": "00_LearnerProfile_DanielleOkafor.docx",
+          "type": "docx"
+        },
+        {
+          "name": "01_Resume_DanielleOkafor.docx",
+          "type": "docx"
+        },
+        {
+          "name": "02_References_DanielleOkafor.docx",
+          "type": "docx"
+        },
+        {
+          "name": "03_Transcript_DanielleOkafor.docx",
+          "type": "docx"
+        },
+        {
+          "name": "04_CompetencySignOff_SteriliserOp_DanielleOkafor.docx",
+          "type": "docx"
+        },
+        {
+          "name": "05_ICRefresherNotes_Sept2025.docx",
+          "type": "docx"
+        },
+        {
+          "name": "05_ICRefresherNotes_Sept2025_FORM.docx",
+          "type": "docx"
+        },
+        {
+          "name": "06_PerformanceAppraisal_DanielleOkafor.docx",
+          "type": "docx"
+        },
+        {
+          "name": "07_PhotoVideoLog_DanielleOkafor.docx",
+          "type": "docx"
+        },
+        {
+          "name": "A1_FoodServiceRecord_HLTFSE001.docx",
+          "type": "docx"
+        },
+        {
+          "name": "A2_AnatomyPhysiology_context_HLTAAP001.docx",
+          "type": "docx"
+        }
+      ],
+      "bio": "Lagos-born hospital sterilisation technician with seven years at Royal Millbrook, managing study commitments around a demanding rotating fortnightly shift roster.",
+      "role": "Central Sterilising Services Department (CSSD) Technician",
+      "location": "Adelaide, SA"
     },
-    "files": [
-      {
-        "name": "00_Sarah Profile.docx",
-        "type": "docx"
+    {
+      "id": 11,
+      "ref": "Learner #11",
+      "slug": "jess-callahan",
+      "name": "Jess Callahan",
+      "package": "SIS",
+      "competencyFields": {
+        "primary": "outdoor_recreation",
+        "secondary": []
       },
-      {
-        "name": "01_Transcript_SarahJenkins.docx",
-        "type": "docx"
+      "photo": "photos/jess-callahan.jpg",
+      "sections": {
+        "aboutMe": "Jess Callahan is 28 years old and lives at Port Elliot on South Australia's Fleurieu Peninsula, approximately 45 minutes south of Adelaide. She works as a casual surf instructor with a commercial outdoor recreation provider based at Middleton Beach and picks up lifeguard shifts at a nearby patrolled beach during summer.\nJess lives with her two young children; her partner works a rotating fly-in, fly-out roster at a mine site and is away for extended periods throughout the year.",
+        "professionalExperience": "Jess has been surfing since she was eight years old, growing up a short walk from the water on the Fleurieu coast. She was active in junior surf competition through her mid-teens and developed strong technical ability across a range of wave conditions. She began assisting with surf instruction at sixteen while still at school, initially shadowing a more experienced instructor before taking on her own groups.\nShe has worked casually across several surf schools and beach activity operators along the coast and has held seasonal beach patrol lifeguard positions since leaving school. She completed a Certificate III in Outdoor Leadership approximately four years ago and holds a current Senior First Aid certificate and surf rescue qualification. In practice, Jess has been the lead instructor for intermediate-level groups for the past five years, though this has not always been formally reflected in her job titles or captured in documentation by her employers.",
+        "careerGoals": "Jess is undertaking this training partly at the suggestion of the owner of the surf school she currently works with, who is looking to build a more formally credentialed instruction team. She is genuinely motivated by the prospect: \"I want to be able to show people something on paper that matches what I actually do out there.\" She has her eye on a senior instructor or programme coordinator role and is particularly keen on developing structured programmes for youth and women participants.\nShe is honest about the challenges – balancing study with two young children and a peak-season workload is genuinely difficult – but committed to seeing it through.",
+        "workingStyle": "On the water, Jess is decisive and highly capable. She reads conditions quickly, repositions groups without hesitation, and adjusts her instruction on the fly when things change. Her current employer describes her sessions as running on instinct – a genuine strength in the surf, but one that creates challenges when it comes to translating what she does into written records. Jess tends to plan sessions in her head rather than on paper: she knows which part of the break she will use, what each participant needs to work on, and how she will sequence progressions – but rarely writes any of this down beforehand. Similarly, she always checks in with her group at the end of a session but describes this as \"a bit of a chat on the sand\" rather than a documented process. She has started using the school's reporting forms but finds the written component takes considerably longer than she expects and sometimes sets it aside to finish later.\nJess does not own a laptop and handles everything digital on her phone. Her home internet connection is adequate in town, but mobile reception at the Middleton beach car park is patchy, meaning she often cannot access online content between sessions. She strongly prefers watching a demonstration or talking something through with a colleague over reading a lengthy document: \"If someone shows me something I'll get it straight away. Reading four pages about it, not so much.\" Longer written tasks take her more time than expected and she tends to start them and return to finish them days later.",
+        "additionalInfo": "Outside of work, Jess competes occasionally in local surf club events and is actively involved in her children's school and community activities. She runs an informal Sunday morning surf programme for teenage girls through the local surf club – unpaid and self-organised – which she is clearly passionate about. During the fortnights her partner is away on roster, Jess has no capacity for travel to Adelaide or evening commitments, as she is the sole carer for her children. Her preferred study arrangement is content she can break into short sessions and access on her phone rather than requiring extended time at a computer."
       },
-      {
-        "name": "02_References_SarahJenkins.docx",
-        "type": "docx"
-      },
-      {
-        "name": "03_Resume_SarahJenkins.docx",
-        "type": "docx"
-      },
-      {
-        "name": "04_MeetingMinutes_StaffRoomCleanup_Nov2025.docx",
-        "type": "docx"
-      },
-      {
-        "name": "05_TrainingEvidence_InformalNote.docx",
-        "type": "docx"
-      },
-      {
-        "name": "06_PerformanceAppraisal_SarahJenkins.docx",
-        "type": "docx"
-      },
-      {
-        "name": "07_Project_SensoryBin_WriteUp.docx",
-        "type": "docx"
-      },
-      {
-        "name": "IMG_SensoryBin_01.png",
-        "type": "img"
-      },
-      {
-        "name": "IMG_SensoryBin_02.png",
-        "type": "img"
-      }
-    ]
-  },
-  {
-    "id": 9,
-    "ref": "Learner #9",
-    "slug": "james-sterling",
-    "name": "James Sterling",
-    "package": "BSB",
-    "competencyFields": {
-      "primary": "business_admin",
-      "secondary": [
-        "project_management"
-      ]
+      "files": [
+        {
+          "name": "00_LearnerProfile_JessCallahan.docx",
+          "type": "docx"
+        },
+        {
+          "name": "01_Resume_JessCallahan.docx",
+          "type": "docx"
+        },
+        {
+          "name": "02_References_JessCallahan.docx",
+          "type": "docx"
+        },
+        {
+          "name": "03_Transcript_JessCallahan.doc",
+          "type": "docx",
+          "viewable": false
+        },
+        {
+          "name": "04_SessionPlan_JessCallahan.docx",
+          "type": "docx"
+        },
+        {
+          "name": "05_SessionPlan_JessCallahan_FORM.docx",
+          "type": "docx"
+        },
+        {
+          "name": "06_ParticipantFeedback_JessCallahan.docx",
+          "type": "docx"
+        },
+        {
+          "name": "07_PerformanceReview_JessCallahan.docx",
+          "type": "docx"
+        },
+        {
+          "name": "08_IncidentReport_JessCallahan.docx",
+          "type": "docx"
+        },
+        {
+          "name": "09_PhotoVideoLog_JessCallahan.docx",
+          "type": "docx"
+        },
+        {
+          "name": "A1_SurfRescueCert_SISORSC007.docx",
+          "type": "docx"
+        },
+        {
+          "name": "A2_GirlsProgram_SISXCAI003.docx",
+          "type": "docx"
+        }
+      ],
+      "bio": "Port Elliot surf instructor and lifeguard raising two young children largely solo while her partner works a FIFO mining roster.",
+      "role": "Casual surf instructor",
+      "location": "Port Elliot, SA"
     },
-    "photo": "photos/james-sterling.jpg",
-    "sections": {
-      "aboutMe": "James (known to most people as “Jim”) is a 42-year-old Lead Administrator at TechFlow in Adelaide, where he has overseen the company's recent paperless office transformation and runs internal training on SharePoint, document control, and quality systems. He lives in the eastern suburbs in a fully accessible home he and his wife purchased and modified after a 4WD rollover in the Flinders Ranges in 2014 left him with a T10 incomplete spinal cord injury. James has used a manual wheelchair full-time since the rehabilitation period that followed. He is a very active member of the local 4WD community and the Outback Explorers club, which he has continued to participate in using a custom-converted Landcruiser.",
-      "professionalExperience": "James holds a Certificate III in Business Administration (BSB30415, 2019) with three transcripted units (BSBWRT301, BSBITU303, and BSBITU312). He has ten-plus years of administrative and legal support experience: four years as Senior Administrative Officer at LawLink (2015 to 2019), and Lead Administrator at TechFlow since 2019.\n\nHe led the TechFlow Paperless Initiative, which digitised over 5,000 archived files, delivered 14 master templates, and trained all fifteen members of the core admin and marketing teams. The project was delivered $260 under budget, two weeks ahead of schedule, with a 4.9 out of 5 facilitator knowledge score. James also developed the company's WHS risk assessment for the archive scanning phase. He runs informal SharePoint and Word workshops for new starters, has authored a 20-section SharePoint user guide, and is the company's de facto Power User for Microsoft 365. He is enrolled in TAE40122 specifically to formalise his existing internal training delivery as TechFlow transitions into an Enterprise RTO model.",
-      "careerGoals": "James's stated goal is to formalise his internal training role and contribute to TechFlow's planned in-house RTO. He has been earmarked to deliver the BSB-aligned content (records management, document production, business technology) and is also exploring the possibility of sessional TAFE work in business administration. Longer term, he is interested in advanced automation and Power Platform delivery and has flagged Power Automate as a personal development priority.",
-      "workingStyle": "James is a precise, structured, and document-led trainer. His project plans, closure reports, and workshop materials are all of a noticeably high standard, and he has a real talent for turning technical complexity into clear step-by-step instruction. His manager describes him as “patient and knowledgeable” with the junior admin staff and notes his ability to explain technical document structures to non-technical colleagues with ease. The development gap flagged in his appraisal is around formalising his lesson plans (his current workshops are excellent in content and delivery but not yet structured around documented learning outcomes and assessment evidence) and around expanding his group-facilitation reach beyond the small admin and marketing team.\n\nDay-to-day, James works from a height-adjustable sit-stand desk in TechFlow's accessible office (the company moved to ground-floor premises with full step-free access in 2020 partly to retain him), and he has a similar setup in a dedicated home office. He drives a hand-controlled vehicle and is fully independent in his commute and work routine. His main practical considerations are predictable: he needs venues with accessible parking close to the entrance, step-free access throughout, an accessible bathroom, and a desk or table at an appropriate height; long days in his chair without the ability to reposition can lead to fatigue and pressure-area concerns, so he prefers training schedules that build in genuine breaks.\n\nHe has full digital fluency, reliable NBN internet, and personally maintains the family's home network.",
-      "additionalInfo": "James is a senior member of the Outback Explorers 4WD Club and has completed three major expeditions including a 21-day Simpson Desert crossing. He volunteers with a peer-mentoring programme for newly injured wheelchair users transitioning back to work and has done a small amount of unpaid public speaking on adaptive employment for the local SCI Association. His preferred way of learning new content is well-structured written material with clear navigation, supplemented by hands-on practice; he has mentioned that he finds long lectures without a clear written outline harder to track than the equivalent content delivered in a structured workshop with documented objectives."
+    {
+      "id": 12,
+      "ref": "Learner #12",
+      "slug": "lena-vasquez",
+      "name": "Lena Vasquez",
+      "package": "SIR",
+      "competencyFields": {
+        "primary": "retail_operations",
+        "secondary": [
+          "leadership_management"
+        ]
+      },
+      "photo": "photos/lena-vasquez.jpg",
+      "sections": {
+        "aboutMe": "Lena Vasquez is 38 years old and lives in Mount Gambier in regional South Australia, approximately five hours south-east of Adelaide. She is the Senior Store Manager at Cornerstone Homewares, a mid-sized homewares and lifestyle retail store in the Mount Gambier CBD, where she has worked for the past six years. Lena lives with her nine-year-old son and manages the family schedule largely on her own during the week.",
+        "professionalExperience": "Lena has worked in retail since she was 22, starting as a casual checkout operator while studying a business degree she later deferred and did not complete. She progressed through floor assistant, team leader, and deputy manager roles across several retail businesses in regional South Australia before stepping into her current store management role in 2019. Over twelve years she has developed a thorough understanding of the full retail operation – from stock management and visual merchandising to staff rostering, team leadership, and performance management.\nShe completed a Certificate III in Retail several years ago and is currently working toward a Certificate IV in Retail Management. She is comfortable with the business systems her store uses, including inventory management and POS platforms, and applies these to inform staffing decisions and peak-period planning.",
+        "careerGoals": "Lena is working toward the Certificate IV in Retail Management as the formal qualification to match the responsibilities she already carries. She has a clear view of where she wants to go next: a regional retail operations role where she can support and mentor other store managers across a group of sites. She sees the current qualification as the foundation for that move and has a timeline in mind. \"The work I'm doing now is already at that level – I just need the piece of paper to show for it.\"",
+        "workingStyle": "Lena is organised and systematic by nature. She plans her week in advance, keeps detailed handover notes for her team leaders, and is known by her colleagues for staying calm during high-pressure trade periods. Over the past two years she has deliberately and consciously developed a set of practices to manage the physical and emotional demands of store management. \nFollowing a difficult peak season several years ago that left her run down for months, she describes herself as having \"rebuilt from scratch\" how she approaches the workday. She now holds a fixed end-of-shift routine, avoids checking work messages after leaving the store, and has blocked time for physical activity in her weekly schedule. She tracks her energy and stress levels and adjusts her work approach accordingly, something she talks openly about with her team.\nLena is comfortable with technology and does most of her study on her laptop in the evenings once her son is in bed. Internet speeds in parts of Mount Gambier can be unreliable during peak evening hours, so she downloads materials during the day when the connection is stable. She finds she retains information best when it connects directly to her workplace experience and prefers applied, practical content over dense theoretical reading.",
+        "additionalInfo": "Lena is a member of the local Chamber of Commerce retail networking group and attends quarterly meetings when her roster permits. She informally mentors a younger deputy manager at a nearby store – outside work hours and with no formal recognition – and is clearly invested in helping other people develop in the industry. \nOutside of work, her time revolves largely around her son's school and sporting commitments. She coaches his under-10s soccer team on Saturday mornings in winter, which she calls one of her most reliable strategies for clearing her head at the end of a working week."
+      },
+      "files": [
+        {
+          "name": "00_LearnerProfile_LenaVasquez.docx",
+          "type": "docx"
+        },
+        {
+          "name": "01_Resume_LenaVasquez.docx",
+          "type": "docx"
+        },
+        {
+          "name": "02_References_LenaVasquez.docx",
+          "type": "docx"
+        },
+        {
+          "name": "03_Transcript_LenaVasquez.doc",
+          "type": "docx",
+          "viewable": false
+        },
+        {
+          "name": "04_WellbeingPlan_LenaVasquez.docx",
+          "type": "docx"
+        },
+        {
+          "name": "05_SelfAssessment_LenaVasquez.docx",
+          "type": "docx"
+        },
+        {
+          "name": "06_WorkLifeReflection_LenaVasquez.docx",
+          "type": "docx"
+        },
+        {
+          "name": "07_PerformanceReview_LenaVasquez.docx",
+          "type": "docx"
+        },
+        {
+          "name": "08_ThirdPartyObservation_LenaVasquez.docx",
+          "type": "docx"
+        },
+        {
+          "name": "A1_CustomerEscalation_SIRXCEG008.docx",
+          "type": "docx"
+        },
+        {
+          "name": "A2_TeamBriefing_SIRXMGT001.docx",
+          "type": "docx"
+        }
+      ],
+      "bio": "Mount Gambier senior store manager and solo parent balancing a regional retail leadership role with her son's full school schedule.",
+      "role": "Senior Store Manager",
+      "location": "Mount Gambier, SA"
     },
-    "files": [
-      {
-        "name": "00_James Profile.docx",
-        "type": "docx"
+    {
+      "id": 13,
+      "ref": "Learner #13",
+      "slug": "callum-reid",
+      "name": "Callum Reid",
+      "package": "MEM",
+      "competencyFields": {
+        "primary": "engineering_maintenance",
+        "secondary": []
       },
-      {
-        "name": "01_James_Sterling_Professional_Resume.docx",
-        "type": "docx"
+      "photo": "photos/callum-reid.jpg",
+      "sections": {
+        "aboutMe": "Callum Reid is a 37-year-old marine maintenance fitter who relocated from Perth to Adelaide very recently to take up a role with a naval support contractor at the Osborne Naval Shipbuilding Precinct. He lives with his long-term partner, Josh, who made the move with him. Beyond his partner, Callum has no established family or social network in South Australia, having spent the preceding decade building both his career and his social life in WA.",
+        "professionalExperience": "Callum completed a Certificate III in Engineering (Fitting and Turning) through a trade training centre in Perth roughly twelve years ago, following a four-year apprenticeship at a marine engineering firm in Fremantle. The bulk of his subsequent career was spent within the Henderson Maritime Precinct in WA, where he progressed from junior maintenance fitter to a senior role within a submarine systems servicing team. During that time, he completed a nationally recognised unit in safe and effective manufacturing and engineering practice as part of a structured workplace programme.\n\nDay-to-day, his work has always carried a significant documentation load: interpreting technical bulletins and schematic drawings, completing job cards for individual maintenance tasks, logging materials used, and writing the shift handover notes the oncoming crew relies on each morning. He is familiar with the maintenance management software used by both his WA and his current SA employer, though he notes the two companies use different terminology for some common fault categories.",
+        "careerGoals": "Callum enrolled in the current programme largely at his employer’s direction: the company is systematically building documented competency evidence across its technical workforce and has encouraged senior trades staff to formalise their skills. He is honest that formal training is not his primary focus and is unlikely to pursue an instruction role, but he sees value in having his experience formally recognised. Longer term, he is interested in moving into a maintenance planning or production coordination function, which he feels would suit him as the physical demands of hands-on site work increase over time.",
+        "workingStyle": "Callum learns best from demonstration and picks up new procedures quickly on the tools. He finds it harder to engage with long written modules or theory-heavy sessions, particularly after a demanding project day. His working schedule varies considerably: project-based patterns mean periods of intense activity followed by quieter intervals, with limited predictability from week to week.\n\nAt work, Callum uses a company-issued tablet that has security restrictions limiting access to external websites and some cloud-based platforms. On the job, he tends to write in shorthand: job cards and handover notes are accurate and well-organised but built on dot points and abbreviations rather than prose. When a document needs to go to a broader audience, he typically asks a colleague to look it over before submitting.",
+        "additionalInfo": "Callum is an experienced sailor who spent years racing in WA coastal regattas but hasn’t yet located a club in Adelaide. He and his partner moved into permanent accommodation only a few months ago after an extended stint in a furnished short-term rental and are still finding their feet in the city. His partner is currently job-hunting, which keeps their evenings busy and somewhat unpredictable. He has started attending the Saturday parkrun at Grange to establish some weekend routine but says he sometimes feels “a bit out of his element” away from the colleagues and social circle he built over more than a decade in WA."
       },
-      {
-        "name": "02_References_JamesSterling.docx",
-        "type": "docx"
-      },
-      {
-        "name": "03_Transcript_JamesSterling.doc",
-        "type": "docx"
-      },
-      {
-        "name": "04_MeetingMinutes_2025_06_FORMAL.docx",
-        "type": "docx"
-      },
-      {
-        "name": "05_UserGuide_SharePoint_JamesSterling.docx",
-        "type": "docx"
-      },
-      {
-        "name": "06_Workshop_SignIn_SharePoint.xlsx",
-        "type": "xlsx"
-      },
-      {
-        "name": "07_PerformanceAppraisal_JamesSterling.docx",
-        "type": "docx"
-      },
-      {
-        "name": "08_ProjectPlan_PaperlessOffice_FORMAL.docx",
-        "type": "docx"
-      },
-      {
-        "name": "09_BudgetTracking_PaperlessOffice.xlsx",
-        "type": "xlsx"
-      },
-      {
-        "name": "10_FinalReport_PaperlessOffice_FORMAL.docx",
-        "type": "docx"
-      },
-      {
-        "name": "11_WHS Risk Assessment_HLTWHS003.docx",
-        "type": "docx"
-      },
-      {
-        "name": "12_4WD References_RIIVEH201E.docx",
-        "type": "docx"
-      }
-    ]
-  },
-  {
-    "id": 10,
-    "ref": "Learner #10",
-    "slug": "danielle-okafor",
-    "name": "Danielle Okafor",
-    "package": "HLT",
-    "competencyFields": {
-      "primary": "sterilisation",
-      "secondary": []
-    },
-    "photo": "photos/danielle-okafor.jpg",
-    "sections": {
-      "aboutMe": "Danielle is a 36-year-old Central Sterilising Services Department (CSSD) Technician at the Royal Millbrook Hospital in Adelaide's inner north, where she has worked for the past seven years. Originally from Lagos, she migrated to Australia in 2015 and has lived in the northern suburbs with her husband and two primary-school-aged children since 2017. At Millbrook she works a rotating roster - typically two morning shifts, two afternoon shifts, and four days off - which means her availability for study and training commitments can vary significantly from fortnight to fortnight.",
-      "professionalExperience": "Danielle holds a Statement of Attainment from the CSSD pathway of HLT37015 Certificate III in Sterilisation Services (2021) and completed a further two units from HLT47015 Certificate IV in Sterilisation Services before deferring due to family commitments. She also holds HLTAID011 Provide First Aid (current), a current White Card, and internal signoffs for instrument inspection, load release authorisation, and the hospital's Outbreak Response Protocol. \nIn her seven years at Millbrook, Danielle has built deep practical expertise across the full CSSD workflow: decontamination and inspection, packaging and sealing to AS/NZS 4187, steriliser loading, cycle selection and release, and daily biological and chemical indicator testing. Since 2023 she has held the informal title of Senior CSSD Technician, which involves buddying new starters through orientation, signing off their initial steriliser operation competencies, and running the quarterly infection control refresher on the department floor. She has also covered the ward-based food trolley rounds on morning shift during periods of short-staffing, which involved managing cold-chain records and identifying and disposing of non-compliant items. \nDanielle's anatomy and physiology knowledge is largely workplace-contextual: she is confident in the language of microbiology and contamination risk and understands disease transmission routes thoroughly in the context of CSSD work, but she has not completed formal study in human anatomy and physiology beyond what was embedded in her Certificate III units.",
-      "careerGoals": "Danielle's goal is to move into the hospital's Education and Workforce Development team as a Casual Trainer, initially delivering CSSD induction content and the infection control refresher programme she already runs informally. Her ward educator (Yvonne) has encouraged her to formalise her training delivery through the Cert IV in TAE and has been a strong advocate for her secondment to the Education team on a part-time basis. Longer term, Danielle is interested in the possibility of delivering sterilisation content across the SA Health network and would consider further qualifications if they are offered through the hospital's study assistance programme.",
-      "workingStyle": "Danielle is calm, methodical, and very good at one-on-one instruction. On the CSSD floor she is known for walking new starters through each stage of the steriliser operation sequence at their pace and checking in at each step before moving on - her colleague Precious has described it as \"the most patient training I have ever had.\" She runs the quarterly refresher using a slide deck she built herself in PowerPoint and tends to deliver it in the break room at the end of morning shift, relying heavily on photographs of real equipment rather than diagrams. \nWhere things become less straightforward for Danielle is in formal written work. She is confident in English conversation and instruction, but longer written tasks - reports, structured assessments, reflective summaries - take her significantly more time and effort than the practical components. She tends to draft anything important in point form first, then expand it, and she has asked her husband to read over her TAE written submissions before she lodges them. Her numeracy is solid for the recording and checking tasks in CSSD (timing cycles, reading chemical indicator parameters, calculating load batch numbers) but she finds percentage-based quality metrics and data interpretation questions in formal assessments more challenging than the equivalent task on the floor. \nDanielle's rotating roster means that fixed weekly class times don't work well for her; she has asked specifically for recorded session options or flexible make-up arrangements for any face-to-face components. She uses her phone for almost all study between shifts and does most of her reading on the bus or in the break room. She has a shared family laptop at home, but it is heavily used by the children for school, which limits her access to it in the evenings.",
-      "additionalInfo": "Danielle is involved in her children's primary school P&C committee and attends a Nigerian community group in the northern suburbs on alternate Saturdays. She is a confident public speaker in informal settings - she has run community health information sessions for the Nigerian Women's Network twice in the past year - but finds larger formal presentations more nerve-wracking than one-on-one delivery. She has mentioned that feedback delivered directly and specifically lands much better for her than indirect or general comments, and she prefers to know exactly what is expected of her before attempting a task rather than working from open-ended prompts. She observes Christian commitments on Sundays, which she has flagged as an availability consideration for any weekend intensive components."
-    },
-    "files": [
-      {
-        "name": "00_LearnerProfile_DanielleOkafor.docx",
-        "type": "docx"
-      },
-      {
-        "name": "01_Resume_DanielleOkafor.docx",
-        "type": "docx"
-      },
-      {
-        "name": "02_References_DanielleOkafor.docx",
-        "type": "docx"
-      },
-      {
-        "name": "03_Transcript_DanielleOkafor.docx",
-        "type": "docx"
-      },
-      {
-        "name": "04_CompetencySignOff_SteriliserOp_DanielleOkafor.docx",
-        "type": "docx"
-      },
-      {
-        "name": "05_ICRefresherNotes_Sept2025.docx",
-        "type": "docx"
-      },
-      {
-        "name": "05_ICRefresherNotes_Sept2025_FORM.docx",
-        "type": "docx"
-      },
-      {
-        "name": "06_PerformanceAppraisal_DanielleOkafor.docx",
-        "type": "docx"
-      },
-      {
-        "name": "07_PhotoVideoLog_DanielleOkafor.docx",
-        "type": "docx"
-      },
-      {
-        "name": "A1_FoodServiceRecord_HLTFSE001.docx",
-        "type": "docx"
-      },
-      {
-        "name": "A2_AnatomyPhysiology_context_HLTAAP001.docx",
-        "type": "docx"
-      }
-    ]
-  },
-  {
-    "id": 11,
-    "ref": "Learner #11",
-    "slug": "jess-callahan",
-    "name": "Jess Callahan",
-    "package": "SIS",
-    "competencyFields": {
-      "primary": "outdoor_recreation",
-      "secondary": []
-    },
-    "photo": "photos/jess-callahan.jpg",
-    "sections": {
-      "aboutMe": "Jess Callahan is 28 years old and lives at Port Elliot on South Australia's Fleurieu Peninsula, approximately 45 minutes south of Adelaide. She works as a casual surf instructor with a commercial outdoor recreation provider based at Middleton Beach and picks up lifeguard shifts at a nearby patrolled beach during summer.\nJess lives with her two young children; her partner works a rotating fly-in, fly-out roster at a mine site and is away for extended periods throughout the year.",
-      "professionalExperience": "Jess has been surfing since she was eight years old, growing up a short walk from the water on the Fleurieu coast. She was active in junior surf competition through her mid-teens and developed strong technical ability across a range of wave conditions. She began assisting with surf instruction at sixteen while still at school, initially shadowing a more experienced instructor before taking on her own groups.\nShe has worked casually across several surf schools and beach activity operators along the coast and has held seasonal beach patrol lifeguard positions since leaving school. She completed a Certificate III in Outdoor Leadership approximately four years ago and holds a current Senior First Aid certificate and surf rescue qualification. In practice, Jess has been the lead instructor for intermediate-level groups for the past five years, though this has not always been formally reflected in her job titles or captured in documentation by her employers.",
-      "careerGoals": "Jess is undertaking this training partly at the suggestion of the owner of the surf school she currently works with, who is looking to build a more formally credentialed instruction team. She is genuinely motivated by the prospect: \"I want to be able to show people something on paper that matches what I actually do out there.\" She has her eye on a senior instructor or programme coordinator role and is particularly keen on developing structured programmes for youth and women participants.\nShe is honest about the challenges – balancing study with two young children and a peak-season workload is genuinely difficult – but committed to seeing it through.",
-      "workingStyle": "On the water, Jess is decisive and highly capable. She reads conditions quickly, repositions groups without hesitation, and adjusts her instruction on the fly when things change. Her current employer describes her sessions as running on instinct – a genuine strength in the surf, but one that creates challenges when it comes to translating what she does into written records. Jess tends to plan sessions in her head rather than on paper: she knows which part of the break she will use, what each participant needs to work on, and how she will sequence progressions – but rarely writes any of this down beforehand. Similarly, she always checks in with her group at the end of a session but describes this as \"a bit of a chat on the sand\" rather than a documented process. She has started using the school's reporting forms but finds the written component takes considerably longer than she expects and sometimes sets it aside to finish later.\nJess does not own a laptop and handles everything digital on her phone. Her home internet connection is adequate in town, but mobile reception at the Middleton beach car park is patchy, meaning she often cannot access online content between sessions. She strongly prefers watching a demonstration or talking something through with a colleague over reading a lengthy document: \"If someone shows me something I'll get it straight away. Reading four pages about it, not so much.\" Longer written tasks take her more time than expected and she tends to start them and return to finish them days later.",
-      "additionalInfo": "Outside of work, Jess competes occasionally in local surf club events and is actively involved in her children's school and community activities. She runs an informal Sunday morning surf programme for teenage girls through the local surf club – unpaid and self-organised – which she is clearly passionate about. During the fortnights her partner is away on roster, Jess has no capacity for travel to Adelaide or evening commitments, as she is the sole carer for her children. Her preferred study arrangement is content she can break into short sessions and access on her phone rather than requiring extended time at a computer."
-    },
-    "files": [
-      {
-        "name": "00_LearnerProfile_JessCallahan.docx",
-        "type": "docx"
-      },
-      {
-        "name": "01_Resume_JessCallahan.docx",
-        "type": "docx"
-      },
-      {
-        "name": "02_References_JessCallahan.docx",
-        "type": "docx"
-      },
-      {
-        "name": "03_Transcript_JessCallahan.doc",
-        "type": "docx"
-      },
-      {
-        "name": "04_SessionPlan_JessCallahan.docx",
-        "type": "docx"
-      },
-      {
-        "name": "05_SessionPlan_JessCallahan_FORM.docx",
-        "type": "docx"
-      },
-      {
-        "name": "06_ParticipantFeedback_JessCallahan.docx",
-        "type": "docx"
-      },
-      {
-        "name": "07_PerformanceReview_JessCallahan.docx",
-        "type": "docx"
-      },
-      {
-        "name": "08_IncidentReport_JessCallahan.docx",
-        "type": "docx"
-      },
-      {
-        "name": "09_PhotoVideoLog_JessCallahan.docx",
-        "type": "docx"
-      },
-      {
-        "name": "A1_SurfRescueCert_SISORSC007.docx",
-        "type": "docx"
-      },
-      {
-        "name": "A2_GirlsProgram_SISXCAI003.docx",
-        "type": "docx"
-      }
-    ]
-  },
-  {
-    "id": 12,
-    "ref": "Learner #12",
-    "slug": "lena-vasquez",
-    "name": "Lena Vasquez",
-    "package": "SIR",
-    "competencyFields": {
-      "primary": "retail_operations",
-      "secondary": [
-        "leadership_management"
-      ]
-    },
-    "photo": "photos/lena-vasquez.jpg",
-    "sections": {
-      "aboutMe": "Lena Vasquez is 38 years old and lives in Mount Gambier in regional South Australia, approximately five hours south-east of Adelaide. She is the Senior Store Manager at Cornerstone Homewares, a mid-sized homewares and lifestyle retail store in the Mount Gambier CBD, where she has worked for the past six years. Lena lives with her nine-year-old son and manages the family schedule largely on her own during the week.",
-      "professionalExperience": "Lena has worked in retail since she was 22, starting as a casual checkout operator while studying a business degree she later deferred and did not complete. She progressed through floor assistant, team leader, and deputy manager roles across several retail businesses in regional South Australia before stepping into her current store management role in 2019. Over twelve years she has developed a thorough understanding of the full retail operation – from stock management and visual merchandising to staff rostering, team leadership, and performance management.\nShe completed a Certificate III in Retail several years ago and is currently working toward a Certificate IV in Retail Management. She is comfortable with the business systems her store uses, including inventory management and POS platforms, and applies these to inform staffing decisions and peak-period planning.",
-      "careerGoals": "Lena is working toward the Certificate IV in Retail Management as the formal qualification to match the responsibilities she already carries. She has a clear view of where she wants to go next: a regional retail operations role where she can support and mentor other store managers across a group of sites. She sees the current qualification as the foundation for that move and has a timeline in mind. \"The work I'm doing now is already at that level – I just need the piece of paper to show for it.\"",
-      "workingStyle": "Lena is organised and systematic by nature. She plans her week in advance, keeps detailed handover notes for her team leaders, and is known by her colleagues for staying calm during high-pressure trade periods. Over the past two years she has deliberately and consciously developed a set of practices to manage the physical and emotional demands of store management. \nFollowing a difficult peak season several years ago that left her run down for months, she describes herself as having \"rebuilt from scratch\" how she approaches the workday. She now holds a fixed end-of-shift routine, avoids checking work messages after leaving the store, and has blocked time for physical activity in her weekly schedule. She tracks her energy and stress levels and adjusts her work approach accordingly, something she talks openly about with her team.\nLena is comfortable with technology and does most of her study on her laptop in the evenings once her son is in bed. Internet speeds in parts of Mount Gambier can be unreliable during peak evening hours, so she downloads materials during the day when the connection is stable. She finds she retains information best when it connects directly to her workplace experience and prefers applied, practical content over dense theoretical reading.",
-      "additionalInfo": "Lena is a member of the local Chamber of Commerce retail networking group and attends quarterly meetings when her roster permits. She informally mentors a younger deputy manager at a nearby store – outside work hours and with no formal recognition – and is clearly invested in helping other people develop in the industry. \nOutside of work, her time revolves largely around her son's school and sporting commitments. She coaches his under-10s soccer team on Saturday mornings in winter, which she calls one of her most reliable strategies for clearing her head at the end of a working week."
-    },
-    "files": [
-      {
-        "name": "00_LearnerProfile_LenaVasquez.docx",
-        "type": "docx"
-      },
-      {
-        "name": "01_Resume_LenaVasquez.docx",
-        "type": "docx"
-      },
-      {
-        "name": "02_References_LenaVasquez.docx",
-        "type": "docx"
-      },
-      {
-        "name": "03_Transcript_LenaVasquez.doc",
-        "type": "docx"
-      },
-      {
-        "name": "04_WellbeingPlan_LenaVasquez.docx",
-        "type": "docx"
-      },
-      {
-        "name": "05_SelfAssessment_LenaVasquez.docx",
-        "type": "docx"
-      },
-      {
-        "name": "06_WorkLifeReflection_LenaVasquez.docx",
-        "type": "docx"
-      },
-      {
-        "name": "07_PerformanceReview_LenaVasquez.docx",
-        "type": "docx"
-      },
-      {
-        "name": "08_ThirdPartyObservation_LenaVasquez.docx",
-        "type": "docx"
-      },
-      {
-        "name": "A1_CustomerEscalation_SIRXCEG008.docx",
-        "type": "docx"
-      },
-      {
-        "name": "A2_TeamBriefing_SIRXMGT001.docx",
-        "type": "docx"
-      }
-    ]
-  },
-  {
-    "id": 13,
-    "ref": "Learner #13",
-    "slug": "callum-reid",
-    "name": "Callum Reid",
-    "package": "MEM",
-    "competencyFields": {
-      "primary": "engineering_maintenance",
-      "secondary": []
-    },
-    "photo": "photos/callum-reid.jpg",
-    "sections": {
-      "aboutMe": "Callum Reid is a 37-year-old marine maintenance fitter who relocated from Perth to Adelaide very recently to take up a role with a naval support contractor at the Osborne Naval Shipbuilding Precinct. He lives with his long-term partner, Josh, who made the move with him. Beyond his partner, Callum has no established family or social network in South Australia, having spent the preceding decade building both his career and his social life in WA.",
-      "professionalExperience": "Callum completed a Certificate III in Engineering (Fitting and Turning) through a trade training centre in Perth roughly twelve years ago, following a four-year apprenticeship at a marine engineering firm in Fremantle. The bulk of his subsequent career was spent within the Henderson Maritime Precinct in WA, where he progressed from junior maintenance fitter to a senior role within a submarine systems servicing team. During that time, he completed a nationally recognised unit in safe and effective manufacturing and engineering practice as part of a structured workplace programme.\n\nDay-to-day, his work has always carried a significant documentation load: interpreting technical bulletins and schematic drawings, completing job cards for individual maintenance tasks, logging materials used, and writing the shift handover notes the oncoming crew relies on each morning. He is familiar with the maintenance management software used by both his WA and his current SA employer, though he notes the two companies use different terminology for some common fault categories.",
-      "careerGoals": "Callum enrolled in the current programme largely at his employer’s direction: the company is systematically building documented competency evidence across its technical workforce and has encouraged senior trades staff to formalise their skills. He is honest that formal training is not his primary focus and is unlikely to pursue an instruction role, but he sees value in having his experience formally recognised. Longer term, he is interested in moving into a maintenance planning or production coordination function, which he feels would suit him as the physical demands of hands-on site work increase over time.",
-      "workingStyle": "Callum learns best from demonstration and picks up new procedures quickly on the tools. He finds it harder to engage with long written modules or theory-heavy sessions, particularly after a demanding project day. His working schedule varies considerably: project-based patterns mean periods of intense activity followed by quieter intervals, with limited predictability from week to week.\n\nAt work, Callum uses a company-issued tablet that has security restrictions limiting access to external websites and some cloud-based platforms. On the job, he tends to write in shorthand: job cards and handover notes are accurate and well-organised but built on dot points and abbreviations rather than prose. When a document needs to go to a broader audience, he typically asks a colleague to look it over before submitting.",
-      "additionalInfo": "Callum is an experienced sailor who spent years racing in WA coastal regattas but hasn’t yet located a club in Adelaide. He and his partner moved into permanent accommodation only a few months ago after an extended stint in a furnished short-term rental and are still finding their feet in the city. His partner is currently job-hunting, which keeps their evenings busy and somewhat unpredictable. He has started attending the Saturday parkrun at Grange to establish some weekend routine but says he sometimes feels “a bit out of his element” away from the colleagues and social circle he built over more than a decade in WA."
-    },
-    "files": [
-      {
-        "name": "00_LearnerProfile_CallumReid.docx",
-        "type": "docx"
-      },
-      {
-        "name": "01_Resume_CallumReid.docx",
-        "type": "docx"
-      },
-      {
-        "name": "02_References_CallumReid.docx",
-        "type": "docx"
-      },
-      {
-        "name": "03_Transcript_CallumReid.doc",
-        "type": "docx"
-      },
-      {
-        "name": "04_JobCards_CallumReid.docx",
-        "type": "docx"
-      },
-      {
-        "name": "05_ShiftHandover_CallumReid.docx",
-        "type": "docx"
-      },
-      {
-        "name": "06_ToolboxNotes_CallumReid.docx",
-        "type": "docx"
-      },
-      {
-        "name": "06_ToolboxNotes_CallumReid_FORM.docx",
-        "type": "docx"
-      },
-      {
-        "name": "07_PerformanceAppraisal_CallumReid.docx",
-        "type": "docx"
-      },
-      {
-        "name": "08_StatDec_CallumReid.docx",
-        "type": "docx"
-      },
-      {
-        "name": "09_TechBriefSummary_CallumReid.docx",
-        "type": "docx"
-      },
-      {
-        "name": "A1_ConfinedSpaceEntry_RIIWHS202E.docx",
-        "type": "docx"
-      },
-      {
-        "name": "A2_HoistOperations_MEM07007.docx",
-        "type": "docx"
-      }
-    ]
-  }
-]
+      "files": [
+        {
+          "name": "00_LearnerProfile_CallumReid.docx",
+          "type": "docx"
+        },
+        {
+          "name": "01_Resume_CallumReid.docx",
+          "type": "docx"
+        },
+        {
+          "name": "02_References_CallumReid.docx",
+          "type": "docx"
+        },
+        {
+          "name": "03_Transcript_CallumReid.doc",
+          "type": "docx",
+          "viewable": false
+        },
+        {
+          "name": "04_JobCards_CallumReid.docx",
+          "type": "docx"
+        },
+        {
+          "name": "05_ShiftHandover_CallumReid.docx",
+          "type": "docx"
+        },
+        {
+          "name": "06_ToolboxNotes_CallumReid.docx",
+          "type": "docx"
+        },
+        {
+          "name": "06_ToolboxNotes_CallumReid_FORM.docx",
+          "type": "docx"
+        },
+        {
+          "name": "07_PerformanceAppraisal_CallumReid.docx",
+          "type": "docx"
+        },
+        {
+          "name": "08_StatDec_CallumReid.docx",
+          "type": "docx"
+        },
+        {
+          "name": "09_TechBriefSummary_CallumReid.docx",
+          "type": "docx"
+        },
+        {
+          "name": "A1_ConfinedSpaceEntry_RIIWHS202E.docx",
+          "type": "docx"
+        },
+        {
+          "name": "A2_HoistOperations_MEM07007.docx",
+          "type": "docx"
+        }
+      ],
+      "bio": "Marine maintenance fitter newly arrived from Perth, formalising a decade of submarine systems experience at his employer's urging while finding his feet in an unfamiliar city on an unpredictable project roster.",
+      "role": "Marine maintenance fitter",
+      "location": "Adelaide, SA"
+    }
+  ]
+}
