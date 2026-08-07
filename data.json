@@ -1,20 +1,36 @@
 {
-  "buildStamp": "v4 · deployed 2 Jul 2026",
+  "buildStamp": "v5 · 7 Aug 2026",
   "competencyFieldLabels": {
+    "aged_care": "Aged Care",
+    "animal_care": "Animal Care",
     "automotive_mechanical": "Automotive Mechanical",
     "business_admin": "Business Admin",
     "carpentry_construction": "Carpentry & Construction",
+    "civil_infrastructure": "Civil & Infrastructure",
+    "cleaning_operations": "Cleaning Operations",
     "customer_engagement": "Customer Engagement",
     "disability_support": "Disability Support",
     "early_childhood": "Early Childhood",
+    "education_support": "Education Support",
     "electrotechnology": "Electrotechnology",
+    "emergency_services": "Emergency Services",
     "engineering_fabrication": "Engineering Fabrication",
     "engineering_maintenance": "Engineering Maintenance",
+    "events": "Events",
+    "financial_services": "Financial Services",
     "food_processing": "Food Processing",
+    "hairdressing_beauty": "Hairdressing & Beauty",
+    "health_support": "Health Support",
     "hospitality": "Hospitality",
+    "human_resources": "Human Resources",
     "leadership_management": "Leadership Management",
+    "marketing_comms": "Marketing & Communications",
+    "mining_resources": "Mining & Resources",
     "outdoor_recreation": "Outdoor Recreation",
+    "plumbing_services": "Plumbing & Services",
     "project_management": "Project Management",
+    "property_real_estate": "Property & Real Estate",
+    "records_information": "Records & Information",
     "retail_operations": "Retail Operations",
     "sterilisation": "Sterilisation",
     "warehousing_logistics": "Warehousing Logistics",
@@ -36,7 +52,21 @@
     "Hobart": "Tas",
     "Newcastle": "NSW",
     "Wollongong": "NSW",
-    "Geelong": "Vic"
+    "Geelong": "Vic",
+    "Woodside": "SA",
+    "Salisbury North": "SA",
+    "Glenelg North": "SA",
+    "Largs Bay": "SA",
+    "Para Hills": "SA",
+    "Blair Athol": "SA",
+    "Semaphore": "SA",
+    "Golden Grove": "SA",
+    "Kersbrook": "SA",
+    "Seaton": "SA",
+    "Munno Para": "SA",
+    "Port Noarlunga": "SA",
+    "Elizabeth Vale": "SA",
+    "Mawson Lakes": "SA"
   },
   "stateFull": {
     "South Australia": "SA",
@@ -68,7 +98,17 @@
     "Seventeen",
     "Eighteen",
     "Nineteen",
-    "Twenty"
+    "Twenty",
+    "Twenty-one",
+    "Twenty-two",
+    "Twenty-three",
+    "Twenty-four",
+    "Twenty-five",
+    "Twenty-six",
+    "Twenty-seven",
+    "Twenty-eight",
+    "Twenty-nine",
+    "Thirty"
   ],
   "learners": [
     {
@@ -263,6 +303,22 @@
         },
         {
           "name": "A4_Wellbeing and Fatigue TLIF2010.docx",
+          "type": "docx"
+        },
+        {
+          "name": "10_LoadPlan_OversizeConsignment_ArjunPatel.docx",
+          "type": "docx"
+        },
+        {
+          "name": "11_NonConformance_PlacardedLoad_ArjunPatel.docx",
+          "type": "docx"
+        },
+        {
+          "name": "12_PhotoLog_SpecialLoads_ArjunPatel.docx",
+          "type": "docx"
+        },
+        {
+          "name": "13_PreStartBriefingNote_SpecialLoads_ArjunPatel.docx",
           "type": "docx"
         }
       ],
@@ -555,6 +611,18 @@
         },
         {
           "name": "11_Printing Records ICPKNW3220.docx",
+          "type": "docx"
+        },
+        {
+          "name": "12_Behaviour Support Plan Implementation Extract.docx",
+          "type": "docx"
+        },
+        {
+          "name": "13_Incident Debrief Review Records Priya Sharma.docx",
+          "type": "docx"
+        },
+        {
+          "name": "14_File Note Family Conflict Priya Sharma.docx",
           "type": "docx"
         }
       ],
@@ -911,6 +979,18 @@
         {
           "name": "A2_TeamBriefing_SIRXMGT001.docx",
           "type": "docx"
+        },
+        {
+          "name": "09_FloorGuide_ServingCustomers_LenaVasquez.docx",
+          "type": "docx"
+        },
+        {
+          "name": "10_ServiceLogExtract_LenaVasquez.docx",
+          "type": "docx"
+        },
+        {
+          "name": "11_MysteryShopperResponse_LenaVasquez.docx",
+          "type": "docx"
         }
       ],
       "bio": "Mount Gambier senior store manager and solo parent balancing a regional retail leadership role with her son's full school schedule.",
@@ -993,6 +1073,1364 @@
       "bio": "Marine maintenance fitter newly arrived from Perth, formalising a decade of submarine systems experience at his employer's urging while finding his feet in an unfamiliar city on an unpredictable project roster.",
       "role": "Marine maintenance fitter",
       "location": "Adelaide, SA"
+    },
+    {
+      "id": 14,
+      "ref": "Learner #014",
+      "slug": "tanya-wojcik",
+      "name": "Tanya Wojcik",
+      "package": "BSB",
+      "competencyFields": {
+        "primary": "records_information",
+        "secondary": [
+          "business_admin",
+          "education_support"
+        ]
+      },
+      "photo": "photos/tanya-wojcik.jpg",
+      "bio": "School front-office administrator of seven years who designed the college's records naming convention and inducts every new administration starter, with no qualification since a Certificate II in 2001.",
+      "role": "Administration & Records Officer",
+      "employer": "Kelston Grange College — eastern foothills",
+      "location": "Woodside, SA",
+      "age": 46,
+      "brief": "Tanya has built a records system, written the front-office procedures, and inducted staff for years, all self-directed and largely undocumented as training. The evidence is strong on writing and organising and thin on anything numerical. Her access to a computer, an online platform, and reliable internet is the practical question the portfolio raises.",
+      "signals": [
+        "Withdrew from Cert III in 2020",
+        "Numeracy avoided, delegated",
+        "Never used an online platform",
+        "Shared home PC, unreliable internet",
+        "Prints everything to read it"
+      ],
+      "sections": {
+        "aboutMe": "Tanya Wojcik is 46 and lives at Woodside in the Adelaide Hills with her husband and two teenage children. She has worked in the front office at Kelston Grange College, an independent R-12 school in the eastern foothills, for seven years and is currently its Administration and Records Officer.\nHer year runs on the school calendar. Term time is relentless, the counter is never quiet for long, and the fortnight either side of a break is when everything else gets done. She drives in from the Hills each morning, which is twenty-five minutes on a good day and closer to forty when the Freeway is backed up.",
+        "professionalExperience": "Tanya started as a receptionist at a Norwood accounting practice at nineteen, spent four years in accounts and administration at a corporate head office in the city, then took eight years out of the workforce while her children were small. She returned through casual relief work at the college, covering the front desk two days a week, and was made permanent within a year.\nShe completed a Certificate II in Business through an evening programme in 2001, and enrolled in a Certificate III in Business in 2020 but withdrew after two units when her mother became unwell. Since then her learning has been on the job and largely self-directed.\nMost of what she knows about organising records she worked out herself. She designed the naming convention the college now uses, moved fifteen years of paper enrolment files into it over three sets of school holidays, and wrote the procedure the front office follows for enquiries. She manages the student database entries for enrolments and withdrawals, prepares the census returns for the Business Manager to check, and is the person the deputy principal rings when a historical file cannot be found. New administration staff and teacher aides are handed to her for their first fortnight, which she does alongside her own work with no reduction in duties.",
+        "careerGoals": "Tanya wants a qualification that reflects what she already does. The Business Manager has raised a Records Coordinator position for the next budget cycle and told her plainly it would need something formal behind it.\nShe has also found she enjoys the induction side of the role and would like it to be part of the job rather than something squeezed between phone calls. She is realistic that the college will not pay her more for the same work under a different title unless there is a certificate attached to it.",
+        "workingStyle": "Tanya keeps a paper diary alongside the electronic calendar because she does not trust one without the other, and prints anything longer than two pages to read it properly, marking it up in blue pen as she goes. The marked-up copy goes in a manila folder and the folder goes on the shelf behind her, which is a system nobody else can navigate but which has never failed her.\nShe is quick inside the systems she uses daily, the student database, Outlook, and the staff Teams channels, and is the person others ask when a file has gone missing. Anything outside those she calls \"the tech stuff\" and approaches slowly, usually by writing the steps down as somebody talks her through them. She has never used an online learning platform and would want someone to walk her through it once before being left to it.\nWriting is a strength. She drafts the front office procedures and proofreads the newsletter, and she notices when a sentence in a letter home will read badly to a parent. Numbers are not. She hands the budget spreadsheet and invoice reconciliation to the Finance Officer and describes percentages as something she \"gets to eventually, with a calculator and no one talking to me\".\nOne to one she is warm and clear and will sit beside a new starter for an hour. Asked to speak to the full staff on a Monday, she goes quiet and reads from notes. Any study would be done on her phone or on the family desktop in the lounge room, shared with two teenagers who need it for their own schoolwork. The internet at Woodside drops out and video is unreliable of an evening. She has said she would rather stay back after the last bell and use a computer at school, in half-hour blocks, and would want to print whatever she needed to read.",
+        "additionalInfo": "Tanya scores for her daughter's netball team on Saturday mornings and volunteers in the canteen one day a term. Every second Sunday she drives to Murray Bridge to spend the day with her mother, who has needed more help since a fall in 2023, and that day is not negotiable.\nShe has not been a student since her twenties and says, only half joking, that she is \"not really an academic\". She mentioned once that she left the Certificate III without telling anyone she had withdrawn, and that she would not want to do that again."
+      },
+      "files": [
+        {
+          "name": "00_LearnerProfile_TanyaWojcik.docx",
+          "type": "docx",
+          "label": "Learner profile"
+        },
+        {
+          "name": "01_Resume_TanyaWojcik.docx",
+          "type": "docx",
+          "label": "Resume"
+        },
+        {
+          "name": "02_References_TanyaWojcik.docx",
+          "type": "docx",
+          "label": "Referee statements"
+        },
+        {
+          "name": "03_Transcript_TaniaWojcik.doc",
+          "type": "doc",
+          "label": "Academic transcript",
+          "viewable": false
+        },
+        {
+          "name": "04_RecordsNamingProtocol_TanyaWojcik.docx",
+          "type": "docx",
+          "label": "Records naming protocol she authored"
+        },
+        {
+          "name": "05_EnrolmentInformationReview_TanyaWojcik.docx",
+          "type": "docx",
+          "label": "Enrolment information review"
+        },
+        {
+          "name": "06_FrontOfficeInboxProcedure_TanyaWojcik.docx",
+          "type": "docx",
+          "label": "Front office inbox procedure"
+        },
+        {
+          "name": "07_InductionSessionPlan_TanyaWojcik.docx",
+          "type": "docx",
+          "label": "Induction session plan"
+        },
+        {
+          "name": "08_PeerObservationRecord_TanyaWojcik.docx",
+          "type": "docx",
+          "label": "Peer observation record"
+        },
+        {
+          "name": "09_PerformanceReview2025_TanyaWojcik.docx",
+          "type": "docx",
+          "label": "Performance review 2025"
+        },
+        {
+          "name": "10_DayBookNote_Transcribed_TanyaWojcik.docx",
+          "type": "docx",
+          "label": "Day book note, transcribed"
+        },
+        {
+          "name": "A1_CanteenVolunteerRecord.docx",
+          "type": "docx",
+          "label": "Canteen volunteer record"
+        },
+        {
+          "name": "A2_NewsletterProduction.docx",
+          "type": "docx",
+          "label": "Newsletter production record"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "ref": "Learner #015",
+      "slug": "donna-pastore",
+      "name": "Donna Pastore",
+      "package": "TLI",
+      "competencyFields": {
+        "primary": "records_information",
+        "secondary": [
+          "warehousing_logistics",
+          "business_admin"
+        ]
+      },
+      "photo": "photos/donna-pastore.jpg",
+      "bio": "Freight depot records officer who owns the paper trail for forty trucks, rebuilt the proof-of-delivery filing after a customer dispute, and trains every new driver on their first morning.",
+      "role": "Records & Administration Officer",
+      "employer": "Fowler Crest Freight — Regency Park depot",
+      "location": "Salisbury North, SA",
+      "age": 45,
+      "brief": "Donna's process knowledge is fast and accurate but held in muscle memory rather than in words, which shows up whenever she has to explain a procedure rather than perform it. Reading long documents is a genuine barrier. Assessors should note she has no home computer and a fixed 5:30am to 2pm window.",
+      "signals": [
+        "Left school in Year 11",
+        "Three units of Cert III, incomplete",
+        "Skims long documents",
+        "No home computer, depot PC only",
+        "Available 11am to 1pm only"
+      ],
+      "sections": {
+        "aboutMe": "Donna Pastore is 45 and lives at Salisbury North with her husband, a long-haul driver, and the younger two of their four kids. She has spent six years in the transport game and is the Records and Administration Officer at Fowler Crest Freight, a family-owned carrier running out of a depot at Regency Park.\nThe depot is a shed, a yard, and a demountable office with a window onto the hardstand, and Donna can see who has come in and who has not without leaving her desk.",
+        "professionalExperience": "Donna left school partway through Year 11 and went straight into checkout work, then office junior work at a plumbing wholesaler, where she stayed twelve years and ended up running the trade counter paperwork. She came to Fowler Crest as a casual doing data entry during a Christmas peak and never left.\nThese days she owns the paper trail for forty trucks: consignment notes, proof of delivery, driver run sheets, fatigue paperwork, and the maintenance records the workshop is supposed to hand in and mostly does. She chases the ones that do not arrive, which she does in person because it works and email does not.\nShe rebuilt the POD filing after a customer dispute in 2023 turned into three days of digging through boxes, and she is partway through sorting out the archive room, a job she describes as \"archaeology\". She shows every new driver how the paperwork works on their first morning, standing at the counter with a blank run sheet and a pen, and she trained the two office juniors on the freight system herself over about a fortnight each.\nShe started a Certificate III in Business online during COVID and finished three units before the depot got busy again. Nothing formal before or since.",
+        "careerGoals": "The general manager wants the office \"audit ready\" after a customer's compliance review last year found gaps in the old records, and Donna has been told a qualification is part of that picture.\nShe is ambivalent about study for its own sake but wants the piece of paper that matches the job she already does, and she would like the pay review that has been loosely attached to it. She has also worked out that if she ever had to leave Fowler Crest she would have nothing to show for six years.",
+        "workingStyle": "Donna runs on routine. She is at her desk by 5:30am when the first trucks leave and gone by 2pm for school pickup. Mornings are for the drivers and the phones; anything needing concentration happens between 11 and 1, and she says her brain is \"cooked\" by mid-afternoon.\nShe is fast and accurate in the freight management system and can find any consignment from the last six years in under a minute, but she does it her way, from memory and muscle, and struggles to explain the steps when someone asks. When she trained the juniors she ended up sitting them in her chair and talking while they clicked, because narrating it in the abstract went nowhere.\nReading has never been her favourite thing. She gets through short documents fine but a long procedure or a dense email gets skimmed, and she will always ring someone rather than write to them. Her run sheet reconciliations, on the other hand, balance to the dollar, and she picks up a rate error on an invoice before the accounts clerk does.\nShe has never done online study apart from the COVID attempt, which she gave up on partly because the modules were \"an hour of some bloke reading slides\". Short and practical works. She watches how-to videos on her phone in the lunchroom with subtitles on because the depot is loud, and she will happily replay a thirty-second clip four times rather than read the equivalent paragraph.",
+        "additionalInfo": "Donna's husband is away three or four nights most weeks, so evenings are homework, netball, and dinner, and she is firm that study cannot live there. Wednesdays she has her granddaughter from three o'clock.\nThere is a computer in the depot lunchroom, shared with whoever needs it, and the GM has said she can use work time after the 1pm cut-off, which she reckons is the only way any of it will get done. She does not own a laptop and has never wanted one."
+      },
+      "files": [
+        {
+          "name": "00_LearnerProfile_DonnaPastore.docx",
+          "type": "docx",
+          "label": "Learner profile"
+        },
+        {
+          "name": "01_Resume_DonnaPastore.docx",
+          "type": "docx",
+          "label": "Resume"
+        },
+        {
+          "name": "02_References_DonnaPastore.docx",
+          "type": "docx",
+          "label": "Referee statements"
+        },
+        {
+          "name": "03_Transcript_DonnaPastore.docx",
+          "type": "docx",
+          "label": "Academic transcript"
+        },
+        {
+          "name": "04_PODHandlingProcedure_DonnaPastore.docx",
+          "type": "docx",
+          "label": "Proof of delivery handling procedure"
+        },
+        {
+          "name": "05_ArchiveRoomProject_DonnaPastore.docx",
+          "type": "docx",
+          "label": "Archive room project record"
+        },
+        {
+          "name": "06_MovementRegisterExtract_DonnaPastore.docx",
+          "type": "docx",
+          "label": "Movement register extract"
+        },
+        {
+          "name": "07_DriverInductionSignoff_DonnaPastore.docx",
+          "type": "docx",
+          "label": "Driver induction sign-off"
+        },
+        {
+          "name": "08_TrainingNote_FreightSystem_DonnaPastore.docx",
+          "type": "docx",
+          "label": "Training note: freight system"
+        },
+        {
+          "name": "09_AnnualReview2025_DonnaPastore.docx",
+          "type": "docx",
+          "label": "Annual review 2025"
+        },
+        {
+          "name": "A1_ForkliftRefresher.docx",
+          "type": "docx",
+          "label": "Forklift refresher record"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "ref": "Learner #016",
+      "slug": "fiona-braithwaite",
+      "name": "Fiona Braithwaite",
+      "package": "BSB",
+      "competencyFields": {
+        "primary": "human_resources",
+        "secondary": [
+          "leadership_management"
+        ]
+      },
+      "photo": "photos/fiona-braithwaite.jpg",
+      "bio": "People and culture officer who owns Meridian's annual review cycle end to end, wrote its manager guidance pack, and personally briefs every new supervisor within their first month.",
+      "role": "People & Culture Officer",
+      "employer": "Meridian Facility Services — Adelaide",
+      "location": "Glenelg North, SA",
+      "age": 41,
+      "brief": "The strongest written and organisational evidence in the cohort, three review cycles deep, with clear informal instruction of supervisors throughout. The support question is sensory rather than skills-based: she is deaf in one ear and audio-only content is hard work. Her available study time is narrow and partly dependent on her partner's roster.",
+      "signals": [
+        "Cert IV HRM completed 2021",
+        "Deaf in left ear, needs captions",
+        "Struggles with audio-only content",
+        "Four-day week, Fridays off",
+        "Partner FIFO one week in three"
+      ],
+      "sections": {
+        "aboutMe": "Fiona Braithwaite is 41 and lives at Glenelg North with her partner and their two primary-school-aged children. She is the People and Culture Officer at Meridian Facility Services, a commercial cleaning and facilities company with about 420 staff spread across client sites in Adelaide and regional SA.\nShe works four days a week with Fridays off, an arrangement she negotiated when she took the role and guards carefully.",
+        "professionalExperience": "Fiona started in recruitment agency work in her twenties, spent four years as an HR coordinator at the head office of a diversified Adelaide company, then moved to Meridian in 2019. She completed a Certificate IV in Human Resource Management in 2021, studying online while working, which is the reference point she measures every learning experience against.\nAt Meridian she owns the annual performance review cycle end to end: the timetable, the templates, the briefings for supervisors, the chasing, and the reporting to the executive on how it all went. Most of Meridian's supervisors came up through cleaning crews and had never run a structured review before she arrived, so she built the manager guidance pack herself, ran the first round of face-to-face briefings in groups of eight, and now briefs every new supervisor personally within their first month.\nShe also handles onboarding paperwork, contract variations, and the HR inbox, and is the unofficial help desk for the HR information system, a role that arrived because she read the manual and nobody else did. She has sat in on about a dozen difficult conversations as the second person in the room and has coached three supervisors through their first performance discussion.",
+        "careerGoals": "Fiona wants to move from officer to advisor level, and her manager has been open that the next step needs either a diploma or demonstrated recognition of what she already does.\nShe is interested in the recognition route because, in her words, she has already done the learning three review cycles over and would rather not sit through it again in slide form. Longer term she is curious about the training side of the work, having noticed that the parts of her job she enjoys most are the ones where she is teaching a supervisor something.",
+        "workingStyle": "Fiona is a planner. Her review cycle runs off a project timeline she builds in August for the year ahead, month by month across a whiteboard, and her inbox is at zero most Thursday afternoons before her day off. She writes well and quickly, is comfortable presenting to a room of supervisors, and is the person who fixes other people's spreadsheets.\nShe is deaf in her left ear from a childhood illness. In person she manages it easily by positioning herself, taking the seat on the correct side of a table without making anything of it, and most colleagues do not know. On video calls and in recorded content it is harder. She keeps captions on for everything, asks for transcripts where they exist, and finds long audio-only content hard work, particularly when several people talk over each other.\nHer study time is structured around the household: Tuesday and Thursday evenings once the kids are down, and a block on her Friday off while they are at school. She has a good laptop and reliable internet at home.\nAfter the Certificate IV she knows exactly how she works: reading and doing over watching, short deadlines over open-ended ones, and a discussion forum she can dip into rather than scheduled live sessions, which collide with bath time. She was frustrated by that course's habit of releasing content weekly and would rather have the whole thing up front so she can plan around the peaks in her own year.",
+        "additionalInfo": "Fiona coaches her daughter's Auskick group on Saturday mornings in winter and is treasurer of the school governing council, which mainly means she runs the fete spreadsheet and argues with the sausage sizzle roster.\nHer partner works FIFO one week in three, and in those weeks her evenings are not her own. She has said that the Friday block is the only study time she can actually promise."
+      },
+      "files": [
+        {
+          "name": "00_LearnerProfile_FionaBraithwaite.docx",
+          "type": "docx",
+          "label": "Learner profile"
+        },
+        {
+          "name": "01_Resume_FionaBraithwaite.docx",
+          "type": "docx",
+          "label": "Resume"
+        },
+        {
+          "name": "02_References_FionaBraithwaite.docx",
+          "type": "docx",
+          "label": "Referee statements"
+        },
+        {
+          "name": "03_Transcript_FionaBraithwaite.docx",
+          "type": "docx",
+          "label": "Academic transcript"
+        },
+        {
+          "name": "04_ReviewCyclePlan2026_FionaBraithwaite.docx",
+          "type": "docx",
+          "label": "Review cycle plan 2026"
+        },
+        {
+          "name": "05_ManagerGuidancePack_Excerpt_FionaBraithwaite.docx",
+          "type": "docx",
+          "label": "Manager guidance pack, excerpt"
+        },
+        {
+          "name": "06_CycleReportToExecutive_FionaBraithwaite.docx",
+          "type": "docx",
+          "label": "Review cycle report to executive"
+        },
+        {
+          "name": "07_CalibrationMinutes_FionaBraithwaite.docx",
+          "type": "docx",
+          "label": "Calibration meeting minutes"
+        },
+        {
+          "name": "08_SupervisorBriefingRecord_FionaBraithwaite.docx",
+          "type": "docx",
+          "label": "Supervisor briefing record"
+        },
+        {
+          "name": "09_HRISWalkthroughSignoff_FionaBraithwaite.docx",
+          "type": "docx",
+          "label": "HRIS walkthrough sign-off"
+        },
+        {
+          "name": "10_PerformanceReview_FionaBraithwaite.docx",
+          "type": "docx",
+          "label": "Performance review"
+        },
+        {
+          "name": "A1_RTWCoordinatorRecord.docx",
+          "type": "docx",
+          "label": "Return to work coordinator record"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "ref": "Learner #017",
+      "slug": "theo-marinos",
+      "name": "Theo Marinos",
+      "package": "BSB",
+      "competencyFields": {
+        "primary": "marketing_comms",
+        "secondary": [
+          "events",
+          "customer_engagement"
+        ]
+      },
+      "photo": "photos/theo-marinos.jpg",
+      "bio": "Sole marketing coordinator for a regional agricultural machinery dealer group, running the field day circuit, seasonal campaigns, and model launches with no team, no agency, and no senior oversight.",
+      "role": "Marketing Coordinator",
+      "employer": "Copley Ag Machinery — five branches, country SA",
+      "location": "Largs Bay, SA",
+      "age": 33,
+      "brief": "Theo has run a full promotional calendar unsupervised for six years, so the evidence is broad but entirely self-taught and never benchmarked against anyone. Writing long-form documents is his weakest area and he works around it. From August to October he is on the road with patchy reception, which shapes what any delivery can assume.",
+      "signals": [
+        "Half a Diploma, abandoned 2019",
+        "Drafts by dictation, not typing",
+        "On the road Aug to Oct",
+        "Works off tethered laptop, patchy 4G",
+        "Needs downloadable content"
+      ],
+      "sections": {
+        "aboutMe": "Theo Marinos is 33, grew up on a grain and sheep property near Maitland on the Yorke Peninsula, and now lives at Largs Bay. He is the Marketing Coordinator at Copley Ag Machinery, a dealer group selling and servicing tractors, headers, and seeding gear through five branches in country SA.\nHe is the whole marketing department. There is no team, no agency, and no one above him who knows what he does.",
+        "professionalExperience": "Theo worked on the family farm through school and did two seasons driving a header for a contractor after Year 12. He moved to Adelaide at 21, worked in the parts interpretation team at a machinery dealer, and drifted into marketing when someone noticed the branch's social media had quietly become his.\nHe has been Copley's marketing coordinator for six years. He plans and runs the promotional calendar around the seasons: the field day circuit in late winter and spring, the pre-seeding parts campaigns, clearance events at the branches, and new model launches when the factories release them.\nHe builds the stands, orders and manages the promotional stock and signage, writes the emails and the socials, briefs the branch staff on what is running, and pulls the numbers afterwards to see what worked. He negotiates the site fees and the stand positions with the field day organisers each year, and he has learned which sites are worth paying for and which are not.\nHe started a Diploma of Marketing and Communication online in 2019 and completed about half before seeding season and a staff departure ate the study time. Nothing formal since. Everything else he knows he taught himself from the platform documentation, other dealers' campaigns, and a few expensive mistakes.",
+        "careerGoals": "Copley's owners are opening a sixth branch and want Theo to grow into a marketing manager role with a junior under him. He has been told a completed qualification would settle the title question.\nTheo's own motivation is simpler: he is self-taught, has never had anyone senior to learn from, and wants to know what he does not know. He has also thought about how he would train a junior and realised he has no idea how to do it beyond showing them and hoping.",
+        "workingStyle": "Theo's year has a shape and his workload follows it. From August to October he is on the road most weeks, running stands at field days from Paskeville to Lucindale, sleeping in motels and working off his phone and a laptop tethered to whatever reception the town has. November to January is quiet and he catches up on everything else.\nHe is fluent with the digital tools: the email platform, the socials scheduler, the dealer website admin, and enough of the design software to lay out a flyer that does not look homemade. New software does not worry him and he will usually work it out before reading anything about it.\nHe is a confident talker with farmers and reps alike, comfortable on a stand all day, and good at reading when someone is genuinely interested and when they are just after a free cap. Writing longer documents is slower going. He drafts by talking into his phone and cleaning it up afterwards, and he says school \"never really took\" for essays. Campaign budgets and response numbers he handles without trouble.\nHis diploma attempt taught him that open-ended online study dies in his hands during the busy season. He wants clear deadlines, work he can do in motel rooms on patchy internet, and material he can download ahead of the week rather than stream.",
+        "additionalInfo": "Theo goes home to the farm for seeding and harvest most years to help his brother for a week or two, and Copley wear it because half their customers know the family.\nHe plays cricket in summer for Largs North and is the one who makes the club's Instagram mildly famous every Mad Monday. He and his partner are saving for a house, which is part of why the manager title matters to him more than he lets on."
+      },
+      "files": [
+        {
+          "name": "00_LearnerProfile_TheoMarinos.docx",
+          "type": "docx",
+          "label": "Learner profile"
+        },
+        {
+          "name": "01_Resume_TheoMarinos.docx",
+          "type": "docx",
+          "label": "Resume"
+        },
+        {
+          "name": "02_References_TheoMarinos.docx",
+          "type": "docx",
+          "label": "Referee statements"
+        },
+        {
+          "name": "03_Transcript_TheoMarinos.docx",
+          "type": "docx",
+          "label": "Academic transcript"
+        },
+        {
+          "name": "04_FieldDayRunSheet_TheoMarinos.docx",
+          "type": "docx",
+          "label": "Field day run sheet"
+        },
+        {
+          "name": "05_PreSeedingCampaign_BriefEvaluation_TheoMarinos.docx",
+          "type": "docx",
+          "label": "Pre-seeding campaign brief and evaluation"
+        },
+        {
+          "name": "06_LaunchCollateralSchedule_TheoMarinos.docx",
+          "type": "docx",
+          "label": "Model launch collateral schedule"
+        },
+        {
+          "name": "07_WalkaroundTrainingRecord_TheoMarinos.docx",
+          "type": "docx",
+          "label": "Branch walkaround training record"
+        },
+        {
+          "name": "08_AnnualReview_TheoMarinos.docx",
+          "type": "docx",
+          "label": "Annual review"
+        },
+        {
+          "name": "A1_RSACertification.docx",
+          "type": "docx",
+          "label": "RSA certification"
+        },
+        {
+          "name": "A2_ChemicalAccreditation.docx",
+          "type": "docx",
+          "label": "Chemical handling accreditation"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "ref": "Learner #018",
+      "slug": "gary-pemberton",
+      "name": "Gary Pemberton",
+      "package": "CHC IS",
+      "competencyFields": {
+        "primary": "aged_care",
+        "secondary": [
+          "health_support"
+        ]
+      },
+      "photo": "photos/gary-pemberton.jpg",
+      "bio": "Former bus driver of twenty-six years, now a personal care worker in a dementia wing, who buddies every new starter through their first three shifts and runs the wing's monthly falls huddle.",
+      "role": "Personal Care Worker",
+      "employer": "Karinya Grove — Modbury, Banksia dementia wing",
+      "location": "Para Hills, SA",
+      "age": 54,
+      "brief": "Gary came to care late, through four years caring for his father, and holds a Certificate III from 2022. His instructional practice is real and consistent but has never been recorded as training. Support needs sit around a rotating roster with a monthly night block, print preference, and confidence outside routine digital tasks.",
+      "signals": [
+        "Cert III Individual Support 2022",
+        "Rotating roster, nights monthly",
+        "Dictates rather than types",
+        "Prefers print over screen",
+        "Struggles outside routine tasks"
+      ],
+      "sections": {
+        "aboutMe": "Gary Pemberton is 54 and lives at Para Hills with his wife Lyn. He is a personal care worker at Karinya Grove, a 96-bed residential aged care home at Modbury, where he has worked for three years, mostly in the Banksia wing, which is the dementia-specific unit.\nIt is a second career and he came to it late, by a route he did not plan.",
+        "professionalExperience": "Gary drove buses for twenty-six years, the last fifteen on the O-Bahn. When his father developed vascular dementia, Gary dropped to part-time driving and spent four years as his dad's main carer, learning most of what he now does from district nurses and an occupational therapist who visited fortnightly.\nAfter his father died he took redundancy, completed a Certificate III in Individual Support (Ageing) in 2022, and started at Karinya Grove three weeks after his last assessment.\nOn the wing he does the full scope of personal care: showering, dressing, mealtime assistance, mobility and transfers, and the daily notes. He is the Banksia wing's buddy for new personal care workers, which means the first three shifts of every new starter are spent alongside him, and he runs the wing's monthly falls huddle, standing up in front of eight or nine staff with the month's incidents and what changed.\nResidents' families ask for him by name. He is careful about the edges of his role and is known for the phrase \"that one's a nurse question\", which the clinical care coordinator quotes at inductions.",
+        "careerGoals": "Gary is not chasing a promotion. He wants to stay on the floor. What he wants recognised is the training and mentoring side, because the clinical care coordinator keeps handing him new starters and he has come to enjoy it more than he expected to.\nHe would also like his buddy role to be a formal part of his position rather than something absorbed into an ordinary shift, since at the moment it means doing two people's work on the same eight hours. He is not interested in study for its own sake and said so at the first conversation.",
+        "workingStyle": "Gary works a rotating roster across mornings, afternoons, and one block of nights each month, and his availability moves with it. He is a calm, unhurried presence on the wing and swears the driving years taught him everything he needs about difficult mornings.\nOn the care system tablet he is competent within his routine. He does his progress notes at the end of each round using the phrase shortcuts he set up with the coordinator, and reads care plans at handover. Outside the routine he is less sure. The rostering app defeats him about once a fortnight and he rings the rostering officer rather than work it out. When the mandatory training modules come around he books the computer in the staff room and does them after shift, ideally the first one alongside someone who has done it before.\nHe reads with glasses now and prefers print for anything longer than a screen, and he will print a policy at work rather than read it on the tablet. He talks better than he types. His notes were brief to a fault until the coordinator showed him dictation on the tablet, which he has taken to with enthusiasm and now overuses slightly.\nIn the falls huddles he is comfortable in front of the wing team, which surprised him. One to one with a nervous new starter he is better again.",
+        "additionalInfo": "Gary and Lyn have their two grandchildren every Sunday, non-negotiable. He plays lawn bowls Tuesday evenings and is the unofficial bus for half the team.\nHis nights block each month means any regular weekly commitment, a class on a set evening for instance, falls over one week in four. He has not sat in a classroom since his Certificate III and describes that experience as \"fine once I stopped worrying about it\"."
+      },
+      "files": [
+        {
+          "name": "00_LearnerProfile_GaryPemberton.docx",
+          "type": "docx",
+          "label": "Learner profile"
+        },
+        {
+          "name": "01_Resume_GaryPemberton.docx",
+          "type": "docx",
+          "label": "Resume"
+        },
+        {
+          "name": "02_References_GaryPemberton.docx",
+          "type": "docx",
+          "label": "Referee statements"
+        },
+        {
+          "name": "03_Transcript_GaryPemberton.docx",
+          "type": "docx",
+          "label": "Academic transcript"
+        },
+        {
+          "name": "04_BuddyProgramRecord_GaryPemberton.docx",
+          "type": "docx",
+          "label": "Buddy programme record"
+        },
+        {
+          "name": "05_ProgressNotesSample_GaryPemberton.docx",
+          "type": "docx",
+          "label": "Progress notes sample"
+        },
+        {
+          "name": "06_FallsHuddleRecord_GaryPemberton.docx",
+          "type": "docx",
+          "label": "Falls huddle record"
+        },
+        {
+          "name": "07_AnnualReview2026_GaryPemberton.docx",
+          "type": "docx",
+          "label": "Annual review 2026"
+        },
+        {
+          "name": "A1_HeavyVehicleServiceRecord.docx",
+          "type": "docx",
+          "label": "Heavy vehicle service record"
+        },
+        {
+          "name": "A2_KitchenReliefFoodSafety.docx",
+          "type": "docx",
+          "label": "Kitchen relief food safety record"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "ref": "Learner #019",
+      "slug": "amber-roylance",
+      "name": "Amber Roylance",
+      "package": "CPP",
+      "competencyFields": {
+        "primary": "property_real_estate",
+        "secondary": [
+          "business_admin",
+          "customer_engagement"
+        ]
+      },
+      "photo": "photos/amber-roylance.jpg",
+      "bio": "Real estate sales administrator who assembles pre-listing packs, orders title and council searches, wrote the agency's CRM data entry standard, and has twice caught a vendor who was not the registered owner.",
+      "role": "Sales Administration Assistant",
+      "employer": "Bellchambers & Co — Prospect and Enfield",
+      "location": "Blair Athol, SA",
+      "age": 27,
+      "brief": "Amber is quick, digitally confident, and has trained the current receptionist, so the technical evidence is solid for someone with no post-school qualification. The gap is confidence rather than capability: she checks and rechecks anything involving money and will not speak in a meeting. Weekends are broken by open inspection season and a photography side business.",
+      "signals": [
+        "No quals beyond RSA and barista",
+        "Rechecks all financial figures",
+        "Will not speak in team meetings",
+        "Saturdays worked, Sundays booked",
+        "Informal register in written work"
+      ],
+      "sections": {
+        "aboutMe": "Amber Roylance is 27 and rents at Blair Athol with two housemates. She is the sales administration assistant at Bellchambers & Co, a two-office real estate agency at Prospect and Enfield, where she has worked for four years. She is saving hard for her own place, which she describes as \"professionally ironic\".",
+        "professionalExperience": "Amber came to the agency from two years of café and retail work, hired originally as a receptionist. She is now the person who makes listings happen behind the scenes: when an agent wins a property, Amber assembles the pre-listing pack, ordering the title search and the council and easement information through the agency’s search provider, pulling recent comparable sales from the sales data platform, and checking that what the vendor told the agent matches what the records actually say. She has caught two vendors who were not the registered owner, one innocently and one less so.\nShe keeps the agency’s CRM honest, wrote its one-page data entry standard, and collates the search certificates for the Form 1 packs under the direction of the registered conveyancer. She showed the current receptionist everything the role involves.\nNo formal qualifications since school beyond her RSA and a barista course. Everything at the agency she learned from the previous administrator in a fortnight of handover, and the rest she worked out.",
+        "careerGoals": "Amber wants to become a property manager, which in SA means registration and study, and the principal has agreed to support her. First, she wants her current skills recognised so she is not starting from zero, and privately she wants the confidence boost of something on paper, because being self-taught makes her feel like a fraud around the certificated agents, which everyone but Amber can see is unjustified.",
+        "workingStyle": "Amber is fast, phone-first, and lives in the CRM, the search portal, and the office chat. She keeps her task list in an app, colour-coded, and turns listing packs around in under 48 hours. Give her a new system and she will be teaching it to others by Friday.\n\nHer confidence dips around money. Trust receipts make her anxious and she double-checks everyone with the property manager before entering it, and percentages and commission splits she quietly recalculates three times. Nobody has ever found an error; the checking is about her, not the numbers.\n\nShe works every Saturday morning through open inspection season handling the office, so weekends are broken, and Sundays she shoots photography jobs, her side business. Weekday evenings are her genuinely free time. She reads quickly on a screen, writes in a bright, informal voice that needs a formality pass for anything official, and after years of being the person who makes things happen quietly, she freezes when asked to speak in the Tuesday sales meeting.",
+        "additionalInfo": "The photography side business is real income: family portraits and the occasional wedding second-shooter gig, edited on Sunday nights. She plays social netball Thursdays. Her laptop is her own and excellent, her home internet is fine, and her preferred way to learn anything is a short video at 1.5 speed followed by immediately doing it herself."
+      },
+      "files": [
+        {
+          "name": "00_LearnerProfile Amber Roylance.docx",
+          "type": "docx",
+          "label": "Learner profile"
+        },
+        {
+          "name": "01_Resume_AmberRoylance.docx",
+          "type": "docx",
+          "label": "Resume"
+        },
+        {
+          "name": "02_References_AmberRoylance.docx",
+          "type": "docx",
+          "label": "Referee statements"
+        },
+        {
+          "name": "03_PreListingPackChecklist_AmberRoylance.docx",
+          "type": "docx",
+          "label": "Pre-listing pack checklist"
+        },
+        {
+          "name": "04_CRMStandard_CleanupSummary_AmberRoylance.docx",
+          "type": "docx",
+          "label": "CRM data entry standard and cleanup summary"
+        },
+        {
+          "name": "05_Form1SupportScope_AmberRoylance.docx",
+          "type": "docx",
+          "label": "Form 1 support scope note"
+        },
+        {
+          "name": "06_FrontOfficeTrainingNote_AmberRoylance.docx",
+          "type": "docx",
+          "label": "Front office training note"
+        },
+        {
+          "name": "07_AnnualReview2026_AmberRoylance.docx",
+          "type": "docx",
+          "label": "Annual review 2026"
+        },
+        {
+          "name": "08_PropertyInformationReports_AmberRoylance.docx",
+          "type": "docx",
+          "label": "Property information reports"
+        },
+        {
+          "name": "09_ListingInformationRequestSheets_AmberRoylance.docx",
+          "type": "docx",
+          "label": "Listing information request sheets"
+        },
+        {
+          "name": "A1_PhotographyClientRecord.docx",
+          "type": "docx",
+          "label": "Photography client record"
+        },
+        {
+          "name": "A2_BaristaCertification.docx",
+          "type": "docx",
+          "label": "Barista certification"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "ref": "Learner #020",
+      "slug": "jake-trewartha",
+      "name": "Jake Trewartha",
+      "package": "CPC",
+      "competencyFields": {
+        "primary": "plumbing_services",
+        "secondary": [
+          "whs"
+        ]
+      },
+      "photo": "photos/jake-trewartha.jpg",
+      "bio": "Licensed roof plumber running his own three-person business, supervising a second-year apprentice through a group training organisation and twice refusing to sign off a logbook task he judged unready.",
+      "role": "Licensed roof plumber & business owner",
+      "employer": "Trewartha Roofing & Cladding — Port Adelaide",
+      "location": "Semaphore, SA",
+      "age": 38,
+      "brief": "Jake's on-the-job instruction is deliberate and well structured, and his photographic record of work is unusually complete. Written composition is the barrier and he has built a workaround rather than a skill, with his partner producing anything that has to be submitted. Availability is weather-dependent and cannot be scheduled.",
+      "signals": [
+        "No study since apprenticeship",
+        "Partner writes all submitted work",
+        "Reads plans fluently, avoids writing",
+        "Free time is rain days only",
+        "Phone and iPad, laptop unused"
+      ],
+      "sections": {
+        "aboutMe": "Jake Trewartha is 38 and lives at Semaphore with his partner Ellie and their daughter. He is a licensed roof plumber and runs Trewartha Roofing & Cladding out of a shed at Port Adelaide: himself, another tradesman, and a second-year apprentice named Coop.\nThe business is small enough that a fortnight of bad weather is felt in the bank account.",
+        "professionalExperience": "Jake did his roof plumbing apprenticeship out of Port Adelaide, worked six years for a commercial roofing contractor across warehouses and school re-roofs, then went out on his own in 2016.\nThe business does residential re-roofs, box gutters, wall cladding, and a steady run of flashing and penetration work for builders and the odd solar and mechanical contractor who has cut a hole in someone's roof and would like it to stop raining inside.\nHe holds his SA contractor licence for roof plumbing work and supervises Coop through a group training organisation, with the GTO field officer visiting quarterly. Jake does the on-the-job instruction himself and takes it seriously. His own tradesman years, he says, were \"learn by getting yelled at\", and he runs it differently: he shows a task, watches Coop do it, and comes back to it a week later to see whether it stuck. He signs off Coop's logbook and has twice told the field officer that a task was not ready to be marked off yet.\nHe has no qualifications beyond his trade certificate and licence, and has never done any study since his apprenticeship.",
+        "careerGoals": "The GTO field officer planted the idea. Jake is already training an apprentice to trade standard, and formal recognition would let him take on a second apprentice with more confidence and possibly do paid assessment work for the GTO down the track.\nJake likes the sound of the second apprentice. The business is turning work away from May to September and he is doing more of the physical work himself than he should be at 38. Paid assessment work also appeals as something he could still do at 55.",
+        "workingStyle": "Jake's day starts at 6:30 in the shed and ends when the light does. His diary is his phone. Quotes are voice memos recorded in the ute that Ellie turns into written quotes at night, because writing has been a battle since school and he long ago stopped fighting it and built the workaround instead.\nHe reads plans, specs, and the flashing handbook diagrams fluently. It is composing sentences he avoids, not reading them, and he can pick a detailing error on a drawing that the builder has missed.\nHe photographs everything. Every job gets before, during, and after shots on his phone, filed by job in a gallery app, partly for disputes and partly because it is how he shows Coop what right looks like. Show him a video and he is engaged; hand him a page of text and he will find something to go and measure.\nRain days are his free time, and there is no predicting them. Anything he commits to has to survive being dropped for a fortnight in a wet June and picked up again without him having to start over. He has a phone and Ellie's iPad; the laptop is technically his but he treats it like it might bite, and it lives in a drawer in the shed.",
+        "additionalInfo": "Jake surfs before work when the bank at Semaphore is doing anything, coaches his daughter's under-8s soccer on Saturday mornings in winter, and is the person half the street asks about their gutters.\nEllie does the books, the invoicing, and increasingly the diplomacy. Jake has said that if anything needs to be written down and submitted, Ellie will end up doing it, and he does not seem to think this is a problem."
+      },
+      "files": [
+        {
+          "name": "00_LearnerProfile_JakeTrewartha.docx",
+          "type": "docx",
+          "label": "Learner profile"
+        },
+        {
+          "name": "01_Resume_JakeTrewartha.docx",
+          "type": "docx",
+          "label": "Resume"
+        },
+        {
+          "name": "02_References_JakeTrewartha.docx",
+          "type": "docx",
+          "label": "Referee statements"
+        },
+        {
+          "name": "03_LicenceQualificationsRecord_JakeTrewartha.docx",
+          "type": "docx",
+          "label": "Licence and qualifications record"
+        },
+        {
+          "name": "04_PhotoLog_PenetrationFlashings_JakeTrewartha.docx",
+          "type": "docx",
+          "label": "Photo log: penetration flashings"
+        },
+        {
+          "name": "05_QARecord_BoxGutterPenetrations_JakeTrewartha.docx",
+          "type": "docx",
+          "label": "QA record: box gutter penetrations"
+        },
+        {
+          "name": "06_SWMS_RoofWork_Extract_JakeTrewartha.docx",
+          "type": "docx",
+          "label": "SWMS roof work, extract"
+        },
+        {
+          "name": "07_ApprenticeCompetencyRecord_JakeTrewartha.docx",
+          "type": "docx",
+          "label": "Apprentice competency record"
+        },
+        {
+          "name": "08_GTOQuarterlyReviewNote_JakeTrewartha.docx",
+          "type": "docx",
+          "label": "GTO quarterly review note"
+        },
+        {
+          "name": "A1_AsbestosRemovalRecord.docx",
+          "type": "docx",
+          "label": "Asbestos removal record"
+        },
+        {
+          "name": "A2_ConfinedSpaceTraining.docx",
+          "type": "docx",
+          "label": "Confined space training record"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "ref": "Learner #021",
+      "slug": "dean-kovacevic",
+      "name": "Dean Kovacevic",
+      "package": "CPC",
+      "competencyFields": {
+        "primary": "carpentry_construction",
+        "secondary": [
+          "civil_infrastructure",
+          "whs"
+        ]
+      },
+      "photo": "photos/dean-kovacevic.jpg",
+      "bio": "Pool construction supervisor running two crews and the excavation programme, who writes the site investigation report every quote is built from and has twenty-six years on the tools behind him.",
+      "role": "Construction Supervisor",
+      "employer": "Meridian Pools — metropolitan Adelaide and Fleurieu",
+      "location": "Golden Grove, SA",
+      "age": 44,
+      "brief": "Dean's technical judgement on soil, levels, services, and setout is the strongest evidence here and almost all of it is verbal or captured in a paper site book rather than the system he is meant to use. Written reporting is weak and quietly corrected by others. Signal drops on Fleurieu jobs and a five-month summer peak both constrain delivery.",
+      "signals": [
+        "No quals beyond tickets and short course",
+        "Reports rewritten by office manager",
+        "Keeps paper book, not the tablet",
+        "No signal on Fleurieu jobs",
+        "Works most Saturdays Oct to Mar"
+      ],
+      "sections": {
+        "aboutMe": "Dean Kovacevic is 44 and lives at Golden Grove with his wife and three kids. He is the construction supervisor at Meridian Pools, a family-owned pool builder working across metropolitan Adelaide and down to the Fleurieu, and he runs two crews and the excavation program.",
+        "professionalExperience": "Dean started as a concreter's labourer at eighteen, spent eleven years on wet concrete and formwork, then moved to pools in 2012 because a mate said the work was steadier. He has been at Meridian for nine years and supervising for five.\nHis week is the front end of the build. He does the site investigation on every job before the excavator is booked, which means the soil, the fall and levels, the access, the services, the trees, the neighbours, the easements, and whether the thing the client has drawn on the back of an envelope will actually fit between the house and the fence with the setbacks the council wants.\nHe writes the site report the office quotes from, sets out the pool, and supervises the dig, standing over the trench and calling the operator off when something appears that should not be there. He deals with the client on the day, which is often the point at which they find out their pool cannot go where they wanted it.\nHe holds a white card and an excavator ticket, did a soil classification short course through a supplier, and has never done anything else formal. Everything he knows about clay, reactive soils, and what happens when you put a shell next to a paperbark he learned by getting it wrong early and expensively.",
+        "careerGoals": "The owners are talking about Dean stepping up to construction manager when Rob retires in two or three years, and the accountant has pointed out that the company's building work licence sits with Rob personally.\nDean needs a qualification behind him for the licence question, not for the job itself, which he is already doing. He is pragmatic about it and mildly annoyed that it took the accountant to raise it rather than either of the owners.",
+        "workingStyle": "Dean is on site by 6:15 and in the office once a week, on Fridays, which he resents. He works from a tablet in the ute for the site reports and photographs everything, but the tablet is four years old, the camera app crashes, and he keeps a paper site book as the real record because it has never let him down. The office manager has asked him twice to stop doing this.\nHe talks through problems out loud, usually to whoever is standing nearest, and is at his best with a plan in front of him and a fence line to point at. Reading he is fine with, so long as it is a plan, a soil report, or a spec.\nLong written explanations he skims, and he says himself that when he writes a report it comes out \"like a text message\". The office manager tidies them before they go to clients, which has been going on so long that neither of them mentions it.\nHe is quick with numbers on site: fall, cut and fill volumes, batter angles, and how many truckloads of spoil, mostly in his head and mostly right. Put the same sums in a spreadsheet and he slows right down and starts second-guessing himself. Reception at the Fleurieu jobs is patchy and he loses signal for hours at a time. Anything he needs during the day he downloads the night before, or it does not exist.",
+        "additionalInfo": "Dean coaches under-14s basketball on Wednesday nights and does not miss it. Summer is the busy season and from October to March he works most Saturdays, so any study would need to survive being ignored for five months.\nHis father-in-law had a stroke in 2025 and Dean does the Sunday driving to appointments. He has not sat an assessment of any kind since the excavator ticket and says he does not much like the idea of being tested on paper for something he does every day."
+      },
+      "files": [
+        {
+          "name": "00_LearnerProfile_DeanKovacevic.docx",
+          "type": "docx",
+          "label": "Learner profile"
+        },
+        {
+          "name": "01_Resume_DeanKovacevic.docx",
+          "type": "docx",
+          "label": "Resume"
+        },
+        {
+          "name": "02_References_DeanKovacevic.docx",
+          "type": "docx",
+          "label": "Referee statements"
+        },
+        {
+          "name": "03_SiteInvestigationReport_Job4412_DeanKovacevic.docx",
+          "type": "docx",
+          "label": "Site investigation report, job 4412"
+        },
+        {
+          "name": "04_ExcavationPlan_Job4412_DeanKovacevic.docx",
+          "type": "docx",
+          "label": "Excavation plan, job 4412"
+        },
+        {
+          "name": "05_SitePhotoLog_DeanKovacevic.docx",
+          "type": "docx",
+          "label": "Site photo log"
+        },
+        {
+          "name": "06_PreStartToolboxRecord_DeanKovacevic.docx",
+          "type": "docx",
+          "label": "Pre-start toolbox record"
+        },
+        {
+          "name": "07_SiteInductionSignOff_DeanKovacevic.docx",
+          "type": "docx",
+          "label": "Site induction sign-off"
+        },
+        {
+          "name": "08_AnnualReview2026_DeanKovacevic.docx",
+          "type": "docx",
+          "label": "Annual review 2026"
+        },
+        {
+          "name": "A1_ConcretingWorkHistory.docx",
+          "type": "docx",
+          "label": "Concreting work history"
+        },
+        {
+          "name": "A2_BasketballCoachingRecord.docx",
+          "type": "docx",
+          "label": "Basketball coaching record"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "ref": "Learner #022",
+      "slug": "bree-whitlam",
+      "name": "Bree Whitlam",
+      "package": "PUA",
+      "competencyFields": {
+        "primary": "emergency_services",
+        "secondary": [
+          "animal_care"
+        ]
+      },
+      "photo": "photos/bree-whitlam.jpg",
+      "bio": "Volunteer fire brigade crew leader of eight years and veterinary nurse, one of two at her brigade trained to take fireground weather observations, requested by name on two campaign fires.",
+      "role": "Volunteer crew leader & veterinary nurse",
+      "employer": "CFS brigade, Kersbrook; mixed practice, Gumeracha",
+      "location": "Kersbrook, SA",
+      "age": 31,
+      "brief": "A narrow but deep evidence base: the weather observation work is meticulous and independently verified, and she already supervises veterinary students in her paid role. She has taught new brigade members unofficially for three years. The complication is availability, which is unpredictable by definition and worst in the season she is most needed.",
+      "signals": [
+        "Cert IV Vet Nursing 2016",
+        "Uncomfortable presenting to groups",
+        "Pager on call, four-day deployments",
+        "Fixed wireless drops out in heat",
+        "Unavailable Dec to Mar at short notice"
+      ],
+      "sections": {
+        "aboutMe": "Bree Whitlam is 31 and lives on a small block outside Kersbrook in the Adelaide Hills with her partner and two dogs. She is a veterinary nurse at a mixed practice in Gumeracha four days a week, and a volunteer firefighter with her local brigade, where she has served eight years and is now a crew leader.",
+        "professionalExperience": "Bree grew up on the block and joined the brigade at twenty-three after the fires came within two paddocks of the house. She holds her basic firefighting and crew leader qualifications through the service, has been on strike teams to the South East and the Mid North, and is one of two people at the brigade trained to take and report field weather observations on the fireground.\nWeather is the part she has made her own. She carries a belt weather kit, takes observations at set intervals on any going fire her crew attends, reads the sky and the terrain as well as the instruments, and radios the numbers through to the sector commander. In the last two seasons she has been asked for by name on two campaign fires because the incident controller wanted observations he could trust from the western flank.\nHer paid work is veterinary nursing: Certificate IV completed in 2016, surgical and emergency nursing, and she runs the practice's student placements, which means two or three Certificate IV students a year working alongside her for a fortnight each. She writes their placement feedback and has failed one.",
+        "careerGoals": "The brigade has put Bree forward as a trainer, which in a volunteer service means teaching new members on Sunday mornings with a manual and a truck. She has been doing it unofficially for three years.\nShe would like the recognition, partly for herself and partly because she thinks the way new members are currently taught is not good enough and she would have more standing to change it. Her view is that the current approach relies on people already knowing things nobody ever taught them.\nShe has no plans to leave veterinary nursing and is not looking for the brigade work to turn into a job. She wants to be better at the part of it she has already been doing for three years without a title.",
+        "workingStyle": "Bree is precise. Her observation sheets are neat, timed to the minute, and she will re-site the kit rather than record a reading she does not trust. She notices things: the smoke lying flat when it was rising an hour ago, the wind backing before the change comes through, the difference between the ridge and the gully.\nShe reads and writes well and is comfortable on the radio, which not everyone is. In front of a group she is quieter than she is on the fireground and tends to speak in short sentences and then stop, which she knows and does not much like. She has said she would rather demonstrate something than explain it, and that she runs out of words when people are looking at her.\nHer availability is the complication. She works four days at the practice, is on the brigade pager permanently, and in a bad summer will be out three nights a week and gone for four days on a strike team with a day's notice. She cannot tell anyone in advance which weeks those will be.\nInternet at Kersbrook is fixed wireless and drops out in the heat, which is exactly when she is busiest. Anything scheduled between December and March will be missed at some point, and she would rather that be planned for than apologised for afterwards.",
+        "additionalInfo": "Bree does the brigade's social media and the fundraising quiz night, keeps chickens, and is doing the slow work of putting her block back together after the 2024 fire took the fences.\nThe block is twenty-five minutes from Gumeracha and fifty from the city, and she does the drive twice a day four days a week, which rules out anything that would need her in Adelaide on a weeknight.\nShe and her partner are trying for a baby, which she has mentioned to the brigade captain and nobody else."
+      },
+      "files": [
+        {
+          "name": "00_LearnerProfile_BreeWhitlam.docx",
+          "type": "docx",
+          "label": "Learner profile"
+        },
+        {
+          "name": "01_Resume_BreeWhitlam.docx",
+          "type": "docx",
+          "label": "Resume"
+        },
+        {
+          "name": "02_References_BreeWhitlam.docx",
+          "type": "docx",
+          "label": "Referee statements"
+        },
+        {
+          "name": "03_WeatherObservationSheets_BreeWhitlam.docx",
+          "type": "docx",
+          "label": "Fireground weather observation sheets"
+        },
+        {
+          "name": "04_LocalWeatherTerrainNotes_BreeWhitlam.docx",
+          "type": "docx",
+          "label": "Local weather and terrain notes"
+        },
+        {
+          "name": "05_CrewLeaderReport_MountCrawford_BreeWhitlam.docx",
+          "type": "docx",
+          "label": "Crew leader report, Mount Crawford"
+        },
+        {
+          "name": "06_DrillRecord_WeatherKit_BreeWhitlam.docx",
+          "type": "docx",
+          "label": "Drill record: belt weather kit"
+        },
+        {
+          "name": "A1_VetNursingPlacementRecord.docx",
+          "type": "docx",
+          "label": "Veterinary nursing placement record"
+        },
+        {
+          "name": "A2_ChainsawOperations.docx",
+          "type": "docx",
+          "label": "Chainsaw operations record"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "ref": "Learner #023",
+      "slug": "shannon-delaney",
+      "name": "Shannon Delaney",
+      "package": "SHB",
+      "competencyFields": {
+        "primary": "hairdressing_beauty",
+        "secondary": [
+          "retail_operations",
+          "customer_engagement"
+        ]
+      },
+      "photo": "photos/shannon-delaney.jpg",
+      "bio": "Beauty therapist of sixteen years who writes the salon's treatment room prompt cards, runs the Monday product briefing, and turns over roughly double the salon's average retail without appearing to sell.",
+      "role": "Beauty Therapist",
+      "employer": "Halcyon Skin & Body — Henley Beach",
+      "location": "Seaton, SA",
+      "age": 36,
+      "brief": "Shannon's product knowledge and informal teaching are well evidenced across fifteen years, including a self-built contraindication reference the junior therapists photograph. She has not studied formally since 2010 and is openly anxious about written assessment. School holidays remove four weeks a year and the dates move.",
+      "signals": [
+        "Diploma 2010, nothing since",
+        "Anxious about written assessment",
+        "Reads clinical material three times",
+        "Phone only, laptop unused",
+        "Four weeks a year reduced hours"
+      ],
+      "sections": {
+        "aboutMe": "Shannon Delaney is 36 and lives at Seaton with her two primary-school-aged sons. She is a beauty therapist at Halcyon Skin & Body, a nine-room salon at Henley Beach, where she works four days a week and holds the retail floor as well as her treatment room.\nShe is the only therapist in the salon who has been there more than three years.",
+        "professionalExperience": "Shannon trained at nineteen, completed her Diploma of Beauty Therapy in 2010, and has worked in three salons since, with a five-year break running a mobile spray tan and lash business from home while her boys were small. She came back to salon work in 2021.\nShe does facials, peels, brows and lashes, and the salon's cosmetic tattoo consultations. What sets her apart at Halcyon is product. She is the person the owner sends to the supplier training days, she writes the treatment room prompt cards the other therapists use, and her retail figures are roughly double the salon average without her ever being seen to sell anything.\nShe keeps a folder of ingredient and contraindication notes she has built herself over fifteen years because, in her words, the supplier sheets tell you what to say and not what to do when the client is on isotretinoin. Two of the junior therapists have photographed pages of it.\nShe has run the Monday morning product briefing for the salon for about two years, ten minutes standing at the retail shelves with whatever is new, and the owner has stopped calling it anything because it just happens.",
+        "careerGoals": "Shannon wants to move into supplier education, running product training for salons, which is a role she has been informally headhunted for twice and turned down because it needed a qualification she does not hold.\nShe would also take the salon's senior therapist role if it came up, though she is honest that it is the second choice.\nShe has been out of formal study for sixteen years and is candid that the idea of an assignment makes her feel slightly sick. She asked, at the first conversation, whether there would be exams.",
+        "workingStyle": "Shannon is warm and unhurried with clients and can talk product for an hour without it feeling like selling, because she asks first and recommends second. She is the one the junior therapists ask when a client's skin reacts, and she has a good instinct for when to say no to a treatment and the words to say it with.\nShe works from her phone. Everything is on it: the booking system, the client notes, the product research she does in the ten minutes between clients, and the supplier videos she watches at 2x while the wax heats. She has a laptop that belonged to her ex and it lives in a cupboard. Anything longer than a screen she photographs rather than prints.\nReading dense clinical or regulatory material she finds slow going and says she has to read it three times, though she absorbs the same information easily from a supplier trainer talking over a product. Numbers she is fine with in the salon, retail targets, commission, stock counts, and slower with anything abstract.\nHer week is fixed around school hours and one late night on Thursdays. School holidays are the problem: four weeks a year she has no care and works reduced hours, and those weeks move depending on the term dates.",
+        "additionalInfo": "Shannon runs the salon's Instagram, does the school's netball club uniforms, and has a standing Sunday with her mother.\nHer older son has been assessed with dyslexia in the last year and she has said the process taught her a lot about her own school experience. She mentioned it once, in passing, and did not go further."
+      },
+      "files": [
+        {
+          "name": "00_LearnerProfile_ShannonDelaney.docx",
+          "type": "docx",
+          "label": "Learner profile"
+        },
+        {
+          "name": "01_Resume_ShannonDelaney.docx",
+          "type": "docx",
+          "label": "Resume"
+        },
+        {
+          "name": "02_References_ShannonDelaney.docx",
+          "type": "docx",
+          "label": "Referee statements"
+        },
+        {
+          "name": "03_ClientConsultationRecords_ShannonDelaney.docx",
+          "type": "docx",
+          "label": "Client consultation records"
+        },
+        {
+          "name": "04_TreatmentRoomPromptCards_ShannonDelaney.docx",
+          "type": "docx",
+          "label": "Treatment room prompt cards she authored"
+        },
+        {
+          "name": "05_RangeLaunchTrainingRecord_ShannonDelaney.docx",
+          "type": "docx",
+          "label": "Range launch training record"
+        },
+        {
+          "name": "06_SupplierTrainingResearchRecord_ShannonDelaney.docx",
+          "type": "docx",
+          "label": "Supplier training research record"
+        },
+        {
+          "name": "07_PerformanceDiscussion_ShannonDelaney.docx",
+          "type": "docx",
+          "label": "Performance discussion record"
+        },
+        {
+          "name": "A1_MobileBusinessRecords_BSBESB301.docx",
+          "type": "docx",
+          "label": "Mobile business records"
+        },
+        {
+          "name": "A2_SalonSocialMedia_SIRXMKT002.docx",
+          "type": "docx",
+          "label": "Salon social media record"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "ref": "Learner #024",
+      "slug": "marcus-boyle",
+      "name": "Marcus Boyle",
+      "package": "RII",
+      "competencyFields": {
+        "primary": "civil_infrastructure",
+        "secondary": [
+          "whs",
+          "leadership_management"
+        ]
+      },
+      "photo": "photos/marcus-boyle.jpg",
+      "bio": "Leading hand plant operator with eighteen years in civil construction, running a crew of seven, and mentoring two trainees taken on through a mob-specific traineeship.",
+      "role": "Leading Hand Plant Operator",
+      "employer": "Ardrossan Civil — Angle Vale subdivision",
+      "location": "Munno Para, SA",
+      "age": 41,
+      "brief": "Marcus's coordination and verbal instruction are the substance of the portfolio and they are strong: crew briefings, resident complaints, subcontractor negotiation, and three operators taught from scratch. Almost none of it exists in writing, and what does is minimal. Written assessment is where this candidate will stand or fall.",
+      "signals": [
+        "Cert III Civil Plant Ops 2014",
+        "Has written material read aloud",
+        "Prefers paper book to tablet",
+        "Patchy signal on site",
+        "6am to 4pm, screen-averse by evening"
+      ],
+      "sections": {
+        "aboutMe": "Marcus Boyle is 41 and lives at Munno Para with his wife and three kids. He is a leading hand plant operator with Ardrossan Civil, working on a subdivision project at Angle Vale after eighteen years in civil construction across roads, subdivisions, and water infrastructure.",
+        "professionalExperience": "Marcus started as a pipelayer's labourer at twenty-three, got his tickets over the following decade, and now runs excavator, roller, and skid steer and is the leading hand for a crew of seven. He holds a Certificate III in Civil Construction Plant Operations from 2014.\nThe leading hand role is mostly communication and he knows it. He takes the daily brief from the site supervisor and turns it into what his crew actually does, runs the prestart, reads the drawings and the service plans and makes sure the crew read them too, and stops the job when the plan and the ground disagree.\nHe talks to the surveyor, the traffic controllers, the water authority inspector, and the residents who come out to ask why there is an excavator in their court at six in the morning. He negotiates the day-to-day give and take with the other trades on site, which he describes as \"half my job and none of my job description\".\nHe has taught three operators to run an excavator properly and can tell within an hour whether someone has been trained or has just been let loose on one.",
+        "careerGoals": "Marcus wants to move into a site supervisor role, and the company has told him what everyone in civil gets told: the tickets are not the problem, the paperwork and the qualifications are.\nHe has also been asked to mentor the two young operators the company took on through a mob-specific traineeship, which he enjoys more than he expected and has no formal grounding in. He has said he does not want to do it badly and would like to know whether what he is doing is right.",
+        "workingStyle": "Marcus runs on the radio and on his feet. He is on site at 6, walks the job before the crew arrives, and by seven has told everyone what is happening in language they can use. He is very good in front of the crew, calm with an angry resident, and firm with a subcontractor trying to shortcut a set-down.\nWritten work is where it slows down. He fills in the prestart and the daily diary because he has to, in short lines, and the supervisor's written instructions he tends to have someone read out or he takes a photo and works through it later in the ute. He says he was \"no good at school and got worse\", and he learned everything he knows about drawings from a surveyor named Kev who took the time.\nHe is confident on the phone and the two-way, less so with the tablet the company rolled out for daily diaries last year, and openly says he preferred the paper book. He has worked out enough of the tablet to do his own entries and no more than that.\nSite reception at Angle Vale is patchy in the low ground, and the ute is the only place he reliably has signal. Work is 6am to 4pm, sometimes 6, and by the time he gets home the last thing he wants is a screen.",
+        "additionalInfo": "Marcus plays and now coaches in the local Aboriginal community footy carnival each year and takes a fortnight off in September for it. He drives his mother to Port Augusta most long weekends.\nHe has said that the last time anyone asked him to write something down and hand it in was his Certificate III, and that he got through it because the trainer let him talk it out. He remembers the trainer's name."
+      },
+      "files": [
+        {
+          "name": "00_LearnerProfile_MarcusBoyle.docx",
+          "type": "docx",
+          "label": "Learner profile"
+        },
+        {
+          "name": "01_Resume_MarcusBoyle.docx",
+          "type": "docx",
+          "label": "Resume"
+        },
+        {
+          "name": "02_References_MarcusBoyle.docx",
+          "type": "docx",
+          "label": "Referee statements"
+        },
+        {
+          "name": "03_PrestartRecords_MarcusBoyle.docx",
+          "type": "docx",
+          "label": "Prestart records"
+        },
+        {
+          "name": "04_SiteDiaryExtract_MarcusBoyle.docx",
+          "type": "docx",
+          "label": "Site diary extract"
+        },
+        {
+          "name": "05_SiteCoordinationNote_MarcusBoyle.docx",
+          "type": "docx",
+          "label": "Site coordination note"
+        },
+        {
+          "name": "06_ResidentComplaintFileNote_MarcusBoyle.docx",
+          "type": "docx",
+          "label": "Resident complaint file note"
+        },
+        {
+          "name": "07_TraineeProgressNote_MarcusBoyle.docx",
+          "type": "docx",
+          "label": "Trainee progress note"
+        },
+        {
+          "name": "08_AnnualReview2026_MarcusBoyle.docx",
+          "type": "docx",
+          "label": "Annual review 2026"
+        },
+        {
+          "name": "A1_TrafficManagementRecord.docx",
+          "type": "docx",
+          "label": "Traffic management record"
+        },
+        {
+          "name": "A2_ConfinedSpaceRecord.docx",
+          "type": "docx",
+          "label": "Confined space record"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "ref": "Learner #025",
+      "slug": "tyrone-beckett",
+      "name": "Tyrone Beckett",
+      "package": "RII",
+      "competencyFields": {
+        "primary": "mining_resources",
+        "secondary": [
+          "whs"
+        ]
+      },
+      "photo": "photos/tyrone-beckett.jpg",
+      "bio": "Haul truck operator on a two-week-on, one-week-off roster who relieves on the dispatch desk, coordinating thirty pieces of equipment across four radio channels on night shift.",
+      "role": "Haul Truck Operator & Dispatch Relief",
+      "employer": "Copper mine, Far North SA — FIFO from Adelaide",
+      "location": "Port Noarlunga, SA",
+      "age": 29,
+      "brief": "The radio and dispatch discipline is well evidenced and he has already passed it on to two new operators. Literacy and digital confidence are not issues here; the roster is. Twelve-hour nights, a throttled camp network, and leave cover that can consume a week off make anything scheduled or live-streamed unworkable.",
+      "signals": [
+        "Cert II Surface Extraction",
+        "FIFO 2 weeks on, 1 week off",
+        "12-hour night shifts",
+        "Camp network throttled at night",
+        "Cannot commit to fixed times"
+      ],
+      "sections": {
+        "aboutMe": "Tyrone Beckett is 29 and lives at Port Noarlunga with his partner Steph. He is a haul truck operator and dispatch relief on a two-week-on, one-week-off roster at a copper mine in the Far North, flying out of Adelaide, and has been on the same site for four years.",
+        "professionalExperience": "Tyrone did two years in a tyre shop after school, then got onto site as a trades assistant at twenty-four and moved to production. He runs haul trucks on nights mostly, and does the prestart inspection on his truck at the start of every shift, which he is unusually thorough about after watching someone else's tyre come apart.\nFor the last eighteen months he has covered the dispatch desk when the regular operator is on leave, which is where the communication work lives: fleet channel, pit channel, emergency channel, the fleet management system, and the satellite phone when the network drops out. On a night shift he is coordinating between twenty and thirty pieces of equipment and the crib breaks that go with them.\nHe holds a Certificate II in Surface Extraction Operations and site tickets. The radio work he learned on the job from an operator called Shirl who has been on site twenty years and who, he says, taught him that \"the channel is not for chatting and it is not for being clever\". He has since passed the same lesson on to two new operators, in almost the same words.",
+        "careerGoals": "Tyrone wants the dispatch role permanently, or supervision after that. The company's development pathway wants a qualification behind it and he has been told his existing certificate is not enough for the step up.\nHe is motivated mainly by the roster. Dispatch is a better swing than nights on a truck, and he and Steph would like to start a family, which he does not think is realistic while he is doing four nights on four off in a camp eight hundred kilometres away.",
+        "workingStyle": "Tyrone is disciplined on the radio, which is not universal. He uses the callsign and the format every time, repeats back anything with a number in it, and is the one who tells the new operators to get off the channel.\nTwelve-hour night shifts, four on four off within the swing, and by the end of a run of nights he is functional but flat. On his week off he is on Adelaide time and does not want to hear from site, and he means it.\nOn swing he is in camp with a phone and a shared laptop in the wet mess, and the site network throttles hard in the evening when three hundred people are calling home. Streaming a video is a gamble. He downloads on the bus and works offline, and anything that needs a live connection at a fixed time is effectively unavailable to him.\nHe reads and writes fine, is unbothered by systems and picks up new software quickly, and prefers a manual he can search to a person explaining. What he dislikes is anything that runs to a schedule, because his schedule is not his, and a week that looks free on paper can turn into six days of covering someone else's leave.",
+        "additionalInfo": "Tyrone surfs on his week off and plays in a Wednesday night indoor cricket team he misses two weeks in three. His mother has early-onset Parkinson's and he does the appointments run when he is home, which takes most of a day each swing.\nHe describes the roster to people as \"you get a week off but you also get two weeks of not existing\"."
+      },
+      "files": [
+        {
+          "name": "00_LearnerProfile_TyroneBeckett.docx",
+          "type": "docx",
+          "label": "Learner profile"
+        },
+        {
+          "name": "01_Resume_TyroneBeckett.docx",
+          "type": "docx",
+          "label": "Resume"
+        },
+        {
+          "name": "02_References_TyroneBeckett.docx",
+          "type": "docx",
+          "label": "Referee statements"
+        },
+        {
+          "name": "03_DispatchCommunicationLog_TyroneBeckett.docx",
+          "type": "docx",
+          "label": "Dispatch communication log"
+        },
+        {
+          "name": "04_NetworkOutageReport_TyroneBeckett.docx",
+          "type": "docx",
+          "label": "Network outage report"
+        },
+        {
+          "name": "05_CribRoomRadioNotes_TyroneBeckett.docx",
+          "type": "docx",
+          "label": "Crib room radio notes"
+        },
+        {
+          "name": "06_RadioFamiliarisationRecord_TyroneBeckett.docx",
+          "type": "docx",
+          "label": "Radio familiarisation record"
+        },
+        {
+          "name": "07_PerformanceReview_TyroneBeckett.docx",
+          "type": "docx",
+          "label": "Performance review"
+        },
+        {
+          "name": "A1_EmergencyResponseTeam.docx",
+          "type": "docx",
+          "label": "Emergency response team record"
+        },
+        {
+          "name": "A2_TyreFittingHistory.docx",
+          "type": "docx",
+          "label": "Tyre fitting work history"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "ref": "Learner #026",
+      "slug": "riley-fenton",
+      "name": "Riley Fenton",
+      "package": "CPC",
+      "competencyFields": {
+        "primary": "carpentry_construction",
+        "secondary": []
+      },
+      "photo": "photos/riley-fenton.jpg",
+      "bio": "Six months into a carpentry apprenticeship after years of weekend concreting and landscaping work with his uncle, put forward for recognition by an employer on the strength of an offhand remark.",
+      "role": "First-year carpentry apprentice",
+      "employer": "Small residential builder — northern suburbs",
+      "location": "Elizabeth Vale, SA",
+      "age": 19,
+      "brief": "The weakest portfolio in the cohort and deliberately so. The claimed prior learning is real but undated, unverifiable, and partly someone else's photographs. Riley does not know what the process involves and has not asked. Assessors should be tested on whether they can identify insufficient evidence and respond to it constructively rather than manufacture a result.",
+      "signals": [
+        "Six months into apprenticeship",
+        "Photos undated, provenance unclear",
+        "Scraped through written assessments",
+        "No working computer, phone only",
+        "Uncomfortable asking questions"
+      ],
+      "sections": {
+        "aboutMe": "Riley Fenton is 19 and lives at Elizabeth Vale with his mum and younger sister. He started a carpentry apprenticeship in February this year with a small residential builder and is six months in. Before that he was doing warehouse shifts through an agency and helping his uncle on weekends.",
+        "professionalExperience": "Riley left school after Year 11. From about fifteen he spent most school holidays and a lot of Saturdays with his uncle Wayne, who runs a one-man concreting and landscaping business, mostly pouring driveways, laying pavers, and building retaining walls around the northern suburbs.\nRiley describes it as \"helping\", which mostly meant barrowing, screeding when he was allowed, cleaning tools, and being told things. He can set out a string line, mix by hand, and knows what a slab looks like when it has been finished properly, none of which he would think to mention unless asked directly.\nBetween leaving school and starting the apprenticeship he did about eight months of agency warehouse work, some of it nights, in three different sheds.\nHe has his white card and has done the first block of trade school, where he passed the practical assessments comfortably and scraped through the written ones. His employer put him forward for the recognition process because Riley told him he had \"already done heaps of this stuff\" with his uncle.\nOn the current job he is mostly on clean-up, cutting to a mark, and carrying, and he has been allowed to fix off a small amount of framing under supervision. He has not been shown how to set out anything himself yet.",
+        "careerGoals": "Riley wants to finish his trade and eventually work for himself, which he says because his uncle does and it looks alright from where he is standing.\nNearer term he wants to stop being the one who sweeps up. He is doing the recognition process because his boss suggested it and he is not entirely sure what it involves, and he has not asked.",
+        "workingStyle": "Riley is willing and physically capable and turns up on time, which his boss rates highly. He learns by watching and copying and is uncomfortable asking questions in front of the other blokes, so he tends to guess and then get corrected, which he takes well but which costs time.\nHe reads slowly and avoids it. Trade school assessments he has been doing at his mum's kitchen table on his phone because the laptop from school stopped working and has not been replaced, and he has already had one extension. Typing on the phone is slow enough that his answers come out shorter than he means them to.\nHe is quick with anything hands-on and remembers a sequence after being shown twice, but written explanations of things he can do go nowhere. Nobody has ever asked him to write down what he did on a job, and when it was suggested he looked at it as though it were a trick.\nWhen asked for evidence he produced a phone gallery, some of it his and some of it his uncle's, mostly finished work with nobody in the shot and no dates he could vouch for. He was surprised that this might not be enough and did not know what else there could be.\nHe answers questions in a few words and then waits. Asked the same question a second way, or asked to show rather than say, he will talk for as long as anyone wants.",
+        "additionalInfo": "Riley plays basketball on Monday nights and drops his sister at school before work, which means a 6:20 start is tight and he has been late twice.\nHe does not have a car of his own and uses his mum's or gets a lift from a workmate. Money is tight on first-year wages and he has said he will not be paying for anything toward the qualification himself. His mum has asked twice how it is going and he has told her it is fine."
+      },
+      "files": [
+        {
+          "name": "00_LearnerProfile_RileyFenton.docx",
+          "type": "docx",
+          "label": "Learner profile"
+        },
+        {
+          "name": "01_Resume_RileyFenton.docx",
+          "type": "docx",
+          "label": "Resume"
+        },
+        {
+          "name": "02_References_RileyFenton.docx",
+          "type": "docx",
+          "label": "Referee statements"
+        },
+        {
+          "name": "03_Photos_SubmittedByCandidate_RileyFenton.docx",
+          "type": "docx",
+          "label": "Photos submitted by candidate"
+        },
+        {
+          "name": "04_CandidateStatement_RileyFenton.docx",
+          "type": "docx",
+          "label": "Candidate statement"
+        },
+        {
+          "name": "05_ConstructionInductionCard_RileyFenton.docx",
+          "type": "docx",
+          "label": "Construction induction card"
+        },
+        {
+          "name": "06_SiteInductionRecord_RileyFenton.docx",
+          "type": "docx",
+          "label": "Site induction record"
+        },
+        {
+          "name": "07_ToolboxAttendanceSheets_RileyFenton.docx",
+          "type": "docx",
+          "label": "Toolbox attendance sheets"
+        },
+        {
+          "name": "08_TradeSchoolProgressReport_RileyFenton.docx",
+          "type": "docx",
+          "label": "Trade school progress report"
+        },
+        {
+          "name": "A1_WarehouseAgencyConfirmation.docx",
+          "type": "docx",
+          "label": "Warehouse agency confirmation"
+        },
+        {
+          "name": "A2_BasketballClubLetter.docx",
+          "type": "docx",
+          "label": "Basketball club letter"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "ref": "Learner #027",
+      "slug": "nadia-kirilenko",
+      "name": "Nadia Kirilenko",
+      "package": "FNS",
+      "competencyFields": {
+        "primary": "financial_services",
+        "secondary": [
+          "customer_engagement",
+          "leadership_management"
+        ]
+      },
+      "photo": "photos/nadia-kirilenko.jpg",
+      "bio": "Senior claims consultant handling escalated home and contents claims, who does the call coaching for a team of nine and takes the calls that arrive needing Ukrainian or Russian.",
+      "role": "Senior Claims Consultant",
+      "employer": "Chalmers Rowe Insurance — Mile End contact centre",
+      "location": "Mawson Lakes, SA",
+      "age": 34,
+      "brief": "Nadia coaches a team of nine, has acted as team leader twice, and her call notes are the template others copy, all without a qualification beyond Year 12. Language and literacy are strengths rather than gaps. The constraint is carer responsibility: fixed hours and a single reliable weekly window built around respite care.",
+      "signals": [
+        "Year 12 plus Tier 1 accreditation",
+        "Carer for father with dementia",
+        "Fixed 8:30 to 4:30, no overtime",
+        "Tue and Thu afternoons only",
+        "Prefers documents over video"
+      ],
+      "sections": {
+        "aboutMe": "Nadia Kirilenko is 34 and lives at Mawson Lakes with her husband and her father, who moved in after her mother died in 2024. She is a senior claims consultant at Chalmers Rowe Insurance, a mid-sized general insurer with a contact centre at Mile End, where she has worked for six years and now handles the escalated home and contents claims.",
+        "professionalExperience": "Nadia came to Australia from Ukraine at eleven and did all her schooling here. She went into a phone role at nineteen at a telco, moved to banking collections in her twenties, and into insurance claims in 2020, which she says is the first job she has had where being kind to people on the worst day of their year is actually the job.\nHer queue is the claims that have gone wrong somewhere: a delayed assessor, a disputed exclusion, a repair that has failed twice, or a customer who has been passed between four people. She takes the call, works out what has actually happened by reading back through the file, tells the customer the truth about it including when the answer is no, and owns it to resolution.\nShe takes the difficult calls off the newer consultants and does the call coaching for her team of nine, which means sitting with a recording, marking up what she would have done differently, and going through it with the consultant afterwards. Two team leaders have told her she is better at it than they are.\nNo qualification beyond Year 12 and a Tier 1 general insurance compliance accreditation she completed internally in 2021.",
+        "careerGoals": "Nadia has been acting team leader twice and wants it permanently. The last recruitment round went to an external candidate with a diploma and she was told, in a development conversation she describes as \"polite and unmistakable\", that her file needed something on it.\nShe is doing this for the promotion and is unsentimental about that. She has also said that a team leader role would mean fixed hours and no overtime, which matters to her for reasons that have nothing to do with her career.",
+        "workingStyle": "Nadia is organised and fast on the systems: the claims platform, the telephony, the knowledge base, and three spreadsheets of her own that the team uses. Her call notes are the ones other consultants copy the structure of, and she keeps a paper notebook beside the keyboard for the live call because typing while listening splits her attention.\nShe speaks Ukrainian and Russian and takes the calls that come through needing either, which she is quietly proud of and which is not in her position description or her pay. She has an ear for a customer who is not following and slows down without making a point of it.\nHer working hours are fixed: 8:30 to 4:30 so she can be home for her father, who has moderate dementia and cannot be alone in the late afternoon. She has a respite worker Tuesday and Thursday afternoons and that is the only reliable window she has for anything other than work.\nShe reads quickly and writes well, though English is her second language and she still occasionally reaches for the wrong preposition, which she notices and other people do not. She dislikes video content, finds it slow, and would rather have a document she can skim and come back to at the part she needs.",
+        "additionalInfo": "Nadia does the shopping and appointments for her father and has not taken more than four consecutive days of leave since 2024. She swims at the Mawson Lakes pool at 6am, which is the only hour of the day that belongs to her.\nShe has said, once, in a development conversation, that she is worried about what happens to her career if her father gets worse."
+      },
+      "files": [
+        {
+          "name": "00_LearnerProfile_NadiaKirilenko.docx",
+          "type": "docx",
+          "label": "Learner profile"
+        },
+        {
+          "name": "01_Resume_NadiaKirilenko.docx",
+          "type": "docx",
+          "label": "Resume"
+        },
+        {
+          "name": "02_References_NadiaKirilenko.docx",
+          "type": "docx",
+          "label": "Referee statements"
+        },
+        {
+          "name": "03_CallCaseNotesSample_NadiaKirilenko.docx",
+          "type": "docx",
+          "label": "Call case notes sample"
+        },
+        {
+          "name": "04_DelayCommunicationGuide_NadiaKirilenko.docx",
+          "type": "docx",
+          "label": "Delay communication guide"
+        },
+        {
+          "name": "05_CallCoachingRecord_NadiaKirilenko.docx",
+          "type": "docx",
+          "label": "Call coaching record"
+        },
+        {
+          "name": "06_QAScorecard_NadiaKirilenko.docx",
+          "type": "docx",
+          "label": "QA scorecard"
+        },
+        {
+          "name": "07_AnnualReview2025_NadiaKirilenko.docx",
+          "type": "docx",
+          "label": "Annual review 2025"
+        },
+        {
+          "name": "A1_HardshipAssistanceRecord.docx",
+          "type": "docx",
+          "label": "Hardship assistance record"
+        },
+        {
+          "name": "A2_InterpretingSupportNote.docx",
+          "type": "docx",
+          "label": "Interpreting support note"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "ref": "Learner #028",
+      "slug": "jonty-fairweather",
+      "name": "Jonty Fairweather",
+      "package": "SIT",
+      "competencyFields": {
+        "primary": "hospitality",
+        "secondary": [
+          "cleaning_operations",
+          "leadership_management"
+        ]
+      },
+      "photo": "photos/jonty-fairweather.jpg",
+      "bio": "Bar supervisor at a forty-seat cocktail bar who runs the open, the service, the close, the stock, and two juniors, and wrote the close-down list the bar works to.",
+      "role": "Bar Supervisor",
+      "employer": "Corriedale — Vardon Avenue, Adelaide",
+      "location": "Adelaide, SA",
+      "age": 27,
+      "brief": "Jonty's cleaning, maintenance, and stock evidence is thorough and his own work, and he trains the juniors by making them do it. Reading is a strength and administration is a deferral habit rather than a gap. The obstacle is hours: he is asleep through the entire working day and has no printer and no computer.",
+      "signals": [
+        "RSA and food safety only",
+        "Works 4pm to 2am, sleeps till 11",
+        "Monday and Tuesday are his weekend",
+        "No laptop, no printer",
+        "Defers admin to the last moment"
+      ],
+      "sections": {
+        "aboutMe": "Jonty Fairweather is 27 and shares a flat in the East End with two housemates. He is the bar supervisor at Corriedale, a small cocktail bar off Vardon Avenue with forty seats, a back bar of about three hundred bottles, and a menu that changes twice a year.",
+        "professionalExperience": "Jonty glassied at nineteen in a suburban hotel, worked three years in a high-volume city pub, and came to Corriedale five years ago as a bartender. He has been supervisor for two, which means he runs the bar on the nights the owner is not there: the open, the service, the close, the stock, and the two juniors.\nThe close is his. Corriedale does not have a cleaner; the bar team does it, and Jonty wrote the close-down list the bar works to. That covers the glass washer strip and clean, the beer lines, the ice well and the drainage, the back bar and the speed rails, the public side including the tables and the floor, and the waste and recycling out to the bins in the laneway.\nHe is the one who deals with the gas bottles for the taps and is careful about it in a way the juniors initially found funny and no longer do. He orders the spirits, counts the stock on a Monday, and works out what the menu change will cost before he takes it to the owner.\nHe has his RSA, a food safety certificate, and no other qualifications. He has placed in two national cocktail competitions.",
+        "careerGoals": "Jonty wants his own small bar, which he says the way everyone in hospitality says it, but he has a spreadsheet and a location in mind so it may be more than talk.\nNearer term he has been approached about a venue manager role at a larger group and the recruiter told him the group wants qualifications for anyone signing off on compliance. He is also quietly aware that his back is not going to do this forever, and that the people he started with are mostly not in the industry any more.\nHe has never applied for anything with a written application and would not know where to start with one. The recruiter approached him because of the competition results.",
+        "workingStyle": "Jonty is meticulous behind the bar in a way that does not look like effort. Everything has a place, the speed rail is set up the same every night, and he cannot walk past a smeared glass. He is fast, chatty, and very good with a room, and he trains the juniors by making them do it rather than by explaining, which works about two thirds of the time.\nHis hours are the problem for everything else. He starts at four and finishes at two, later on a Friday and Saturday, gets home at three, and sleeps until eleven. He is unavailable to the entire daytime world and has missed a dentist appointment three times. Monday and Tuesday are his weekend.\nReading he is fine with. He devours drinks books and reads the chemistry of things for fun, and will follow a technical article on clarification without blinking. Anything administrative he leaves until the last possible moment and then does it well and at speed, which he knows is a habit and not a strategy.\nHe works off his phone and a tablet in the office at the venue, has no printer, and says the last time he owned a laptop was at school. The flat has decent internet but two housemates on shift work, and the only quiet time in it is the middle of the day when he is asleep.\nHe drinks less than people assume and has been sober on shift for two years, which he mentions unprompted.",
+        "additionalInfo": "Jonty enters cocktail competitions two or three times a year, which eats his days off for about a month each time.\nHe has a full sleeve and a hand tattoo, which cost him a job once and which he mentions as a reason he ended up in the kind of venue that does not care. His mum is in Whyalla and he goes up every second month, driving after a Sunday close."
+      },
+      "files": [
+        {
+          "name": "00_LearnerProfile_JontyFairweather.docx",
+          "type": "docx",
+          "label": "Learner profile"
+        },
+        {
+          "name": "01_Resume_JontyFairweather.docx",
+          "type": "docx",
+          "label": "Resume"
+        },
+        {
+          "name": "02_References_JontyFairweather.docx",
+          "type": "docx",
+          "label": "Referee statements"
+        },
+        {
+          "name": "03_CloseDownList_JontyFairweather.docx",
+          "type": "docx",
+          "label": "Close-down list he authored"
+        },
+        {
+          "name": "04_CleaningMaintenanceLogs_JontyFairweather.docx",
+          "type": "docx",
+          "label": "Cleaning and maintenance logs"
+        },
+        {
+          "name": "05_JuniorTrainingRecord_JontyFairweather.docx",
+          "type": "docx",
+          "label": "Junior training record"
+        },
+        {
+          "name": "06_IncidentNote_ChemicalDilution_JontyFairweather.docx",
+          "type": "docx",
+          "label": "Incident note: chemical dilution"
+        },
+        {
+          "name": "07_StocktakeNote_JontyFairweather.docx",
+          "type": "docx",
+          "label": "Stocktake note"
+        },
+        {
+          "name": "A1_CocktailCompetitionRecord.docx",
+          "type": "docx",
+          "label": "Cocktail competition record"
+        },
+        {
+          "name": "A2_RSACertification.docx",
+          "type": "docx",
+          "label": "RSA certification"
+        }
+      ]
     }
   ]
 }
