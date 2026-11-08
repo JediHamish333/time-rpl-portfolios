@@ -1,5 +1,5 @@
 {
-  "buildStamp": "v5 · 7 Aug 2026",
+  "buildStamp": "v6 · 9 Nov 2026",
   "competencyFieldLabels": {
     "aged_care": "Aged Care",
     "animal_care": "Animal Care",
@@ -23,13 +23,14 @@
     "health_support": "Health Support",
     "hospitality": "Hospitality",
     "human_resources": "Human Resources",
-    "leadership_management": "Leadership Management",
+    "leadership_management": "Leadership & Management",
     "marketing_comms": "Marketing & Communications",
     "mining_resources": "Mining & Resources",
     "outdoor_recreation": "Outdoor Recreation",
     "plumbing_services": "Plumbing & Services",
     "project_management": "Project Management",
     "property_real_estate": "Property & Real Estate",
+    "rail_operations": "Rail Operations",
     "records_information": "Records & Information",
     "retail_operations": "Retail Operations",
     "sterilisation": "Sterilisation",
@@ -2309,6 +2310,114 @@
           "name": "A2_RSACertification.docx",
           "type": "docx",
           "label": "RSA certification"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "ref": "Learner #029",
+      "slug": "tamati-rangihuna",
+      "name": "Tamati Rangihuna",
+      "package": "TLI",
+      "competencyFields": {
+        "primary": "rail_operations",
+        "secondary": [
+          "whs",
+          "leadership_management"
+        ]
+      },
+      "photo": "photos/tamati-rangihuna.jpg",
+      "bio": "Senior shunter and yard coordinator at a Dry Creek freight terminal, with twenty years in rail across two countries. He inducts new shunters and runs his yard's quarterly safeworking refreshers.",
+      "role": "Senior Shunter / Yard Coordinator",
+      "employer": "Corran Freight Rail, Dry Creek Intermodal Terminal",
+      "location": "Salisbury Downs, SA",
+      "age": 43,
+      "brief": "An experienced rail worker whose trainer evidence is informal but verified by his manager, through inductions, sign-offs, and refresher sessions. The assessor has to decide whether that evidence is enough for both trainer units. They also have to map three rail units from documents that overlap heavily.",
+      "signals": [
+        "9 shunters inducted since 2022",
+        "Runs quarterly refresher sessions",
+        "Overseas rail qual (NZ, 2007)",
+        "Four rail SoAs on file",
+        "Manager-verified sign-offs"
+      ],
+      "sections": {
+        "aboutMe": "Tamati Rangihuna, known as Tama, is 43 and lives in Salisbury Downs with his partner Mere and their three children, aged 16, 12, and 7. He grew up in the Bay of Plenty, New Zealand, and moved here in 2011. He is a senior shunter and yard coordinator at an intermodal freight terminal at Dry Creek.",
+        "professionalExperience": "Tama has worked in rail yards for over twenty years. He learned to shunt at a port terminal near Tauranga and finished a New Zealand national certificate in rail operations there. In Adelaide he shunted for five years at Islington before joining his current employer in 2016. Since 2021 he has coordinated his shift, planning shunts, making up outbound trains, talking to network control, and running a ground crew of four.\nHe has completed employer short courses in corridor access, safeworking, fatigue, and dangerous goods, and holds a forklift licence and first aid certificate, but no full Australian qualification. He inducts most new shunters on his shift and runs the yard's quarterly radio and safeworking refreshers, which he inherited from a retired supervisor.",
+        "careerGoals": "The company is building an in-house training team across its three yards, and Tama's manager has asked him to apply for the lead trainer role. The role needs a formal rail qualification first. In five years he wants to run training across the network rather than one shift. He is paying his own fees in instalments, because the company only reimburses them once a course is finished.",
+        "workingStyle": "Tama reads the network rules properly, keeps a pocket notebook of yard changes, and writes incident reports his manager rarely sends back. He works out train lengths and trailing loads in his head, then checks them against the consist sheet. On the radio he is calm and exact, and new shunters pick up his habit of repeating back every number.\nHe works two 12-hour days, two 12-hour nights, then four days off. After nights he sleeps through most of his first day off and takes little in until the second. Anything booked at the same time each week clashes with half his roster.\nHe studies on an iPad he bought in 2017. The battery lasts about an hour, the screen is cracked across one corner, and it no longer takes updates, so some apps will not install and longer videos stall. The kids share it for homework. With fees, groceries, and the mortgage, a new one is not on the cards this year. He would rather work through material at his own pace than sit in a live online class.",
+        "additionalInfo": "Tama coaches his youngest son's under-8 rugby league side on winter Saturday mornings. On Thursday nights he and Mere run a kapa haka group for local families in Parafield Gardens. He speaks te reo Māori with his mother when she visits from Rotorua. Mere works afternoons in aged care, so Tama does the school run on his days off."
+      },
+      "files": [
+        {
+          "name": "00_LearnerProfile_TamatiRangihuna.docx",
+          "type": "docx",
+          "label": "Learner profile"
+        },
+        {
+          "name": "01_Resume_TamatiRangihuna.docx",
+          "type": "docx",
+          "label": "Resume"
+        },
+        {
+          "name": "02_References_TamatiRangihuna.docx",
+          "type": "docx",
+          "label": "Referee statements"
+        },
+        {
+          "name": "03_Transcript_TamatiRangihuna.doc",
+          "type": "doc",
+          "label": "Training history extract",
+          "viewable": false
+        },
+        {
+          "name": "04_YardCommsLog_TamatiRangihuna.docx",
+          "type": "docx",
+          "label": "Yard communications log"
+        },
+        {
+          "name": "05_ShuntPlanConsist_TamatiRangihuna.docx",
+          "type": "docx",
+          "label": "Shunt plan and consist sheet"
+        },
+        {
+          "name": "06_YardInductionNotes_TamatiRangihuna.docx",
+          "type": "docx",
+          "label": "Yard induction notes"
+        },
+        {
+          "name": "06_YardInductionNotes_TamatiRangihuna_FORM.docx",
+          "type": "docx",
+          "label": "Yard familiarisation sign-off"
+        },
+        {
+          "name": "07_SafeworkingRefresher_Q3-2026_TamatiRangihuna.docx",
+          "type": "docx",
+          "label": "Safeworking refresher: plan and review"
+        },
+        {
+          "name": "08_NearMissReport_TamatiRangihuna.docx",
+          "type": "docx",
+          "label": "Near miss report"
+        },
+        {
+          "name": "09_PerformanceReview2026_TamatiRangihuna.docx",
+          "type": "docx",
+          "label": "Performance review 2026"
+        },
+        {
+          "name": "10_PhotoLog_CouplingDemo_TamatiRangihuna.docx",
+          "type": "docx",
+          "label": "Photo log: coupling demonstration"
+        },
+        {
+          "name": "A1_ForkliftVOC_TLILIC0003.docx",
+          "type": "docx",
+          "label": "Forklift verification of competency"
+        },
+        {
+          "name": "A2_FirstAid_HLTAID011.docx",
+          "type": "docx",
+          "label": "First aid statement of attainment"
         }
       ]
     }
